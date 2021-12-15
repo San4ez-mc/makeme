@@ -1,0 +1,37 @@
+{
+  "name": "world-gin-project",
+  "version": "1.0.0",
+  "description": "world-gin-project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bogdan Melnik",
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Bogdan Melnik",
+      "email": "bogdanmelnikbo@gmail.com"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "bourbon": "*",
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-cache": "^1.1.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-html": "^0.5.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.1"
+  }
+}

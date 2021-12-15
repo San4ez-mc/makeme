@@ -1,0 +1,81 @@
+.page-header {
+  .container {
+
+  }
+  &__logo {
+
+  }
+  &__logo-img {
+
+  }
+  &__menu {
+
+  }
+  &__menu-el {
+    &--active {
+
+    }
+  }
+  &__buttons {
+
+  }
+  &__buttons-el {
+    &--user {
+
+    }
+    &--likes {
+
+    }
+    &--basket {
+      .basket-quantity {
+
+      }
+    }
+  }
+}
+
+
+.page-content {
+
+}
+
+.page-breadcrumbs {
+  &__el {
+
+  }
+}
+
+.section {
+  &__title {
+
+  }
+}
+
+.stocks {
+  &__el {
+
+  }
+  &__el-imgContainer {
+
+  }
+  &__el-img {
+
+  }
+  &__el-body {
+
+  }
+  &__el-title {
+
+  }
+  &__el-text {
+
+  }
+}
+
+.pagination {
+  &__el {
+    &.active {
+      
+    }
+  }
+}
