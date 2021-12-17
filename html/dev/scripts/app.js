@@ -4,3 +4,8 @@
 window.onload = function () {
   
 };
+
+
+$('.menuMobileToggle--js').on('click', function() {
+  $('.menuMobile').toggleClass('active');
+});

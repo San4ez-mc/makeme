@@ -1,0 +1,56 @@
+.createYours {
+  border-radius: 10px;
+  background: url(../img/makeMeDesktop.jpg) center right no-repeat;
+  background-size: cover;
+  min-height: 320px;
+  padding: 44px 80px;
+  overflow: hidden;
+  position: relative;
+  @media(max-width: 1199px) {
+    padding: 40px;
+  }
+  @media(max-width: 767px) {
+    background: linear-gradient(180deg, #FFD5DD 0%, #EFC3CC 58.83%);
+    text-align: center;
+    padding: 40px 15px 230px;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 230px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-size: cover !important;
+      background: url(../img/makeMe.jpg) center bottom no-repeat;
+    }
+  }
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    @media(max-width: 1199px) {
+      font-size: 24px;
+    }
+    .color-primary {
+      text-transform: uppercase;
+    }
+  }
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    max-width: 550px;
+    margin-bottom: 30px;
+    @media(max-width: 1199px) {
+      max-width: 380px;
+    }
+    @media(max-width: 767px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  &__button {
+
+  }
+}

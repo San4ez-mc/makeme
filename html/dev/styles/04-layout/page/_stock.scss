@@ -1,0 +1,80 @@
+.stocks {
+  .row {
+    margin-right: -10px;
+    margin-left: -10px;
+    & > * {
+      padding: 0 10px;
+    }
+  }
+  &__el {
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: calc(100% - 30px);
+    @media(max-width: 991px) {
+      text-align: center;
+    }
+    @media(max-width: 767px) {
+      margin-bottom: 10px;
+      height: calc(100% - 10px);
+    }
+    a {
+      color: $textColor1;
+      display: flex;
+      @media(max-width: 767px) {
+        justify-content: center;
+      }
+    }
+    &:hover {
+      a {
+        color: $colorPrimary;
+      }
+    }
+  }
+  &__el-imgContainer {
+    height: 340px;
+    overflow: hidden;
+    display: flex;
+    @media(max-width: 1199px) {
+      height: 160px;
+    }
+  }
+  &__el-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__el-body {
+    padding: 20px 32px 40px;
+    @media(max-width: 991px) {
+      padding-bottom: 32px;
+    }
+  }
+  &__el-title {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    @media(max-width: 991px) {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+  }
+  &__el-text {
+    height: 44px;
+    overflow: hidden;
+    line-height: 140%;
+    @media(max-width: 991px) {
+      font-size: 14px;
+      height: 40px;
+    }
+  }
+
+  &__loadMore {
+    display: flex;
+    max-width: 287px;
+    justify-content: center;
+    margin: 20px auto;
+  }
+}

@@ -1,0 +1,44 @@
+.button {
+  border-radius: 5px;
+  border: 2px solid;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 21px;
+  display: inline-block;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  @media(max-width: 767px) {
+    padding: 16px;
+  }
+  &--primary {
+    text-decoration: none !important;
+  }
+  &--stroke {
+    text-decoration: none !important;
+    color: $textColor1;
+    &:hover {
+      background: #FF6B98;
+      color: white;
+      border-color: $colorPrimary;
+    }
+    &:active {
+      background: #FF5588;
+    }
+  }
+  i {
+    margin-right: 7px;
+    font-size: 20px;
+  }
+}
+
+.link1 {
+  font-size: 12px;
+  border-bottom: 1px dashed;
+  text-decoration: none !important;
+  font-weight: 500;
+  color: $violet;
+  &:hover {
+    color: #8643A4;
+  }
+}

@@ -9,223 +9,148 @@
    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <header class="page-header">
-    <div class="container">
-      
-      <a href="#" class="page-header__logo">
-        <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
-      </a>
-      <nav class="page-header__menu">
-        <a class="page-header__menu-el" href="#">Конструктор</a>
-        <a class="page-header__menu-el" href="#">Каталог</a>
-        <a class="page-header__menu-el" href="#">Компоненты</a>
-        <a class="page-header__menu-el" href="#">О нас</a>
-        <a class="page-header__menu-el page-header__menu-el--active" href="#">MM Club</a>
-        <a class="page-header__menu-el" href="#">Акции</a>
-      </nav>
-      <nav class="page-header__buttons">
-        <a href="#" class="page-header__buttons-el page-header__buttons-el--user"></a>
-        <a href="#" class="page-header__buttons-el page-header__buttons-el--likes"></a>
-        <a href="#" class="page-header__buttons-el page-header__buttons-el--basket">
-          <span class="basket-quantity">5</span>
-        </a>
-      </nav>
-    </div>
-  </header>
-  <main class="page-content">
-    <div class="container">
-      <nav class="page-breadcrumbs">
-        <a href="#" class="page-breadcrumbs__el">Главная</a>
-        <a href="#" class="page-breadcrumbs__el">Компоненты</a>
-      </nav>
-
-      <section class="section aboutComponents">
-        <h1 class="section__title">О компонентах</h1>
-
-        <nav class="aboutComponents__nav">
-          <a href="#" class="aboutComponents__nav-el">Все</a>
-          <a href="#" class="aboutComponents__nav-el">Активы</a>
-          <a href="#" class="aboutComponents__nav-el">Экстракты</a>
-          <a href="#" class="aboutComponents__nav-el">Эфирные масла</a>
-          <a href="#" class="aboutComponents__nav-el">Витамины</a>
-          <a href="#" class="aboutComponents__nav-el">Базовые масла</a>
-          <a href="#" class="aboutComponents__nav-el">Основы</a>
+  <div class="page-wrapper">
+    //= template/header.html
+    <main class="page-content">
+      <div class="container">
+        <nav class="page-breadcrumbs">
+          <a href="#" class="page-breadcrumbs__el">Главная</a>
+          <a href="#" class="page-breadcrumbs__el">Компоненты</a>
         </nav>
 
-        <div class="row">
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component1.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Экстракт лаванды</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component2.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Экстракт арники</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component3.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Экстракт бадяги</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component4.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Актив ментол</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component5.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Экстракт лаванды</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component6.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Экстракт арники</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component7.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Экстракт бадяги</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component8.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Экстракт бадяги</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component9.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Актив ментол</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component10.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Актив ментол</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component11.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Актив ментол</span>
-            </a>
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <a href="#" class="aboutComponents__el">
-              <span class="aboutComponents__el-imgContainer">
-                <img src="img/component12.png" alt="#" class="aboutComponents__el-img">
-              </span>
-              <span class="aboutComponents__el-name">Актив ментол</span>
-            </a>
-          </div>
-          
-        </div>
-      </section>
+        <section class="section aboutComponents">
+          <h1 class="section__title">О компонентах</h1>
 
-      <aside class="createYours">
-        <div class="createYours__title">Создай <span class="color-primary">свое!</span></div>
-        <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая баночка на 100% индивидуальна.</p>
-        <a href="#" class="button button--stroke createYours__button">Создать средство</a>
-      </aside>
-
-      <section class="section seoText">
-        <div class="section__title">Как создать косметику для себя</div>
-        <div class="collapse" id="seoText__collapse">
-          <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.
-            У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.
-            </p>
-        </div>
-        <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="seoText__link">Показать все</a>
-      </section>
-    </div>
-  </main>
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <a href="#" class="page-footer__logo"><img src="img/icons/logo-footer.svg" alt="#"></a>
-          <p class="copyright">© 2016 - 2021 Make My - Все права защищены.</p>
-        </div>
-        <div class="col-lg-5">
-          <nav class="page-footer__menu">
-            <div class="row">
-              <div class="col-lg-6">
-                <a href="#" class="page-footer__menu-el">Конструктор</a>
-                <a href="#" class="page-footer__menu-el">Каталог</a>
-                <a href="#" class="page-footer__menu-el">Компоненты</a>
-                <a href="#" class="page-footer__menu-el">О нас</a>
-              </div>
-              <div class="col-lg-6">
-                <a href="#" class="page-footer__menu-el">Доставка и оплата</a>
-                <a href="#" class="page-footer__menu-el">MM Club</a>
-                <a href="#" class="page-footer__menu-el">Акции</a>
-                <a href="#" class="page-footer__menu-el">Блог</a>
-                <a href="#" class="page-footer__menu-el">Публичная оферта</a>
-              </div>
-            </div>
+          <nav class="aboutComponents__nav">
+            <a href="#" class="aboutComponents__nav-el">Все</a>
+            <a href="#" class="aboutComponents__nav-el">Активы</a>
+            <a href="#" class="aboutComponents__nav-el">Экстракты</a>
+            <a href="#" class="aboutComponents__nav-el">Эфирные масла</a>
+            <a href="#" class="aboutComponents__nav-el">Витамины</a>
+            <a href="#" class="aboutComponents__nav-el">Базовые масла</a>
+            <a href="#" class="aboutComponents__nav-el">Основы</a>
           </nav>
-        </div>
-        <div class="col-lg-3">
-          <div class="page-footer__menu-info">
-            <div class="page-footer__menu-info-el">
-              <div class="page-footer__menu-info-el-title">График работы</div>
-              <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+
+          <div class="row">
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component1.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Экстракт лаванды</span>
+              </a>
             </div>
-            <div class="page-footer__menu-info-el">
-              <div class="page-footer__menu-info-el-title">График работы</div>
-              <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component2.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Экстракт арники</span>
+              </a>
             </div>
-            <div class="page-footer__menu-info-el">
-              <div class="page-footer__menu-info-el-title">Соцсети</div>
-              <nav class="page-footer__socials">
-                  <a href="#" class="page-footer__socials-el">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                  <a href="#" class="page-footer__socials-el">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                  <a href="#" class="page-footer__socials-el">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                </nav>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component3.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Экстракт бадяги</span>
+              </a>
             </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component4.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Актив ментол</span>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component5.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Экстракт лаванды</span>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component6.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Экстракт арники</span>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component7.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Экстракт бадяги</span>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component8.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Экстракт бадяги</span>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component9.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Актив ментол</span>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component10.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Актив ментол</span>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component11.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Актив ментол</span>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-4">
+              <a href="#" class="aboutComponents__el">
+                <span class="aboutComponents__el-imgContainer">
+                  <img src="img/component12.png" alt="#" class="aboutComponents__el-img">
+                </span>
+                <span class="aboutComponents__el-name">Актив ментол</span>
+              </a>
+            </div>
+            
           </div>
-        </div>
+        </section>
+
+        <aside class="createYours">
+          <div class="createYours__title">Создай <span class="color-primary">свое!</span></div>
+          <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая баночка на 100% индивидуальна.</p>
+          <a href="#" class="button button--stroke createYours__button">Создать средство</a>
+        </aside>
+
+        <section class="section seoText">
+          <div class="section__title">Как создать косметику для себя</div>
+          <div class="collapse" id="seoText__collapse">
+            <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.
+              У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.
+              </p>
+          </div>
+          <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="seoText__link">Показать все</a>
+        </section>
       </div>
-    </div>
-  </footer>
-  //= template/footer.html
+    </main>
+    //= template/footer.html
+  </div>
   <script src="libs/jquery.min.js"></script>
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="scripts/app.js" defer></script>
