@@ -10,7 +10,78 @@
 </head>
 <body>
   <div class="page-wrapper">
-    //= template/header.html
+    <header class="page-header">
+      <div class="container">
+        <nav class="page-header__toggle menuMobileToggle--js">
+          <span></span>
+          <span></span>
+          <span></span>
+        </nav>
+        <a href="#" class="page-header__logo">
+          <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
+        </a>
+        <nav class="page-header__menu">
+          <a class="page-header__menu-el" href="#">Конструктор</a>
+          <a class="page-header__menu-el" href="#">Каталог</a>
+          <a class="page-header__menu-el" href="#">Компоненты</a>
+          <a class="page-header__menu-el" href="#">О нас</a>
+          <a class="page-header__menu-el color-primary" href="#">MM Club</a>
+          <a class="page-header__menu-el" href="#">Акции</a>
+        </nav>
+        <nav class="page-header__buttons">
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--user"></a>
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--likes"></a>
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--basket">
+            <span class="basket-quantity">5</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    
+    
+    <div class="menuMobile">
+      <div class="menuMobile__header">
+        <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
+        <span class="menuMobile__toggle menuMobileToggle--js"></span>
+      </div>
+      <nav class="menuMobile__body">
+        <div class="menuMobile__menu">
+          <a href="#" class="menuMobile__menu-el">Конструктор</a>
+          <a href="#" class="menuMobile__menu-el">Каталог</a>
+          <a href="#" class="menuMobile__menu-el">Компоненты</a>
+          <a href="#" class="menuMobile__menu-el">О нас</a>
+          <a href="#" class="menuMobile__menu-el color-primary">MM Club</a>
+          <a href="#" class="menuMobile__menu-el">Акции</a>
+          <a href="#" class="menuMobile__menu-el">Доставка и оплата</a>
+          <a href="#" class="menuMobile__menu-el">Блог</a>
+          <a href="#" class="menuMobile__menu-el">Публичная оферта</a>
+        </div>
+        <div class="page-footer__menu-info">
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">График работы</div>
+            <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+          </div>
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">График работы</div>
+            <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+          </div>
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">Соцсети</div>
+            <nav class="page-footer__socials">
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </nav>
+          </div>
+        </div>
+      </nav>
+    </div>
     <main class="page-content">
       <div class="container">
         <nav class="page-breadcrumbs">
@@ -112,7 +183,61 @@
 
       </div>
     </main>
-    //= template/footer.html
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4">
+            <a href="#" class="page-footer__logo"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img"></a>
+            <p class="copyright">© 2016 - 2021 Make My - Все права защищены.</p>
+          </div>
+          <div class="col-xl-5 col-lg-8 col-md-7">
+            <nav class="page-footer__menu">
+              <div class="row">
+                <div class="col-lg-6">
+                  <a href="#" class="page-footer__menu-el">Конструктор</a>
+                  <a href="#" class="page-footer__menu-el">Каталог</a>
+                  <a href="#" class="page-footer__menu-el">Компоненты</a>
+                  <a href="#" class="page-footer__menu-el">О нас</a>
+                </div>
+                <div class="col-lg-6">
+                  <a href="#" class="page-footer__menu-el">Доставка и оплата</a>
+                  <a href="#" class="page-footer__menu-el color-primary">MM Club</a>
+                  <a href="#" class="page-footer__menu-el">Акции</a>
+                  <a href="#" class="page-footer__menu-el">Блог</a>
+                  <a href="#" class="page-footer__menu-el">Публичная оферта</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-5">
+            <div class="page-footer__menu-info">
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">График работы</div>
+                <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">График работы</div>
+                <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">Соцсети</div>
+                <nav class="page-footer__socials">
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                  </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
   <script src="libs/jquery.min.js"></script>
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
