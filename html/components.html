@@ -3,9 +3,10 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>About components</title>
+   <title>Components</title>
    <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
    <link rel="stylesheet" href="libs/fontawesome/css/all.css">
+   <link rel="stylesheet" href="libs/owl.carousel/owl.carousel.min.css">
    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -88,145 +89,157 @@
           <div class="page-breadcrumbs__desktop">
             <a href="#" class="page-breadcrumbs__el">Главная</a>
             <a href="#" class="page-breadcrumbs__el">Компоненты</a>
+            <a href="#" class="page-breadcrumbs__el">Экстракт лаванды</a>
           </div>
           <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
 
-        <section class="section aboutComponents">
-          <h1 class="section__title">О компонентах</h1>
-
-          <nav class="aboutComponents__nav">
-            <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--all">Все</a>
-            <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--active">Активы</a>
-            <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--extracts">Экстракты</a>
-            <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--oils1">Эфирные масла</a>
-            <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--vitamins">Витамины</a>
-            <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--oils2">Базовые масла</a>
-            <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--base">Основы</a>
-          </nav>
-
+        <section class="section component">
+          <h1 class="section__title">Экстракт лаванды</h1>
           <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component1.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Экстракт лаванды</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-              </a>
+            <div class="col-xl-3 col-lg-4">
+              <figure class="component__card">
+                <div class="component__card-imgContainer">
+                  <img src="img/component1.png" alt="#" class="component__card-img">
+                </div>
+                <figcaption class="component__card-desc">
+                  <ul class="component__card-info">
+                    <li class="component__card-info-el">
+                      <span class="component__card-info-el-title">Наименование:</span>
+                      <span class="component__card-info-el-value">Лаванда</span>
+                    </li>
+                    <li class="component__card-info-el">
+                      <span class="component__card-info-el-title">Тип:</span>
+                      <span class="component__card-info-el-value">Эфирные масла</span>
+                    </li>
+                    <li class="component__card-info-el">
+                      <span class="component__card-info-el-title">Международная номенклатура:</span>
+                      <span class="component__card-info-el-value">(INCI)Lavender Oil (Lavandula angustifolia)</span>
+                    </li>
+                  </ul>
+                </figcaption>
+              </figure>
+              
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component2.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Экстракт арники</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-              </a>
+            <div class="col-xl-9 col-lg-8">
+              <article class="component__about">
+                <div class="component__about-el">
+                  <p class="component__about-el-text">"Lavandula angustifolia". Универсальное масло для всех типов кожи. Помогает при куперозе, восстанавливает рельеф кожи и необходимый уровень увлажненности, освобождает от токсинов, стимулирует рост новых клеток, оказывает освежающее и регенерирующее действие.</p>
+                </div>
+                <div class="component__about-el">
+                  <img src="img/icons/components1.svg" alt="#" class="component__about-el-icon">
+                  <h3 class="section__subtitle">Чем полезен для лица</h3>
+                  <p class="component__about-el-text">Эфирное масло из настоящей лаванды может использоваться при уходе за любым типом кожи. Она является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны, восстанавливает кожу, избавляет от после угревых шрамов. Эфирное масло из настоящей лаванды очищает, стимулирует и освобождает кожу от токсинов. Обладает прекрасными антисептическими действиями, уменьшает воспаления, стимулирует рост новых клеток, оказывает освежающее действие.</p>
+                </div>
+                <div class="component__about-el">
+                  <img src="img/icons/components2.svg" alt="#" class="component__about-el-icon">
+                  <h3 class="section__subtitle">Чем полезен для тела</h3>
+                  <p class="component__about-el-text">Его широко используют в медицине при лечении ожогов, в том числе и солнечных, при растяжении связок и мышц, для устранения раздражений и воспалений на коже, герпесе и укусах насекомых. Восстанавливает рельеф кожи, заживляет мелкие трещинки, является антиоксидантом, симулирует рост новых клеток, оказывает освежающее и регенерирующее действие, повышает упругость и эластичность кожи.</p>
+                </div>
+                <div class="component__about-el">
+                  <img src="img/icons/components3.svg" alt="#" class="component__about-el-icon">
+                  <h3 class="section__subtitle">Чем полезен для волос</h3>
+                  <p class="component__about-el-text">Универсальное масло для всех типов волос. Помогает решить вопросы перхоти и себореи. Восстанавливает ослабленные волосы. Применяется при чрезмерной ломкости волос. Питает кожу головы при склонности к излишнему выпадению волос.</p>
+                </div>
+              </article>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component3.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Экстракт бадяги</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
+          </div>
+
+        </section>
+
+        <section class="section">
+          <div class="section__header d-flex align-items-center justify-content-between flex-wrap">
+            <h2 class="section__title mr-4">Готовые решения с <a href="#" class="color-primary">“Экстракт лаванды”</a></h2>
+            <a href="#" class="showMore">Смотреть больше</a>
+          </div>
+          <div class="owl-carousel carousel-3els">
+            <div class="blogItem">
+              <a class="blogItem__imgContainer" href="#">
+                <img src="img/blog1.jpg" alt="#" class="blogItem__img">
               </a>
+              <div class="blogItem__desc">
+                <div class="blogItem__desc-header">
+                  <span class="blogItem__type blogItem__type--news">Новости</span>
+                  <span class="blogItem__date">26 апреля 2021</span>
+                </div>
+                <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
+                <div class="blogItem__stats">
+                  <div class="like">
+                    <label class="like__button">
+                      <input type="checkbox" class="like__input">
+                      <div class="like__body"></div>
+                    </label>
+                    <span class="like__quantity">10</span>
+                  </div>
+                  <a href="#" class="blogItem__comments">0</a>
+                </div>
+              </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component4.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Актив ментол</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
+            <div class="blogItem">
+              <a class="blogItem__imgContainer" href="#">
+                <img src="img/blog1.jpg" alt="#" class="blogItem__img">
               </a>
+              <div class="blogItem__desc">
+                <div class="blogItem__desc-header">
+                  <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
+                  <span class="blogItem__date">26 апреля 2021</span>
+                </div>
+                <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
+                <div class="blogItem__stats">
+                  <div class="like">
+                    <label class="like__button">
+                      <input type="checkbox" class="like__input">
+                      <div class="like__body"></div>
+                    </label>
+                    <span class="like__quantity">10</span>
+                  </div>
+                  <a href="#" class="blogItem__comments">0</a>
+                </div>
+              </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component5.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Экстракт лаванды</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
+            <div class="blogItem">
+              <a class="blogItem__imgContainer" href="#">
+                <img src="img/blog1.jpg" alt="#" class="blogItem__img">
               </a>
+              <div class="blogItem__desc">
+                <div class="blogItem__desc-header">
+                  <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
+                  <span class="blogItem__date">26 апреля 2021</span>
+                </div>
+                <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
+                <div class="blogItem__stats">
+                  <div class="like">
+                    <label class="like__button">
+                      <input type="checkbox" class="like__input">
+                      <div class="like__body"></div>
+                    </label>
+                    <span class="like__quantity">10</span>
+                  </div>
+                  <a href="#" class="blogItem__comments">0</a>
+                </div>
+              </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component6.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Экстракт арники</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
+            <div class="blogItem">
+              <a class="blogItem__imgContainer" href="#">
+                <img src="img/blog1.jpg" alt="#" class="blogItem__img">
               </a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component7.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Экстракт бадяги</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-              </a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component8.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Экстракт бадяги</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-              </a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component9.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Актив ментол</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-              </a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component10.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Актив ментол</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-              </a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component11.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Актив ментол</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-              </a>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-              <a href="#" class="aboutComponents__el">
-                <span class="aboutComponents__el-imgContainer">
-                  <img src="img/component12.png" alt="#" class="aboutComponents__el-img">
-                </span>
-                <span class="aboutComponents__el-name">Актив ментол</span>
-                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-              </a>
-            </div>
-            <div class="col-12">
-              <a href="#" class="button button--stroke button--reload stocks__loadMore">
-                <span class="button__icon"><i class="fas fa-sync-alt"></i></span>
-                <span class="button__text">Загрузить еще</span>
-              </a>
-              <nav class="pagination">
-                <a href="#" class="pagination__el active">1</a>
-                <a href="#" class="pagination__el">2</a>
-                <a href="#" class="pagination__el">3</a>
-                <a href="#" class="pagination__el">4</a>
-                <a href="#" class="pagination__el">...</a>
-                <a href="#" class="pagination__el">10</a>
-              </nav>
+              <div class="blogItem__desc">
+                <div class="blogItem__desc-header">
+                  <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
+                  <span class="blogItem__date">26 апреля 2021</span>
+                </div>
+                <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
+                <div class="blogItem__stats">
+                  <div class="like">
+                    <label class="like__button">
+                      <input type="checkbox" class="like__input">
+                      <div class="like__body"></div>
+                    </label>
+                    <span class="like__quantity">10</span>
+                  </div>
+                  <a href="#" class="blogItem__comments">0</a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -307,6 +320,7 @@
   </div>
   <script src="libs/jquery.min.js"></script>
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="libs/owl.carousel/owl.carousel.min.js"></script>
   <script src="scripts/app.js" defer></script>
 </body>
 </html>
