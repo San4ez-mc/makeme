@@ -3,7 +3,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Stock 2</title>
+   <title>Catalog 1</title>
    <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
    <link rel="stylesheet" href="libs/fontawesome/css/all.css">
    <link rel="stylesheet" href="styles/main.css">
@@ -87,46 +87,45 @@
         <nav class="page-breadcrumbs">
           <div class="page-breadcrumbs__desktop">
             <a href="#" class="page-breadcrumbs__el">Главная</a>
-            <a href="#" class="page-breadcrumbs__el">Акции</a>
+            <a href="#" class="page-breadcrumbs__el">Конструктор</a>
           </div>
           <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
-        <section class="section stocks">
-          <h1 class="section__title text-md-left text-center">Скидки до -70% на скрабирующие основы</h1>
-          <div class="stocks__timer">
-            <div class="row">
-              <div class="col-xl-6 col-lg-7">
-                <div class="stocks__timer-imgContainer">
-                  <img src="img/stock1.jpg" alt="#" class="stocks__timer-img">
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-5">
-                <div class="stocks__timer-body">
-                  <div class="stocks__timer-body-text">
-                    <h2 class="section__subtitle">Скидки до -70% на скрабирующие основы</h2>
-                    <p class="stocks__timer-text">Скидки до -70%!На все скрабирующие основы!<br> Обрати внимание, товары со скидкой не суммируются с другими акциями и спецпредложениями.</p>
-                    <p class="stocks__timer-text2"> * Акция действует только 01.11.2021</p>
-                  </div>
-
-                  <div class="stocks__timer-timer">
-                    <h3 class="stocks__timer-timer-title">До конца акции осталось:</h3>
-                    <div id="timer" class="timer"></div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
         <section class="section stocksProducts">
           <div class="row">
             <div class="col-12">
-              <h1 class="section__title text-md-left text-center">Товары по акции</h1>
+              <h1 class="section__title text-md-left text-center">Готовые решения <span class="productsQuantuty">234 продукта</span></h1>
             </div>
             <div class="col-xl-3 col-lg-4">
               <div class="productFilters__bg productFilters--toggle"></div>
               <aside class="productFilters">
                 <div class="productFilters__close productFilters--toggle"></div>
+                <div class="productFilters__el">
+                  <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el4" aria-expanded="true">
+                    НАЗВАНИЕ
+                  </button>
+                  <div class="collapse productFilters__el-collapse show" id="productFilters__el4">
+                    <div class="productFilters__el-body">
+                      <input type="text" class="textInput" placeholder="Введите название средства">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="productFilters__el">
+                  <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el3" aria-expanded="true">
+                    Цена
+                  </button>
+                  <div class="collapse productFilters__el-collapse show" id="productFilters__el3">
+                    <div class="productFilters__el-body">
+                      <div class="priceInputs">
+                        <input type="text" class="textInput number" placeholder="0">
+                        <span class="priceInputs__line">-</span>
+                        <input type="text" class="textInput number" placeholder="59999">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
                 <div class="productFilters__el">
                   <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el1" aria-expanded="true">
                     Основные фильтры
@@ -515,6 +514,7 @@
   <script src="libs/jquery.min.js"></script>
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="libs/jquery.countdown.js/jquery.countdown.min.js"></script>
+  <script src="libs/jquery.mask.min.js"></script>
   <script src="scripts/app.js" defer></script>
 </body>
 </html>

@@ -4,7 +4,42 @@
 window.onload = function () {
   
 };
-
+$('.productFilters--toggle').on('click', function() {
+  $('.productFilters, .productFilters__bg').toggleClass('active');
+  $('body').toggleClass('overflow-hidden');
+});
+$('.dropdown-item').on('click', function() {
+  $(this).siblings().removeClass('active');
+  $(this).addClass('active');
+  $(this).closest('.dropdown').find('.dropdown__value').html($(this).text());
+});
+if($('#timer').length) {
+  $('#timer').countdown('2021/12/30', function(event) {
+    $(this).html(event.strftime(`
+<div class="timer__body">
+  <div class="timer__body-el">
+    <div class="timer__body-el-value">%d</div>
+    <div class="timer__body-el-type">дни</div>
+  </div>
+  <span class="timer__body-el-dots">:</span>
+  <div class="timer__body-el">
+    <div class="timer__body-el-value">%H</div>
+    <div class="timer__body-el-type">часы</div>
+  </div>
+  <span class="timer__body-el-dots">:</span>
+  <div class="timer__body-el">
+    <div class="timer__body-el-value">%M</div>
+    <div class="timer__body-el-type">минуты</div>
+  </div>
+  <span class="timer__body-el-dots">:</span>
+  <div class="timer__body-el timer__body-el--primary">
+    <div class="timer__body-el-value">%S</div>
+    <div class="timer__body-el-type">секунды</div>
+  </div>
+</div>
+    `));
+  });
+}
 
 $('.menuMobileToggle--js').on('click', function() {
   $('.menuMobile').toggleClass('active');
@@ -40,3 +75,5 @@ if($('.carousel-3els').length) {
     }
   });
 }
+
+$('.number').mask('00000');
