@@ -756,6 +756,20 @@ body {
   margin-right: 10px;
 }
 
+.transparentProductCards .productCard {
+  background: transparent;
+  padding: 0;
+}
+
+.transparentProductCards .productCard__imgContainer {
+  background: white;
+  border-radius: 10px;
+}
+
+.transparentProductCards .productCard__producer {
+  display: none;
+}
+
 .button {
   border-radius: 5px;
   border: 2px solid;
@@ -780,6 +794,57 @@ body {
 
 .button--primary {
   text-decoration: none !important;
+  background: #FF6B98;
+  color: white !important;
+  border-color: #FF6B98;
+}
+
+.button--primary:hover {
+  background: #FF5588;
+  border-color: #FF5588;
+}
+
+.button--primary.disable {
+  background: #ffaec7;
+  border-color: #ffaec7;
+}
+
+.button--main {
+  background: #262626;
+  border-color: #262626;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.button--main:hover {
+  background: #FF6B98;
+  border-color: #FF6B98;
+}
+
+.button--main:active {
+  background: #FF5588;
+  border-color: #FF5588;
+}
+
+.button--main.disable {
+  background: rgba(38, 38, 38, 0.5) !important;
+  border-color: transparent !important;
+}
+
+.button--arrow {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.button--arrow::after {
+  content: '';
+  width: 38px;
+  height: 38px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.2) url(../img/icons/arrowRightWhite2.svg) center no-repeat;
+  margin-left: 28px;
 }
 
 .button--stroke {
@@ -823,7 +888,7 @@ body {
   align-items: center;
   font-weight: 600;
   color: #AF61D1 !important;
-  margin-bottom: 10px;
+  margin-bottom: 17px;
   font-size: 16px;
 }
 
@@ -842,6 +907,12 @@ body {
   flex-shrink: 0;
   margin-left: 10px;
   top: -3px;
+}
+
+@media (max-width: 991px) {
+  .showMore::after {
+    top: 0;
+  }
 }
 
 .page-header {
@@ -1306,6 +1377,103 @@ body {
   .createYours__text {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+.yourNewsletter {
+  background: url(../img/yourNewsletterBG.jpg) center right no-repeat;
+}
+
+@media (max-width: 991px) {
+  .yourNewsletter {
+    background: url(../img/yourNewsletterBG.jpg) center right -150px no-repeat;
+  }
+}
+
+@media (max-width: 767px) {
+  .yourNewsletter {
+    background: linear-gradient(88.61deg, #FFD6D7 0.18%, #FBCBC7 97.89%);
+    text-align: center;
+    padding: 40px 15px 230px;
+  }
+  .yourNewsletter::before {
+    content: '';
+    width: 100%;
+    height: 230px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-size: cover !important;
+    background: url(../img/yourNewsletterBGMobile.jpg) center bottom no-repeat;
+  }
+}
+
+.yourNewsletter__form {
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (max-width: 991px) {
+  .yourNewsletter__form {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 767px) {
+  .yourNewsletter__form {
+    text-align: center;
+    margin: auto;
+  }
+}
+
+.yourNewsletter__form-input {
+  border: none;
+  border-bottom: 1px solid #262626;
+  background: transparent;
+  padding: 13px 10px 16px 10px;
+  font-weight: 500;
+  margin-right: 32px;
+}
+
+@media (max-width: 767px) {
+  .yourNewsletter__form-input {
+    text-align: center;
+    margin-right: 0;
+  }
+}
+
+.yourNewsletter__form-input::placeholder {
+  color: rgba(87, 87, 86, 0.5);
+}
+
+@media (max-width: 991px) {
+  .yourNewsletter__form-input {
+    padding-left: 0;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .yourNewsletter__form-button {
+    padding: 11px;
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+.yourNewsletter .createYours__title {
+  font-weight: 800;
+}
+
+@media (max-width: 767px) {
+  .yourNewsletter .createYours__text {
+    margin-bottom: 10px;
   }
 }
 
@@ -1992,6 +2160,19 @@ body {
   max-width: 287px;
   justify-content: center;
   margin: 20px auto;
+}
+
+.stocks__timer .button--arrow {
+  margin-top: 40px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 991px) {
+  .stocks__timer .button--arrow {
+    margin-top: 20px;
+  }
 }
 
 .stocks__timer-imgContainer {

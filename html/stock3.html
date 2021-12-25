@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Stock 3</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+   <link rel="stylesheet" href="libs/fontawesome/css/all.css">
+   <link rel="stylesheet" href="libs/owl.carousel/owl.carousel.min.css">
+   <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <div class="container">
+        <nav class="page-header__toggle menuMobileToggle--js">
+          <span></span>
+          <span></span>
+          <span></span>
+        </nav>
+        <a href="#" class="page-header__logo">
+          <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
+        </a>
+        <nav class="page-header__menu">
+          <a class="page-header__menu-el" href="#">Конструктор</a>
+          <a class="page-header__menu-el" href="#">Каталог</a>
+          <a class="page-header__menu-el" href="#">Компоненты</a>
+          <a class="page-header__menu-el" href="#">О нас</a>
+          <a class="page-header__menu-el color-primary" href="#">MM Club</a>
+          <a class="page-header__menu-el" href="#">Акции</a>
+        </nav>
+        <nav class="page-header__buttons">
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--user"></a>
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--likes"></a>
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--basket">
+            <span class="basket-quantity">5</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    
+    
+    <div class="menuMobile">
+      <div class="menuMobile__header">
+        <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
+        <span class="menuMobile__toggle menuMobileToggle--js"></span>
+      </div>
+      <nav class="menuMobile__body">
+        <div class="menuMobile__menu">
+          <a href="#" class="menuMobile__menu-el">Конструктор</a>
+          <a href="#" class="menuMobile__menu-el">Каталог</a>
+          <a href="#" class="menuMobile__menu-el">Компоненты</a>
+          <a href="#" class="menuMobile__menu-el">О нас</a>
+          <a href="#" class="menuMobile__menu-el color-primary">MM Club</a>
+          <a href="#" class="menuMobile__menu-el">Акции</a>
+          <a href="#" class="menuMobile__menu-el">Доставка и оплата</a>
+          <a href="#" class="menuMobile__menu-el">Блог</a>
+          <a href="#" class="menuMobile__menu-el">Публичная оферта</a>
+        </div>
+        <div class="page-footer__menu-info">
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">График работы</div>
+            <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+          </div>
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">График работы</div>
+            <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+          </div>
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">Соцсети</div>
+            <nav class="page-footer__socials">
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </nav>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main class="page-content">
+      <div class="container">
+        <nav class="page-breadcrumbs">
+          <div class="page-breadcrumbs__desktop">
+            <a href="#" class="page-breadcrumbs__el">Главная</a>
+            <a href="#" class="page-breadcrumbs__el">Акции</a>
+          </div>
+          <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section stocks">
+          <h1 class="section__title text-md-left text-center">Скидки до -70% на скрабирующие основы</h1>
+          <div class="stocks__timer">
+            <div class="row">
+              <div class="col-xl-6 col-lg-7">
+                <div class="stocks__timer-imgContainer">
+                  <img src="img/stock1.jpg" alt="#" class="stocks__timer-img">
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-5">
+                <div class="stocks__timer-body">
+                  <div class="stocks__timer-body-text">
+                    <h2 class="section__subtitle">Скидки до -70% на скрабирующие основы</h2>
+                    <p class="stocks__timer-text">Скидки до -70%!На все скрабирующие основы!<br> Обрати внимание, товары со скидкой не суммируются с другими акциями и спецпредложениями.</p>
+                    <p class="stocks__timer-text2"> * Акция действует только 01.11.2021</p>
+                  </div>
+
+                  <div class="stocks__timer-timer">
+                    <h3 class="stocks__timer-timer-title">До конца акции осталось:</h3>
+                    <div id="timer" class="timer"></div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-12">
+                <a href="#" class="button button--main button--arrow">Перейти к созданию</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section__header d-flex align-items-center justify-content-between flex-wrap">
+            <h2 class="section__title mr-4"><span class="color-primary">Просмотренные</span> ранее</h2>
+            <a href="#" class="showMore">Смотреть больше</a>
+          </div>
+          <div class="owl-carousel carousel-4els transparentProductCards">
+            <div class="productCard">
+              <div class="productCard__feature productCard__feature--stock">-10%</div>
+              <div class="productCard__producer">
+                <span class="productCard__producer-toggle">
+                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                </span>
+                <p class="productCard__producer-text">
+                  Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
+                </p>
+              </div>
+              <a href="#" class="productCard__imgContainer">
+                <img src="img/shampoo.png" alt="#" class="productCard__img">
+              </a>
+              <div class="productCard__body">
+                <div class="productCard__rating">
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el"></span>
+                </div>
+                <a href="#" class="productCard__type">Молочко для тела</a>
+                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750 мл)</a>
+
+                <div class="productCard__price">
+                  <span class="productCard__price-actual">244 ₴</span>
+                </div>
+              </div>
+            </div>
+            <div class="productCard">
+              <div class="productCard__feature productCard__feature--hit">ХИТ ПРОДАЖ</div>
+              <div class="productCard__producer">
+                <span class="productCard__producer-toggle">
+                  <img src="img/icons/buyer.svg" alt="#" class="productCard__producer-icon">
+                </span>
+                <p class="productCard__producer-text">
+                  Средство создано покупателем <br> <span class="font-weight-bold">Мария Дмитриенко</span>
+                </p>
+              </div>
+              <a href="#" class="productCard__imgContainer">
+                <img src="img/cream.png" alt="#" class="productCard__img">
+              </a>
+              <div class="productCard__body">
+                <div class="productCard__rating">
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el"></span>
+                </div>
+                <a href="#" class="productCard__type">Молочко для тела</a>
+                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750 мл)</a>
+
+                <div class="productCard__price">
+                  <span class="productCard__price-actual">244 ₴</span>
+                  <span class="productCard__price-old">344 ₴</span>
+                </div>
+              </div>
+            </div>
+            <div class="productCard">
+              <div class="productCard__feature productCard__feature--new">NEW</div>
+              <div class="productCard__producer">
+                <span class="productCard__producer-toggle">
+                  <img src="img/icons/specialist.svg" alt="#" class="productCard__producer-icon">
+                </span>
+                <p class="productCard__producer-text">
+                  Средство создано специалистами  <br> нашей лаборатории
+                </p>
+              </div>
+              <a href="#" class="productCard__imgContainer">
+                <img src="img/shampoo.png" alt="#" class="productCard__img">
+              </a>
+              <div class="productCard__body">
+                <div class="productCard__rating">
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el"></span>
+                </div>
+                <a href="#" class="productCard__type">Молочко для тела</a>
+                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750 мл)</a>
+
+                <div class="productCard__price">
+                  <span class="productCard__price-actual">244 ₴</span>
+                </div>
+              </div>
+            </div>
+            <div class="productCard">
+              <div class="productCard__feature productCard__feature--stock">-10%</div>
+              <div class="productCard__producer">
+                <span class="productCard__producer-toggle">
+                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                </span>
+                <p class="productCard__producer-text">
+                  Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
+                </p>
+              </div>
+              <a href="#" class="productCard__imgContainer">
+                <img src="img/shampoo.png" alt="#" class="productCard__img">
+              </a>
+              <div class="productCard__body">
+                <div class="productCard__rating">
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el"></span>
+                </div>
+                <a href="#" class="productCard__type">Молочко для тела</a>
+                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750 мл)</a>
+
+                <div class="productCard__price">
+                  <span class="productCard__price-actual">244 ₴</span>
+                  <span class="productCard__price-old">344 ₴</span>
+                </div>
+              </div>
+            </div>
+            <div class="productCard">
+              <div class="productCard__feature productCard__feature--hit">ХИТ ПРОДАЖ</div>
+              <div class="productCard__producer">
+                <span class="productCard__producer-toggle">
+                  <img src="img/icons/buyer.svg" alt="#" class="productCard__producer-icon">
+                </span>
+                <p class="productCard__producer-text">
+                  Средство создано покупателем <br> <span class="font-weight-bold">Мария Дмитриенко</span>
+                </p>
+              </div>
+              <a href="#" class="productCard__imgContainer">
+                <img src="img/cream.png" alt="#" class="productCard__img">
+              </a>
+              <div class="productCard__body">
+                <div class="productCard__rating">
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el"></span>
+                </div>
+                <a href="#" class="productCard__type">Молочко для тела</a>
+                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750 мл)</a>
+
+                <div class="productCard__price">
+                  <span class="productCard__price-actual">244 ₴</span>
+                  <span class="productCard__price-old">344 ₴</span>
+                </div>
+              </div>
+            </div>
+            <div class="productCard">
+              <div class="productCard__feature productCard__feature--new">NEW</div>
+              <div class="productCard__producer">
+                <span class="productCard__producer-toggle">
+                  <img src="img/icons/specialist.svg" alt="#" class="productCard__producer-icon">
+                </span>
+                <p class="productCard__producer-text">
+                  Средство создано специалистами  <br> нашей лаборатории
+                </p>
+              </div>
+              <a href="#" class="productCard__imgContainer">
+                <img src="img/shampoo.png" alt="#" class="productCard__img">
+              </a>
+              <div class="productCard__body">
+                <div class="productCard__rating">
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el"></span>
+                </div>
+                <a href="#" class="productCard__type">Молочко для тела</a>
+                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750 мл)</a>
+
+                <div class="productCard__price">
+                  <span class="productCard__price-actual">244 ₴</span>
+                </div>
+              </div>
+            </div>
+            <div class="productCard">
+              <div class="productCard__feature productCard__feature--stock">-10%</div>
+              <div class="productCard__producer">
+                <span class="productCard__producer-toggle">
+                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                </span>
+                <p class="productCard__producer-text">
+                  Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
+                </p>
+              </div>
+              <a href="#" class="productCard__imgContainer">
+                <img src="img/shampoo.png" alt="#" class="productCard__img">
+              </a>
+              <div class="productCard__body">
+                <div class="productCard__rating">
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el productCard__rating-el--full"></span>
+                  <span class="productCard__rating-el"></span>
+                </div>
+                <a href="#" class="productCard__type">Молочко для тела</a>
+                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750 мл)</a>
+
+                <div class="productCard__price">
+                  <span class="productCard__price-actual">244 ₴</span>
+                  <span class="productCard__price-old">344 ₴</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="section createYours yourNewsletter">
+          <div class="createYours__title"><span class="color-primary">ТВОЯ</span> рассылка!</div>
+          <p class="createYours__text">Самые выгодные цены, крутые акции и персональные предложения в твоей рассылке</p>
+          <form action="#" class="yourNewsletter__form">
+            <input type="text" class="yourNewsletter__form-input" placeholder="Введите свою почту">
+            <button type="submit" class="button button--primary yourNewsletter__form-button">ПОДПИСАТЬСЯ</button>
+          </form>
+        </aside>
+
+        <section class="section seoText">
+          <div class="section__title">Как создать косметику для себя</div>
+          <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.
+          </p>
+          <div class="collapse" id="seoText__collapse">
+            <p class="seoText__text">
+              У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.
+              </p>
+          </div>
+          <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="link1 seoText__link">Показать все</a>
+        </section>
+      </div>
+    </main>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4">
+            <a href="#" class="page-footer__logo"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img"></a>
+            <p class="copyright">© 2016 - 2021 Make My - Все права защищены.</p>
+          </div>
+          <div class="col-xl-5 col-lg-8 col-md-7">
+            <nav class="page-footer__menu">
+              <div class="row">
+                <div class="col-lg-6">
+                  <a href="#" class="page-footer__menu-el">Конструктор</a>
+                  <a href="#" class="page-footer__menu-el">Каталог</a>
+                  <a href="#" class="page-footer__menu-el">Компоненты</a>
+                  <a href="#" class="page-footer__menu-el">О нас</a>
+                </div>
+                <div class="col-lg-6">
+                  <a href="#" class="page-footer__menu-el">Доставка и оплата</a>
+                  <a href="#" class="page-footer__menu-el color-primary">MM Club</a>
+                  <a href="#" class="page-footer__menu-el">Акции</a>
+                  <a href="#" class="page-footer__menu-el">Блог</a>
+                  <a href="#" class="page-footer__menu-el">Публичная оферта</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-5">
+            <div class="page-footer__menu-info">
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">График работы</div>
+                <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">График работы</div>
+                <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">Соцсети</div>
+                <nav class="page-footer__socials">
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                  </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="libs/jquery.min.js"></script>
+  <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="libs/jquery.countdown.js/jquery.countdown.min.js"></script>
+  <script src="libs/owl.carousel/owl.carousel.min.js"></script>
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>

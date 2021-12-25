@@ -76,4 +76,37 @@ if($('.carousel-3els').length) {
   });
 }
 
+if($('.carousel-4els').length) {
+  $('.carousel-4els').owlCarousel({
+    dots: true,
+    
+    navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    responsive: {
+      0: {
+        items: 2,
+        margin: 8
+      },
+      575: {
+        items: 2,
+        margin: 10
+      },
+      767: {
+        items: 2,
+        nav:false,
+        margin: 20
+      },
+      991: {
+        items: 3,
+        nav:true,
+        margin: 20
+      },
+      1199: {
+        items: 4,
+        nav:true,
+        margin: 24
+      },
+    }
+  });
+}
+
 $('.number').mask('00000');
