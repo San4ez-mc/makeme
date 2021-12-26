@@ -2,7 +2,18 @@
 /*global window */
 
 window.onload = function () {
-  
+  $(window).on('scroll', function() {
+    if($('.parallaxBalls').length) {
+      if($('.parallaxBalls').offset().top < $(window).scrollTop() + $(window).height()) {
+        $('.parallaxBalls').addClass('active');
+        $('.parallaxBalls').css({
+        'top' : $(window).scrollTop()/4
+        });
+      }
+    }
+  });
+
+
 };
 $('.productFilters--toggle').on('click', function() {
   $('.productFilters, .productFilters__bg').toggleClass('active');
@@ -108,5 +119,6 @@ if($('.carousel-4els').length) {
     }
   });
 }
-
-$('.number').mask('00000');
+if($('input.number').length) {
+  $('input.number').mask('00000');
+}
