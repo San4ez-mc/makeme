@@ -3693,17 +3693,6 @@ body {
   margin-top: -800px;
 }
 
-.about-page .parallaxBalls {
-  position: absolute;
-  top: 0;
-}
-
-@media (max-width: 1199px) {
-  .about-page .parallaxBalls {
-    display: none;
-  }
-}
-
 .about-page .footerBubbles {
   position: absolute;
   bottom: -10px;
@@ -3748,6 +3737,12 @@ body {
   margin-bottom: 40px;
 }
 
+@media (max-width: 767px) {
+  .infoBlock__text {
+    margin-bottom: 24px;
+  }
+}
+
 .infoBlock__imgContainer {
   max-width: 550px;
   margin: auto;
@@ -3775,6 +3770,139 @@ body {
   .infoBlock__button {
     margin: auto;
   }
+}
+
+.parallaxBalls {
+  position: absolute;
+  top: 0;
+}
+
+@media (max-width: 1199px) {
+  .parallaxBalls {
+    display: none;
+  }
+}
+
+.mmclub-page {
+  padding-top: 30px;
+}
+
+@media (max-width: 991px) {
+  .mmclub-page {
+    padding-top: 0;
+  }
+}
+
+.mmclub-page .infoBlock {
+  min-height: 470px;
+}
+
+@media (max-width: 991px) {
+  .mmclub-page .infoBlock {
+    min-height: 0;
+  }
+}
+
+.mmclub-page .infoBlock--hero .row {
+  align-items: center;
+}
+
+.mmclub-page .infoBlock--hero .infoBlock__title {
+  font-size: 44px;
+}
+
+@media (max-width: 991px) {
+  .mmclub-page .infoBlock--hero .infoBlock__title {
+    font-size: 24px;
+  }
+}
+
+.mmclub-page .infoBlock--hero .infoBlock__imgContainer {
+  width: 810px;
+  height: 540px;
+  max-width: none;
+}
+
+@media (max-width: 991px) {
+  .mmclub-page .infoBlock--hero .infoBlock__imgContainer {
+    width: 475px;
+    height: 318px;
+  }
+}
+
+.mmclub-page .infoBlock__uniqueLogo {
+  display: flex;
+  margin: -100px auto 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 90px;
+}
+
+@media (max-width: 991px) {
+  .mmclub-page .infoBlock__uniqueLogo {
+    display: none;
+  }
+}
+
+.mmclub-page .infoBlock__imgContainer {
+  width: 730px;
+  height: 470px;
+  max-width: none;
+  margin-right: 0;
+  margin-left: auto;
+  border-radius: 20px;
+}
+
+@media (max-width: 991px) {
+  .mmclub-page .infoBlock__imgContainer {
+    width: 417px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mmclub-page .infoBlock__imgContainer {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+}
+
+.mmclub-page .infoBlock__imgContainer.rightSide {
+  position: absolute;
+  right: 50px;
+}
+
+@media (max-width: 991px) {
+  .mmclub-page .infoBlock__imgContainer.rightSide {
+    right: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mmclub-page .infoBlock__imgContainer.rightSide {
+    position: static;
+  }
+}
+
+.mmclub-page .parallaxBalls--1 {
+  right: -100px;
+  margin-top: -100px;
+}
+
+.mmclub-page .parallaxBalls--2 {
+  margin-top: -160px;
+}
+
+.mmclub-page .parallaxBalls--3 {
+  margin-top: -300px;
+  left: -160px;
+}
+
+.mmclub-page .parallaxBalls--4 {
+  margin-top: -550px;
 }
 
 .blogItem {
