@@ -510,6 +510,27 @@ body {
   }
 }
 
+.contentBlock {
+  border-radius: 10px;
+  padding: 24px;
+  background: white;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1199px) {
+  .contentBlock {
+    padding: 24px 16px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contentBlock {
+    padding: 24px 8px;
+    margin-bottom: 10px;
+  }
+}
+
 .owl-carousel .owl-dots {
   display: flex;
   align-items: center;
@@ -776,6 +797,70 @@ body {
 
 .transparentProductCards .productCard__producer {
   display: none;
+}
+
+.form__field {
+  margin-bottom: 24px;
+}
+
+.form__label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.form__field-body {
+  display: flex;
+  height: 60px;
+  position: relative;
+}
+
+.form__field-input {
+  width: calc(100% - 60px);
+  padding: 0 24px;
+  border: 1px solid #DFE3EA;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.form__field-input--password {
+  padding-right: 84px;
+}
+
+.form__field-edit {
+  width: 60px;
+  height: 60px;
+  background: url(../img/icons/edit.svg) center no-repeat;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.form__field-edit:hover {
+  opacity: 1;
+}
+
+.form__field-passwordShow {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 60px;
+  background: url(../img/icons/eyeClose.svg) center no-repeat;
+}
+
+.form__field-passwordShow.active {
+  background: url(../img/icons/eyeOpen.svg) center no-repeat;
+}
+
+.form__submit {
+  width: calc(100% - 60px);
+  margin-top: 8px;
+}
+
+.form__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .button {
@@ -2509,6 +2594,40 @@ body {
   background: #FF6B98 url(../img/icons/check.svg) center no-repeat;
 }
 
+.checkboxEl {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.checkboxEl__input {
+  display: none;
+}
+
+.checkboxEl__input + .checkboxEl__body {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxEl__input + .checkboxEl__body::before {
+  cursor: pointer;
+  content: '';
+  position: relative;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: white url(../img/icons/check.svg) center no-repeat;
+  border: 1px solid #D4D4D4;
+  margin-right: 10px;
+}
+
+.checkboxEl__input:checked + .checkboxEl__body::before {
+  border-color: #FF6B98;
+  background: #FF6B98 url(../img/icons/check.svg) center no-repeat;
+}
+
 .showFirst {
   border-radius: 10px;
   background: white;
@@ -3903,6 +4022,186 @@ body {
 
 .mmclub-page .parallaxBalls--4 {
   margin-top: -550px;
+}
+
+.lk__nav {
+  padding: 20px 20px 1px;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.lk__nav-user {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dashed rgba(141, 143, 162, 0.5);
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+}
+
+.lk__nav-user-avatar {
+  background: #CFE7FF url(../img/icons/lk/avatarPlus.svg) center no-repeat;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.lk__nav-user-avatar-input {
+  display: none;
+}
+
+.lk__nav-user-info {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lk__nav-user-name {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.lk__nav-user-email {
+  font-size: 14px;
+  font-weight: 500;
+  color: #FF6B98;
+}
+
+.lk__menu-el {
+  position: relative;
+  padding-left: 36px;
+  display: flex;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #262626;
+  text-decoration: none !important;
+  align-items: center;
+}
+
+.lk__menu-el::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 0;
+  top: -4px;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.lk__menu-el:hover, .lk__menu-el.active {
+  color: #FF6B98;
+}
+
+.lk__menu-el--info::before {
+  background-image: url(../img/icons/lk/menu1.svg);
+}
+
+.lk__menu-el--info:hover::before, .lk__menu-el--info.active::before {
+  background-image: url(../img/icons/lk/menu1Active.svg);
+}
+
+.lk__menu-el--club::before {
+  background-image: url(../img/icons/lk/menu2.svg);
+}
+
+.lk__menu-el--club:hover::before, .lk__menu-el--club.active::before {
+  background-image: url(../img/icons/lk/menu2Active.svg);
+}
+
+.lk__menu-el--desires::before {
+  background-image: url(../img/icons/lk/menu3.svg);
+}
+
+.lk__menu-el--desires:hover::before, .lk__menu-el--desires.active::before {
+  background-image: url(../img/icons/lk/menu3Active.svg);
+}
+
+.lk__menu-el--address::before {
+  background-image: url(../img/icons/lk/menu4.svg);
+}
+
+.lk__menu-el--address:hover::before, .lk__menu-el--address.active::before {
+  background-image: url(../img/icons/lk/menu4Active.svg);
+}
+
+.lk__menu-el--history::before {
+  background-image: url(../img/icons/lk/menu5.svg);
+}
+
+.lk__menu-el--history:hover::before, .lk__menu-el--history.active::before {
+  background-image: url(../img/icons/lk/menu5Active.svg);
+}
+
+.lk__menu-el--recipes::before {
+  background-image: url(../img/icons/lk/menu6.svg);
+}
+
+.lk__menu-el--recipes:hover::before, .lk__menu-el--recipes.active::before {
+  background-image: url(../img/icons/lk/menu6Active.svg);
+}
+
+.lk__menu-el--exit {
+  border-top: 1px dashed rgba(141, 143, 162, 0.5);
+  padding-top: 30px;
+}
+
+.lk__menu-el--exit::before {
+  background-image: url(../img/icons/lk/menuExit.svg);
+  top: 27px;
+}
+
+.lk__menu-el--exit:hover::before, .lk__menu-el--exit.active::before {
+  background-image: url(../img/icons/lk/menuExitActive.svg);
+}
+
+.lk__menu-el-new {
+  padding: 2px 15px 2px 15px;
+  font-weight: 700;
+  font-size: 14px;
+  background: #FF6B98;
+  border-radius: 40px;
+  flex-shrink: 0;
+  margin-left: 14px;
+  position: relative;
+  top: -2px;
+  color: white;
+}
+
+.lk__body-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.modal .form__field-input {
+  width: 100%;
+}
+
+.modal .modal-content {
+  padding: 40px 60px;
+}
+
+@media (max-width: 767px) {
+  .modal .modal-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.modal__close {
+  cursor: pointer;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 24px;
+  height: 24px;
+  background: url(../img/icons/timesBlack.svg) center no-repeat;
+}
+
+.modal__close:hover {
+  background: url(../img/icons/timesRed.svg) center no-repeat;
 }
 
 .blogItem {

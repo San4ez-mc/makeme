@@ -12,8 +12,6 @@ window.onload = function () {
       }
     }
   });
-
-
 };
 $('.productFilters--toggle').on('click', function() {
   $('.productFilters, .productFilters__bg').toggleClass('active');
@@ -51,11 +49,9 @@ if($('#timer').length) {
     `));
   });
 }
-
 $('.menuMobileToggle--js').on('click', function() {
   $('.menuMobile').toggleClass('active');
 });
-
 if($('.carousel-3els').length) {
   $('.carousel-3els').owlCarousel({
     dots: true,
@@ -86,7 +82,6 @@ if($('.carousel-3els').length) {
     }
   });
 }
-
 if($('.carousel-4els').length) {
   $('.carousel-4els').owlCarousel({
     dots: true,
@@ -122,3 +117,28 @@ if($('.carousel-4els').length) {
 if($('input.number').length) {
   $('input.number').mask('00000');
 }
+if($('input[type="tel"]').length) {
+  $('input[type="tel"]').mask('+38 000 000 00 00');
+}
+if($('input.birthday').length) {
+  $('input.birthday').mask('00.00.0000');
+}
+function ValidateEmail(inputText) {
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if(inputText.value.match(mailformat))
+  {
+    $('#modalChangeEmailSuccess').modal('show');
+  }
+  else
+  {
+    $('#modalChangeError').modal('show');
+  }
+}
+$('.form__field-passwordShow').on('click', function() {
+  $(this).toggleClass('active');
+  if($(this).siblings('.form__field-input--password').attr('type') == 'password') {
+    $(this).siblings('.form__field-input--password').prop('type', 'text');
+  } else {
+    $(this).siblings('.form__field-input--password').prop('type', 'password');
+  }
+});
