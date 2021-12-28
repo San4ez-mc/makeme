@@ -94,7 +94,7 @@
         <section class="section lk">
           <h1 class="section__title">Список желаний</h1>
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-xl-3 col-lg-4">
               <aside class="lk__nav">
                 <div class="lk__nav-user">
                   <label class="lk__nav-user-avatar">
@@ -132,7 +132,7 @@
                 </nav>
               </aside>
             </div>
-            <div class="col-lg-9">
+            <div class="col-xl-9 col-lg-8">
               <div class="lk__body">
                 <div class="lk__desires">
                   <div class="contentBlock lk__desires-nav">
@@ -142,7 +142,7 @@
                   </div>
                   <div class="contentBlock lk__desires-body">
                     <div class="row">
-                      <div class="col-lg-4 col-6">
+                      <div class="col-xl-4 col-6">
                         <div class="productCard">
                           <span class="productCard__remove"></span>
                           <div class="productCard__feature productCard__feature--stock">-10%</div>
@@ -172,10 +172,11 @@
                               <span class="productCard__price-actual">244 ₴</span>
                               <span class="productCard__price-old">344 ₴</span>
                             </div>
+                            <a href="#" class="button button--primary button--small button--buy">Купить</a>
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-4 col-6">
+                      <div class="col-xl-4 col-6">
                         <div class="productCard">
                           <span class="productCard__remove"></span>
                           <div class="productCard__feature productCard__feature--stock">-10%</div>
@@ -205,10 +206,11 @@
                               <span class="productCard__price-actual">244 ₴</span>
                               <span class="productCard__price-old">344 ₴</span>
                             </div>
+                            <a href="#" class="button button--primary button--small button--buy">Купить</a>
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-4 col-6">
+                      <div class="col-xl-4 col-6">
                         <div class="productCard">
                           <span class="productCard__remove"></span>
                           <div class="productCard__feature productCard__feature--stock">-10%</div>
@@ -238,6 +240,7 @@
                               <span class="productCard__price-actual">244 ₴</span>
                               <span class="productCard__price-old">344 ₴</span>
                             </div>
+                            <a href="#" class="button button--primary button--small button--buy">Купить</a>
                           </div>
                         </div>
                       </div>
@@ -306,6 +309,20 @@
         </div>
       </div>
     </footer>
+  </div>
+  <div class="modal fade" id="modalShureRemove">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <span data-dismiss="modal"  class="modal__close"></span>
+        <div class="section__title">Вы уверенны?</div>
+        <p class="text--grey">Вы уверенны что хотите удалить этот товар из избранного?</p>
+        <div class="d-flex">
+          <button class="button button--secondary w-50 mr-2" data-dismiss="modal">Отмена</button>
+          <button class="button button--primary w-50 ml-2" data-dismiss="modal">удалить</button>
+
+        </div>
+      </div>
+    </div>
   </div>
   <script src="libs/jquery.min.js"></script>
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>

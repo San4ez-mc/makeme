@@ -117,6 +117,9 @@ if($('.carousel-4els').length) {
 if($('input.number').length) {
   $('input.number').mask('00000');
 }
+if($('.quantityEl__input').length) {
+  $('.quantityEl__input').mask('000');
+}
 if($('input[type="tel"]').length) {
   $('input[type="tel"]').mask('+38 000 000 00 00');
 }
@@ -134,11 +137,29 @@ function ValidateEmail(inputText) {
     $('#modalChangeError').modal('show');
   }
 }
+
+
 $('.form__field-passwordShow').on('click', function() {
   $(this).toggleClass('active');
   if($(this).siblings('.form__field-input--password').attr('type') == 'password') {
     $(this).siblings('.form__field-input--password').prop('type', 'text');
   } else {
     $(this).siblings('.form__field-input--password').prop('type', 'password');
+  }
+});
+
+$('.productCard__remove').on('click', function() {
+  $('#modalShureRemove').modal('show');
+});
+
+
+$('.quantityEl__plus').click(function () {
+  if ($(this).prev().val() < 1000) {
+    $(this).prev().val(+$(this).prev().val() + 1);
+  }
+});
+$('.quantityEl__minus').click(function () {
+  if ($(this).next().val() > 1) {
+    if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
   }
 });
