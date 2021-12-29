@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Basket</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+   <link rel="stylesheet" href="libs/fontawesome/css/all.css">
+   <link rel="stylesheet" href="libs/owl.carousel/owl.carousel.min.css">
+   <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <div class="container">
+        <nav class="page-header__toggle menuMobileToggle--js">
+          <span></span>
+          <span></span>
+          <span></span>
+        </nav>
+        <a href="#" class="page-header__logo">
+          <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
+        </a>
+        <nav class="page-header__menu">
+          <a class="page-header__menu-el" href="#">Конструктор</a>
+          <a class="page-header__menu-el" href="#">Каталог</a>
+          <a class="page-header__menu-el" href="#">Компоненты</a>
+          <a class="page-header__menu-el" href="#">О нас</a>
+          <a class="page-header__menu-el color-primary" href="#">MM Club</a>
+          <a class="page-header__menu-el" href="#">Акции</a>
+        </nav>
+        <nav class="page-header__buttons">
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--user"></a>
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--likes"></a>
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--basket">
+            <span class="basket-quantity">5</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    
+    
+    <div class="menuMobile">
+      <div class="menuMobile__header">
+        <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
+        <span class="menuMobile__toggle menuMobileToggle--js"></span>
+      </div>
+      <nav class="menuMobile__body">
+        <div class="menuMobile__menu">
+          <a href="#" class="menuMobile__menu-el">Конструктор</a>
+          <a href="#" class="menuMobile__menu-el">Каталог</a>
+          <a href="#" class="menuMobile__menu-el">Компоненты</a>
+          <a href="#" class="menuMobile__menu-el">О нас</a>
+          <a href="#" class="menuMobile__menu-el color-primary">MM Club</a>
+          <a href="#" class="menuMobile__menu-el">Акции</a>
+          <a href="#" class="menuMobile__menu-el">Доставка и оплата</a>
+          <a href="#" class="menuMobile__menu-el">Блог</a>
+          <a href="#" class="menuMobile__menu-el">Публичная оферта</a>
+        </div>
+        <div class="page-footer__menu-info">
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">График работы</div>
+            <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+          </div>
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">График работы</div>
+            <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+          </div>
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">Соцсети</div>
+            <nav class="page-footer__socials">
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </nav>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main class="page-content">
+      <div class="container">
+        <nav class="page-breadcrumbs">
+          <div class="page-breadcrumbs__desktop">
+            <a href="#" class="page-breadcrumbs__el">Главная</a>
+            <a href="#" class="page-breadcrumbs__el">Корзина</a>
+          </div>
+          <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section checkout">
+          <h1 class="section__title">2 товара в корзине</h1>
+          <div class="checkout__info">
+            <span class="font-weight-bold">Бесплатная</span> доставка на отделение от <span class="font-weight-bold">600 гривен.</span>
+          </div>
+          <div class="contentBlock basket">
+            <div class="lk__order-body">
+              <div class="lk__order-products">
+                <div class="lk__order-product">
+                  <div class="lk__recipes-product-main">
+                    <div class="lk__recipes-product-imgContainer">
+                      <img src="img/shampoo.png" alt="#" class="lk__recipes-product-img">
+                    </div>
+                    <div class="lk__recipes-product-main-body">
+                      <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                      <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                    </div>
+                  </div>
+                  <div class="lk__order-additionalEls">
+                    <div class="quantityEl">
+                      <button type="button" class="quantityEl__minus">-</button>
+                      <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                      <button type="button" class="quantityEl__plus">+</button>
+                    </div>
+                    <div class="lk__order-price">237₴</div>
+                    <div class="lk__order-nav">
+                      <div class="like">
+                        <label class="like__button">
+                          <input type="checkbox" class="like__input">
+                          <div class="like__body"></div>
+                        </label>
+                      </div>
+                      <div class="productCard__remove"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lk__order-product">
+                  <div class="lk__recipes-product-main">
+                    <div class="lk__recipes-product-imgContainer">
+                      <img src="img/shampoo.png" alt="#" class="lk__recipes-product-img">
+                    </div>
+                    <div class="lk__recipes-product-main-body">
+                      <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                      <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                    </div>
+                  </div>
+                  <div class="lk__order-additionalEls">
+                    <div class="quantityEl">
+                      <button type="button" class="quantityEl__minus">-</button>
+                      <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                      <button type="button" class="quantityEl__plus">+</button>
+                    </div>
+                    <div class="lk__order-price">237₴</div>
+                    <div class="lk__order-nav">
+                      <div class="like">
+                        <label class="like__button">
+                          <input type="checkbox" class="like__input">
+                          <div class="like__body"></div>
+                        </label>
+                      </div>
+                      <div class="productCard__remove"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lk__order-sum">
+                <div class="lk__order-sum-group">
+                  <form action="#" class="form form__promocode">
+                    <div class="form__field">
+                      <div class="form__field-body">
+                        <input type="text" class="form__field-input" placeholder="Промокод или подарочный сертификат">
+                      </div>
+                    </div>
+                    <button class="button form__promocode-submit" type="submit" disabled>
+                      <span class="d-lg-block d-none">Применить</span>
+                      <span class="d-lg-none d-block">Ок</span>
+                    </button>
+                  </form>
+                </div>
+                <div class="lk__order-sum-group">
+                  <div class="lk__order-sum-el">
+                    <span class="lk__order-sum-el-type">Сумма заказа</span>
+                    <span class="lk__order-sum-el-value">660 ₴</span>
+                  </div>
+                  <div class="lk__order-sum-el color-secondary">
+                    <span class="lk__order-sum-el-type">Скидка</span>
+                    <span class="lk__order-sum-el-value">-60 ₴</span>
+                  </div>
+                  <div class="lk__order-sum-el sum">
+                    <span class="lk__order-sum-el-type">Всего к оплате</span>
+                    <span class="lk__order-sum-el-value">660 ₴</span>
+                  </div>
+                  <div class="lk__order-sum-group-buttons">
+                    <a href="#" class="button button--primary">Оформить заказ</a>
+                    <a href="#" class="link2">Продолжить покупки</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="ticker">
+            <span class="ticker__el">Нет парабенов</span>
+            <span class="ticker__el">натуральные компоненты</span>
+            <span class="ticker__el">Нет химии</span>
+            <span class="ticker__el">Современная лаборатория</span>
+            <span class="ticker__el">Современна</span>
+          </div> -->
+          
+  <div class="owl-carousel ticker">
+    <span class="ticker__el">Нет парабенов</span>
+    <span class="ticker__el">натуральные компоненты</span>
+    <span class="ticker__el">Нет химии</span>
+    <span class="ticker__el">Современная лаборатория</span>
+    <span class="ticker__el">Нет парабенов</span>
+    <span class="ticker__el">натуральные компоненты</span>
+    <span class="ticker__el">Нет химии</span>
+    <span class="ticker__el">Современная лаборатория</span>
+  </div>  
+  </section>
+      </div>
+    </main>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4">
+            <a href="#" class="page-footer__logo"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img"></a>
+            <p class="copyright">© 2016 - 2021 Make My - Все права защищены.</p>
+          </div>
+          <div class="col-xl-5 col-lg-8 col-md-7">
+            <nav class="page-footer__menu">
+              <div class="row">
+                <div class="col-lg-6">
+                  <a href="#" class="page-footer__menu-el">Конструктор</a>
+                  <a href="#" class="page-footer__menu-el">Каталог</a>
+                  <a href="#" class="page-footer__menu-el">Компоненты</a>
+                  <a href="#" class="page-footer__menu-el">О нас</a>
+                </div>
+                <div class="col-lg-6">
+                  <a href="#" class="page-footer__menu-el">Доставка и оплата</a>
+                  <a href="#" class="page-footer__menu-el color-primary">MM Club</a>
+                  <a href="#" class="page-footer__menu-el">Акции</a>
+                  <a href="#" class="page-footer__menu-el">Блог</a>
+                  <a href="#" class="page-footer__menu-el">Публичная оферта</a>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-5">
+            <div class="page-footer__menu-info">
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">График работы</div>
+                <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">График работы</div>
+                <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">Соцсети</div>
+                <nav class="page-footer__socials">
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                  </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="libs/jquery.min.js"></script>
+  <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="libs/jquery.mask.min.js"></script>
+  <script src="libs/owl.carousel/owl.carousel.min.js"></script>
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>

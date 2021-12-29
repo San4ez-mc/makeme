@@ -12,6 +12,7 @@ window.onload = function () {
       }
     }
   });
+    $('.ticker').trigger('next.owl.carousel', [3000]);
 };
 $('.productFilters--toggle').on('click', function() {
   $('.productFilters, .productFilters__bg').toggleClass('active');
@@ -114,6 +115,23 @@ if($('.carousel-4els').length) {
     }
   });
 }
+if($('.ticker').length) {
+  $('.ticker').owlCarousel({
+    dots: false,
+    nav:false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    loop: true,
+    autoplaySpeed: 3000,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    freeDrag: false,
+    autoWidth: true,
+    margin: 0
+  });
+}
+
 if($('input.number').length) {
   $('input.number').mask('00000');
 }
@@ -163,3 +181,11 @@ $('.quantityEl__minus').click(function () {
     if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
   }
 });
+
+$('.form__promocode input').on('keyup', function(){
+  if($(this).val().length > 0) {
+    $(this).closest('.form__promocode').find('.button').prop('disabled', null);
+  } else {
+    $(this).closest('.form__promocode').find('.button').prop('disabled', true);
+  }
+})
