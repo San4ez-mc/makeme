@@ -185,7 +185,106 @@ $('.quantityEl__minus').click(function () {
 $('.form__promocode input').on('keyup', function(){
   if($(this).val().length > 0) {
     $(this).closest('.form__promocode').find('.button').prop('disabled', null);
+    
   } else {
     $(this).closest('.form__promocode').find('.button').prop('disabled', true);
   }
+});
+
+$('.select2-city').select2({
+  placeholder: "Начните вводить город",
+  allowClear: true
+});
+$('.select2-postBranch').select2({
+  placeholder: "Введите номер отделения или адрес",
+  allowClear: true
+});
+
+
+$('.form__radio-input').on('change', function() {
+  $('.form__radioEl-body').removeClass('active');
+  $(this).closest('.form__radioEl').siblings('.form__radioEl').removeClass('active');
+  $(this).closest('.form__radioEl').addClass('active').find('.form__radioEl-body').addClass('active');
+  $(this).closest('.checkout__el').find('.checkout__fields-next').prop('disabled', true);
+});
+
+$('.checkout__fields-next').on('click', function(){
+  $(this).closest('.checkout__el').addClass('filled');
+  $(this).closest('.checkout__el').next('.checkout__el').removeClass('empty');
+  if($('.checkout__el.filled').length == 2) {
+    $('.orderButton').prop('disabled', null);
+  }
+});
+$('.stage1 .checkout__fields-next').on('click', function() {
+  $('#checkout__name').text($('#checkout__nameInput').val());
+  $('#checkout__surname').text($('#checkout__surnameInput').val());
+  $('#checkout__tel').text($('#checkout__telInput').val());
+  $('#checkout__email').text($('#checkout__emailInput').val());
+});
+$('.stage2 .checkout__fields-next').on('click', function() {
+  $('#checkout__postBranch').html($(this).closest('.checkout__el').find('.form__radioEl.active .form__radio-body-text').text());
+  $('#checkout__city').html($('.select2-city').val());
+  $('#checkout__postBranchAddress').html($(this).closest('.checkout__el').find('.form__radioEl.active .select2-postBranch').val());
+});
+$('.checkout__edit').on('click', function(){
+  $(this).closest('.checkout__el').removeClass('filled');
+  $('.orderButton').prop('disabled', true);
+});
+
+
+$('.stage1 input').on('keyup', function(){
+  let k = 0;
+  for(let i = 0; i < $('.stage1 input').length; i++) {
+    
+    if($('.stage1 input').eq(i).val()) {
+      k++;
+    }
+    if(k == $('.stage1 input').length) {
+      $(this).closest('.checkout__fields').find('.checkout__fields-next').prop('disabled', null);
+      /*if($('.checkout__el.filled').length == 1) {
+        $('.orderButton').prop('disabled', null);
+      }*/
+    } else {
+      $(this).closest('.checkout__fields').find('.checkout__fields-next').prop('disabled', true);
+      // $('.orderButton').prop('disabled', true);
+    }
+  }
+});
+
+$('.select2-city').on('select2:select', function() {
+  $(this).closest('.checkout__fields').find('.form__radios').addClass('active');
+});
+
+$('.stage2 .select2-city').on('select2:clear', function() {
+  $(this).closest('.checkout__fields').find('.form__radios').removeClass('active');
+  $('.select2-postBranch').val(null).trigger('change');
+  // $('.orderButton').prop('disabled', true);
+});
+
+$('.select2-postBranch').on('select2:select', function() {
+  $(this).closest('.checkout__fields').find('.checkout__fields-next').prop('disabled', null);
+  // if($('.checkout__el.filled').length == 1) {
+  //   $('.orderButton').prop('disabled', null);
+  // }
+});
+
+$('.select2-postBranch').on('select2:clear', function() {
+  $(this).closest('.checkout__fields').find('.checkout__fields-next').prop('disabled', true);
+  // $('.orderButton').prop('disabled', true);
+  /*let k = 0;
+  for(let i = 0; i < $('.select2-postBranch').length; i++) {
+    if($('.stage2 .select2-postBranch').eq(i).val()) {
+      k++;
+    }
+    if(k) {
+      $(this).closest('.checkout__fields').find('.checkout__fields-next').prop('disabled', null);
+    } else {
+      $(this).closest('.checkout__fields').find('.checkout__fields-next').prop('disabled', true);
+    }
+  }*/
+});
+
+$('input[name="deliveryMethod"]').on('change', function(){
+  $('.select2-postBranch').val(null).trigger('change');
+  // $(this).closest('.checkout__fields').find('.checkout__fields-next').prop('disabled', true);
 })
