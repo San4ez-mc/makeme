@@ -12,7 +12,70 @@ window.onload = function () {
       }
     }
   });
-    $('.ticker').trigger('next.owl.carousel', [3000]);
+  $('.ticker').trigger('next.owl.carousel', [3000]);
+  if($('.carousel-3els').length) {
+    $('.carousel-3els').owlCarousel({
+      dots: true,
+      items: 1,
+      navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+      responsive: {
+        0: {
+          items: 1
+        },
+        575: {
+          items: 2,
+          margin: 20
+        },
+        767: {
+          items: 2,
+          nav:false,
+          margin: 20
+        },
+        991: {
+          items: 3,
+          nav:true,
+          margin: 20
+        },
+        1199: {
+          items: 3,
+          nav:true,
+          margin: 40
+        },
+      }
+    });
+  }
+  if($('.carousel-4els').length) {
+    $('.carousel-4els').owlCarousel({
+      dots: true,
+      
+      navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+      responsive: {
+        0: {
+          items: 2,
+          margin: 8
+        },
+        575: {
+          items: 2,
+          margin: 10
+        },
+        767: {
+          items: 2,
+          nav:false,
+          margin: 20
+        },
+        991: {
+          items: 3,
+          nav:true,
+          margin: 20
+        },
+        1199: {
+          items: 4,
+          nav:true,
+          margin: 24
+        },
+      }
+    });
+  }
 };
 $('.productFilters--toggle').on('click', function() {
   $('.productFilters, .productFilters__bg').toggleClass('active');
@@ -53,68 +116,7 @@ if($('#timer').length) {
 $('.menuMobileToggle--js').on('click', function() {
   $('.menuMobile').toggleClass('active');
 });
-if($('.carousel-3els').length) {
-  $('.carousel-3els').owlCarousel({
-    dots: true,
-    
-    navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
-    responsive: {
-      0: {
-        items: 1
-      },
-      575: {
-        items: 2,
-        margin: 20
-      },
-      767: {
-        items: 2,
-        nav:false,
-        margin: 20
-      },
-      991: {
-        items: 3,
-        nav:true,
-        margin: 20
-      },
-      1199: {
-        nav:true,
-        margin: 40
-      },
-    }
-  });
-}
-if($('.carousel-4els').length) {
-  $('.carousel-4els').owlCarousel({
-    dots: true,
-    
-    navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
-    responsive: {
-      0: {
-        items: 2,
-        margin: 8
-      },
-      575: {
-        items: 2,
-        margin: 10
-      },
-      767: {
-        items: 2,
-        nav:false,
-        margin: 20
-      },
-      991: {
-        items: 3,
-        nav:true,
-        margin: 20
-      },
-      1199: {
-        items: 4,
-        nav:true,
-        margin: 24
-      },
-    }
-  });
-}
+
 if($('.ticker').length) {
   $('.ticker').owlCarousel({
     dots: false,
@@ -190,16 +192,18 @@ $('.form__promocode input').on('keyup', function(){
     $(this).closest('.form__promocode').find('.button').prop('disabled', true);
   }
 });
-
-$('.select2-city').select2({
-  placeholder: "Начните вводить город",
-  allowClear: true
-});
-$('.select2-postBranch').select2({
-  placeholder: "Введите номер отделения или адрес",
-  allowClear: true
-});
-
+if($('.select2-city').length) {
+  $('.select2-city').select2({
+    placeholder: "Начните вводить город",
+    allowClear: true
+  });
+}
+if($('.select2-postBranch').length) {
+  $('.select2-postBranch').select2({
+    placeholder: "Введите номер отделения или адрес",
+    allowClear: true
+  });
+}
 
 $('.form__radio-input').on('change', function() {
   $('.form__radioEl-body').removeClass('active');
@@ -287,4 +291,15 @@ $('.select2-postBranch').on('select2:clear', function() {
 $('input[name="deliveryMethod"]').on('change', function(){
   $('.select2-postBranch').val(null).trigger('change');
   // $(this).closest('.checkout__fields').find('.checkout__fields-next').prop('disabled', true);
-})
+});
+
+
+$('.constructorTabs__el').on('click', function(){
+  const el = $(this);
+  if(el.closest('.tab-pane').next('.tab-pane').length) {
+    el.closest('.tab-pane').removeClass('show active').next('.tab-pane').addClass('active show');
+    $('.constructorTabs__nav-el').eq(el.closest('.tab-pane').index()).removeClass('active');
+    $('.constructorTabs__nav-el').eq(el.closest('.tab-pane').index() + 1).attr('data-toggle', 'tab').addClass('active');
+
+  }
+});
