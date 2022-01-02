@@ -6390,12 +6390,6 @@ input[type=number] {
   height: 6px;
 }
 
-@media (max-width: 575px) {
-  .constructorTabs__nav {
-    display: none;
-  }
-}
-
 .constructorTabs__nav-el {
   border-radius: 10px;
   width: calc(100%/3 - 13px);
