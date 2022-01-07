@@ -2,6 +2,16 @@
 /*global window */
 
 window.onload = function () {
+  if($(window).width() > 991) {
+    $('.constructor__menu-list .el__imgContainer').addClass('el__add');
+  }
+  $(window).on('resize', function(){
+    if($(window).width() > 991) {
+      $('.constructor__menu-list .el__imgContainer').addClass('el__add');
+    } else {
+      $('.constructor__menu-list .el__imgContainer').removeClass('el__add');
+    }
+  });
   $(window).on('scroll', function() {
     if($('.parallaxBalls').length) {
       if($('.parallaxBalls').offset().top < $(window).scrollTop() + $(window).height()) {
@@ -302,4 +312,53 @@ $('.constructorTabs__el').on('click', function(){
     $('.constructorTabs__nav-el').eq(el.closest('.tab-pane').index() + 1).attr('data-toggle', 'tab').addClass('active');
 
   }
+});
+
+$('.constructor__menu-list').on('click', '.el__add', function(){
+  if($('.constructor__menu .el.active').length < 4) {
+    $('.constructor__product-body').addClass('active');
+    $(this).closest('.el').addClass('active');
+    const id = $(this).closest('.el').attr('id');
+    const img = $(this).closest('.el').find('.el__img').attr('src');
+    const name = $(this).closest('.el').find('.el__title').text();
+    const price = $(this).closest('.el').find('.el__tooltip-footer-price').text();
+    $('.constructor__components .constructor__collapse-body').append(`
+    <div class="constructor__components-el" data-id="${id}">
+      <span class="constructor__components-el-imgContainer">
+        <img src="${img}" alt="#" class="constructor__components-el-img">
+      </span>
+      <span class="constructor__components-el-body">
+        <span class="constructor__components-el-name">${name}</span>
+        <span class="constructor__components-el-value">${price}</span>
+      </span>
+      <span class="constructor__components-el-remove"></span>
+    </div>
+    `);
+
+    $('.constructor__product-body').append(`
+    <div class="constructor__product-el" data-id="${id}">
+      <span class="constructor__product-el-imgContainer">
+        <img src="${img}" alt="#" class="constructor__product-el-img">
+      </span>
+      <span class="constructor__product-el-name">${name}</span>
+    </div>
+    `);
+  }
+});
+
+$('.constructor__components').on('click', '.constructor__components-el-remove', function(){ 
+  if($('.constructor__menu .el.active').length == 1) {
+    $('.constructor__product-body').removeClass('active');
+  }
+  for(let i = 0; i < $('.constructor__menu .el').length; i++) {
+    if($(this).closest('.constructor__components-el').data('id') == $('.constructor__menu .el').eq(i).attr('id')) {
+      $('.constructor__menu .el').eq(i).removeClass('active');
+    }
+  }
+  for(let i = 0; i < $('.constructor__product-el').length; i++) {
+    if($(this).closest('.constructor__components-el').data('id') == $('.constructor__product-el').eq(i).data('id')) {
+      $('.constructor__product-el').eq(i).remove();
+    }
+  }
+  $(this).closest('.constructor__components-el').remove();
 });

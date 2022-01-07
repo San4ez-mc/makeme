@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+   <link rel="stylesheet" href="libs/fontawesome/css/all.css">
+   <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  
+  <div class="container">
+    <a href="#modalLogin" data-toggle="modal" class="button button--primary">Вход</a>
+    <a href="#modalReg" data-toggle="modal" class="button button--primary">Регистрация</a>
+    <a href="#modalBasket" data-toggle="modal" class="button button--primary">Корзина</a>
+    <a href="#modalBasketEmpty" data-toggle="modal" class="button button--primary">Пустая корзина</a>
+
+    <div class="modal fade modalLogin" id="modalLogin">
+      <div class="modal-dialog">
+        <form action="#" class="modal-content">
+          <span data-dismiss="modal" class="modal__close"></span>
+          <div class="modalLogin__body">
+            <div class="modalLogin__body-col">
+              <h3 class="section__title">Вход в личный кабинет</h3>
+              <p class="modalLogin__anotherWay d-lg-none d-block">
+                Нет аккаунта?
+                <a href="#" class="modalLogin__anotherWay-link">Регистрация</a>
+              </p>
+              <div class="form__field">
+                <label class="form__label">Email</label>
+                <div class="form__field-body">
+                  <input type="email" class="form__field-input" name="emailInput">
+                </div>
+              </div>
+              <div class="form__field">
+                <label class="form__label">Пароль</label>
+                <div class="form__field-body">
+                  <input type="password" class="form__field-input form__field-input--password" name="passowordInput1">
+                  <span class="form__field-passwordShow"></span>
+                </div>
+              </div>
+              <div class="modalLogin__nav">
+                <div class="modalLogin__nav-main">
+                  <button class="button button--primary button--small" type="button">Войти</button>
+                  <button class="link2" type="button">Забыли пароль?</button>
+                </div>
+                <span class="modalLogin__nav-or">Или</span>
+                <div class="modalLogin__nav-socials">
+                  <a href="#" class="modalLogin__nav-socials-el modalLogin__nav-socials-el--fb">Продолжить с <i class="fab fa-facebook"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="modalLogin__body-col d-lg-block d-none">
+              <h3 class="section__title">Нет аккаунта?</h3>
+              <p class="text--simple font-weight-bold mb-3">У нас много преймуществ</p>
+              <ul class="modalLogin__list">
+                <li class="modalLogin__list-el">Ты первой узнаешь о новостях и акциях</li>
+                <li class="modalLogin__list-el">Постоянные бонусы</li>
+                <li class="modalLogin__list-el">История заказов в личном кабинете</li>
+                <li class="modalLogin__list-el">Возможность получать бонусы за свои средства</li>
+              </ul>
+              <a href="#" class="button button--stroke">Зарегистрироваться</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal fade modalLogin modalReg" id="modalReg">
+      <div class="modal-dialog">
+        <form action="#" class="modal-content">
+          <span data-dismiss="modal" class="modal__close"></span>
+          <div class="modalLogin__body">
+            <div class="modalLogin__body-col border-0">
+              <h3 class="section__title">Регистрация</h3>
+              <p class="modalLogin__anotherWay text-left">
+                Уже есть аккаунт?
+                <a href="#" class="modalLogin__anotherWay-link">Войти</a>
+              </p>
+              <div class="form__field">
+                <label class="form__label">Ваше имя</label>
+                <div class="form__field-body">
+                  <input type="text" class="form__field-input" name="nameInput">
+                </div>
+              </div>
+              <div class="form__field">
+                <label class="form__label">Email</label>
+                <div class="form__field-body">
+                  <input type="email" class="form__field-input" name="emailInput">
+                </div>
+              </div>
+              <div class="form__field">
+                <label class="form__label">Пароль</label>
+                <div class="form__field-body">
+                  <input type="password" class="form__field-input form__field-input--password" name="passowordInput1">
+                  <!-- <span class="form__field-passwordShow"></span> -->
+                </div>
+              </div>
+              <div class="form__field">
+                <label class="form__label">Продублируйте пароль</label>
+                <div class="form__field-body">
+                  <input type="password" class="form__field-input form__field-input--password" name="passowordInput2">
+                  <!-- <span class="form__field-passwordShow"></span> -->
+                </div>
+              </div>
+              <div class="modalLogin__nav">
+                <button class="button button--primary button--small" type="button">Зарегистрироваться</button>
+                <span class="modalLogin__nav-text">Нажимая кнопку «Зарегистрироваться», <br> я принимаю условия <a href="#">Пользовательского соглашения</a></span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal fade modalBasket" id="modalBasket">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <span data-dismiss="modal" class="modal__close"></span>
+          <h3 class="section__subtitle ">В корзине 2 товара</h3>
+          <div class="basket basket--aside pt-0">
+            <div class="lk__order-products">
+              <div class="lk__order-product">
+                <div class="lk__recipes-product-main">
+                  <div class="lk__recipes-product-imgContainer">
+                    <img src="img/shampoo.png" alt="#" class="lk__recipes-product-img">
+                  </div>
+                  <div class="lk__recipes-product-main-body">
+                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                  </div>
+                </div>
+                <div class="lk__order-additionalEls">
+                  <div class="quantityEl">
+                    <button type="button" class="quantityEl__minus">-</button>
+                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input" maxlength="3">
+                    <button type="button" class="quantityEl__plus">+</button>
+                  </div>
+                  <div class="lk__order-price">237₴</div>
+                  <div class="productCard__remove"></div>
+                </div>
+              </div>
+              <div class="lk__order-product">
+                <div class="lk__recipes-product-main">
+                  <div class="lk__recipes-product-imgContainer">
+                    <img src="img/shampoo.png" alt="#" class="lk__recipes-product-img">
+                  </div>
+                  <div class="lk__recipes-product-main-body">
+                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                  </div>
+                </div>
+                <div class="lk__order-additionalEls">
+                  <div class="quantityEl">
+                    <button type="button" class="quantityEl__minus">-</button>
+                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input" maxlength="3">
+                    <button type="button" class="quantityEl__plus">+</button>
+                  </div>
+                  <div class="lk__order-price">237₴</div>
+                  <div class="productCard__remove"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lk__order-sum-el sum">
+            <span class="lk__order-sum-el-type">Общая стоимость:</span>
+            <span class="lk__order-sum-el-value">660 ₴</span>
+          </div>
+          <button class="button button--primary button--small" type="button">перейти В козину</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade modalBasketEmpty" id="modalBasketEmpty">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <span data-dismiss="modal" class="modal__close"></span>
+          <h3 class="section__subtitle"><span class="color-primary">Упс!</span> В твоей корзине пусто :( </h3>
+          <p class="text--simple">Воспользуйся <a href="#" class="color-primary">Готовыми решениями</a> <br>или a <a href="#" class="color-primary"> Создай свое уникальное средство</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="libs/jquery.min.js"></script>
+  <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="libs/jquery.mask.min.js"></script>
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>
