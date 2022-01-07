@@ -3,7 +3,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Home</title>
+   <title>Constructor 2</title>
    <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
    <link rel="stylesheet" href="libs/owl.carousel/owl.carousel.min.css">
    <link rel="stylesheet" href="libs/fontawesome/css/all.css">
@@ -11,6 +11,13 @@
 </head>
 <body>
   <div class="page-wrapper">
+    <div class="preloader">
+      <div class="preloader__bubbles"></div>
+      <img src="img/icons/logoBig.svg" alt="#" class="preloader__logo">
+    </div>
+    
+    
+    
     <header class="page-header">
       <div class="container">
         <nav class="page-header__toggle menuMobileToggle--js">
@@ -85,9 +92,23 @@
     </div>
     <main class="page-content">
       <div class="container">
+        <nav class="page-breadcrumbs">
+          <div class="page-breadcrumbs__desktop">
+            <a href="#" class="page-breadcrumbs__el">Главная</a>
+            <a href="#" class="page-breadcrumbs__el">Главная</a>
+            <a href="#" class="page-breadcrumbs__el">Главная</a>
+            <a href="#" class="page-breadcrumbs__el">Конструктор</a>
+          </div>
+          <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
         <div class="constructor">
-          <div class="constructor__menu">
-            <div class="constructor__menu-header">
+          <div class="constructor__menu-header d-md-none d-block">
+            <div class="constructor__menu-title">Крем</div>
+            <div class="constructor__menu-forWho">для сухой, возрастной кожи</div>
+            <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы приготовим крем по твоей формуле.</p>
+          </div>
+          <div class="accordion constructor__menu" id="constructor__menu-accordion">
+            <div class="constructor__menu-header d-md-block d-none">
               <div class="constructor__menu-title">Крем</div>
               <div class="constructor__menu-forWho">для сухой, возрастной кожи</div>
               <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы приготовим крем по твоей формуле.</p>
@@ -101,7 +122,7 @@
             </div>
             <div class="constructor__collapse">
               <div class="constructor__collapse-toggle" data-toggle="collapse" href="#constructor__components1" aria-expanded="true">Экстракты</div>
-              <div class="collapse show" id="constructor__components1">
+              <div class="collapse show" id="constructor__components1" data-parent="#constructor__menu-accordion">
                 <div class="constructor__collapse-body">
                   <div class="constructor__menu-list">
                     <div class="el" id="el1">
@@ -135,7 +156,7 @@
                     <div class="el" id="el2">
                       <div class="el__stock">-10%</div>
                       <div class="el__imgContainer">
-                        <img src="img/constructor/el1.png" alt="#" class="el__img">
+                        <img src="img/constructor/el2.png" alt="#" class="el__img">
                       </div>
                       <div class="el__tooltip">
                         <div class="el__title">Экстракт ментола</div>
@@ -163,7 +184,7 @@
                     </div>
                     <div class="el" id="el3">
                       <div class="el__imgContainer">
-                        <img src="img/constructor/el1.png" alt="#" class="el__img">
+                        <img src="img/constructor/el3.png" alt="#" class="el__img">
                       </div>
                       <div class="el__tooltip">
                         <div class="el__title">Экстракт ментола</div>
@@ -191,7 +212,7 @@
                     </div>
                     <div class="el" id="el4">
                       <div class="el__imgContainer">
-                        <img src="img/constructor/el1.png" alt="#" class="el__img">
+                        <img src="img/constructor/el4.png" alt="#" class="el__img">
                       </div>
                       <div class="el__tooltip">
                         <div class="el__title">Экстракт ментола</div>
@@ -219,7 +240,7 @@
                     </div>
                     <div class="el" id="el5">
                       <div class="el__imgContainer">
-                        <img src="img/constructor/el1.png" alt="#" class="el__img">
+                        <img src="img/constructor/el5.png" alt="#" class="el__img">
                       </div>
                       <div class="el__tooltip">
                         <div class="el__title">Экстракт ментола</div>
@@ -247,7 +268,7 @@
                     </div>
                     <div class="el" id="el6">
                       <div class="el__imgContainer">
-                        <img src="img/constructor/el1.png" alt="#" class="el__img">
+                        <img src="img/constructor/el6.png" alt="#" class="el__img">
                       </div>
                       <div class="el__tooltip">
                         <div class="el__title">Экстракт ментола</div>
@@ -275,7 +296,7 @@
                     </div>
                     <div class="el" id="el7">
                       <div class="el__imgContainer">
-                        <img src="img/constructor/el1.png" alt="#" class="el__img">
+                        <img src="img/constructor/el7.png" alt="#" class="el__img">
                       </div>
                       <div class="el__tooltip">
                         <div class="el__title">Экстракт ментола</div>
@@ -303,7 +324,7 @@
                     </div>
                     <div class="el" id="el8">
                       <div class="el__imgContainer">
-                        <img src="img/constructor/el1.png" alt="#" class="el__img">
+                        <img src="img/constructor/el8.png" alt="#" class="el__img">
                       </div>
                       <div class="el__tooltip">
                         <div class="el__title">Экстракт ментола</div>
@@ -331,7 +352,7 @@
                     </div>
                     <div class="el" id="el9">
                       <div class="el__imgContainer">
-                        <img src="img/constructor/el1.png" alt="#" class="el__img">
+                        <img src="img/constructor/el9.png" alt="#" class="el__img">
                       </div>
                       <div class="el__tooltip">
                         <div class="el__title">Экстракт ментола</div>
@@ -475,7 +496,7 @@
             </div>
             <div class="constructor__collapse">
               <div class="constructor__collapse-toggle" data-toggle="collapse" href="#constructor__components2" aria-expanded="false">Эфирные масла</div>
-              <div class="collapse" id="constructor__components2">
+              <div class="collapse" id="constructor__components2" data-parent="#constructor__menu-accordion">
                 <div class="constructor__collapse-body">
                   <div class="constructor__menu-list">
                     <div class="el" id="el14">
@@ -737,7 +758,7 @@
             </div>
             <div class="constructor__collapse">
               <div class="constructor__collapse-toggle" data-toggle="collapse" href="#constructor__components3" aria-expanded="false">Масла</div>
-              <div class="collapse" id="constructor__components3">
+              <div class="collapse" id="constructor__components3" data-parent="#constructor__menu-accordion">
                 <div class="constructor__collapse-body">
                   <div class="constructor__menu-list">
                     <div class="el" id="el23">
@@ -999,7 +1020,7 @@
             </div>
             <div class="constructor__collapse">
               <div class="constructor__collapse-toggle" data-toggle="collapse" href="#constructor__components4" aria-expanded="false">Скрабы</div>
-              <div class="collapse" id="constructor__components4">
+              <div class="collapse" id="constructor__components4" data-parent="#constructor__menu-accordion">
                 <div class="constructor__collapse-body">
                   <div class="constructor__menu-list">
                     <div class="el" id="el32">
@@ -1261,7 +1282,7 @@
             </div>
             <div class="constructor__collapse">
               <div class="constructor__collapse-toggle" data-toggle="collapse" href="#constructor__components5" aria-expanded="false">Другое</div>
-              <div class="collapse" id="constructor__components5">
+              <div class="collapse" id="constructor__components5" data-parent="#constructor__menu-accordion">
                 <div class="constructor__collapse-body">
                   <div class="constructor__menu-list">
                     <div class="el" id="el41">
@@ -1535,12 +1556,18 @@
             <div class="constructor__components-footer">
               <div class="constructor__components-sum">
                 <span class="constructor__components-sum-type">Всего к оплате</span>
+                <span class="constructor__components-sum-quantity">(3)</span>
                 <span class="constructor__components-sum-value">420 ₴</span>
               </div>
-              <a href="#" class="button button--primary button--small">Дальше</a>
+              <div class="button button--primary button--small constructorResults">Дальше</div>
+            </div>
+            <div class="toDown">
+              <p class="toDown__text">Этот состав уже хорош, но вы можете улучшить его добавив компоненты</p>
+              <a href="#constructor__menu-accordion" class="scrollto toDown__button"><img src="img/constructor/toDown.svg" alt="#" class="toDown__button-img"></a>
             </div>
           </div>
           <div class="constructor__components">
+            <div class="color-primary backToComponents">Вернуться к выбору компонентов</div>
             <div class="constructor__collapse">
               <div class="constructor__collapse-toggle" data-toggle="collapse" href="#constructor__components" aria-expanded="true">Компоненты</div>
               <div class="collapse show" id="constructor__components">
@@ -1556,13 +1583,13 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="constructor__components-footer">
-              <div class="constructor__components-sum">
-                <span class="constructor__components-sum-type">Всего к оплате</span>
-                <span class="constructor__components-sum-value">420 ₴</span>
+              <div class="constructor__components-footer">
+                <div class="constructor__components-sum">
+                  <span class="constructor__components-sum-type">Всего к оплате</span>
+                  <span class="constructor__components-sum-value">420 ₴</span>
+                </div>
+                <a href="#modalProductNaming" class="button button--primary button--small" data-toggle="modal">Создать средство</a>
               </div>
-              <a href="#" class="button button--primary button--small">Создать средство</a>
             </div>
           </div>
         </div>
@@ -1623,6 +1650,32 @@
         </div>
       </div>
     </footer>
+  </div>
+  <div class="modal fade modalProductNaming" id="modalProductNaming">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <span data-dismiss="modal"  class="modal__close"></span>
+        <div class="section__title">Супер!</div>
+        <p class="text--grey">Мы уже начинаем подготовку к приготовлению твоего средства, осталось только назвать его так как ты хочешь! А мы приготовим и нанесем твое название на баночку :) </p>
+        <form action="#" class="form">
+          <div class="form__field">
+            <div class="form__field-body">
+              <input type="text" class="form__field-input" placeholder="">
+            </div>
+            <p class="text--grey">*от 1 до 15 знаков</p>
+          </div>
+          <button class="button button--primary button--small w-100 delayedLinkToBasket" data-dismiss="modal" disabled data-toggle="modal" data-target="#animateBottle">Создать</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade animateBottle" id="animateBottle">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <img src="img/constructor/bottleActive.png" class="animateBottle__img" alt="#">
+        
+      </div>
+    </div>
   </div>
   <script src="libs/jquery.min.js"></script>
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
