@@ -5,7 +5,7 @@
 
 
 
-<header class="page-header">
+<header class="page-header" itemscope itemtype="https://schema.org/WPHeader">
   <div class="container">
     <nav class="page-header__toggle menuMobileToggle--js">
       <span></span>
@@ -15,13 +15,27 @@
     <a href="#" class="page-header__logo">
       <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
     </a>
-    <nav class="page-header__menu">
-      <a class="page-header__menu-el" href="#">Конструктор</a>
-      <a class="page-header__menu-el" href="#">Каталог</a>
-      <a class="page-header__menu-el" href="#">Компоненты</a>
-      <a class="page-header__menu-el" href="#">О нас</a>
-      <a class="page-header__menu-el color-primary" href="#">MM Club</a>
-      <a class="page-header__menu-el" href="#">Акции</a>
+    <nav class="page-header__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
+      <ul class="page-header__menu-list">
+        <li itemprop="name" class="page-header__menu-list-el">
+          <a itemprop="url" class="page-header__menu-el" href="#">Конструктор</a>
+        </li>
+        <li itemprop="name" class="page-header__menu-list-el">
+          <a itemprop="url" class="page-header__menu-el" href="#">Каталог</a>
+        </li>
+        <li itemprop="name" class="page-header__menu-list-el">
+          <a itemprop="url" class="page-header__menu-el" href="#">Компоненты</a>
+        </li>
+        <li itemprop="name" class="page-header__menu-list-el">
+          <a itemprop="url" class="page-header__menu-el" href="#">О нас</a>
+        </li>
+        <li itemprop="name" class="page-header__menu-list-el">
+          <a itemprop="url" class="page-header__menu-el color-primary" href="#">MM Club</a>
+        </li>
+        <li itemprop="name" class="page-header__menu-list-el">  
+          <a itemprop="url" class="page-header__menu-el" href="#">Акции</a>
+        </li>
+      </ul>
     </nav>
     <nav class="page-header__buttons">
       <a href="#" class="page-header__buttons-el page-header__buttons-el--user"></a>
@@ -39,17 +53,19 @@
     <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
     <span class="menuMobile__toggle menuMobileToggle--js"></span>
   </div>
-  <nav class="menuMobile__body">
+  <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
     <div class="menuMobile__menu">
-      <a href="#" class="menuMobile__menu-el">Конструктор</a>
-      <a href="#" class="menuMobile__menu-el">Каталог</a>
-      <a href="#" class="menuMobile__menu-el">Компоненты</a>
-      <a href="#" class="menuMobile__menu-el">О нас</a>
-      <a href="#" class="menuMobile__menu-el color-primary">MM Club</a>
-      <a href="#" class="menuMobile__menu-el">Акции</a>
-      <a href="#" class="menuMobile__menu-el">Доставка и оплата</a>
-      <a href="#" class="menuMobile__menu-el">Блог</a>
-      <a href="#" class="menuMobile__menu-el">Публичная оферта</a>
+      <ul class="menuMobile__menu-list">
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Конструктор</a></li>
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Каталог</a></li>
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Компоненты</a></li>
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">О нас</a></li>
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el color-primary">MM Club</a></li>
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Акции</a></li>
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Доставка и оплата</a></li>
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Блог</a></li>
+        <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Публичная оферта</a></li>
+      </ul>
     </div>
     <div class="page-footer__menu-info">
       <div class="page-footer__menu-info-el">

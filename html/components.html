@@ -18,7 +18,7 @@
     
     
     
-    <header class="page-header">
+    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader">
       <div class="container">
         <nav class="page-header__toggle menuMobileToggle--js">
           <span></span>
@@ -28,13 +28,27 @@
         <a href="#" class="page-header__logo">
           <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
         </a>
-        <nav class="page-header__menu">
-          <a class="page-header__menu-el" href="#">Конструктор</a>
-          <a class="page-header__menu-el" href="#">Каталог</a>
-          <a class="page-header__menu-el" href="#">Компоненты</a>
-          <a class="page-header__menu-el" href="#">О нас</a>
-          <a class="page-header__menu-el color-primary" href="#">MM Club</a>
-          <a class="page-header__menu-el" href="#">Акции</a>
+        <nav class="page-header__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
+          <ul class="page-header__menu-list">
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el" href="#">Конструктор</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el" href="#">Каталог</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el" href="#">Компоненты</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el" href="#">О нас</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el color-primary" href="#">MM Club</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">  
+              <a itemprop="url" class="page-header__menu-el" href="#">Акции</a>
+            </li>
+          </ul>
         </nav>
         <nav class="page-header__buttons">
           <a href="#" class="page-header__buttons-el page-header__buttons-el--user"></a>
@@ -52,17 +66,19 @@
         <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
-      <nav class="menuMobile__body">
+      <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
         <div class="menuMobile__menu">
-          <a href="#" class="menuMobile__menu-el">Конструктор</a>
-          <a href="#" class="menuMobile__menu-el">Каталог</a>
-          <a href="#" class="menuMobile__menu-el">Компоненты</a>
-          <a href="#" class="menuMobile__menu-el">О нас</a>
-          <a href="#" class="menuMobile__menu-el color-primary">MM Club</a>
-          <a href="#" class="menuMobile__menu-el">Акции</a>
-          <a href="#" class="menuMobile__menu-el">Доставка и оплата</a>
-          <a href="#" class="menuMobile__menu-el">Блог</a>
-          <a href="#" class="menuMobile__menu-el">Публичная оферта</a>
+          <ul class="menuMobile__menu-list">
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Конструктор</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Каталог</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Компоненты</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">О нас</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el color-primary">MM Club</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Акции</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Доставка и оплата</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Блог</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Публичная оферта</a></li>
+          </ul>
         </div>
         <div class="page-footer__menu-info">
           <div class="page-footer__menu-info-el">
@@ -93,65 +109,84 @@
     <main class="page-content">
       <div class="container">
         <nav class="page-breadcrumbs">
-          <div class="page-breadcrumbs__desktop">
-            <a href="#" class="page-breadcrumbs__el">Главная</a>
-            <a href="#" class="page-breadcrumbs__el">Компоненты</a>
-            <a href="#" class="page-breadcrumbs__el">Экстракт лаванды</a>
-          </div>
+          <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                <span itemprop="name">Главная</span>
+                <meta itemprop="position" content="1">
+              </a>
+            </li>
+            <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                <span itemprop="name">Компоненты</span>
+                <meta itemprop="position" content="2">
+              </a>
+            </li>
+            <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                <span itemprop="name">Экстракт лаванды</span>
+                <meta itemprop="position" content="3">
+              </a>
+            </li>
+          </ul>
           <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
-
-        <section class="section component" itemscope itemtype="https://schema.org/Product">
-          <h1 class="section__title" itemprop="name">Экстракт лаванды</h1>
+        <section itemscope itemtype="https://schema.org/Product" class="section component">
+          <h1 itemprop="name" class="section__title">Экстракт лаванды</h1>
           <div class="row">
             <div class="col-xl-3 col-lg-4">
               <figure class="component__card">
                 <div class="component__card-imgContainer">
-                  <img src="img/component1.png" alt="Лаванда" class="component__card-img" itemprop="image">
+                  <img itemprop="image" src="img/component1.png" alt="Лаванда" class="component__card-img">
                 </div>
                 <figcaption class="component__card-desc">
                   <ul class="component__card-info">
                     <li class="component__card-info-el">
                       <span class="component__card-info-el-title">Наименование:</span>
-                      <span class="component__card-info-el-value" itemprop="alternateName">Лаванда</span>
+                      <span itemprop="alternateName" class="component__card-info-el-value">Лаванда</span>
                     </li>
                     <li class="component__card-info-el">
                       <span class="component__card-info-el-title">Тип:</span>
-                      <span class="component__card-info-el-value" itemprop="category">Эфирные масла</span>
+                      <span itemprop="category" class="component__card-info-el-value">Эфирные масла</span>
                     </li>
                     <li class="component__card-info-el">
                       <span class="component__card-info-el-title">Международная номенклатура:</span>
-                      <span class="component__card-info-el-value" itemprop="alternateName">(INCI)Lavender Oil (Lavandula angustifolia)</span>
+                      <span itemprop="alternateName" class="component__card-info-el-value">(INCI)Lavender Oil (Lavandula angustifolia)</span>
                     </li>
                   </ul>
                 </figcaption>
               </figure>
               
             </div>
-            <div class="col-xl-9 col-lg-8">
-              <article class="component__about" itemprop="description">
+            <div itemprop="description" class="col-xl-9 col-lg-8">
+              <article itemscope itemtype="https://schema.org/Article" class="component__about">
                 <div class="component__about-el">
-                  <p class="component__about-el-text">"Lavandula angustifolia". Универсальное масло для всех типов кожи. Помогает при куперозе, восстанавливает рельеф кожи и необходимый уровень увлажненности, освобождает от токсинов, стимулирует рост новых клеток, оказывает освежающее и регенерирующее действие.</p>
+                  <p itemprop="articleBody" class="component__about-el-text">"Lavandula angustifolia". Универсальное масло для всех типов кожи. Помогает при куперозе, восстанавливает рельеф кожи и необходимый уровень увлажненности, освобождает от токсинов, стимулирует рост новых клеток, оказывает освежающее и регенерирующее действие.</p>
                 </div>
                 <div class="component__about-el">
-                  <img src="img/icons/components1.svg" alt="#" class="component__about-el-icon">
-                  <h3 class="section__subtitle">Чем полезен для лица</h3>
-                  <p class="component__about-el-text">Эфирное масло из настоящей лаванды может использоваться при уходе за любым типом кожи. Она является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны, восстанавливает кожу, избавляет от после угревых шрамов. Эфирное масло из настоящей лаванды очищает, стимулирует и освобождает кожу от токсинов. Обладает прекрасными антисептическими действиями, уменьшает воспаления, стимулирует рост новых клеток, оказывает освежающее действие.</p>
+                  <img itemprop="image" src="img/icons/components1.svg" alt="#" class="component__about-el-icon">
+                  <h3 itemprop="headline" class="section__subtitle">Чем полезен для лица</h3>
+                  <p itemprop="articleBody" class="component__about-el-text">Эфирное масло из настоящей лаванды может использоваться при уходе за любым типом кожи. Она является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны, восстанавливает кожу, избавляет от после угревых шрамов. Эфирное масло из настоящей лаванды очищает, стимулирует и освобождает кожу от токсинов. Обладает прекрасными антисептическими действиями, уменьшает воспаления, стимулирует рост новых клеток, оказывает освежающее действие.</p>
                 </div>
                 <div class="component__about-el">
-                  <img src="img/icons/components2.svg" alt="#" class="component__about-el-icon">
-                  <h3 class="section__subtitle">Чем полезен для тела</h3>
-                  <p class="component__about-el-text">Его широко используют в медицине при лечении ожогов, в том числе и солнечных, при растяжении связок и мышц, для устранения раздражений и воспалений на коже, герпесе и укусах насекомых. Восстанавливает рельеф кожи, заживляет мелкие трещинки, является антиоксидантом, симулирует рост новых клеток, оказывает освежающее и регенерирующее действие, повышает упругость и эластичность кожи.</p>
+                  <img itemprop="image" src="img/icons/components2.svg" alt="#" class="component__about-el-icon">
+                  <h3 itemprop="headline" class="section__subtitle">Чем полезен для тела</h3>
+                  <p itemprop="articleBody" class="component__about-el-text">Его широко используют в медицине при лечении ожогов, в том числе и солнечных, при растяжении связок и мышц, для устранения раздражений и воспалений на коже, герпесе и укусах насекомых. Восстанавливает рельеф кожи, заживляет мелкие трещинки, является антиоксидантом, симулирует рост новых клеток, оказывает освежающее и регенерирующее действие, повышает упругость и эластичность кожи.</p>
                 </div>
                 <div class="component__about-el">
-                  <img src="img/icons/components3.svg" alt="#" class="component__about-el-icon">
-                  <h3 class="section__subtitle">Чем полезен для волос</h3>
-                  <p class="component__about-el-text">Универсальное масло для всех типов волос. Помогает решить вопросы перхоти и себореи. Восстанавливает ослабленные волосы. Применяется при чрезмерной ломкости волос. Питает кожу головы при склонности к излишнему выпадению волос.</p>
+                  <img itemprop="image" src="img/icons/components3.svg" alt="#" class="component__about-el-icon">
+                  <h3 itemprop="headline" class="section__subtitle">Чем полезен для волос</h3>
+                  <p itemprop="articleBody" class="component__about-el-text">Универсальное масло для всех типов волос. Помогает решить вопросы перхоти и себореи. Восстанавливает ослабленные волосы. Применяется при чрезмерной ломкости волос. Питает кожу головы при склонности к излишнему выпадению волос.</p>
                 </div>
+                <span itemprop="author" class="d-none">Author</span>
               </article>
             </div>
           </div>
-
+          <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="d-none">
+            <span itemprop="priceCurrency" content="UAH"></span>
+            <span itemprop="price" content="0">0</span>
+            <link itemprop="availability" href="https://schema.org/InStock" />
+          </div>
         </section>
 
         <section class="section">
@@ -160,17 +195,17 @@
             <a href="#" class="showMore">Смотреть больше</a>
           </div>
           <div class="owl-carousel carousel-3els">
-            <div class="blogItem">
+            <div class="blogItem" itemscope itemtype="https://schema.org/Product">
               <a class="blogItem__imgContainer" href="#">
-                <img src="img/blog1.jpg" alt="#" class="blogItem__img">
+                <img itemprop="image" src="img/blog1.jpg" alt="#" class="blogItem__img">
               </a>
               <div class="blogItem__desc">
                 <div class="blogItem__desc-header">
-                  <span class="blogItem__type blogItem__type--news">Новости</span>
-                  <span class="blogItem__date">26 апреля 2021</span>
+                  <span itemprop="category" class="blogItem__type blogItem__type--news">Новости</span>
+                  <time itemprop="releaseDate" class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>
                 </div>
-                <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
-                <div class="blogItem__stats">
+                <p class="blogItem__text" itemprop="name description"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
+                <div  class="blogItem__stats">
                   <div class="like">
                     <label class="like__button">
                       <input type="checkbox" class="like__input">
@@ -181,18 +216,23 @@
                   <a href="#" class="blogItem__comments">0</a>
                 </div>
               </div>
+              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="d-none">
+                <span itemprop="priceCurrency" content="UAH"></span>
+                <span itemprop="price" content="0">0</span>
+                <link itemprop="availability" href="https://schema.org/InStock" />
+              </div>
             </div>
-            <div class="blogItem">
+            <div class="blogItem" itemscope itemtype="https://schema.org/Product">
               <a class="blogItem__imgContainer" href="#">
-                <img src="img/blog1.jpg" alt="#" class="blogItem__img">
+                <img itemprop="image" src="img/blog1.jpg" alt="#" class="blogItem__img">
               </a>
               <div class="blogItem__desc">
                 <div class="blogItem__desc-header">
-                  <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
-                  <span class="blogItem__date">26 апреля 2021</span>
+                  <span itemprop="category" class="blogItem__type blogItem__type--recipes">Рецепты</span>
+                  <time itemprop="releaseDate" class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>
                 </div>
-                <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
-                <div class="blogItem__stats">
+                <p class="blogItem__text" itemprop="name description"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
+                <div  class="blogItem__stats">
                   <div class="like">
                     <label class="like__button">
                       <input type="checkbox" class="like__input">
@@ -203,18 +243,23 @@
                   <a href="#" class="blogItem__comments">0</a>
                 </div>
               </div>
+              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="d-none">
+                <span itemprop="priceCurrency" content="UAH"></span>
+                <span itemprop="price" content="0">0</span>
+                <link itemprop="availability" href="https://schema.org/InStock" />
+              </div>
             </div>
-            <div class="blogItem">
+            <div class="blogItem" itemscope itemtype="https://schema.org/Product">
               <a class="blogItem__imgContainer" href="#">
-                <img src="img/blog1.jpg" alt="#" class="blogItem__img">
+                <img itemprop="image" src="img/blog1.jpg" alt="#" class="blogItem__img">
               </a>
               <div class="blogItem__desc">
                 <div class="blogItem__desc-header">
-                  <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
-                  <span class="blogItem__date">26 апреля 2021</span>
+                  <span itemprop="category" class="blogItem__type blogItem__type--recipes">Рецепты</span>
+                  <time itemprop="releaseDate" class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>
                 </div>
-                <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
-                <div class="blogItem__stats">
+                <p class="blogItem__text" itemprop="name description"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
+                <div  class="blogItem__stats">
                   <div class="like">
                     <label class="like__button">
                       <input type="checkbox" class="like__input">
@@ -225,18 +270,23 @@
                   <a href="#" class="blogItem__comments">0</a>
                 </div>
               </div>
+              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="d-none">
+                <span itemprop="priceCurrency" content="UAH"></span>
+                <span itemprop="price" content="0">0</span>
+                <link itemprop="availability" href="https://schema.org/InStock" />
+              </div>
             </div>
-            <div class="blogItem">
+            <div class="blogItem" itemscope itemtype="https://schema.org/Product">
               <a class="blogItem__imgContainer" href="#">
-                <img src="img/blog1.jpg" alt="#" class="blogItem__img">
+                <img itemprop="image" src="img/blog1.jpg" alt="#" class="blogItem__img">
               </a>
               <div class="blogItem__desc">
                 <div class="blogItem__desc-header">
-                  <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
-                  <span class="blogItem__date">26 апреля 2021</span>
+                  <span itemprop="category" class="blogItem__type blogItem__type--recipes">Рецепты</span>
+                  <time itemprop="releaseDate" class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>
                 </div>
-                <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
-                <div class="blogItem__stats">
+                <p class="blogItem__text" itemprop="name description"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
+                <div  class="blogItem__stats">
                   <div class="like">
                     <label class="like__button">
                       <input type="checkbox" class="like__input">
@@ -246,75 +296,98 @@
                   </div>
                   <a href="#" class="blogItem__comments">0</a>
                 </div>
+              </div>
+              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="d-none">
+                <span itemprop="priceCurrency" content="UAH"></span>
+                <span itemprop="price" content="0">0</span>
+                <link itemprop="availability" href="https://schema.org/InStock" />
               </div>
             </div>
           </div>
         </section>
 
-        <aside class="section createYours">
-          <div class="createYours__title">Создай <span class="color-primary">свое!</span></div>
-          <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая баночка на 100% индивидуальна.</p>
+        <aside class="section createYours" itemscope itemtype="https://schema.org/Product">
+          <div class="createYours__title" itemprop="name">Создай <span class="color-primary">свое!</span></div>
+          <p class="createYours__text" itemprop="description">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая баночка на 100% индивидуальна.</p>
           <a href="#" class="button button--stroke createYours__button">Создать средство</a>
+          <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="d-none">
+            <span itemprop="priceCurrency" content="UAH"></span>
+            <span itemprop="price" content="0">0</span>
+            <link itemprop="availability" href="https://schema.org/InStock" />
+          </div>
         </aside>
-
-        <section class="section seoText">
-          <h2 class="section__title">Как создать косметику для себя</h2>
-          <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.</p>
+        <section class="section seoText"  itemscope itemtype="https://schema.org/Article">
+          <h2 class="section__title" itemprop="headline">Как создать косметику для себя</h2>
+          <p class="seoText__text" itemprop="articleBody">У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.</p>
           <div class="collapse" id="seoText__collapse">
-            <p class="seoText__text">
+            <p class="seoText__text" itemprop="articleBody">
               У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.
               </p>
           </div>
           <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="link1 seoText__link">Показать все</a>
+          <span itemprop="author" class="d-none">Author</span>
         </section>
       </div>
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer" itemscope itemtype="https://schema.org/WPFooter">
       <div class="container">
         <div class="row">
           <div class="col-xl-4">
-            <a href="#" class="page-footer__logo"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img"></a>
-            <p class="copyright">© 2016 - 2021 Make My - Все права защищены.</p>
+            <a href="#" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img" itemprop="logo"></a>
+            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2021 Make My - Все права защищены.</p>
           </div>
           <div class="col-xl-5 col-lg-8 col-md-7">
-            <nav class="page-footer__menu">
+            <nav class="page-footer__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
               <div class="row">
                 <div class="col-lg-6">
-                  <a href="#" class="page-footer__menu-el">Конструктор</a>
-                  <a href="#" class="page-footer__menu-el">Каталог</a>
-                  <a href="#" class="page-footer__menu-el">Компоненты</a>
-                  <a href="#" class="page-footer__menu-el">О нас</a>
+                  <ul>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Конструктор</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Каталог</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Компоненты</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">О нас</a></li>
+                  </ul>
+                  
                 </div>
                 <div class="col-lg-6">
-                  <a href="#" class="page-footer__menu-el">Доставка и оплата</a>
-                  <a href="#" class="page-footer__menu-el color-primary">MM Club</a>
-                  <a href="#" class="page-footer__menu-el">Акции</a>
-                  <a href="#" class="page-footer__menu-el">Блог</a>
-                  <a href="#" class="page-footer__menu-el">Публичная оферта</a>
+                  <ul>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Доставка и оплата</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el color-primary">MM Club</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Акции</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Блог</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Публичная оферта</a></li>
+                  </ul>
                 </div>
               </div>
             </nav>
           </div>
           <div class="col-xl-3 col-lg-4 col-md-5">
-            <div class="page-footer__menu-info">
+            <div class="page-footer__menu-info" itemscope itemtype="https://schema.org/LocalBusiness">
+              <span class="d-none" itemprop="name">Make My</span>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">График работы</div>
-                <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+                <time class="page-footer__menu-info-el-value" datetime="Mo-Su" itemprop="openingHours">Круглосуточно</time>
               </div>
               <div class="page-footer__menu-info-el">
-                <div class="page-footer__menu-info-el-title">График работы</div>
-                <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+                <div class="page-footer__menu-info-el-title">Местоположение</div>
+                <div class="page-footer__menu-info-el-value"  itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                  <span itemprop="addressLocality">г. Киев </span>,
+                  <span itemprop="streetAddress">ул. Марко Вовчка, 18а</span>
+                </div>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">Телефон</div>
+                <a href="tel:+74950000000" class="page-footer__menu-info-el-value" itemprop="telephone">+74950000000</a>
               </div>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">Соцсети</div>
                 <nav class="page-footer__socials">
-                    <a href="#" class="page-footer__socials-el">
+                    <a itemprop="sameAs" href="#" class="page-footer__socials-el">
                       <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="page-footer__socials-el">
+                    <a itemprop="sameAs" href="#" class="page-footer__socials-el">
                       <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="#" class="page-footer__socials-el">
+                    <a itemprop="sameAs" href="#" class="page-footer__socials-el">
                       <i class="fab fa-facebook"></i>
                     </a>
                   </nav>

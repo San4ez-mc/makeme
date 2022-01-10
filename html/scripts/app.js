@@ -447,7 +447,8 @@ $(function(){
 $('.productBig .aboutComponents__el').on('click', function(){
   $(this).toggleClass('active');
 });
-
-$('input.birthday').datepicker({
-  dateFormat: "dd.mm.yy"
-});
+if($('input.birthday').length) {
+  $('input.birthday').datepicker({
+    dateFormat: "dd.mm.yy"
+  });
+}
