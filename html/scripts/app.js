@@ -413,6 +413,11 @@ $('.backToComponents').on('click', function(){
   $('.constructor__product').removeClass('active');
   $('.constructor__components').removeClass('d-block');
   $('.constructor .constructor__menu-header').removeClass('d-none').addClass('d-block');
+  if($('.constructor__components-el').length > 1) {
+    $('.constructor__product-body').addClass('active');
+  } else {
+    $('.constructor__product-body').removeClass('active');
+  }
 });
 
 
@@ -441,4 +446,8 @@ $(function(){
 
 $('.productBig .aboutComponents__el').on('click', function(){
   $(this).toggleClass('active');
+});
+
+$('input.birthday').datepicker({
+  dateFormat: "dd.mm.yy"
 });

@@ -510,6 +510,10 @@ body {
   }
 }
 
+* {
+  outline: none !important;
+}
+
 .font-weight-medium {
   font-weight: 500;
 }
@@ -1047,7 +1051,7 @@ input[type=number] {
   background: white url(../img/bg.png) center no-repeat;
   background-size: cover;
   display: flex;
-  z-index: 2;
+  z-index: 10;
   padding: 15px;
   transition-duration: 1s;
 }
@@ -1890,6 +1894,7 @@ input[type=number] {
   text-align: center;
   text-decoration: none !important;
   margin: 0 6px;
+  line-height: 1px;
 }
 
 @media (max-width: 767px) {
@@ -2148,6 +2153,14 @@ input[type=number] {
   }
 }
 
+.uniqueCarousel .productCard:hover .productCard__button {
+  display: flex;
+}
+
+.uniqueCarousel .productCard--mask .productCard__imgContainer {
+  background: url(../img/home/heroUniqueCarouselElBGOil.jpg) center no-repeat;
+}
+
 .uniqueCarousel .productCard--mask:hover .productCard__imgContainer {
   background: url(../img/home/heroUniqueCarouselElBGOil.jpg) center no-repeat;
 }
@@ -2158,6 +2171,10 @@ input[type=number] {
   }
 }
 
+.uniqueCarousel .productCard--shampoo .productCard__imgContainer {
+  background: url(../img/home/heroUniqueCarouselElBGShampoo.jpg) center no-repeat;
+}
+
 .uniqueCarousel .productCard--shampoo:hover .productCard__imgContainer {
   background: url(../img/home/heroUniqueCarouselElBGShampoo.jpg) center no-repeat;
 }
@@ -2166,6 +2183,10 @@ input[type=number] {
   .uniqueCarousel .productCard--shampoo .productCard__imgContainer {
     background: url(../img/home/heroUniqueCarouselElBGShampoo.jpg) center no-repeat;
   }
+}
+
+.uniqueCarousel .productCard--cream .productCard__imgContainer {
+  background: url(../img/home/heroUniqueCarouselElBGCream.jpg) center no-repeat;
 }
 
 .uniqueCarousel .productCard--cream:hover .productCard__imgContainer {
@@ -2180,6 +2201,10 @@ input[type=number] {
 
 .uniqueCarousel .productCard--cream .productCard__img {
   margin-bottom: 13px;
+}
+
+.uniqueCarousel .productCard--scrab .productCard__imgContainer {
+  background: url(../img/home/heroUniqueCarouselElBGScrab.jpg) center no-repeat;
 }
 
 .uniqueCarousel .productCard--scrab:hover .productCard__imgContainer {
@@ -2535,6 +2560,12 @@ input[type=number] {
   height: 10px;
   background: url(../img/icons/checkBlack.svg) center no-repeat;
   margin-right: 20px;
+}
+
+@media (max-width: 575px) {
+  .createUnique__list-el:before {
+    margin-right: 10px;
+  }
 }
 
 .createUnique__button {
@@ -4264,6 +4295,12 @@ input[type=number] {
 .showFirst__menu .dropdown .dropdown-item {
   font-size: 14px;
   font-weight: 500;
+  background: transparent !important;
+}
+
+.showFirst__menu .dropdown .dropdown-item:hover {
+  color: #FF6B98;
+  background: transparent;
 }
 
 @media (min-width: 992px) {
@@ -4377,6 +4414,7 @@ input[type=number] {
 }
 
 .productCard__producer {
+  cursor: pointer;
   border-radius: 10px;
   width: 257px;
   height: 0px;
@@ -7995,6 +8033,12 @@ input[type=number] {
   flex-shrink: 0;
 }
 
+@media (min-width: 992px) {
+  .constructor__menu {
+    display: block !important;
+  }
+}
+
 @media (max-width: 1199px) {
   .constructor__menu {
     max-width: 275px;
@@ -8433,14 +8477,14 @@ input[type=number] {
 
 .constructor__components .backToComponents {
   margin-bottom: 15px;
-  border-bottom: 1px solid;
-  text-align: center;
   display: none;
+  text-align: center;
 }
 
 @media (max-width: 991px) {
   .constructor__components .backToComponents {
     display: block;
+    font-size: 14px;
   }
 }
 
