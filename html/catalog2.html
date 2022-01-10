@@ -109,10 +109,20 @@
     <main class="page-content">
       <div class="container">
         <nav class="page-breadcrumbs">
-          <div class="page-breadcrumbs__desktop">
-            <a href="#" class="page-breadcrumbs__el">Главная</a>
-            <a href="#" class="page-breadcrumbs__el">Доставка и оплата</a>
-          </div>
+          <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                <span itemprop="name">Главная</span>
+                <meta itemprop="position" content="1">
+              </a>
+            </li>
+            <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                <span itemprop="name">Доставка и оплата</span>
+                <meta itemprop="position" content="2">
+              </a>
+            </li>
+          </ul>
           <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
         <div class="section productBig">
