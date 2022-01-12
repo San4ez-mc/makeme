@@ -13,7 +13,7 @@
   <div class="page-wrapper">
     <div class="preloader">
       <div class="preloader__bubbles"></div>
-      <img src="img/icons/logoBig.svg" alt="#" class="preloader__logo">
+      <img src="img/icons/logoBig.svg" alt="#" class="lazy preloader__logo">
     </div>
     
     
@@ -26,7 +26,7 @@
           <span></span>
         </nav>
         <a href="#" class="page-header__logo">
-          <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
+          <img src="img/icons/logo-header.svg" alt="#" class="lazy page-header__logo-img">
         </a>
         <nav class="page-header__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
           <ul class="page-header__menu-list">
@@ -63,7 +63,7 @@
     
     <div class="menuMobile">
       <div class="menuMobile__header">
-        <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
+        <a href="#" class="menuMobile__logo"><img src="lazy img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
       <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -115,7 +115,16 @@
                 <span class="hero__el-title">Только вы знаете что лучше для вашей кожи!</span>
                 <span class="hero__el-text">Никто не знает ваше тело так как вы сами! Именно поэтому мы создали конструктор косметики который сможет на 100% удовлетворить потребности только вашей кожи! </span>
                 <span class="button button--main button--arrow">Создать средство</span>
-                <img src="img/home/heroImg1.png" alt="#" class="hero__el-img">
+                <img 
+                  src="img/home/heroImg1.png" 
+                  data-srcset="
+                    img/home/heroImg1.png 767w, 
+                    img/home/heroImg2@2x.png 1199w, 
+                    img/home/heroImg1@3x.png 1920w
+                  "
+                  alt="#" 
+                  class="lazy hero__el-img"
+                >
               </a>
             </div>
             <div class="col-xl-4">
@@ -124,14 +133,32 @@
                   <a href="#" class="hero__el hero__el--2">
                     <span class="hero__el-title">Довертесь нашим экспертам</span>
                     <span class="hero__el-readMore">Выбрать готовое средство</span>
-                    <img src="img/home/heroImg2.png" alt="#" class="hero__el-img">
+                    <img 
+                      src="img/home/heroImg2.png" 
+                      data-srcset="
+                        img/home/heroImg2.png 767w, 
+                        img/home/heroImg2@2x.png 1199w, 
+                        img/home/heroImg2@3x.png 1920w
+                      "
+                      alt="#" 
+                      class="lazy hero__el-img"
+                    >
                   </a>
                 </div>
                 <div class="col-xl-12 col-md-6">
                   <a href="#" class="hero__el hero__el--3">
                     <span class="hero__el-title">Мы научим Вас создавать косметику</span>
                     <span class="hero__el-readMore">Читать наши советы </span>
-                    <img src="img/home/heroImg3.png" alt="#" class="hero__el-img">
+                    <img 
+                      src="img/home/heroImg3.png" 
+                      data-srcset="
+                        img/home/heroImg3.png 767w, 
+                        img/home/heroImg3@2x.png 1199w, 
+                        img/home/heroImg3@3x.png 1920w
+                      "
+                      alt="#" 
+                      class="lazy hero__el-img"
+                    >
                   </a>
                 </div>
               </div>
@@ -159,14 +186,14 @@
               <div class="productCard__feature productCard__feature--stock">-10%</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/selebrity.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/home/shampoo.png" alt="#" class="productCard__img">
+                <img src="img/home/shampoo.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -189,7 +216,7 @@
               <div class="productCard__feature productCard__feature--hit">ХИТ ПРОДАЖ</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/buyer.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/buyer.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано покупателем <br> <span class="font-weight-bold">Мария Дмитриенко</span>
@@ -197,7 +224,7 @@
               </div>
               <a href="#" class="productCard__imgContainer">
                 
-                <img src="img/home/shampoo.png" alt="#" class="productCard__img">
+                <img src="img/home/shampoo.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -221,14 +248,14 @@
               <div class="productCard__feature productCard__feature--new">NEW</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/specialist.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/specialist.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано специалистами  <br> нашей лаборатории
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/home/cream.png" alt="#" class="productCard__img">
+                <img src="img/home/cream.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -251,14 +278,14 @@
               <div class="productCard__feature productCard__feature--stock">-10%</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/selebrity.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/home/scrab.png" alt="#" class="productCard__img">
+                <img src="img/home/scrab.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -282,14 +309,14 @@
               <div class="productCard__feature productCard__feature--stock">-10%</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/selebrity.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/home/scrab.png" alt="#" class="productCard__img">
+                <img src="img/home/scrab.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -350,14 +377,14 @@
               <div class="productCard__feature productCard__feature--stock">-10%</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/selebrity.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/shampoo.png" alt="#" class="productCard__img">
+                <img src="img/shampoo.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -379,14 +406,14 @@
               <div class="productCard__feature productCard__feature--hit">ХИТ ПРОДАЖ</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/buyer.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/buyer.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано покупателем <br> <span class="font-weight-bold">Мария Дмитриенко</span>
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/cream.png" alt="#" class="productCard__img">
+                <img src="img/cream.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -409,14 +436,14 @@
               <div class="productCard__feature productCard__feature--new">NEW</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/specialist.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/specialist.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано специалистами  <br> нашей лаборатории
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/shampoo.png" alt="#" class="productCard__img">
+                <img src="img/shampoo.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -438,14 +465,14 @@
               <div class="productCard__feature productCard__feature--stock">-10%</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/selebrity.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/shampoo.png" alt="#" class="productCard__img">
+                <img src="img/shampoo.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -468,14 +495,14 @@
               <div class="productCard__feature productCard__feature--hit">ХИТ ПРОДАЖ</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/buyer.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/buyer.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано покупателем <br> <span class="font-weight-bold">Мария Дмитриенко</span>
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/cream.png" alt="#" class="productCard__img">
+                <img src="img/cream.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -498,14 +525,14 @@
               <div class="productCard__feature productCard__feature--new">NEW</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/specialist.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/specialist.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано специалистами  <br> нашей лаборатории
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/shampoo.png" alt="#" class="productCard__img">
+                <img src="img/shampoo.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -527,14 +554,14 @@
               <div class="productCard__feature productCard__feature--stock">-10%</div>
               <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="img/icons/selebrity.svg" alt="#" class="productCard__producer-icon">
+                  <img src="img/icons/selebrity.svg" alt="#" class="lazy productCard__producer-icon">
                 </span>
                 <p class="productCard__producer-text">
                   Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
                 </p>
               </div>
               <a href="#" class="productCard__imgContainer">
-                <img src="img/shampoo.png" alt="#" class="productCard__img">
+                <img src="img/shampoo.png" alt="#" class="lazy productCard__img">
               </a>
               <div class="productCard__body">
                 <div class="productCard__rating">
@@ -565,9 +592,18 @@
             <li class="createUnique__list-el">Индивидуальное производство</li>
             <li class="createUnique__list-el">По настоящему эффективная косметика</li>
           </ul>
-          <img src="img/home/createYours.png" alt="#" class="createUnique__img">
+          <img 
+            data-srcset="
+              img/home/createYours.png 767w, 
+              img/home/createYours@2x.png 1199w, 
+              img/home/createYours@3x.png 1920w
+            "
+            src="img/home/createYours.png" 
+            alt="#" 
+            class="lazy createUnique__img"
+          >
           <a href="#" class="button button--stroke createUnique__button">Создать средство</a>
-          <img src="img/home/unique.png" alt="#" class="createUnique__logo">
+          <img src="img/home/unique.png" alt="#" class="lazy createUnique__logo">
 
         </section>
 
@@ -579,7 +615,16 @@
           <div class="owl-carousel carousel-3els">
             <a href="#" class="starFeedback">
               <span class="starFeedback__imgContainer">
-                <img src="img/home/starFeedback1.jpg" alt="#" class="starFeedback__img">
+                <img 
+                  data-srcset="
+                    img/home/starFeedback1.jpg 767w, 
+                    img/home/starFeedback1@2x.jpg 1199w, 
+                    img/home/starFeedback1@3x.jpg 1920w
+                  "
+                  src="img/home/starFeedback1.jpg" 
+                  alt="#" 
+                  class="lazy starFeedback__img"
+                >
                 <span class="starFeedback__info">
                   <span class="starFeedback__info-name">@NicknameInsta</span>
                   <span class="starFeedback__info-about">
@@ -602,7 +647,16 @@
             </a>
             <a href="#" class="starFeedback">
               <span class="starFeedback__imgContainer">
-                <img src="img/home/starFeedback2.jpg" alt="#" class="starFeedback__img">
+                <img 
+                  data-srcset="
+                    img/home/starFeedback2.jpg 767w, 
+                    img/home/starFeedback2@2x.jpg 1199w, 
+                    img/home/starFeedback2@3x.jpg 1920w
+                  "
+                  src="img/home/starFeedback2.jpg" 
+                  alt="#" 
+                  class="lazy starFeedback__img"
+                >
                 <span class="starFeedback__info">
                   <span class="starFeedback__info-name">@NicknameInsta</span>
                   <span class="starFeedback__info-about">
@@ -625,7 +679,16 @@
             </a>
             <a href="#" class="starFeedback">
               <span class="starFeedback__imgContainer">
-                <img src="img/home/starFeedback3.jpg" alt="#" class="starFeedback__img">
+                <img 
+                  data-srcset="
+                    img/home/starFeedback3.jpg 767w, 
+                    img/home/starFeedback3@2x.jpg 1199w, 
+                    img/home/starFeedback3@3x.jpg 1920w
+                  "
+                  src="img/home/starFeedback3.jpg" 
+                  alt="#" 
+                  class="lazy starFeedback__img"
+                >
                 <span class="starFeedback__info">
                   <span class="starFeedback__info-name">@NicknameInsta</span>
                   <span class="starFeedback__info-about">
@@ -648,7 +711,7 @@
             </a>
             <a href="#" class="starFeedback">
               <span class="starFeedback__imgContainer">
-                <img src="img/home/starFeedback1.jpg" alt="#" class="starFeedback__img">
+                <img src="img/home/starFeedback1.jpg" alt="#" class="lazy starFeedback__img">
                 <span class="starFeedback__info">
                   <span class="starFeedback__info-name">@NicknameInsta</span>
                   <span class="starFeedback__info-about">
@@ -694,7 +757,7 @@
         <div class="row">
           <div class="col-xl-4">
             <a href="#" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img" itemprop="logo"></a>
-            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2021 Make My - Все права защищены.</p>
+            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2022 Make My - Все права защищены.</p>
           </div>
           <div class="col-xl-5 col-lg-8 col-md-7">
             <nav class="page-footer__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -734,7 +797,7 @@
                   <span itemprop="streetAddress">ул. Марко Вовчка, 18а</span>
                 </div>
               </div>
-              <div class="page-footer__menu-info-el">
+              <div class="page-footer__menu-info-el d-none">
                 <div class="page-footer__menu-info-el-title">Телефон</div>
                 <a href="tel:+74950000000" class="page-footer__menu-info-el-value" itemprop="telephone">+74950000000</a>
               </div>
@@ -759,9 +822,12 @@
     </footer>
   </div>
   <script src="libs/jquery.min.js"></script>
+
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="libs/jquery.mask.min.js"></script>
   <script src="libs/owl.carousel/owl.carousel.min.js"></script>
+
+<script src="libs/lazyload.min.js"></script>
   <script src="scripts/app.js" defer></script>
 </body>
 </html>

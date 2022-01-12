@@ -13,7 +13,7 @@
   <div class="page-wrapper">
     <div class="preloader">
       <div class="preloader__bubbles"></div>
-      <img src="img/icons/logoBig.svg" alt="#" class="preloader__logo">
+      <img src="img/icons/logoBig.svg" alt="#" class="lazy preloader__logo">
     </div>
     
     
@@ -26,7 +26,7 @@
           <span></span>
         </nav>
         <a href="#" class="page-header__logo">
-          <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
+          <img src="img/icons/logo-header.svg" alt="#" class="lazy page-header__logo-img">
         </a>
         <nav class="page-header__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
           <ul class="page-header__menu-list">
@@ -63,7 +63,7 @@
     
     <div class="menuMobile">
       <div class="menuMobile__header">
-        <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
+        <a href="#" class="menuMobile__logo"><img src="lazy img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
       <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -136,7 +136,7 @@
                 <div class="lk__order-product">
                   <div class="lk__recipes-product-main">
                     <div class="lk__recipes-product-imgContainer">
-                      <img src="img/shampoo.png" alt="#" class="lk__recipes-product-img">
+                      <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
                     </div>
                     <div class="lk__recipes-product-main-body">
                       <h3 class="lk__recipes-product-title">Молочко для тела </h3>
@@ -149,7 +149,7 @@
                       <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
                       <button type="button" class="quantityEl__plus">+</button>
                     </div>
-                    <div class="lk__order-price">237₴</div>
+                    <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
                     <div class="lk__order-nav">
                       <div class="like">
                         <label class="like__button">
@@ -164,7 +164,7 @@
                 <div class="lk__order-product">
                   <div class="lk__recipes-product-main">
                     <div class="lk__recipes-product-imgContainer">
-                      <img src="img/shampoo.png" alt="#" class="lk__recipes-product-img">
+                      <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
                     </div>
                     <div class="lk__recipes-product-main-body">
                       <h3 class="lk__recipes-product-title">Молочко для тела </h3>
@@ -177,7 +177,7 @@
                       <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
                       <button type="button" class="quantityEl__plus">+</button>
                     </div>
-                    <div class="lk__order-price">237₴</div>
+                    <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
                     <div class="lk__order-nav">
                       <div class="like">
                         <label class="like__button">
@@ -251,7 +251,7 @@
         <div class="row">
           <div class="col-xl-4">
             <a href="#" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img" itemprop="logo"></a>
-            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2021 Make My - Все права защищены.</p>
+            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2022 Make My - Все права защищены.</p>
           </div>
           <div class="col-xl-5 col-lg-8 col-md-7">
             <nav class="page-footer__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -291,7 +291,7 @@
                   <span itemprop="streetAddress">ул. Марко Вовчка, 18а</span>
                 </div>
               </div>
-              <div class="page-footer__menu-info-el">
+              <div class="page-footer__menu-info-el d-none">
                 <div class="page-footer__menu-info-el-title">Телефон</div>
                 <a href="tel:+74950000000" class="page-footer__menu-info-el-value" itemprop="telephone">+74950000000</a>
               </div>
@@ -316,9 +316,12 @@
     </footer>
   </div>
   <script src="libs/jquery.min.js"></script>
+
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="libs/jquery.mask.min.js"></script>
   <script src="libs/owl.carousel/owl.carousel.min.js"></script>
+
+<script src="libs/lazyload.min.js"></script>
   <script src="scripts/app.js" defer></script>
 </body>
 </html>

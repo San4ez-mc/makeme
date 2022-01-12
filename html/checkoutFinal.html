@@ -8,14 +8,13 @@
    <link rel="stylesheet" href="libs/fontawesome/css/all.css">
    <link rel="stylesheet" href="libs/owl.carousel/owl.carousel.min.css">
    <link rel="stylesheet" href="libs/select2/select2.min.css">
-   <link rel="stylesheet" href="libs/jquery-flexdatalist-2.3.0/jquery.flexdatalist.min.css">
    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
   <div class="page-wrapper">
     <div class="preloader">
       <div class="preloader__bubbles"></div>
-      <img src="img/icons/logoBig.svg" alt="#" class="preloader__logo">
+      <img src="img/icons/logoBig.svg" alt="#" class="lazy preloader__logo">
     </div>
     
     
@@ -28,7 +27,7 @@
           <span></span>
         </nav>
         <a href="#" class="page-header__logo">
-          <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
+          <img src="img/icons/logo-header.svg" alt="#" class="lazy page-header__logo-img">
         </a>
         <nav class="page-header__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
           <ul class="page-header__menu-list">
@@ -65,7 +64,7 @@
     
     <div class="menuMobile">
       <div class="menuMobile__header">
-        <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
+        <a href="#" class="menuMobile__logo"><img src="lazy img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
       <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -129,7 +128,7 @@
         </nav>
         <section class="section checkout checkoutFinal">
           <div class="checkoutFinal__banner">
-            <img src="img/girls.jpg" alt="#" class="checkoutFinal__banner-img">
+            <img src="img/girls.jpg" alt="#" class="lazy checkoutFinal__banner-img">
           </div>
           <div class="row flex-lg-row flex-column-reverse">
             <div class="col-xl-6 col-lg-6">
@@ -174,7 +173,7 @@
                       <div class="lk__order-product">
                         <div class="lk__recipes-product-main">
                           <div class="lk__recipes-product-imgContainer">
-                            <img src="img/shampoo.png" alt="#" class="lk__recipes-product-img">
+                            <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
                           </div>
                           <div class="lk__recipes-product-main-body">
                             <h3 class="lk__recipes-product-title">Молочко для тела </h3>
@@ -185,13 +184,13 @@
                           <div class="quantityEl border-0 h-auto">
                             1 шт.
                           </div>
-                          <div class="lk__order-price">237₴</div>
+                          <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
                         </div>
                       </div>
                       <div class="lk__order-product">
                         <div class="lk__recipes-product-main">
                           <div class="lk__recipes-product-imgContainer">
-                            <img src="img/shampoo.png" alt="#" class="lk__recipes-product-img">
+                            <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
                           </div>
                           <div class="lk__recipes-product-main-body">
                             <h3 class="lk__recipes-product-title">Молочко для тела </h3>
@@ -202,7 +201,7 @@
                           <div class="quantityEl border-0 h-auto">
                             1шт.
                           </div>
-                          <div class="lk__order-price">237₴</div>
+                          <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
                           
                         </div>
                       </div>
@@ -248,7 +247,7 @@
         <div class="row">
           <div class="col-xl-4">
             <a href="#" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img" itemprop="logo"></a>
-            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2021 Make My - Все права защищены.</p>
+            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2022 Make My - Все права защищены.</p>
           </div>
           <div class="col-xl-5 col-lg-8 col-md-7">
             <nav class="page-footer__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -288,7 +287,7 @@
                   <span itemprop="streetAddress">ул. Марко Вовчка, 18а</span>
                 </div>
               </div>
-              <div class="page-footer__menu-info-el">
+              <div class="page-footer__menu-info-el d-none">
                 <div class="page-footer__menu-info-el-title">Телефон</div>
                 <a href="tel:+74950000000" class="page-footer__menu-info-el-value" itemprop="telephone">+74950000000</a>
               </div>
@@ -313,11 +312,13 @@
     </footer>
   </div>
   <script src="libs/jquery.min.js"></script>
+
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="libs/jquery.mask.min.js"></script>
   <script src="libs/owl.carousel/owl.carousel.min.js"></script>
   <script src="libs/select2/select2.full.min.js"></script>
-  <script src="libs/jquery-flexdatalist-2.3.0/jquery.flexdatalist.min.js"></script>
+
+<script src="libs/lazyload.min.js"></script>
   <script src="scripts/app.js" defer></script>
 </body>
 </html>

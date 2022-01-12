@@ -13,7 +13,7 @@
   <div class="page-wrapper">
     <div class="preloader">
       <div class="preloader__bubbles"></div>
-      <img src="img/icons/logoBig.svg" alt="#" class="preloader__logo">
+      <img src="img/icons/logoBig.svg" alt="#" class="lazy preloader__logo">
     </div>
     
     
@@ -26,7 +26,7 @@
           <span></span>
         </nav>
         <a href="#" class="page-header__logo">
-          <img src="img/icons/logo-header.svg" alt="#" class="page-header__logo-img">
+          <img src="img/icons/logo-header.svg" alt="#" class="lazy page-header__logo-img">
         </a>
         <nav class="page-header__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
           <ul class="page-header__menu-list">
@@ -63,7 +63,7 @@
     
     <div class="menuMobile">
       <div class="menuMobile__header">
-        <a href="#" class="menuMobile__logo"><img src="img/icons/logo-header.svg" alt="#"></a>
+        <a href="#" class="menuMobile__logo"><img src="lazy img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
       <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -253,7 +253,7 @@
         <div class="row">
           <div class="col-xl-4">
             <a href="#" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img" itemprop="logo"></a>
-            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2021 Make My - Все права защищены.</p>
+            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2022 Make My - Все права защищены.</p>
           </div>
           <div class="col-xl-5 col-lg-8 col-md-7">
             <nav class="page-footer__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -293,7 +293,7 @@
                   <span itemprop="streetAddress">ул. Марко Вовчка, 18а</span>
                 </div>
               </div>
-              <div class="page-footer__menu-info-el">
+              <div class="page-footer__menu-info-el d-none">
                 <div class="page-footer__menu-info-el-title">Телефон</div>
                 <a href="tel:+74950000000" class="page-footer__menu-info-el-value" itemprop="telephone">+74950000000</a>
               </div>
@@ -378,7 +378,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-center">
         <span data-dismiss="modal"  class="modal__close"></span>
-        <img src="img/icons/lk/modalCheck.svg" alt="#" class="modal-icon">
+        <img src="img/icons/lk/modalCheck.svg" alt="#" class="lazy modal-icon">
         <div class="section__title">Получилось!</div>
         <p class="text--grey">Мы сменили твою почту. Теперь при входе указывай новую почту.</p>
         <button class="button button--primary w-100" data-dismiss="modal">ОК</button>
@@ -389,7 +389,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-center">
         <span data-dismiss="modal"  class="modal__close"></span>
-        <img src="img/icons/lk/modalCheck.svg" alt="#" class="modal-icon">
+        <img src="img/icons/lk/modalCheck.svg" alt="#" class="lazy modal-icon">
         <div class="section__title">Отлично!</div>
         <p class="text--grey">Все получилось! Твой пароль успешно изменен!</p>
         <button class="button button--primary w-100" data-dismiss="modal">ОК</button>
@@ -400,7 +400,7 @@
     <div class="modal-dialog">
       <div class="modal-content text-center">
         <span data-dismiss="modal"  class="modal__close"></span>
-        <img src="img/icons/lk/modalNoCheck.svg" alt="#" class="modal-icon">
+        <img src="img/icons/lk/modalNoCheck.svg" alt="#" class="lazy modal-icon">
         <div class="section__title">Упс...</div>
         <p class="text--grey">Кажется что-то пошло не так. Проверь введенные данные снова.</p>
         <button class="button button--primary w-100" data-dismiss="modal">ОК</button>
@@ -409,9 +409,12 @@
   </div>
   
   <script src="libs/jquery.min.js"></script>
+
   <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="libs/jquery.mask.min.js"></script>
   <script src="libs/jquery-ui-datepicker/jquery-ui.min.js"></script>
+
+<script src="libs/lazyload.min.js"></script>
   <script src="scripts/app.js" defer></script>
 </body>
 </html>
