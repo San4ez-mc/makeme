@@ -1062,7 +1062,7 @@ input[type=number] {
   background: white url(../img/bg.png) center no-repeat;
   background-size: cover;
   display: flex;
-  z-index: 10;
+  z-index: 1001;
   padding: 15px;
   transition-duration: 1s;
 }
@@ -2022,6 +2022,7 @@ input[type=number] {
   position: absolute;
   bottom: 0;
   left: 400px;
+  max-width: 450px;
 }
 
 @media (max-width: 1199px) {
@@ -2137,6 +2138,7 @@ input[type=number] {
   right: 0;
   bottom: -13px;
   margin: auto;
+  max-width: 200px;
 }
 
 .hero__el--3 {
@@ -2162,6 +2164,7 @@ input[type=number] {
 .hero__el--3 .hero__el-img {
   right: 0;
   bottom: 0px;
+  max-width: 385px;
 }
 
 .uniqueCarousel__container {
@@ -2636,6 +2639,7 @@ input[type=number] {
   position: absolute;
   right: 0;
   top: 0;
+  max-width: 700px;
 }
 
 @media (max-width: 1199px) {
@@ -3984,6 +3988,13 @@ input[type=number] {
   transform: rotate(45deg);
   background: white;
   border-radius: 100px;
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .productFilters__close {
+    display: flex;
+  }
 }
 
 .productFilters__close:hover {
@@ -5745,6 +5756,7 @@ input[type=number] {
   font-weight: 500;
   border-bottom: 1px dashed transparent;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .lk__desires-nav-el.active {
@@ -6092,6 +6104,8 @@ input[type=number] {
 }
 
 .lk__address-el-input + .lk__address-el-info {
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
