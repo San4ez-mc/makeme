@@ -338,6 +338,7 @@ $('input[name="deliveryMethod"]').on('change', function(){
 
 
 $('.constructorTabs__el').on('click', function(){
+  $('body,html').animate({scrollTop: top}, 0);
   const el = $(this);
   if(el.closest('.tab-pane').next('.tab-pane').length) {
     el.closest('.tab-pane').removeClass('show active').next('.tab-pane').addClass('active show');
@@ -346,9 +347,11 @@ $('.constructorTabs__el').on('click', function(){
 
   }
 });
-
+$('.constructorTabs__nav-el').on('click', function(){
+  $('body,html').animate({scrollTop: top}, 0);
+})
 $('.constructor__menu-list').on('click', '.el__add', function(){
-  if($('.constructor__menu .el.active').length < 4) {
+  if($('.constructor__menu .el.active').length < 4 && !$(this).closest('.el').hasClass('active')) {
     $('.constructor__product-body').addClass('active');
     $(this).closest('.el').addClass('active');
     const id = $(this).closest('.el').attr('id');

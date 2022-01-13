@@ -18,7 +18,7 @@
     
     
     
-    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader">
+    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader" id="header">
       <div class="container">
         <nav class="page-header__toggle menuMobileToggle--js">
           <span></span>
@@ -63,7 +63,7 @@
     
     <div class="menuMobile">
       <div class="menuMobile__header">
-        <a href="#" class="menuMobile__logo"><img src="lazy img/icons/logo-header.svg" alt="#"></a>
+        <a href="#" class="menuMobile__logo"><img class="lazy" src="img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
       <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -136,6 +136,7 @@
           <h1 class="section__title">Блог</h1>
 
           <nav class="aboutComponents__nav">
+            <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--all">Все</a>
             <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--advice">Советы</a>
             <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--recipes">Рецепты</a>
             <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--news">Новости</a>
@@ -145,7 +146,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog1.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog1.jpg"
+                  data-srcset="
+                    img/blog1.jpg 767w, 
+                    img/blog1@2x.jpg 1199w, 
+                    img/blog1@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -169,7 +176,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog2.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog2.jpg" 
+                  data-srcset="
+                    img/blog2.jpg 767w, 
+                    img/blog2@2x.jpg 1199w, 
+                    img/blog2@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -193,7 +206,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog3.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog3.jpg" 
+                  data-srcset="
+                    img/blog3.jpg 767w, 
+                    img/blog3@2x.jpg 1199w, 
+                    img/blog3@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -217,7 +236,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog4.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog4.jpg" 
+                  data-srcset="
+                    img/blog4.jpg 767w, 
+                    img/blog4@2x.jpg 1199w, 
+                    img/blog4@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -241,7 +266,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog5.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog5.jpg" 
+                  data-srcset="
+                    img/blog5.jpg 767w, 
+                    img/blog5@2x.jpg 1199w, 
+                    img/blog5@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -265,7 +296,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog6.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog6.jpg" 
+                  data-srcset="
+                    img/blog6.jpg 767w, 
+                    img/blog6@2x.jpg 1199w, 
+                    img/blog6@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -289,7 +326,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog7.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog7.jpg" 
+                  data-srcset="
+                    img/blog7.jpg 767w, 
+                    img/blog7@2x.jpg 1199w, 
+                    img/blog7@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -313,7 +356,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog8.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog8.jpg" 
+                  data-srcset="
+                    img/blog8.jpg 767w, 
+                    img/blog8@2x.jpg 1199w, 
+                    img/blog8@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -337,7 +386,13 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="blogItem">
                 <a class="blogItem__imgContainer" href="#">
-                  <img src="img/blog9.jpg" alt="#" class="lazy blogItem__img">
+                  <img src="img/blog9.jpg" 
+                  data-srcset="
+                    img/blog9.jpg 767w, 
+                    img/blog9@2x.jpg 1199w, 
+                    img/blog9@3x.jpg 1920w
+                  " 
+                  alt="#" class="lazy blogItem__img">
                 </a>
                 <div class="blogItem__desc">
                   <div class="blogItem__desc-header">
@@ -430,7 +485,7 @@
               <span class="d-none" itemprop="name">Make My</span>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">График работы</div>
-                <time class="page-footer__menu-info-el-value" datetime="Mo-Su" itemprop="openingHours">Круглосуточно</time>
+                <div class="page-footer__menu-info-el-value" itemprop="openingHours">Круглосуточно</div>
               </div>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">Местоположение</div>
@@ -462,6 +517,8 @@
         </div>
       </div>
     </footer>
+    
+    <a class="toTop scrollto" href="#header"></a>
   </div>
   <script src="libs/jquery.min.js"></script>
 
