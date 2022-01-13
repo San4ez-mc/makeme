@@ -1572,6 +1572,7 @@ input[type=number] {
   bottom: 10px;
   right: 10px;
   transform: rotate(-90deg);
+  z-index: 10;
 }
 
 .createYours {
@@ -7142,6 +7143,9 @@ input[type=number] {
     width: 187px;
     height: 719px;
   }
+  .constructor__product.active .constructor__product-body--cream {
+    height: 280px !important;
+  }
 }
 @media (max-width: 767px) {
   .constructor__product {
@@ -7249,13 +7253,108 @@ input[type=number] {
 .constructor__product-body.active {
   background: url(../img/constructor/bottleActive.png) center no-repeat;
 }
+.constructor__product-body--cream {
+  width: 100% !important;
+  height: 400px;
+  background: url(../img/home/cream.png) center no-repeat !important;
+  background-size: contain !important;
+  margin-top: 70px;
+}
+@media (max-width: 1199px) {
+  .constructor__product-body--cream {
+    height: 300px;
+  }
+}
+@media (max-width: 991px) {
+  .constructor__product-body--cream {
+    height: 370px;
+    margin-bottom: 140px;
+  }
+}
+@media (max-width: 767px) {
+  .constructor__product-body--cream {
+    max-width: 300px;
+    height: 300px;
+  }
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(1) {
+  top: calc(100% + 20px);
+  right: 15%;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(1)::before {
+  background: url(../img/constructor/arrowToRight.svg) center no-repeat;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: rotate(-72deg);
+  top: -30px;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(2) {
+  top: auto;
+  bottom: calc(100% - 20px);
+  right: 10%;
+  left: auto;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(2)::before {
+  background: url(../img/constructor/arrowToLeft.svg) center no-repeat;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: rotate(-100deg);
+  top: auto;
+  bottom: -30px;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(3) {
+  top: calc(100% + 20px);
+  right: auto;
+  left: 15%;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(3)::before {
+  background: url(../img/constructor/arrowToRight.svg) center no-repeat;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: rotate(-72deg);
+  top: -30px;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(4) {
+  top: auto;
+  bottom: calc(100% - 20px);
+  right: auto;
+  left: 10%;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(4)::before {
+  background: url(../img/constructor/arrowToLeft.svg) center no-repeat;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: rotate(-100deg);
+  top: auto;
+  bottom: -30px;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(5) {
+  top: auto;
+  bottom: calc(100% - 20px);
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+.constructor__product-body--cream .constructor__product-el:nth-of-type(5)::before {
+  background: url(../img/constructor/arrowToLeft.svg) center no-repeat;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: rotate(-100deg);
+  top: auto;
+  bottom: -30px;
+}
 .constructor__product-el {
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 80px;
+  width: 80px;
 }
 .constructor__product-el::before {
   width: 40px;
