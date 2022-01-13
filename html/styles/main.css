@@ -753,6 +753,9 @@ body {
   display: inline-block;
   margin-top: 15px;
 }
+.seoText__link[aria-expanded=true] {
+  display: none;
+}
 
 .textInput {
   height: 40px;
@@ -7657,6 +7660,9 @@ input[type=number] {
 .productBig__nav .button--primary {
   width: 100%;
   margin-bottom: 14px;
+}
+.productBig__about .button--primary[aria-expanded=true] {
+  display: none;
 }
 .productBig__about-compound {
   color: #FF6B98;
