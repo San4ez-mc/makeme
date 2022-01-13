@@ -17,7 +17,7 @@
     
     
     
-    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader">
+    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader" id="header">
       <div class="container">
         <nav class="page-header__toggle menuMobileToggle--js">
           <span></span>
@@ -62,7 +62,7 @@
     
     <div class="menuMobile">
       <div class="menuMobile__header">
-        <a href="#" class="menuMobile__logo"><img src="lazy img/icons/logo-header.svg" alt="#"></a>
+        <a href="#" class="menuMobile__logo"><img class="lazy" src="img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
       <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -672,7 +672,7 @@
               <span class="d-none" itemprop="name">Make My</span>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">График работы</div>
-                <time class="page-footer__menu-info-el-value" datetime="Mo-Su" itemprop="openingHours">Круглосуточно</time>
+                <div class="page-footer__menu-info-el-value" itemprop="openingHours">Круглосуточно</div>
               </div>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">Местоположение</div>
@@ -704,6 +704,8 @@
         </div>
       </div>
     </footer>
+    
+    <a class="toTop scrollto" href="#header"></a>
   </div>
   <script src="libs/jquery.min.js"></script>
 

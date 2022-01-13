@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Checkout</title>
+   <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+   <link rel="stylesheet" href="libs/fontawesome/css/all.css">
+   <link rel="stylesheet" href="libs/owl.carousel/owl.carousel.min.css">
+   <link rel="stylesheet" href="libs/select2/select2.min.css">
+   <link rel="stylesheet" href="styles/main.css">
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+  <div class="page-wrapper">
+    <div class="preloader">
+      <div class="preloader__bubbles"></div>
+      <img src="img/icons/logoBig.svg" alt="#" class="lazy preloader__logo">
+    </div>
+    
+    
+    
+    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader" id="header">
+      <div class="container">
+        <nav class="page-header__toggle menuMobileToggle--js">
+          <span></span>
+          <span></span>
+          <span></span>
+        </nav>
+        <a href="#" class="page-header__logo">
+          <img src="img/icons/logo-header.svg" alt="#" class="lazy page-header__logo-img">
+        </a>
+        <nav class="page-header__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
+          <ul class="page-header__menu-list">
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el" href="#">Конструктор</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el" href="#">Каталог</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el" href="#">Компоненты</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el" href="#">О нас</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">
+              <a itemprop="url" class="page-header__menu-el color-primary" href="#">MM Club</a>
+            </li>
+            <li itemprop="name" class="page-header__menu-list-el">  
+              <a itemprop="url" class="page-header__menu-el" href="#">Акции</a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="page-header__buttons">
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--user"></a>
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--likes"></a>
+          <a href="#" class="page-header__buttons-el page-header__buttons-el--basket">
+            <span class="basket-quantity">5</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    
+    
+    <div class="menuMobile">
+      <div class="menuMobile__header">
+        <a href="#" class="menuMobile__logo"><img class="lazy" src="img/icons/logo-header.svg" alt="#"></a>
+        <span class="menuMobile__toggle menuMobileToggle--js"></span>
+      </div>
+      <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <div class="menuMobile__menu">
+          <ul class="menuMobile__menu-list">
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Конструктор</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Каталог</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Компоненты</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">О нас</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el color-primary">MM Club</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Акции</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Доставка и оплата</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Блог</a></li>
+            <li itemprop="name" class="menuMobile__menu-list-el"> <a itemprop="url" href="#" class="menuMobile__menu-el">Публичная оферта</a></li>
+          </ul>
+        </div>
+        <div class="page-footer__menu-info">
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">График работы</div>
+            <div class="page-footer__menu-info-el-value">Круглосуточно</div>
+          </div>
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">График работы</div>
+            <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>
+          </div>
+          <div class="page-footer__menu-info-el">
+            <div class="page-footer__menu-info-el-title">Соцсети</div>
+            <nav class="page-footer__socials">
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="page-footer__socials-el">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </nav>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main class="page-content">
+      <div class="container">
+        <nav class="page-breadcrumbs">
+          <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                <span itemprop="name">Главная</span>
+                <meta itemprop="position" content="1">
+              </a>
+            </li>
+            <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                <span itemprop="name">Корзина</span>
+                <meta itemprop="position" content="2">
+              </a>
+            </li>
+          </ul>
+          <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section checkout">
+          <h1 class="section__title">Оформление заказа</h1>
+          <div class="checkout__info">
+            Есть аккаунт ? <a href="#" class="link3">Авторизоваться</a>
+          </div>
+          <div class="row">
+            <div class="col-xl-8 col-lg-7">
+              <div class="modalLogin">
+                <form action="#" class="modal-content">
+                  <div class="modalLogin__body">
+                    <div class="modalLogin__body-col">
+                      <h3 class="section__title">Вход в личный кабинет</h3>
+                      <p class="modalLogin__anotherWay d-lg-none d-block">
+                        Нет аккаунта?
+                        <a href="#" class="modalLogin__anotherWay-link">Регистрация</a>
+                      </p>
+                      <div class="form__field">
+                        <label class="form__label">Email</label>
+                        <div class="form__field-body">
+                          <input type="email" class="form__field-input" name="emailInput">
+                        </div>
+                      </div>
+                      <div class="form__field">
+                        <label class="form__label">Пароль</label>
+                        <div class="form__field-body">
+                          <input type="password" class="form__field-input form__field-input--password" name="passowordInput1">
+                          <span class="form__field-passwordShow"></span>
+                        </div>
+                      </div>
+                      <div class="modalLogin__nav">
+                        <div class="modalLogin__nav-main">
+                          <button class="button button--primary button--small" type="button">Войти</button>
+                          <button class="link2" type="button">Забыли пароль?</button>
+                        </div>
+                        <span class="modalLogin__nav-or">Или</span>
+                        <div class="modalLogin__nav-socials">
+                          <a href="#" class="modalLogin__nav-socials-el modalLogin__nav-socials-el--fb">Продолжить с <i class="fab fa-facebook"></i></a>
+                          <a href="#" class="modalLogin__nav-socials-el modalLogin__nav-socials-el--google">Продолжить с <i class="fab fa-google"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modalLogin__body-col">
+                      <h3 class="section__title">Нет аккаунта?</h3>
+                      <p class="text--simple font-weight-bold mb-3">У нас много преймуществ</p>
+                      <ul class="modalLogin__list">
+                        <li class="modalLogin__list-el">Ты первой узнаешь о новостях и акциях</li>
+                        <li class="modalLogin__list-el">Постоянные бонусы</li>
+                        <li class="modalLogin__list-el">История заказов в личном кабинете</li>
+                        <li class="modalLogin__list-el">Возможность получать бонусы за свои средства</li>
+                      </ul>
+                      <a href="#" class="button button--stroke">Зарегистрироваться</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-5">
+              <div class="contentBlock basket basket--aside">
+                <div class="lk__order-body">
+                  <h3 class="section__subtitle">Ваш заказ</h3>
+                  <div class="lk__order-products">
+                    <div class="lk__order-product">
+                      <div class="lk__recipes-product-main">
+                        <div class="lk__recipes-product-imgContainer">
+                          <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
+                        </div>
+                        <div class="lk__recipes-product-main-body">
+                          <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                          <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                        </div>
+                      </div>
+                      <div class="lk__order-additionalEls">
+                        <div class="quantityEl">
+                          <button type="button" class="quantityEl__minus">-</button>
+                          <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                          <button type="button" class="quantityEl__plus">+</button>
+                        </div>
+                        <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
+                        <div class="lk__order-nav">
+                          <div class="like">
+                            <label class="like__button">
+                              <input type="checkbox" class="like__input">
+                              <span class="like__body"></span>
+                            </label>
+                          </div>
+                          <div class="productCard__remove"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lk__order-product">
+                      <div class="lk__recipes-product-main">
+                        <div class="lk__recipes-product-imgContainer">
+                          <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
+                        </div>
+                        <div class="lk__recipes-product-main-body">
+                          <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                          <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                        </div>
+                      </div>
+                      <div class="lk__order-additionalEls">
+                        <div class="quantityEl">
+                          <button type="button" class="quantityEl__minus">-</button>
+                          <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                          <button type="button" class="quantityEl__plus">+</button>
+                        </div>
+                        <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
+                        <div class="lk__order-nav">
+                          <div class="like">
+                            <label class="like__button">
+                              <input type="checkbox" class="like__input">
+                              <span class="like__body"></span>
+                            </label>
+                          </div>
+                          <div class="productCard__remove"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lk__order-sum">
+                    <div class="lk__order-sum-group">
+                      <form action="#" class="form form__promocode" name="form__promocode">
+                        <div class="form__field">
+                          <div class="form__field-body">
+                            <input type="text" class="form__field-input" placeholder="Введите промокод ">
+                          </div>
+                        </div>
+                        <button class="button form__promocode-submit" type="submit" disabled>
+                          <span class="d-lg-block d-none">Применить</span>
+                          <span class="d-lg-none d-block">Ок</span>
+                        </button>
+                      </form>
+                    </div>
+                    <div class="lk__order-sum-group">
+                      <div class="lk__order-sum-el">
+                        <span class="lk__order-sum-el-type">Сумма заказа</span>
+                        <span class="lk__order-sum-el-value">660 ₴</span>
+                      </div>
+                      <div class="lk__order-sum-el color-secondary">
+                        <span class="lk__order-sum-el-type">Скидка</span>
+                        <span class="lk__order-sum-el-value">-60 ₴</span>
+                      </div>
+                      <div class="lk__order-sum-el sum">
+                        <span class="lk__order-sum-el-type">Всего к оплате</span>
+                        <span class="lk__order-sum-el-value">660 ₴</span>
+                      </div>
+                      <div class="lk__order-sum-group-buttons">
+                        <button type="button" class="button button--primary orderButton" disabled>Оформить заказ</button>
+                        <a href="#" class="link2 d-lg-block d-none">Продолжить покупки</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="checkout__infoAfter">
+              Оформляя заказ, я принимаю условия 
+              <a href="#">пользовательского соглашения</a>
+            </div>
+            </div>
+          </div>
+        </section>
+        <div class="owl-carousel ticker">
+          <span class="ticker__el">Нет парабенов</span>
+          <span class="ticker__el">натуральные компоненты</span>
+          <span class="ticker__el">Нет химии</span>
+          <span class="ticker__el">Современная лаборатория</span>
+          <span class="ticker__el">Нет парабенов</span>
+          <span class="ticker__el">натуральные компоненты</span>
+          <span class="ticker__el">Нет химии</span>
+          <span class="ticker__el">Современная лаборатория</span>
+        </div> 
+      </div>
+    </main>
+    <footer class="page-footer" itemscope itemtype="https://schema.org/WPFooter">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4">
+            <a href="#" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand"><img src="img/icons/logo-footer.svg" alt="#" class="page-footer__logo-img" itemprop="logo"></a>
+            <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2022 Make My - Все права защищены.</p>
+          </div>
+          <div class="col-xl-5 col-lg-8 col-md-7">
+            <nav class="page-footer__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Конструктор</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Каталог</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Компоненты</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">О нас</a></li>
+                  </ul>
+                  
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Доставка и оплата</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el color-primary">MM Club</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Акции</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Блог</a></li>
+                    <li itemprop="name"><a itemprop="url" href="#" class="page-footer__menu-el">Публичная оферта</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-md-5">
+            <div class="page-footer__menu-info" itemscope itemtype="https://schema.org/LocalBusiness">
+              <span class="d-none" itemprop="name">Make My</span>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">График работы</div>
+                <div class="page-footer__menu-info-el-value" itemprop="openingHours">Круглосуточно</div>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">Местоположение</div>
+                <div class="page-footer__menu-info-el-value"  itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                  <span itemprop="addressLocality">г. Киев </span>,
+                  <span itemprop="streetAddress">ул. Марко Вовчка, 18а</span>
+                </div>
+              </div>
+              <div class="page-footer__menu-info-el d-none">
+                <div class="page-footer__menu-info-el-title">Телефон</div>
+                <a href="tel:+74950000000" class="page-footer__menu-info-el-value" itemprop="telephone">+74950000000</a>
+              </div>
+              <div class="page-footer__menu-info-el">
+                <div class="page-footer__menu-info-el-title">Соцсети</div>
+                <nav class="page-footer__socials">
+                    <a itemprop="sameAs" href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a itemprop="sameAs" href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a itemprop="sameAs" href="#" class="page-footer__socials-el">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                  </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <a class="toTop scrollto" href="#header"></a>
+  </div>
+  <script src="libs/jquery.min.js"></script>
+
+  <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="libs/jquery.mask.min.js"></script>
+  <script src="libs/owl.carousel/owl.carousel.min.js"></script>
+  <script src="libs/select2/select2.full.min.js"></script>
+
+<script src="libs/lazyload.min.js"></script>
+  <script src="scripts/app.js" defer></script>
+</body>
+</html>

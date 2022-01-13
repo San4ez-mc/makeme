@@ -17,7 +17,7 @@
     
     
     
-    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader">
+    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader" id="header">
       <div class="container">
         <nav class="page-header__toggle menuMobileToggle--js">
           <span></span>
@@ -62,7 +62,7 @@
     
     <div class="menuMobile">
       <div class="menuMobile__header">
-        <a href="#" class="menuMobile__logo"><img src="lazy img/icons/logo-header.svg" alt="#"></a>
+        <a href="#" class="menuMobile__logo"><img class="lazy" src="img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
       <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -236,6 +236,102 @@
                     </div>
                   </div>
                 </div>
+                <div class="productFilters__el">
+                  <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el31" aria-expanded="true">
+                    По назначению средства
+                  </button>
+                  <div class="collapse productFilters__el-collapse show" id="productFilters__el31">
+                    <div class="productFilters__el-body">
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input" checked>
+                        <span class="checkboxEl__body">Для волос</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Для лица</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Для тела</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="productFilters__el">
+                  <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el41" aria-expanded="true">
+                    По типу кожи для лица
+                  </button>
+                  <div class="collapse productFilters__el-collapse show" id="productFilters__el41">
+                    <div class="productFilters__el-body">
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input" checked>
+                        <span class="checkboxEl__body">Нормальная и комбинированная</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Жирная</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Сухая</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Зрелая</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="productFilters__el">
+                  <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el5" aria-expanded="true">
+                    По типу кожи тела
+                  </button>
+                  <div class="collapse productFilters__el-collapse show" id="productFilters__el5">
+                    <div class="productFilters__el-body">
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input" checked>
+                        <span class="checkboxEl__body">Нормальная</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Жирная</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Сухая</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Зрелая</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="productFilters__el">
+                  <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el6" aria-expanded="true">
+                    По типу волос
+                  </button>
+                  <div class="collapse productFilters__el-collapse show" id="productFilters__el6">
+                    <div class="productFilters__el-body">
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input" checked>
+                        <span class="checkboxEl__body">Нормальные</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Сухие</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Жирные</span>
+                      </label>
+                      <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input">
+                        <span class="checkboxEl__body">Окрашенные</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </aside>
             </div>
             <div class="col-xl-9 col-lg-8">
@@ -247,7 +343,7 @@
                       <span class="dropdown__pretext">Показать сначала:</span>
                       <span class="dropdown__value">Новинки</span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu" >
                       <a class="dropdown-item" href="#">Дешевые</a>
                       <a class="dropdown-item" href="#">Дорогие</a>
                       <a class="dropdown-item active" href="#">Новинки</a>
@@ -260,6 +356,12 @@
                 <div class="row">
                   <div class="col-xl-4 col-6">
                     <div class="productCard">
+                      <div class="productBig__quantityAndLike">
+                        <label class="like">
+                          <input type="checkbox" class="like__input">
+                          <span class="like__body"></span>
+                        </label>
+                      </div>
                       <div class="productCard__feature productCard__feature--stock">-10%</div>
                       <div class="productCard__producer">
                         <span class="productCard__producer-toggle">
@@ -292,6 +394,12 @@
                   </div>
                   <div class="col-xl-4 col-6">
                     <div class="productCard">
+                      <div class="productBig__quantityAndLike">
+                        <label class="like">
+                          <input type="checkbox" class="like__input">
+                          <span class="like__body"></span>
+                        </label>
+                      </div>
                       <div class="productCard__feature productCard__feature--hit">ХИТ ПРОДАЖ</div>
                       <div class="productCard__producer">
                         <span class="productCard__producer-toggle">
@@ -324,6 +432,12 @@
                   </div>
                   <div class="col-xl-4 col-6">
                     <div class="productCard">
+                      <div class="productBig__quantityAndLike">
+                        <label class="like">
+                          <input type="checkbox" class="like__input">
+                          <span class="like__body"></span>
+                        </label>
+                      </div>
                       <div class="productCard__feature productCard__feature--new">NEW</div>
                       <div class="productCard__producer">
                         <span class="productCard__producer-toggle">
@@ -356,6 +470,12 @@
                   </div>
                   <div class="col-xl-4 col-6">
                     <div class="productCard">
+                      <div class="productBig__quantityAndLike">
+                        <label class="like">
+                          <input type="checkbox" class="like__input">
+                          <span class="like__body"></span>
+                        </label>
+                      </div>
                       <div class="productCard__feature productCard__feature--stock">-10%</div>
                       <div class="productCard__producer">
                         <span class="productCard__producer-toggle">
@@ -388,6 +508,12 @@
                   </div>
                   <div class="col-xl-4 col-6">
                     <div class="productCard">
+                      <div class="productBig__quantityAndLike">
+                        <label class="like">
+                          <input type="checkbox" class="like__input">
+                          <span class="like__body"></span>
+                        </label>
+                      </div>
                       <div class="productCard__feature productCard__feature--hit">ХИТ ПРОДАЖ</div>
                       <div class="productCard__producer">
                         <span class="productCard__producer-toggle">
@@ -420,6 +546,12 @@
                   </div>
                   <div class="col-xl-4 col-6">
                     <div class="productCard">
+                      <div class="productBig__quantityAndLike">
+                        <label class="like">
+                          <input type="checkbox" class="like__input">
+                          <span class="like__body"></span>
+                        </label>
+                      </div>
                       <div class="productCard__feature productCard__feature--new">NEW</div>
                       <div class="productCard__producer">
                         <span class="productCard__producer-toggle">
@@ -524,7 +656,7 @@
               <span class="d-none" itemprop="name">Make My</span>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">График работы</div>
-                <time class="page-footer__menu-info-el-value" datetime="Mo-Su" itemprop="openingHours">Круглосуточно</time>
+                <div class="page-footer__menu-info-el-value" itemprop="openingHours">Круглосуточно</div>
               </div>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">Местоположение</div>
@@ -556,6 +688,8 @@
         </div>
       </div>
     </footer>
+    
+    <a class="toTop scrollto" href="#header"></a>
   </div>
   <script src="libs/jquery.min.js"></script>
 

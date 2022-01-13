@@ -17,7 +17,7 @@
     
     
     
-    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader">
+    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader" id="header">
       <div class="container">
         <nav class="page-header__toggle menuMobileToggle--js">
           <span></span>
@@ -62,7 +62,7 @@
     
     <div class="menuMobile">
       <div class="menuMobile__header">
-        <a href="#" class="menuMobile__logo"><img src="lazy img/icons/logo-header.svg" alt="#"></a>
+        <a href="#" class="menuMobile__logo"><img class="lazy" src="img/icons/logo-header.svg" alt="#"></a>
         <span class="menuMobile__toggle menuMobileToggle--js"></span>
       </div>
       <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
@@ -133,7 +133,16 @@
         </section>
         <section class="stages">
           <div class="container">
-            <img src="img/aboutPage/girlInMask.png" alt="#" class="lazy stages__img">
+            <img 
+              src="img/aboutPage/girlInMask.png" 
+              data-srcset="
+                img/aboutPage/girlInMask.png 767w, 
+                img/aboutPage/girlInMask@2x.png 1199w, 
+                img/aboutPage/girlInMask@3x.png 1920w
+              "
+              alt="#" 
+              class="lazy stages__img"
+            >
             <ol class="stages__list">
               <li class="stages__list-el">
                 <span class="stages__list-el-number">1</span>
@@ -163,7 +172,16 @@
         <section class="aboutProduct">
           <img src="img/aboutPage/aboutShampooBG.png" alt="#" class="lazy parallaxBalls">
           <div class="container">
-            <img src="img/aboutPage/shampoo2.png" alt="#" class="lazy aboutProduct__img">
+            <img 
+              src="img/aboutPage/shampoo2.png" 
+              data-srcset="
+                img/aboutPage/shampoo2.png 767w, 
+                img/aboutPage/shampoo2@2x.png 1199w, 
+                img/aboutPage/shampoo2@3x.png 1920w
+              "
+              alt="#" 
+              class="lazy aboutProduct__img"
+            >
             <ul class="aboutProduct__list">
               <li class="aboutProduct__list-el">
                 <img src="img/aboutPage/aboutIcon1.svg" alt="#" class="lazy aboutProduct__list-el-icon">
@@ -194,7 +212,16 @@
               <div class="col-md-6 position-relative">
                 <img src="img/aboutPage/aboutWithUsBG.png" alt="#" class="lazy parallaxBalls">
                 <div class="infoBlock__imgContainer">
-                  <img src="img/aboutPage/aboutWithUsImg.png" alt="#" class="lazy infoBlock__img">
+                  <img 
+                    src="img/aboutPage/aboutWithUsImg.png" 
+                    data-srcset="
+                      img/aboutPage/aboutWithUsImg.png 767w, 
+                      img/aboutPage/aboutWithUsImg@2x.png 1199w, 
+                      img/aboutPage/aboutWithUsImg@3x.png 1920w
+                    "
+                    alt="#" 
+                    class="lazy infoBlock__img"
+                  >
                 </div>
               </div>
               <div class="col-md-6">
@@ -247,7 +274,7 @@
               <span class="d-none" itemprop="name">Make My</span>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">График работы</div>
-                <time class="page-footer__menu-info-el-value" datetime="Mo-Su" itemprop="openingHours">Круглосуточно</time>
+                <div class="page-footer__menu-info-el-value" itemprop="openingHours">Круглосуточно</div>
               </div>
               <div class="page-footer__menu-info-el">
                 <div class="page-footer__menu-info-el-title">Местоположение</div>
@@ -279,6 +306,8 @@
         </div>
       </div>
     </footer>
+    
+    <a class="toTop scrollto" href="#header"></a>
   </div>
   <script src="libs/jquery.min.js"></script>
 
