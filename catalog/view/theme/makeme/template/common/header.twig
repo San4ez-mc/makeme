@@ -6,97 +6,231 @@
 <html dir="{{ direction }}" lang="{{ lang }}">
 <!--<![endif]-->
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>{{ title }}</title>
-{% if robots %}
-<meta name="robots" content="{{ robots }}" />
-{% endif %}
-<base href="{{ base }}" />
-{% if description %}
-<meta name="description" content="{{ description }}" />
-{% endif %}
-{% if keywords %}
-<meta name="keywords" content="{{ keywords }}" />
-{% endif %}
-<meta property="og:title" content="{{ title }}" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="{{ og_url }}" />
-{% if og_image %}
-<meta property="og:image" content="{{ og_image }}" />
-{% else %}
-<meta property="og:image" content="{{ logo }}" />
-{% endif %}
-<meta property="og:site_name" content="{{ name }}" />
-<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
-<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
-{% for style in styles %}
-<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
-{% endfor %}
-{% for script in scripts %}
-<script src="{{ script }}" type="text/javascript"></script>
-{% endfor %}
-<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
-{% for link in links %}
-<link href="{{ link.href }}" rel="{{ link.rel }}" />
-{% endfor %}
-{% for analytic in analytics %}
-{{ analytic }}
-{% endfor %}
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title }}</title>
+    {% if robots %}
+        <meta name="robots" content="{{ robots }}"/>
+    {% endif %}
+    <base href="{{ base }}"/>
+    {% if description %}
+        <meta name="description" content="{{ description }}"/>
+    {% endif %}
+    {% if keywords %}
+        <meta name="keywords" content="{{ keywords }}"/>
+    {% endif %}
+    <meta property="og:title" content="{{ title }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ og_url }}"/>
+    {% if og_image %}
+        <meta property="og:image" content="{{ og_image }}"/>
+    {% else %}
+        <meta property="og:image" content="{{ logo }}"/>
+    {% endif %}
+    <meta property="og:site_name" content="{{ name }}"/>
+    {#    <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>#}
+    {#    <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>#}
+    {#    <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>#}
+    {#    <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>#}
+    {#    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>#}
+    {#    <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">#}
+
+    <link rel="stylesheet" href="catalog/view/theme/makeme/libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="catalog/view/theme/makeme/libs/fontawesome/css/all.css">
+    <link rel="stylesheet" href="catalog/view/theme/makeme/libs/owl.carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="catalog/view/theme/makeme/stylesheet/main.css">
+
+    {% for style in styles %}
+        <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}"/>
+    {% endfor %}
+    {#    {% for script in scripts %}#}
+    {#        <script src="{{ script }}" type="text/javascript"></script>#}
+    {#    {% endfor %}#}
+    {#    <script src="catalog/view/javascript/common.js" type="text/javascript"></script>#}
+    {% for link in links %}
+        <link href="{{ link.href }}" rel="{{ link.rel }}"/>
+    {% endfor %}
+    {% for analytic in analytics %}
+        {{ analytic }}
+    {% endfor %}
 </head>
 <body>
-<nav id="top">
-  <div class="container">{{ currency }}
-    {{ language }}
-	{{ blog_menu }}
-    <div id="top-links" class="nav pull-right">
-      <ul class="list-inline">
-        <li><a href="{{ contact }}"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span></li>
-        <li class="dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            {% if logged %}
-            <li><a href="{{ account }}">{{ text_account }}</a></li>
-            <li><a href="{{ order }}">{{ text_order }}</a></li>
-            <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
-            <li><a href="{{ download }}">{{ text_download }}</a></li>
-            <li><a href="{{ logout }}">{{ text_logout }}</a></li>
-            {% else %}
-            <li><a href="{{ register }}">{{ text_register }}</a></li>
-            <li><a href="{{ login }}">{{ text_login }}</a></li>
-            {% endif %}
-          </ul>
-        </li>
-        <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
-        <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>
-        <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>
-      </ul>
+<div class="page-wrapper">
+    {{ preloader }}
+    <header class="page-header" itemscope itemtype="https://schema.org/WPHeader" id="header">
+        <div class="container">
+            <nav class="page-header__toggle menuMobileToggle--js">
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
+            <a href="#" class="page-header__logo">
+{#                <img src="img/icons/logo-header.svg" alt="logo" class="lazy page-header__logo-img">#}
+                <img src="{{ logo }}" alt="logo" class="lazy page-header__logo-img">
+            </a>
+{#            <nav class="page-header__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">#}
+{#                <ul class="page-header__menu-list">#}
+{#                    <li itemprop="name" class="page-header__menu-list-el">#}
+{#                        <a itemprop="url" class="page-header__menu-el" href="#">Конструктор</a>#}
+{#                    </li>#}
+{#                    <li itemprop="name" class="page-header__menu-list-el">#}
+{#                        <a itemprop="url" class="page-header__menu-el" href="#">Каталог</a>#}
+{#                    </li>#}
+{#                    <li itemprop="name" class="page-header__menu-list-el">#}
+{#                        <a itemprop="url" class="page-header__menu-el" href="#">Компоненты</a>#}
+{#                    </li>#}
+{#                    <li itemprop="name" class="page-header__menu-list-el">#}
+{#                        <a itemprop="url" class="page-header__menu-el" href="#">О нас</a>#}
+{#                    </li>#}
+{#                    <li itemprop="name" class="page-header__menu-list-el">#}
+{#                        <a itemprop="url" class="page-header__menu-el color-primary" href="#">MM Club</a>#}
+{#                    </li>#}
+{#                    <li itemprop="name" class="page-header__menu-list-el">#}
+{#                        <a itemprop="url" class="page-header__menu-el" href="#">Акции</a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </nav>#}
+            {{ menu }}
+            <nav class="page-header__buttons">
+                <a href="#" class="page-header__buttons-el page-header__buttons-el--user"></a>
+                <a href="#" class="page-header__buttons-el page-header__buttons-el--likes"></a>
+                <a href="#" class="page-header__buttons-el page-header__buttons-el--basket">
+                    <span class="basket-quantity">5</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="menuMobile">
+        <div class="menuMobile__header">
+            <a href="#" class="menuMobile__logo">
+{#                <img class="lazy" src="img/icons/logo-header.svg" alt="#">#}
+                <img class="lazy" src="{{ logo }}" alt="logo">
+            </a>
+            <span class="menuMobile__toggle menuMobileToggle--js"></span>
+        </div>
+        {{ menu_mobile }}
+{#        <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">#}
+{#            <div class="menuMobile__menu">#}
+{#                <ul class="menuMobile__menu-list">#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#" class="menuMobile__menu-el">Конструктор</a>#}
+{#                    </li>#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#" class="menuMobile__menu-el">Каталог</a>#}
+{#                    </li>#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#" class="menuMobile__menu-el">Компоненты</a>#}
+{#                    </li>#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#"#}
+{#                           class="menuMobile__menu-el">О нас</a></li>#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#"#}
+{#                           class="menuMobile__menu-el color-primary">MM#}
+{#                            Club</a></li>#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#"#}
+{#                           class="menuMobile__menu-el">Акции</a></li>#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#"#}
+{#                           class="menuMobile__menu-el">Доставка и#}
+{#                            оплата</a></li>#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#"#}
+{#                           class="menuMobile__menu-el">Блог</a></li>#}
+{#                    <li itemprop="name" class="menuMobile__menu-list-el">#}
+{#                        <a itemprop="url" href="#"#}
+{#                           class="menuMobile__menu-el">Публичная#}
+{#                            оферта</a></li>#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div class="page-footer__menu-info">#}
+{#                <div class="page-footer__menu-info-el">#}
+{#                    <div class="page-footer__menu-info-el-title">График работы</div>#}
+{#                    <div class="page-footer__menu-info-el-value">Круглосуточно</div>#}
+{#                </div>#}
+{#                <div class="page-footer__menu-info-el">#}
+{#                    <div class="page-footer__menu-info-el-title">График работы</div>#}
+{#                    <div class="page-footer__menu-info-el-value">г. Киев, ул. Марко Вовчка, 18а</div>#}
+{#                </div>#}
+{#                <div class="page-footer__menu-info-el">#}
+{#                    <div class="page-footer__menu-info-el-title">Соцсети</div>#}
+{#                    <nav class="page-footer__socials">#}
+{#                        <a href="#" class="page-footer__socials-el">#}
+{#                            <i class="fab fa-facebook"></i>#}
+{#                        </a>#}
+{#                        <a href="#" class="page-footer__socials-el">#}
+{#                            <i class="fab fa-facebook"></i>#}
+{#                        </a>#}
+{#                        <a href="#" class="page-footer__socials-el">#}
+{#                            <i class="fab fa-facebook"></i>#}
+{#                        </a>#}
+{#                    </nav>#}
+{#                </div>#}
+{#            </div>#}
+{#        </nav>#}
     </div>
-  </div>
-</nav>
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-		<div id="logo">
-          {% if logo %}
-            {% if home == og_url %}
-              <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" />
-            {% else %}
-              <a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" /></a>
-            {% endif %}
-          {% else %}
-            <h1><a href="{{ home }}">{{ name }}</a></h1>
-          {% endif %}
-		</div>
-      </div>
-      <div class="col-sm-5">{{ search }}</div>
-      <div class="col-sm-3">{{ cart }}</div>
-    </div>
-  </div>
-</header>
-{{ menu }}
+
+    {#    <body>#}
+    {#    <nav id="top">#}
+    {#        <div class="container">{{ currency }}#}
+    {#            {{ language }}#}
+    {#            {{ blog_menu }}#}
+    {#            <div id="top-links" class="nav pull-right">#}
+    {#                <ul class="list-inline">#}
+    {#                    <li><a href="{{ contact }}"><i class="fa fa-phone"></i></a> <span#}
+    {#                                class="hidden-xs hidden-sm hidden-md">{{ telephone }}</span></li>#}
+    {#                    <li class="dropdown"><a href="{{ account }}" title="{{ text_account }}" class="dropdown-toggle"#}
+    {#                                            data-toggle="dropdown"><i class="fa fa-user"></i> <span#}
+    {#                                    class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> <span#}
+    {#                                    class="caret"></span></a>#}
+    {#                        <ul class="dropdown-menu dropdown-menu-right">#}
+    {#                            {% if logged %}#}
+    {#                                <li><a href="{{ account }}">{{ text_account }}</a></li>#}
+    {#                                <li><a href="{{ order }}">{{ text_order }}</a></li>#}
+    {#                                <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>#}
+    {#                                <li><a href="{{ download }}">{{ text_download }}</a></li>#}
+    {#                                <li><a href="{{ logout }}">{{ text_logout }}</a></li>#}
+    {#                            {% else %}#}
+    {#                                <li><a href="{{ register }}">{{ text_register }}</a></li>#}
+    {#                                <li><a href="{{ login }}">{{ text_login }}</a></li>#}
+    {#                            {% endif %}#}
+    {#                        </ul>#}
+    {#                    </li>#}
+    {#                    <li><a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}"><i#}
+    {#                                    class="fa fa-heart"></i>#}
+    {#                            <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>#}
+    {#                    <li><a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}"><i#}
+    {#                                    class="fa fa-shopping-cart"></i>#}
+    {#                            <span class="hidden-xs hidden-sm hidden-md">{{ text_shopping_cart }}</span></a></li>#}
+    {#                    <li><a href="{{ checkout }}" title="{{ text_checkout }}"><i class="fa fa-share"></i> <span#}
+    {#                                    class="hidden-xs hidden-sm hidden-md">{{ text_checkout }}</span></a></li>#}
+    {#                </ul>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </nav>#}
+    {#    <header>#}
+    {#        <div class="container">#}
+    {#            <div class="row">#}
+    {#                <div class="col-sm-4">#}
+    {#                    <div id="logo">#}
+    {#                        {% if logo %}#}
+    {#                            {% if home == og_url %}#}
+    {#                                <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive"/>#}
+    {#                            {% else %}#}
+    {#                                <a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}"#}
+    {#                                                          class="img-responsive"/></a>#}
+    {#                            {% endif %}#}
+    {#                        {% else %}#}
+    {#                            <h1><a href="{{ home }}">{{ name }}</a></h1>#}
+    {#                        {% endif %}#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col-sm-5">{{ search }}</div>#}
+    {#                <div class="col-sm-3">{{ cart }}</div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </header>#}
+    {#    {{ menu }}#}

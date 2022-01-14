@@ -1,0 +1,15 @@
+{% if menu_items %}
+    <nav class="menuMobile__body" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <div class="menuMobile__menu">
+            <ul class="menuMobile__menu-list">
+                {% for menu_item in menu_items %}
+                    <li itemprop="name" class="menuMobile__menu-list-el">
+                        <a itemprop="url" class="menuMobile__menu-el" href="{{ menu_item.href }}">
+                            {{ menu_item.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+{% endif %}
