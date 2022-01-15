@@ -7383,12 +7383,12 @@ input[type=number] {
   top: 10px;
 }
 .constructor__product-el:nth-of-type(1) {
-  top: 570px;
+  top: 480px;
   right: calc(100% + 45px);
 }
 @media (max-width: 1199px) {
   .constructor__product-el:nth-of-type(1) {
-    top: 530px;
+    top: 440px;
   }
 }
 @media (max-width: 767px) {
@@ -7414,7 +7414,7 @@ input[type=number] {
   right: 100%;
 }
 .constructor__product-el:nth-of-type(3) {
-  top: 370px;
+  top: 280px;
   right: calc(100% + 45px);
 }
 @media (max-width: 767px) {
