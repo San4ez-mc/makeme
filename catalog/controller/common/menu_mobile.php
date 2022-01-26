@@ -15,27 +15,27 @@ class ControllerCommonMenu extends Controller
         $data['menu_items'] = [
             [
                 'name' => 'Конструктор',
-                'href' => '#'
+                'href' => $this->url->link('constructor/index')
             ],
             [
                 'name' => 'Каталог',
-                'href' => '#'
+                'href' => $this->url->link('product/catalog')
             ],
             [
                 'name' => 'Компоненты',
-                'href' => '#'
+                'href' => $this->url->link('information/components')
             ],
             [
                 'name' => 'О нас',
-                'href' => '#'
+                'href' => $this->url->link('information/about')
             ],
             [
                 'name' => 'MM Club',
-                'href' => '#'
+                'href' => $this->url->link('information/mmclub')
             ],
             [
                 'name' => 'Акции',
-                'href' => '#'
+                'href' => $this->url->link('information/promo')
             ],
             [
                 'name' => 'Доставка и оплата',

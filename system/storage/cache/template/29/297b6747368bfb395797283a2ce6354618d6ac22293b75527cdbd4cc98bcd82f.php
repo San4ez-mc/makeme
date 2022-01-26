@@ -1,0 +1,745 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+
+/* makeme/template/common/home.twig */
+class __TwigTemplate_001133fc1884ca29711ed968c685213c9d11c6b1ba90299167e6a19fcd89796b extends \Twig\Template
+{
+    private $source;
+    private $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->parent = false;
+
+        $this->blocks = [
+        ];
+    }
+
+    protected function doDisplay(array $context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 1
+        echo ($context["header"] ?? null);
+        echo "
+<div id=\"common-home\" class=\"container\">
+    <div class=\"row\">";
+        // line 3
+        echo ($context["column_left"] ?? null);
+        echo "
+        ";
+        // line 4
+        if ((($context["column_left"] ?? null) && ($context["column_right"] ?? null))) {
+            // line 5
+            echo "            ";
+            $context["class"] = "col-sm-6";
+            // line 6
+            echo "        ";
+        } elseif ((($context["column_left"] ?? null) || ($context["column_right"] ?? null))) {
+            // line 7
+            echo "            ";
+            $context["class"] = "col-sm-9";
+            // line 8
+            echo "        ";
+        } else {
+            // line 9
+            echo "            ";
+            $context["class"] = "col-sm-12";
+            // line 10
+            echo "        ";
+        }
+        // line 11
+        echo "        <main class=\"page-content ";
+        echo ($context["class"] ?? null);
+        echo "\">
+            <div class=\"container\">
+                ";
+        // line 13
+        echo ($context["content_top"] ?? null);
+        echo "
+                ";
+        // line 14
+        echo ($context["content_bottom"] ?? null);
+        echo "
+";
+        // line 83
+        echo "                <section class=\"section uniqueCarousel__container\">
+                    <div class=\"section__header mb-4\">
+                        <h2 class=\"section__title mr-4\">Каждая баночка <span class=\"color-primary\">уникальна!</span>
+                        </h2>
+                        <p class=\"text--simple font-weight-medium pb-3\">Больше не надо переживать о том подойдет ли тебе
+                            крем. <br>
+                            Теперь ты сама можешь создать уход для себя.</p>
+                    </div>
+                    <div class=\"owl-carousel carousel-4els transparentProductCards uniqueCarousel\">
+                        <div class=\"productCard productCard--mask\">
+                            <div class=\"productCard__feature productCard__feature--stock\">-10%</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/selebrity.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано селебрети <br> <span
+                                            class=\"font-weight-bold\">@mariia123_hello</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/home/shampoo.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                </div>
+                                <a href=\"#\" class=\"button button--primary productCard__button\">Создать <span
+                                            class=\"d-sm-inline d-none\">&nbsp;средство</span> </a>
+                            </div>
+                        </div>
+                        <div class=\"productCard productCard--shampoo\">
+                            <div class=\"productCard__feature productCard__feature--hit\">ХИТ ПРОДАЖ</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/buyer.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано покупателем <br> <span
+                                            class=\"font-weight-bold\">Мария Дмитриенко</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+
+                                <img src=\"catalog/view/theme/makeme/image/home/shampoo.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                    <span class=\"productCard__price-old\">344 ₴</span>
+                                </div>
+                                <a href=\"#\" class=\"button button--primary productCard__button\">Создать <span
+                                            class=\"d-sm-inline d-none\">&nbsp;средство</span> </a>
+                            </div>
+                        </div>
+                        <div class=\"productCard productCard--cream\">
+                            <div class=\"productCard__feature productCard__feature--new\">NEW</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/specialist.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано специалистами <br> нашей лаборатории
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/home/cream.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                </div>
+                                <a href=\"#\" class=\"button button--primary productCard__button\">Создать <span
+                                            class=\"d-sm-inline d-none\">&nbsp;средство</span> </a>
+                            </div>
+                        </div>
+                        <div class=\"productCard productCard--scrab\">
+                            <div class=\"productCard__feature productCard__feature--stock\">-10%</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/selebrity.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано селебрети <br> <span
+                                            class=\"font-weight-bold\">@mariia123_hello</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/home/scrab.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                    <span class=\"productCard__price-old\">344 ₴</span>
+                                </div>
+                                <a href=\"#\" class=\"button button--primary productCard__button\">Создать <span
+                                            class=\"d-sm-inline d-none\">&nbsp;средство</span> </a>
+                            </div>
+                        </div>
+                        <div class=\"productCard productCard--scrab\">
+                            <div class=\"productCard__feature productCard__feature--stock\">-10%</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/selebrity.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано селебрети <br> <span
+                                            class=\"font-weight-bold\">@mariia123_hello</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/home/scrab.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                    <span class=\"productCard__price-old\">344 ₴</span>
+                                </div>
+                                <a href=\"#\" class=\"button button--primary productCard__button\">Создать <span
+                                            class=\"d-sm-inline d-none\">&nbsp;средство</span> </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class=\"section createStages\">
+                    <h3 class=\"section__title createStages__title\">Этапы создания</h3>
+                    <ul class=\"createStages__list\">
+                        <li class=\"createStages__list-el\">
+                            <h4 class=\"createStages__list-el-title\">
+                                <span class=\"createStages__list-el-number\">1.</span>
+                                Основа
+                            </h4>
+                            <p class=\"createStages__list-el-text\">Выбор основы для вашго нового средства это первый шаг
+                                к созданию!</p>
+                        </li>
+                        <li class=\"createStages__list-el\">
+                            <h4 class=\"createStages__list-el-title\">
+                                <span class=\"createStages__list-el-number\">2.</span>
+                                Ингридиенты
+                            </h4>
+                            <p class=\"createStages__list-el-text\">Экстракты, витамины и масла - это малая часть тогого
+                                чем вы можете насытить ваш состав.</p>
+                        </li>
+                        <li class=\"createStages__list-el\">
+                            <h4 class=\"createStages__list-el-title\">
+                                <span class=\"createStages__list-el-number\">3.</span>
+                                Название
+                            </h4>
+                            <p class=\"createStages__list-el-text\">У нас вы создаете свою собственную косметику. Каждую
+                                свою баночку вы можете назвать как захотите.</p>
+                        </li>
+                    </ul>
+                    <a href=\"#\" class=\"button button--stroke createStages__button\">Создать средство</a>
+                </section>
+
+                <section class=\"section\">
+                    <div class=\"section__header d-flex align-items-center justify-content-between flex-wrap\">
+                        <h2 class=\"section__title mr-4\"><span class=\"color-primary\">Популярные</span> товары</h2>
+                        <a href=\"#\" class=\"showMore\">Смотреть больше</a>
+                    </div>
+                    <div class=\"owl-carousel carousel-4els transparentProductCards\">
+                        <div class=\"productCard\">
+                            <div class=\"productCard__feature productCard__feature--stock\">-10%</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/selebrity.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано селебрети <br> <span
+                                            class=\"font-weight-bold\">@mariia123_hello</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/shampoo.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=\"productCard\">
+                            <div class=\"productCard__feature productCard__feature--hit\">ХИТ ПРОДАЖ</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/buyer.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано покупателем <br> <span
+                                            class=\"font-weight-bold\">Мария Дмитриенко</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/cream.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                    <span class=\"productCard__price-old\">344 ₴</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=\"productCard\">
+                            <div class=\"productCard__feature productCard__feature--new\">NEW</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/specialist.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано специалистами <br> нашей лаборатории
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/shampoo.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=\"productCard\">
+                            <div class=\"productCard__feature productCard__feature--stock\">-10%</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/selebrity.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано селебрети <br> <span
+                                            class=\"font-weight-bold\">@mariia123_hello</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/shampoo.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                    <span class=\"productCard__price-old\">344 ₴</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=\"productCard\">
+                            <div class=\"productCard__feature productCard__feature--hit\">ХИТ ПРОДАЖ</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/buyer.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано покупателем <br> <span
+                                            class=\"font-weight-bold\">Мария Дмитриенко</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/cream.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                    <span class=\"productCard__price-old\">344 ₴</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=\"productCard\">
+                            <div class=\"productCard__feature productCard__feature--new\">NEW</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/specialist.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано специалистами <br> нашей лаборатории
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/shampoo.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=\"productCard\">
+                            <div class=\"productCard__feature productCard__feature--stock\">-10%</div>
+                            <div class=\"productCard__producer\">
+                <span class=\"productCard__producer-toggle\">
+                  <img src=\"catalog/view/theme/makeme/image/icons/selebrity.svg\" alt=\"#\"
+                       class=\"lazy productCard__producer-icon\">
+                </span>
+                                <p class=\"productCard__producer-text\">
+                                    Средство создано селебрети <br> <span
+                                            class=\"font-weight-bold\">@mariia123_hello</span>
+                                </p>
+                            </div>
+                            <a href=\"#\" class=\"productCard__imgContainer\">
+                                <img src=\"catalog/view/theme/makeme/image/shampoo.png\" alt=\"#\"
+                                     class=\"lazy productCard__img\">
+                            </a>
+                            <div class=\"productCard__body\">
+                                <div class=\"productCard__rating\">
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el productCard__rating-el--full\"></span>
+                                    <span class=\"productCard__rating-el\"></span>
+                                </div>
+                                <a href=\"#\" class=\"productCard__type\">Молочко для тела</a>
+                                <a href=\"#\" class=\"productCard__name\">Молочко для тела с ароматом розы и розмарина (750
+                                    мл)</a>
+
+                                <div class=\"productCard__price\">
+                                    <span class=\"productCard__price-actual\">244 ₴</span>
+                                    <span class=\"productCard__price-old\">344 ₴</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class=\"section createUnique\">
+                    <h3 class=\"section__title createUnique__title\">Создай <span class=\"color-primary\">свою</span>,
+                        неповторимую!</h3>
+                    <p class=\"createUnique__text\">Вместе с тобой мы создадим неповторимую косметику именно для тебя!
+                        Каждая баночка на 100% индивидуальна. </p>
+                    <ul class=\"createUnique__list\">
+                        <li class=\"createUnique__list-el\">Ни какой химии внутри</li>
+                        <li class=\"createUnique__list-el\">Состав который ты создаешь сама</li>
+                        <li class=\"createUnique__list-el\">Индивидуальное производство</li>
+                        <li class=\"createUnique__list-el\">По настоящему эффективная косметика</li>
+                    </ul>
+                    <img
+                            data-srcset=\"
+              img/home/createYours.png 767w,
+              img/home/createYours@2x.png 1199w,
+              img/home/createYours@3x.png 1920w
+            \"
+                            src=\"catalog/view/theme/makeme/image/home/createYours.png\"
+                            alt=\"#\"
+                            class=\"lazy createUnique__img\"
+                    >
+                    <a href=\"#\" class=\"button button--stroke createUnique__button\">Создать средство</a>
+                    <img src=\"catalog/view/theme/makeme/image/home/unique.png\" alt=\"#\" class=\"lazy createUnique__logo\">
+
+                </section>
+
+                <section class=\"section starFeedbacks\">
+                    <div class=\"section__header d-flex align-items-center justify-content-between flex-wrap\">
+                        <h2 class=\"section__title mr-4\"><span class=\"color-primary\">Звездные</span> отзывы</h2>
+                        <a href=\"#\" class=\"showMore\">Смотреть больше</a>
+                    </div>
+                    <div class=\"owl-carousel carousel-3els\">
+                        <a href=\"#\" class=\"starFeedback\">
+              <span class=\"starFeedback__imgContainer\">
+                <img
+                        data-srcset=\"
+                    img/home/starFeedback1.jpg 767w,
+                    img/home/starFeedback1@2x.jpg 1199w,
+                    img/home/starFeedback1@3x.jpg 1920w
+                  \"
+                        src=\"catalog/view/theme/makeme/image/home/starFeedback1.jpg\"
+                        alt=\"#\"
+                        class=\"lazy starFeedback__img\"
+                >
+                <span class=\"starFeedback__info\">
+                  <span class=\"starFeedback__info-name\">@NicknameInsta</span>
+                  <span class=\"starFeedback__info-about\">
+                    23 000 подписчиков в инстаграм<br>
+                    Мама троих
+                  </span>
+                </span>
+              </span>
+                            <span class=\"starFeedback__body\">
+                <span class=\"starFeedback__body-name\">@NicknameInsta</span>
+                <span class=\"starFeedback__body-about\">
+                  23 000 подписчиков в инстаграм<br>
+                  Мама троих
+                </span>
+                <span class=\"starFeedback__body-text\">Хочу подякувати @makemy за чудо-баночки, які поїхали зі мною в сонячну, спекотну країну! Вже вкотре користуюсь цими засобами, і завжди в захваті. <br>
+                Крем універсальний для денного та нічного застосування. А пінка для вмивання прекрасно очищує шкіру і змиває макіяж! Навіть туш! Взяла 2 баночки і зекономила багато місця! <br>
+                Ну а запах - це взагалі окрема тема!😍</span>
+                <span class=\"starFeedback__moreDetails\">Подробнее о средстве</span>
+              </span>
+                        </a>
+                        <a href=\"#\" class=\"starFeedback\">
+              <span class=\"starFeedback__imgContainer\">
+                <img
+                        data-srcset=\"
+                    img/home/starFeedback2.jpg 767w,
+                    img/home/starFeedback2@2x.jpg 1199w,
+                    img/home/starFeedback2@3x.jpg 1920w
+                  \"
+                        src=\"catalog/view/theme/makeme/image/home/starFeedback2.jpg\"
+                        alt=\"#\"
+                        class=\"lazy starFeedback__img\"
+                >
+                <span class=\"starFeedback__info\">
+                  <span class=\"starFeedback__info-name\">@NicknameInsta</span>
+                  <span class=\"starFeedback__info-about\">
+                    23 000 подписчиков в инстаграм<br>
+                    Мама троих
+                  </span>
+                </span>
+              </span>
+                            <span class=\"starFeedback__body\">
+                <span class=\"starFeedback__body-name\">@NicknameInsta</span>
+                <span class=\"starFeedback__body-about\">
+                  23 000 подписчиков в инстаграм<br>
+                  Мама троих
+                </span>
+                <span class=\"starFeedback__body-text\">Хочу подякувати @makemy за чудо-баночки, які поїхали зі мною в сонячну, спекотну країну! Вже вкотре користуюсь цими засобами, і завжди в захваті. <br>
+                Крем універсальний для денного та нічного застосування. А пінка для вмивання прекрасно очищує шкіру і змиває макіяж! Навіть туш! Взяла 2 баночки і зекономила багато місця! <br>
+                Ну а запах - це взагалі окрема тема!😍</span>
+                <span class=\"starFeedback__moreDetails\">Подробнее о средстве</span>
+              </span>
+                        </a>
+                        <a href=\"#\" class=\"starFeedback\">
+              <span class=\"starFeedback__imgContainer\">
+                <img
+                        data-srcset=\"
+                    img/home/starFeedback3.jpg 767w,
+                    img/home/starFeedback3@2x.jpg 1199w,
+                    img/home/starFeedback3@3x.jpg 1920w
+                  \"
+                        src=\"catalog/view/theme/makeme/image/home/starFeedback3.jpg\"
+                        alt=\"#\"
+                        class=\"lazy starFeedback__img\"
+                >
+                <span class=\"starFeedback__info\">
+                  <span class=\"starFeedback__info-name\">@NicknameInsta</span>
+                  <span class=\"starFeedback__info-about\">
+                    23 000 подписчиков в инстаграм<br>
+                    Мама троих
+                  </span>
+                </span>
+              </span>
+                            <span class=\"starFeedback__body\">
+                <span class=\"starFeedback__body-name\">@NicknameInsta</span>
+                <span class=\"starFeedback__body-about\">
+                  23 000 подписчиков в инстаграм<br>
+                  Мама троих
+                </span>
+                <span class=\"starFeedback__body-text\">Хочу подякувати @makemy за чудо-баночки, які поїхали зі мною в сонячну, спекотну країну! Вже вкотре користуюсь цими засобами, і завжди в захваті. <br>
+                Крем універсальний для денного та нічного застосування. А пінка для вмивання прекрасно очищує шкіру і змиває макіяж! Навіть туш! Взяла 2 баночки і зекономила багато місця! <br>
+                Ну а запах - це взагалі окрема тема!😍</span>
+                <span class=\"starFeedback__moreDetails\">Подробнее о средстве</span>
+              </span>
+                        </a>
+                        <a href=\"#\" class=\"starFeedback\">
+              <span class=\"starFeedback__imgContainer\">
+                <img src=\"catalog/view/theme/makeme/image/home/starFeedback1.jpg\" alt=\"#\"
+                     class=\"lazy starFeedback__img\">
+                <span class=\"starFeedback__info\">
+                  <span class=\"starFeedback__info-name\">@NicknameInsta</span>
+                  <span class=\"starFeedback__info-about\">
+                    23 000 подписчиков в инстаграм<br>
+                    Мама троих
+                  </span>
+                </span>
+              </span>
+                            <span class=\"starFeedback__body\">
+                <span class=\"starFeedback__body-name\">@NicknameInsta</span>
+                <span class=\"starFeedback__body-about\">
+                  23 000 подписчиков в инстаграм<br>
+                  Мама троих
+                </span>
+                <span class=\"starFeedback__body-text\">Хочу подякувати @makemy за чудо-баночки, які поїхали зі мною в сонячну, спекотну країну! Вже вкотре користуюсь цими засобами, і завжди в захваті. <br>
+                Крем універсальний для денного та нічного застосування. А пінка для вмивання прекрасно очищує шкіру і змиває макіяж! Навіть туш! Взяла 2 баночки і зекономила багато місця! <br>
+                Ну а запах - це взагалі окрема тема!😍</span>
+                <span class=\"starFeedback__moreDetails\">Подробнее о средстве</span>
+              </span>
+                        </a>
+                    </div>
+                    <div class=\"text-center mt-4\">
+                        <a href=\"#\" class=\"button button--stroke\">Создать средство</a>
+                    </div>
+                </section>
+
+                <aside class=\"section createYours yourNewsletter\">
+                    <div class=\"createYours__title\"><span class=\"color-primary\">ТВОЯ</span> рассылка!</div>
+                    <p class=\"createYours__text\">Самые выгодные цены, крутые акции и персональные предложения в твоей
+                        рассылке</p>
+                    <form action=\"#\" class=\"yourNewsletter__form\">
+                        <input type=\"text\" class=\"yourNewsletter__form-input\" placeholder=\"Введите свою почту\">
+                        <button type=\"submit\" class=\"button button--primary yourNewsletter__form-button\">ПОДПИСАТЬСЯ
+                        </button>
+                    </form>
+                </aside>
+
+            </div>
+        </main>
+        ";
+        // line 717
+        echo ($context["column_right"] ?? null);
+        echo "</div>
+</div>
+";
+        // line 719
+        echo ($context["footer"] ?? null);
+        echo "
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "makeme/template/common/home.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  721 => 719,  716 => 717,  80 => 83,  76 => 14,  72 => 13,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  54 => 7,  51 => 6,  48 => 5,  46 => 4,  42 => 3,  37 => 1,);
+    }
+
+    public function getSourceContext()
+    {
+        return new Source("", "makeme/template/common/home.twig", "");
+    }
+}
