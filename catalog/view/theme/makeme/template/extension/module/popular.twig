@@ -1,0 +1,250 @@
+<section class="section uniqueCarousel__container">
+    <div class="section__header mb-4">
+        <h2 class="section__title mr-4">Каждая баночка <span class="color-primary">уникальна!</span>
+        </h2>
+        <p class="text--simple font-weight-medium pb-3">Больше не надо переживать о том подойдет ли тебе
+            крем. <br>
+            Теперь ты сама можешь создать уход для себя.</p>
+    </div>
+    <div class="owl-carousel carousel-4els transparentProductCards uniqueCarousel">
+        {% for product in products %}
+            <div class="productCard productCard--mask">
+                <div class="productCard__feature productCard__feature--stock">-10%</div>
+                <div class="productCard__producer">
+                <span class="productCard__producer-toggle">
+{#                  <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="#"#}
+                  <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}"
+                       class="lazy productCard__producer-icon">
+                </span>
+                    <p class="productCard__producer-text">
+                        Средство создано селебрети <br> <span
+                                class="font-weight-bold">@mariia123_hello</span>
+                    </p>
+                </div>
+                <a href="#" class="productCard__imgContainer">
+{#                    <img src="catalog/view/theme/makeme/image/home/shampoo.png" alt="#"#}
+                    <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}"
+                         class="lazy productCard__img">
+                </a>
+
+
+                <div class="productCard__body">
+                    <div class="productCard__rating">
+                        {% for i in 5 %}
+                            {% if product.rating >= i %}
+                                <span class="productCard__rating-el productCard__rating-el--full"></span>
+                            {% else %}
+                                <span class="productCard__rating-el"></span>
+                            {% endif %}
+                        {% endfor %}
+{#                        <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+{#                        <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+{#                        <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+{#                        <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+{#                        <span class="productCard__rating-el"></span>#}
+                    </div>
+                    <a href="{{ product.href }}" class="productCard__type">{{ product.name }}</a>
+                    <a href="{{ product.href }}" class="productCard__name">{{ product.description }}</a>
+
+                    {% if product.price %}
+                        <div class="productCard__price">
+                            {% if not product.special %}
+                                <span class="productCard__price-actual">{{ product.price }} ₴</span>
+                            {% else %}
+                                <span class="price-new">{{ product.special }}</span> <span
+                                    class="price-old">{{ product.price }}</span>
+                            {% endif %}
+                            {% if product.tax %}
+{#                                <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>#}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+{#                    <div class="productCard__price">#}
+{#                        <span class="productCard__price-actual">244 ₴</span>#}
+{#                    </div>#}
+                    <a href="#" class="button button--primary productCard__button">Создать <span
+                                class="d-sm-inline d-none">&nbsp;средство</span> </a>
+                </div>
+            </div>
+        {% endfor %}
+        {#        <div class="productCard productCard--mask">#}
+        {#            <div class="productCard__feature productCard__feature--stock">-10%</div>#}
+        {#            <div class="productCard__producer">#}
+        {#                <span class="productCard__producer-toggle">#}
+        {#                  <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="#"#}
+        {#                       class="lazy productCard__producer-icon">#}
+        {#                </span>#}
+        {#                <p class="productCard__producer-text">#}
+        {#                    Средство создано селебрети <br> <span#}
+        {#                            class="font-weight-bold">@mariia123_hello</span>#}
+        {#                </p>#}
+        {#            </div>#}
+        {#            <a href="#" class="productCard__imgContainer">#}
+        {#                <img src="catalog/view/theme/makeme/image/home/shampoo.png" alt="#"#}
+        {#                     class="lazy productCard__img">#}
+        {#            </a>#}
+        {#            <div class="productCard__body">#}
+        {#                <div class="productCard__rating">#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el"></span>#}
+        {#                </div>#}
+        {#                <a href="#" class="productCard__type">Молочко для тела</a>#}
+        {#                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750#}
+        {#                    мл)</a>#}
+
+        {#                <div class="productCard__price">#}
+        {#                    <span class="productCard__price-actual">244 ₴</span>#}
+        {#                </div>#}
+        {#                <a href="#" class="button button--primary productCard__button">Создать <span#}
+        {#                            class="d-sm-inline d-none">&nbsp;средство</span> </a>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#        <div class="productCard productCard--shampoo">#}
+        {#            <div class="productCard__feature productCard__feature--hit">ХИТ ПРОДАЖ</div>#}
+        {#            <div class="productCard__producer">#}
+        {#                <span class="productCard__producer-toggle">#}
+        {#                  <img src="catalog/view/theme/makeme/image/icons/buyer.svg" alt="#"#}
+        {#                       class="lazy productCard__producer-icon">#}
+        {#                </span>#}
+        {#                <p class="productCard__producer-text">#}
+        {#                    Средство создано покупателем <br> <span#}
+        {#                            class="font-weight-bold">Мария Дмитриенко</span>#}
+        {#                </p>#}
+        {#            </div>#}
+        {#            <a href="#" class="productCard__imgContainer">#}
+
+        {#                <img src="catalog/view/theme/makeme/image/home/shampoo.png" alt="#"#}
+        {#                     class="lazy productCard__img">#}
+        {#            </a>#}
+        {#            <div class="productCard__body">#}
+        {#                <div class="productCard__rating">#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el"></span>#}
+        {#                </div>#}
+        {#                <a href="#" class="productCard__type">Молочко для тела</a>#}
+        {#                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750#}
+        {#                    мл)</a>#}
+
+        {#                <div class="productCard__price">#}
+        {#                    <span class="productCard__price-actual">244 ₴</span>#}
+        {#                    <span class="productCard__price-old">344 ₴</span>#}
+        {#                </div>#}
+        {#                <a href="#" class="button button--primary productCard__button">Создать <span#}
+        {#                            class="d-sm-inline d-none">&nbsp;средство</span> </a>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#        <div class="productCard productCard--cream">#}
+        {#            <div class="productCard__feature productCard__feature--new">NEW</div>#}
+        {#            <div class="productCard__producer">#}
+        {#                <span class="productCard__producer-toggle">#}
+        {#                  <img src="catalog/view/theme/makeme/image/icons/specialist.svg" alt="#"#}
+        {#                       class="lazy productCard__producer-icon">#}
+        {#                </span>#}
+        {#                <p class="productCard__producer-text">#}
+        {#                    Средство создано специалистами <br> нашей лаборатории#}
+        {#                </p>#}
+        {#            </div>#}
+        {#            <a href="#" class="productCard__imgContainer">#}
+        {#                <img src="catalog/view/theme/makeme/image/home/cream.png" alt="#"#}
+        {#                     class="lazy productCard__img">#}
+        {#            </a>#}
+        {#            <div class="productCard__body">#}
+        {#                <div class="productCard__rating">#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el"></span>#}
+        {#                </div>#}
+        {#                <a href="#" class="productCard__type">Молочко для тела</a>#}
+        {#                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750#}
+        {#                    мл)</a>#}
+
+        {#                <div class="productCard__price">#}
+        {#                    <span class="productCard__price-actual">244 ₴</span>#}
+        {#                </div>#}
+        {#                <a href="#" class="button button--primary productCard__button">Создать <span#}
+        {#                            class="d-sm-inline d-none">&nbsp;средство</span> </a>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#        <div class="productCard productCard--scrab">#}
+        {#            <div class="productCard__feature productCard__feature--stock">-10%</div>#}
+        {#            <div class="productCard__producer">#}
+        {#                <span class="productCard__producer-toggle">#}
+        {#                  <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="#"#}
+        {#                       class="lazy productCard__producer-icon">#}
+        {#                </span>#}
+        {#                <p class="productCard__producer-text">#}
+        {#                    Средство создано селебрети <br> <span#}
+        {#                            class="font-weight-bold">@mariia123_hello</span>#}
+        {#                </p>#}
+        {#            </div>#}
+        {#            <a href="#" class="productCard__imgContainer">#}
+        {#                <img src="catalog/view/theme/makeme/image/home/scrab.png" alt="#"#}
+        {#                     class="lazy productCard__img">#}
+        {#            </a>#}
+        {#            <div class="productCard__body">#}
+        {#                <div class="productCard__rating">#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el"></span>#}
+        {#                </div>#}
+        {#                <a href="#" class="productCard__type">Молочко для тела</a>#}
+        {#                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750#}
+        {#                    мл)</a>#}
+
+        {#                <div class="productCard__price">#}
+        {#                    <span class="productCard__price-actual">244 ₴</span>#}
+        {#                    <span class="productCard__price-old">344 ₴</span>#}
+        {#                </div>#}
+        {#                <a href="#" class="button button--primary productCard__button">Создать <span#}
+        {#                            class="d-sm-inline d-none">&nbsp;средство</span> </a>#}
+        {#            </div>#}
+        {#        </div>#}
+        {#        <div class="productCard productCard--scrab">#}
+        {#            <div class="productCard__feature productCard__feature--stock">-10%</div>#}
+        {#            <div class="productCard__producer">#}
+        {#                <span class="productCard__producer-toggle">#}
+        {#                  <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="#"#}
+        {#                       class="lazy productCard__producer-icon">#}
+        {#                </span>#}
+        {#                <p class="productCard__producer-text">#}
+        {#                    Средство создано селебрети <br> <span#}
+        {#                            class="font-weight-bold">@mariia123_hello</span>#}
+        {#                </p>#}
+        {#            </div>#}
+        {#            <a href="#" class="productCard__imgContainer">#}
+        {#                <img src="catalog/view/theme/makeme/image/home/scrab.png" alt="#"#}
+        {#                     class="lazy productCard__img">#}
+        {#            </a>#}
+        {#            <div class="productCard__body">#}
+        {#                <div class="productCard__rating">#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+        {#                    <span class="productCard__rating-el"></span>#}
+        {#                </div>#}
+        {#                <a href="#" class="productCard__type">Молочко для тела</a>#}
+        {#                <a href="#" class="productCard__name">Молочко для тела с ароматом розы и розмарина (750#}
+        {#                    мл)</a>#}
+
+        {#                <div class="productCard__price">#}
+        {#                    <span class="productCard__price-actual">244 ₴</span>#}
+        {#                    <span class="productCard__price-old">344 ₴</span>#}
+        {#                </div>#}
+        {#                <a href="#" class="button button--primary productCard__button">Создать <span#}
+        {#                            class="d-sm-inline d-none">&nbsp;средство</span> </a>#}
+        {#            </div>#}
+        {#        </div>#}
+    </div>
+</section>
