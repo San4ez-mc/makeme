@@ -1224,6 +1224,34 @@ input[type=number] {
   color: #FF6B98;
 }
 
+.btn-liquid {
+  display: inline-block;
+  position: relative;
+  width: 240px;
+  height: 60px;
+  border-radius: 27px;
+  color: #fff;
+  font: 700 14px/60px "Droid Sans", sans-serif;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn-liquid .inner {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-liquid canvas {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  bottom: -50px;
+  left: -50px;
+  z-index: 1;
+}
+
 .page-header {
   padding-top: 50px;
   position: absolute;
@@ -7564,6 +7592,8 @@ input[type=number] {
 }
 .constructor__components-footer .button {
   width: 100%;
+  margin: auto;
+  display: block;
 }
 @media (max-width: 767px) {
   .constructor__components-footer .button {

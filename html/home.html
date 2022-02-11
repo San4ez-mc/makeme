@@ -4,6 +4,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Home</title>
+<link rel="icon" type="image/png" href="img/icons/favicon.ico"/>
    <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
    <link rel="stylesheet" href="libs/owl.carousel/owl.carousel.min.css">
    <link rel="stylesheet" href="libs/fontawesome/css/all.css">
@@ -11,7 +12,7 @@
 </head>
 <body>
   <div class="page-wrapper">
-    <video src="img/home/bg.mp4" class="videoBG" autoplay loop muted></video>
+    <video src="img/home/bg.mp4" class="videoBG" id="videoBG" autoplay loop muted></video>
     <div class="preloader">
       <div class="preloader__bubbles"></div>
       <img src="img/icons/logoBig.svg" alt="#" class="lazy preloader__logo">
@@ -746,7 +747,9 @@
           <p class="createYours__text">Самые выгодные цены, крутые акции и персональные предложения в твоей рассылке</p>
           <form action="#" class="yourNewsletter__form">
             <input type="text" class="yourNewsletter__form-input" placeholder="Введите свою почту">
-            <button type="submit" class="button button--primary yourNewsletter__form-button">ПОДПИСАТЬСЯ</button>
+            <button type="submit" class="button button--primary yourNewsletter__form-button">
+              <span class="inner">ПОДПИСАТЬСЯ</span>
+            </button>
           </form>
         </aside>
 
