@@ -1,0 +1,21 @@
+<section class="section createUnique">
+{#    <h3 class="section__title createUnique__title">{{ banners|first.title|html_entity_decode }}</h3>#}
+    <h3 class="section__title createUnique__title">{{ banners|first.title }}</h3>
+{#    <p class="createUnique__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя!#}
+{#        Каждая баночка на 100% индивидуальна. </p>#}
+{#    <ul class="createUnique__list">#}
+{#        <li class="createUnique__list-el">Ни какой химии внутри</li>#}
+{#        <li class="createUnique__list-el">Состав который ты создаешь сама</li>#}
+{#        <li class="createUnique__list-el">Индивидуальное производство</li>#}
+{#        <li class="createUnique__list-el">По настоящему эффективная косметика</li>#}
+{#    </ul>#}
+    {{ banners|first.text }}
+    <img
+            src="{{ banners|first.image }}"
+            alt="Создай свою косметику"
+            class="lazy createUnique__img"
+    />
+    <a href="{{ banners|first.href }}" class="button button--stroke createUnique__button">{{ banners|first.button }}</a>
+    <img src="catalog/view/theme/makeme/image/home/unique.png" alt="#" class="lazy createUnique__logo">
+
+</section>

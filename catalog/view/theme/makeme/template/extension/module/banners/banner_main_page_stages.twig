@@ -1,0 +1,49 @@
+<style>
+    .createStages {
+        background: url({{ banners|first.image }}) center no-repeat;
+    }
+    @media (max-width: 991px){
+        .createStages {
+            background: url({{ banners.4.image }}) center no-repeat;
+            padding: 40px 40px 40px 70px;
+        }
+    }
+
+    .createStages__list {
+        background: url({{ banners.1.image }}) center left no-repeat;
+    }
+
+    @media (max-width: 767px) {
+        .createStages__list {
+            background: url({{ banners.5.image }}) center left no-repeat;
+        }
+    }
+</style>
+
+<section class="section createStages">
+    <h3 class="section__title createStages__title">{{ banners|first.title }}</h3>
+    <ul class="createStages__list">
+        <li class="createStages__list-el">
+            <h4 class="createStages__list-el-title">
+                <span class="createStages__list-el-number">1.</span>
+                {{ banners.1.title }}
+            </h4>
+            <p class="createStages__list-el-text">{{ banners.1.text }}</p>
+        </li>
+        <li class="createStages__list-el">
+            <h4 class="createStages__list-el-title">
+                <span class="createStages__list-el-number">2.</span>
+                {{ banners.2.title }}
+            </h4>
+            <p class="createStages__list-el-text"> {{ banners.2.text }}</p>
+        </li>
+        <li class="createStages__list-el">
+            <h4 class="createStages__list-el-title">
+                <span class="createStages__list-el-number">3.</span>
+                {{ banners.3.title }}
+            </h4>
+            <p class="createStages__list-el-text"> {{ banners.3.text }}</p>
+        </li>
+    </ul>
+    <a href="{{ banners|first.link }}" class="button button--stroke createStages__button">{{ banners|first.button }}</a>
+</section>
