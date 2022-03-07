@@ -1,0 +1,533 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Личный кабинет</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section lk">
+            <h1 class="section__title">Мои бонусы</h1>
+            <div class="row">
+                <div class="col-xl-3 col-lg-4">
+                    <aside class="lk__nav">
+                        <div class="lk__nav-user">
+                            <label class="lk__nav-user-avatar">
+                                <input type="file" class="lk__nav-user-avatar-input">
+                                <span class="lk__nav-user-avatar-body"></span>
+                            </label>
+                            <span class="lk__nav-user-info">
+                    <span class="lk__nav-user-name">Мария Дмитриенко </span>
+                    <a href="#" class="lk__nav-user-email">Hello@gmail.com</a>
+                  </span>
+                        </div>
+                        <nav class="lk__menu">
+                            <a href="#" class="lk__menu-el lk__menu-el--info">
+                                <span class="lk__menu-el-text">Личная информация</span>
+                            </a>
+                            <a href="#" class="lk__menu-el lk__menu-el--club">
+                                <span class="lk__menu-el-text">MM Club</span>
+                            </a>
+                            <a href="#" class="lk__menu-el lk__menu-el--desires">
+                                <span class="lk__menu-el-text">Список желаний</span>
+                                <span class="lk__menu-el-new">3</span>
+                            </a>
+                            <a href="#" class="lk__menu-el lk__menu-el--address">
+                                <span class="lk__menu-el-text">Мои адреса</span>
+                            </a>
+                            <a href="#" class="lk__menu-el lk__menu-el--history active">
+                                <span class="lk__menu-el-text">История заказов</span>
+                            </a>
+                            <a href="#" class="lk__menu-el lk__menu-el--recipes">
+                                <span class="lk__menu-el-text">Мои рецепты</span>
+                            </a>
+                            <a href="#" class="lk__menu-el lk__menu-el--exit">
+                                <span class="lk__menu-el-text">Выход</span>
+                            </a>
+                        </nav>
+                    </aside>
+                </div>
+                <div class="col-xl-9 col-lg-8">
+                    <div class="lk__body" id="lk__orderAccordion">
+                        <div class="contentBlock lk__order">
+                            <div class="lk__order-header">
+                                <div class="lk__order-header-body">
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Номер заказа</span>
+                                        <span class="lk__order-header-el-value">№12345</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Статус</span>
+                                        <span class="lk__order-header-el-value statusSuccess">Выполнен</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Дата</span>
+                                        <span class="lk__order-header-el-value">11 сентября 2021</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Сумма</span>
+                                        <span class="lk__order-header-el-value">345 ₴</span>
+                                    </div>
+                                </div>
+                                <div class="lk__order-toggle" data-toggle="collapse" data-target="#order1" aria-expanded="true" role="button"></div>
+                            </div>
+                            <div class="collapse show" data-parent="#lk__orderAccordion" id="order1">
+                                <div class="lk__order-body">
+                                    <div class="lk__order-products">
+                                        <div class="lk__order-product">
+                                            <div class="lk__recipes-product-main">
+                                                <div class="lk__recipes-product-imgContainer">
+                                                    <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
+                                                </div>
+                                                <div class="lk__recipes-product-main-body">
+                                                    <div class="lk__recipes-product-info">
+                                                        <div class="productCard__rating">
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el"></span>
+                                                        </div>
+
+                                                    </div>
+                                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                                                </div>
+                                            </div>
+                                            <div class="lk__order-additionalEls">
+                                                <div class="quantityEl">
+                                                    <button type="button" class="quantityEl__minus">-</button>
+                                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                                                    <button type="button" class="quantityEl__plus">+</button>
+                                                </div>
+                                                <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
+                                                <div class="lk__order-nav">
+                                                    <div class="like">
+                                                        <label class="like__button">
+                                                            <input type="checkbox" class="like__input">
+                                                            <span class="like__body"></span>
+                                                        </label>
+
+                                                    </div>
+                                                    <div class="productCard__remove"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lk__order-product">
+                                            <div class="lk__recipes-product-main">
+                                                <div class="lk__recipes-product-imgContainer">
+                                                    <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
+                                                </div>
+                                                <div class="lk__recipes-product-main-body">
+                                                    <div class="lk__recipes-product-info">
+                                                        <div class="productCard__rating">
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el"></span>
+                                                        </div>
+
+                                                    </div>
+                                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                                                </div>
+                                            </div>
+                                            <div class="lk__order-additionalEls">
+                                                <div class="quantityEl">
+                                                    <button type="button" class="quantityEl__minus">-</button>
+                                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                                                    <button type="button" class="quantityEl__plus">+</button>
+                                                </div>
+                                                <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
+                                                <div class="lk__order-nav">
+                                                    <div class="like">
+                                                        <label class="like__button">
+                                                            <input type="checkbox" class="like__input">
+                                                            <span class="like__body"></span>
+                                                        </label>
+
+                                                    </div>
+                                                    <div class="productCard__remove"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lk__order-sum">
+                                        <div class="lk__order-sum-group">
+                                            <div class="lk__order-sum-el align-items-center">
+                                                <span class="lk__order-sum-el-type">Номер заказа:</span>
+                                                <span class="lk__order-sum-el-value lk__order-sum-el-value--orderNumber">178965434</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Имя:</span>
+                                                <span class="lk__order-sum-el-value">Глушко Мария</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Email:</span>
+                                                <span class="lk__order-sum-el-value">Hello@gmail.com</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Телефон:</span>
+                                                <span class="lk__order-sum-el-value">+38 067 564 45 43</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Доставка:</span>
+                                                <span class="lk__order-sum-el-value">Отделение №3: ул. Калачевская, 13 (Старая Дарница)</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Оплата:</span>
+                                                <span class="lk__order-sum-el-value">Оплата при получении</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Дата:</span>
+                                                <span class="lk__order-sum-el-value">17.10.2021</span>
+                                            </div>
+                                        </div>
+                                        <div class="lk__order-sum-group">
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Сумма заказа</span>
+                                                <span class="lk__order-sum-el-value">660 ₴</span>
+                                            </div>
+                                            <div class="lk__order-sum-el color-secondary">
+                                                <span class="lk__order-sum-el-type">Скидка</span>
+                                                <span class="lk__order-sum-el-value">-60 ₴</span>
+                                            </div>
+                                            <div class="lk__order-sum-el sum">
+                                                <span class="lk__order-sum-el-type">Всего к оплате</span>
+                                                <span class="lk__order-sum-el-value">660 ₴</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentBlock lk__order">
+                            <div class="lk__order-header">
+                                <div class="lk__order-header-body">
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Номер заказа</span>
+                                        <span class="lk__order-header-el-value">№12345</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Статус</span>
+                                        <span class="lk__order-header-el-value statusError">Не выполнен</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Дата</span>
+                                        <span class="lk__order-header-el-value">11 сентября 2021</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Сумма</span>
+                                        <span class="lk__order-header-el-value">345 ₴</span>
+                                    </div>
+                                </div>
+                                <div class="lk__order-toggle" data-toggle="collapse" data-target="#order2" aria-expanded="false" role="button"></div>
+                            </div>
+                            <div class="collapse" data-parent="#lk__orderAccordion" id="order2">
+                                <div class="lk__order-body">
+                                    <div class="lk__order-products">
+                                        <div class="lk__order-product">
+                                            <div class="lk__recipes-product-main">
+                                                <div class="lk__recipes-product-imgContainer">
+                                                    <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
+                                                </div>
+                                                <div class="lk__recipes-product-main-body">
+                                                    <div class="lk__recipes-product-info">
+                                                        <div class="productCard__rating">
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el"></span>
+                                                        </div>
+
+                                                    </div>
+                                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                                                </div>
+                                            </div>
+                                            <div class="lk__order-additionalEls">
+                                                <div class="quantityEl">
+                                                    <button type="button" class="quantityEl__minus">-</button>
+                                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                                                    <button type="button" class="quantityEl__plus">+</button>
+                                                </div>
+                                                <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
+                                                <div class="lk__order-nav">
+                                                    <div class="like">
+                                                        <label class="like__button">
+                                                            <input type="checkbox" class="like__input">
+                                                            <span class="like__body"></span>
+                                                        </label>
+
+                                                    </div>
+                                                    <div class="productCard__remove"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lk__order-product">
+                                            <div class="lk__recipes-product-main">
+                                                <div class="lk__recipes-product-imgContainer">
+                                                    <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
+                                                </div>
+                                                <div class="lk__recipes-product-main-body">
+                                                    <div class="lk__recipes-product-info">
+                                                        <div class="productCard__rating">
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el"></span>
+                                                        </div>
+
+                                                    </div>
+                                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                                                </div>
+                                            </div>
+                                            <div class="lk__order-additionalEls">
+                                                <div class="quantityEl">
+                                                    <button type="button" class="quantityEl__minus">-</button>
+                                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                                                    <button type="button" class="quantityEl__plus">+</button>
+                                                </div>
+                                                <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
+                                                <div class="lk__order-nav">
+                                                    <div class="like">
+                                                        <label class="like__button">
+                                                            <input type="checkbox" class="like__input">
+                                                            <span class="like__body"></span>
+                                                        </label>
+
+                                                    </div>
+                                                    <div class="productCard__remove"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lk__order-sum">
+                                        <div class="lk__order-sum-group">
+                                            <div class="lk__order-sum-el align-items-center">
+                                                <span class="lk__order-sum-el-type">Номер заказа:</span>
+                                                <span class="lk__order-sum-el-value lk__order-sum-el-value--orderNumber">178965434</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Имя:</span>
+                                                <span class="lk__order-sum-el-value">Глушко Мария</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Email:</span>
+                                                <span class="lk__order-sum-el-value">Hello@gmail.com</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Телефон:</span>
+                                                <span class="lk__order-sum-el-value">+38 067 564 45 43</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Доставка:</span>
+                                                <span class="lk__order-sum-el-value">Отделение №3: ул. Калачевская, 13 (Старая Дарница)</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Оплата:</span>
+                                                <span class="lk__order-sum-el-value">Оплата при получении</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Дата:</span>
+                                                <span class="lk__order-sum-el-value">17.10.2021</span>
+                                            </div>
+                                        </div>
+                                        <div class="lk__order-sum-group">
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Сумма заказа</span>
+                                                <span class="lk__order-sum-el-value">660 ₴</span>
+                                            </div>
+                                            <div class="lk__order-sum-el color-green">
+                                                <span class="lk__order-sum-el-type">Скидка</span>
+                                                <span class="lk__order-sum-el-value">-60 ₴</span>
+                                            </div>
+                                            <div class="lk__order-sum-el sum">
+                                                <span class="lk__order-sum-el-type">Всего к оплате</span>
+                                                <span class="lk__order-sum-el-value">660 ₴</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentBlock lk__order">
+                            <div class="lk__order-header">
+                                <div class="lk__order-header-body">
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Номер заказа</span>
+                                        <span class="lk__order-header-el-value">№12345</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Статус</span>
+                                        <span class="lk__order-header-el-value statusWaiting">В процессе</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Дата</span>
+                                        <span class="lk__order-header-el-value">11 сентября 2021</span>
+                                    </div>
+                                    <div class="lk__order-header-el">
+                                        <span class="lk__order-header-el-type">Сумма</span>
+                                        <span class="lk__order-header-el-value">345 ₴</span>
+                                    </div>
+                                </div>
+                                <div class="lk__order-toggle" data-toggle="collapse" data-target="#order3" aria-expanded="false" role="button"></div>
+                            </div>
+                            <div class="collapse" data-parent="#lk__orderAccordion" id="order3">
+                                <div class="lk__order-body">
+                                    <div class="lk__order-products">
+                                        <div class="lk__order-product">
+                                            <div class="lk__recipes-product-main">
+                                                <div class="lk__recipes-product-imgContainer">
+                                                    <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
+                                                </div>
+                                                <div class="lk__recipes-product-main-body">
+                                                    <div class="lk__recipes-product-info">
+                                                        <div class="productCard__rating">
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el"></span>
+                                                        </div>
+
+                                                    </div>
+                                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                                                </div>
+                                            </div>
+                                            <div class="lk__order-additionalEls">
+                                                <div class="quantityEl">
+                                                    <button type="button" class="quantityEl__minus">-</button>
+                                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                                                    <button type="button" class="quantityEl__plus">+</button>
+                                                </div>
+                                                <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
+                                                <div class="lk__order-nav">
+                                                    <div class="like">
+                                                        <label class="like__button">
+                                                            <input type="checkbox" class="like__input">
+                                                            <span class="like__body"></span>
+                                                        </label>
+
+                                                    </div>
+                                                    <div class="productCard__remove"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="lk__order-product">
+                                            <div class="lk__recipes-product-main">
+                                                <div class="lk__recipes-product-imgContainer">
+                                                    <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">
+                                                </div>
+                                                <div class="lk__recipes-product-main-body">
+                                                    <div class="lk__recipes-product-info">
+                                                        <div class="productCard__rating">
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            <span class="productCard__rating-el"></span>
+                                                        </div>
+
+                                                    </div>
+                                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>
+                                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>
+                                                </div>
+                                            </div>
+                                            <div class="lk__order-additionalEls">
+                                                <div class="quantityEl">
+                                                    <button type="button" class="quantityEl__minus">-</button>
+                                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">
+                                                    <button type="button" class="quantityEl__plus">+</button>
+                                                </div>
+                                                <div class="lk__order-price"><span class="lk__order-price-value" data-value="237">237</span>₴</div>
+                                                <div class="lk__order-nav">
+                                                    <div class="like">
+                                                        <label class="like__button">
+                                                            <input type="checkbox" class="like__input">
+                                                            <span class="like__body"></span>
+                                                        </label>
+
+                                                    </div>
+                                                    <div class="productCard__remove"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="lk__order-sum">
+                                        <div class="lk__order-sum-group">
+                                            <div class="lk__order-sum-el align-items-center">
+                                                <span class="lk__order-sum-el-type">Номер заказа:</span>
+                                                <span class="lk__order-sum-el-value lk__order-sum-el-value--orderNumber">178965434</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Имя:</span>
+                                                <span class="lk__order-sum-el-value">Глушко Мария</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Email:</span>
+                                                <span class="lk__order-sum-el-value">Hello@gmail.com</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Телефон:</span>
+                                                <span class="lk__order-sum-el-value">+38 067 564 45 43</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Доставка:</span>
+                                                <span class="lk__order-sum-el-value">Отделение №3: ул. Калачевская, 13 (Старая Дарница)</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Оплата:</span>
+                                                <span class="lk__order-sum-el-value">Оплата при получении</span>
+                                            </div>
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Дата:</span>
+                                                <span class="lk__order-sum-el-value">17.10.2021</span>
+                                            </div>
+                                        </div>
+                                        <div class="lk__order-sum-group">
+                                            <div class="lk__order-sum-el">
+                                                <span class="lk__order-sum-el-type">Сумма заказа</span>
+                                                <span class="lk__order-sum-el-value">660 ₴</span>
+                                            </div>
+                                            <div class="lk__order-sum-el color-green">
+                                                <span class="lk__order-sum-el-type">Скидка</span>
+                                                <span class="lk__order-sum-el-value">-60 ₴</span>
+                                            </div>
+                                            <div class="lk__order-sum-el sum">
+                                                <span class="lk__order-sum-el-type">Всего к оплате</span>
+                                                <span class="lk__order-sum-el-value">660 ₴</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</main>
+{{ footer }}
