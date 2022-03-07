@@ -1,0 +1,188 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Корзина</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section checkout">
+            <h1 class="section__title">Товаров в корзине: {{ products|length }}</h1>
+            <div class="checkout__info">
+                <span class="font-weight-bold">Бесплатная</span> доставка на отделение от <span
+                        class="font-weight-bold">600 гривен.</span>
+            </div>
+            <div class="contentBlock basket">
+                <div class="lk__order-body">
+                    <div class="lk__order-products">
+                        {% for product in products %}
+                            <div class="lk__order-product">
+                                <div class="lk__recipes-product-main">
+                                    <div class="lk__recipes-product-imgContainer">
+                                        <img src="{{ product.thumb }}" alt="{{ product.name }}"
+                                             title="{{ product.name }}" class="lazy lk__recipes-product-img">
+                                    </div>
+                                    <div class="lk__recipes-product-main-body">
+                                        <h3 class="lk__recipes-product-title">{{ product.name }}</h3>
+                                        <p class="lk__recipes-product-text">{{ product.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="lk__order-additionalEls">
+                                    <div class="quantityEl">
+                                        <button type="button" class="quantityEl__minus">-</button>
+                                        <input type="number" value="{{ product.quantity }}" min="1" max="1000"
+                                               class="quantityEl__input">
+                                        <button type="button" class="quantityEl__plus">+</button>
+                                    </div>
+                                    <div class="lk__order-price"><span class="lk__order-price-value"
+                                                                       data-value="{{ product.total }}">{{ product.total }}</span>
+                                    </div>
+                                    <div class="lk__order-nav">
+                                        <div class="like">
+                                            <label class="like__button">
+                                                <input type="checkbox" class="like__input">
+                                                <span class="like__body"></span>
+                                            </label>
+                                        </div>
+                                        <div class="productCard__remove" data-product_id="{{ product.cart_id }}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+{#                        <div class="lk__order-product">#}
+{#                            <div class="lk__recipes-product-main">#}
+{#                                <div class="lk__recipes-product-imgContainer">#}
+{#                                    <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
+{#                                         class="lazy lk__recipes-product-img">#}
+{#                                </div>#}
+{#                                <div class="lk__recipes-product-main-body">#}
+{#                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+{#                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
+{#                                        кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="lk__order-additionalEls">#}
+{#                                <div class="quantityEl">#}
+{#                                    <button type="button" class="quantityEl__minus">-</button>#}
+{#                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
+{#                                    <button type="button" class="quantityEl__plus">+</button>#}
+{#                                </div>#}
+{#                                <div class="lk__order-price"><span class="lk__order-price-value"#}
+{#                                                                   data-value="237">237</span>₴#}
+{#                                </div>#}
+{#                                <div class="lk__order-nav">#}
+{#                                    <div class="like">#}
+{#                                        <label class="like__button">#}
+{#                                            <input type="checkbox" class="like__input">#}
+{#                                            <span class="like__body"></span>#}
+{#                                        </label>#}
+{#                                    </div>#}
+{#                                    <div class="productCard__remove"></div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="lk__order-product">#}
+{#                            <div class="lk__recipes-product-main">#}
+{#                                <div class="lk__recipes-product-imgContainer">#}
+{#                                    <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
+{#                                         class="lazy lk__recipes-product-img">#}
+{#                                </div>#}
+{#                                <div class="lk__recipes-product-main-body">#}
+{#                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+{#                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
+{#                                        кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="lk__order-additionalEls">#}
+{#                                <div class="quantityEl">#}
+{#                                    <button type="button" class="quantityEl__minus">-</button>#}
+{#                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
+{#                                    <button type="button" class="quantityEl__plus">+</button>#}
+{#                                </div>#}
+{#                                <div class="lk__order-price"><span class="lk__order-price-value"#}
+{#                                                                   data-value="237">237</span>₴#}
+{#                                </div>#}
+{#                                <div class="lk__order-nav">#}
+{#                                    <div class="like">#}
+{#                                        <label class="like__button">#}
+{#                                            <input type="checkbox" class="like__input">#}
+{#                                            <span class="like__body"></span>#}
+{#                                        </label>#}
+{#                                    </div>#}
+{#                                    <div class="productCard__remove"></div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+                    </div>
+                    <div class="lk__order-sum">
+                        <div class="lk__order-sum-group">
+                            <form action="#" class="form form__promocode">
+                                <div class="form__field">
+                                    <div class="form__field-body">
+                                        <input type="text" class="form__field-input"
+                                               placeholder="Промокод или подарочный сертификат">
+                                    </div>
+                                </div>
+                                <button class="button form__promocode-submit" type="submit" disabled>
+                                    <span class="d-lg-block d-none">Применить</span>
+                                    <span class="d-lg-none d-block">Ок</span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="lk__order-sum-group">
+                            <div class="lk__order-sum-el">
+                                <span class="lk__order-sum-el-type">Сумма заказа</span>
+                                <span class="lk__order-sum-el-value">{{ totals|first.text }}</span>
+                            </div>
+                            <div class="lk__order-sum-el color-secondary">
+                                <span class="lk__order-sum-el-type">Скидка</span>
+                                <span class="lk__order-sum-el-value">-60 ₴</span>
+                            </div>
+                            <div class="lk__order-sum-el sum">
+                                <span class="lk__order-sum-el-type">Всего к оплате</span>
+                                <span class="lk__order-sum-el-value">{{ totals.1.text }}</span>
+                            </div>
+                            <div class="lk__order-sum-group-buttons">
+                                <a href="{{ checkout }}" class="button button--primary">Оформить заказ</a>
+                                <a href="{{ continue }}" class="link2">Продолжить покупки</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="ticker">
+              <span class="ticker__el">Нет парабенов</span>
+              <span class="ticker__el">натуральные компоненты</span>
+              <span class="ticker__el">Нет химии</span>
+              <span class="ticker__el">Современная лаборатория</span>
+              <span class="ticker__el">Современна</span>
+            </div> -->
+
+        </section>
+        <div class="owl-carousel ticker">
+            <span class="ticker__el">Нет парабенов</span>
+            <span class="ticker__el">натуральные компоненты</span>
+            <span class="ticker__el">Нет химии</span>
+            <span class="ticker__el">Современная лаборатория</span>
+            <span class="ticker__el">Нет парабенов</span>
+            <span class="ticker__el">натуральные компоненты</span>
+            <span class="ticker__el">Нет химии</span>
+            <span class="ticker__el">Современная лаборатория</span>
+        </div>
+    </div>
+</main>
+{{ footer }}

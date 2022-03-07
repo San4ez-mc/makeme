@@ -3,12 +3,12 @@
   <div class="page-header">
     <div class="container-fluid">
       <div class="pull-right">
-        <button type="button" data-toggle="tooltip" title="{{ button_filter }}" onclick="$('#filter-product').toggleClass('hidden-sm hidden-xs');" class="btn btn-default hidden-md hidden-lg"><i class="fa fa-filter"></i></button>
+        <button type="button" data-toggle="tooltip" title="{{ button_filter }}" onclick="$('#filter-component').toggleClass('hidden-sm hidden-xs');" class="btn btn-default hidden-md hidden-lg"><i class="fa fa-filter"></i></button>
         <a href="{{ add }}" data-toggle="tooltip" title="{{ button_add }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
-        <button type="submit" form="form-product" formaction="{{ copy }}" data-toggle="tooltip" title="{{ button_copy }}" class="btn btn-default"><i class="fa fa-copy"></i></button>
-        <button type="submit" form="form-product" formaction="{{ enabled }}" data-toggle="tooltip" title="{{ button_enable }}" class="btn btn-default"><i class="fa fa-play"></i></button>
-		<button type="submit" form="form-product" formaction="{{ disabled }}" data-toggle="tooltip" title="{{ button_disable }}" class="btn btn-default"><i class="fa fa-pause"></i></button>
-		<button type="button" form="form-product" formaction="{{ delete }}" data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-product').submit() : false;"><i class="fa fa-trash-o"></i></button>
+        <button type="submit" form="form-component" formaction="{{ copy }}" data-toggle="tooltip" title="{{ button_copy }}" class="btn btn-default"><i class="fa fa-copy"></i></button>
+        <button type="submit" form="form-component" formaction="{{ enabled }}" data-toggle="tooltip" title="{{ button_enable }}" class="btn btn-default"><i class="fa fa-play"></i></button>
+		<button type="submit" form="form-component" formaction="{{ disabled }}" data-toggle="tooltip" title="{{ button_disable }}" class="btn btn-default"><i class="fa fa-pause"></i></button>
+		<button type="button" form="form-component" formaction="{{ delete }}" data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-component').submit() : false;"><i class="fa fa-trash-o"></i></button>
       </div>
       <h1>{{ heading_title }}</h1>
       <ul class="breadcrumb">
@@ -29,7 +29,7 @@
     </div>
     {% endif %}
     <div class="row">
-      <div id="filter-product" class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
+      <div id="filter-component" class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><i class="fa fa-filter"></i> {{ text_filter }}</h3>
@@ -237,7 +237,7 @@
             <h3 class="panel-title"><i class="fa fa-list"></i> {{ text_list }}</h3>
           </div>
           <div class="panel-body">
-            <form action="{{ delete }}" method="post" enctype="multipart/form-data" id="form-product">
+            <form action="{{ delete }}" method="post" enctype="multipart/form-data" id="form-component">
               <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                   <thead>
@@ -255,28 +255,28 @@
                   </thead>
                   <tbody>
                   
-                  {% if products %}
-                  {% for product in products %}
+                  {% if components %}
+                  {% for component in components %}
                   <tr>
-                    <td class="text-center">{% if product.product_id in selected %}
-                      <input type="checkbox" name="selected[]" value="{{ product.product_id }}" checked="checked" />
+                    <td class="text-center">{% if component.component_id in selected %}
+                      <input type="checkbox" name="selected[]" value="{{ component.component_id }}" checked="checked" />
                       {% else %}
-                      <input type="checkbox" name="selected[]" value="{{ product.product_id }}" />
+                      <input type="checkbox" name="selected[]" value="{{ component.component_id }}" />
                       {% endif %}</td>
-                    <td class="text-center">{% if product.image %} <img src="{{ product.image }}" alt="{{ product.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
-                    <td class="text-left">{{ product.name }}</td>
-                    <td class="text-left">{{ product.model }}</td>
-                    <td class="text-right">{% if product.special %} <span style="text-decoration: line-through;">{{ product.price }}</span><br/>
-                      <div class="text-danger">{{ product.special }}</div>
+                    <td class="text-center">{% if component.image %} <img src="{{ component.image }}" alt="{{ component.name }}" class="img-thumbnail" /> {% else %} <span class="img-thumbnail list"><i class="fa fa-camera fa-2x"></i></span> {% endif %}</td>
+                    <td class="text-left">{{ component.name }}</td>
+                    <td class="text-left">{{ component.model }}</td>
+                    <td class="text-right">{% if component.special %} <span style="text-decoration: line-through;">{{ component.price }}</span><br/>
+                      <div class="text-danger">{{ component.special }}</div>
                       {% else %}
-                      {{ product.price }}
+                      {{ component.price }}
                       {% endif %}</td>
-                    <td class="text-right">{% if product.quantity <= 0 %} <span class="label label-warning">{{ product.quantity }}</span> {% elseif product.quantity <= 5 %} <span class="label label-danger">{{ product.quantity }}</span> {% else %} <span class="label label-success">{{ product.quantity }}</span> {% endif %}</td>
-                    <td class="text-left">{{ product.status }}</td>
-					<td class="text-left">{{ product.noindex }}</td>
+                    <td class="text-right">{% if component.quantity <= 0 %} <span class="label label-warning">{{ component.quantity }}</span> {% elseif component.quantity <= 5 %} <span class="label label-danger">{{ component.quantity }}</span> {% else %} <span class="label label-success">{{ component.quantity }}</span> {% endif %}</td>
+                    <td class="text-left">{{ component.status }}</td>
+					<td class="text-left">{{ component.noindex }}</td>
                     <td class="text-right">
-						<a target="_blank" href="{{ product.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-						<a href="{{ product.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+						<a target="_blank" href="{{ component.href_shop }}" data-toggle="tooltip" title="{{ button_shop }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
+						<a href="{{ component.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
 					</td>
                   </tr>
                   {% endfor %}
@@ -361,28 +361,28 @@ $('#button-filter').on('click', function() {
 		url += '&filter_noindex=' + encodeURIComponent(filter_noindex);
 	}
 
-	location = 'index.php?route=catalog/product&user_token={{ user_token }}' + url;
+	location = 'index.php?route=catalog/component&user_token={{ user_token }}' + url;
 });
 $('#button-clear-filter').on('click', function() {
-	location = 'index.php?route=catalog/product&user_token={{ user_token }}';
+	location = 'index.php?route=catalog/component&user_token={{ user_token }}';
 });
 //--></script> 
   <script type="text/javascript"><!--
 // IE and Edge fix!
-$('button[form=\'form-product\']').on('click', function(e) {
-	$('#form-product').attr('action', $(this).attr('formaction'));
+$('button[form=\'form-component\']').on('click', function(e) {
+	$('#form-component').attr('action', $(this).attr('formaction'));
 });
   
 $('input[name=\'filter_name\']').autocomplete({
 	'source': function(request, response) {
 		$.ajax({
-			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
+			url: 'index.php?route=catalog/component/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
 			dataType: 'json',
 			success: function(json) {
 				response($.map(json, function(item) {
 					return {
 						label: item['name'],
-						value: item['product_id']
+						value: item['component_id']
 					}
 				}));
 			}
@@ -400,13 +400,13 @@ $('#button-clear-input-name').on('click',function(){
 $('input[name=\'filter_model\']').autocomplete({
 	'source': function(request, response) {
 		$.ajax({
-			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_model=' +  encodeURIComponent(request),
+			url: 'index.php?route=catalog/component/autocomplete&user_token={{ user_token }}&filter_model=' +  encodeURIComponent(request),
 			dataType: 'json',
 			success: function(json) {
 				response($.map(json, function(item) {
 					return {
 						label: item['model'],
-						value: item['product_id']
+						value: item['component_id']
 					}
 				}));
 			}

@@ -31,10 +31,11 @@ class ControllerCheckoutCheckout extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->setRobots('noindex,follow');
 
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js');
-		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
-		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
+//		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js');
+//		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js');
+//		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
+//		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
+        $this->document->addScript('catalog/view/theme/makeme/libs/owl.carousel/owl.carousel.min.js', 'footer' );
 
 		// Required by klarna
 		if ($this->config->get('payment_klarna_account') || $this->config->get('payment_klarna_invoice')) {
@@ -88,11 +89,11 @@ class ControllerCheckoutCheckout extends Controller {
 		}
 
 		$data['shipping_required'] = $this->cart->hasShipping();
-
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
+//
+//		$data['column_left'] = $this->load->controller('common/column_left');
+//		$data['column_right'] = $this->load->controller('common/column_right');
+//		$data['content_top'] = $this->load->controller('common/content_top');
+//		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 

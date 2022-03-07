@@ -33,44 +33,36 @@
               <div class="text-danger">{{ error_name }}</div>
               {% endif %}
             </div>
-          </div>          
+          </div>
+
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-product"><span data-toggle="tooltip" title="{{ help_product }}">{{ entry_product }}</span></label>
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_template }}</label>
             <div class="col-sm-10">
-              <input type="text" name="product_name" value="" placeholder="{{ entry_product }}" id="input-product" class="form-control" />
-              <div id="featured-product" class="well well-sm" style="height: 150px; overflow: auto;">
-                {% for product in products %}
-                <div id="featured-product{{ product.product_id }}"><i class="fa fa-minus-circle"></i> {{ product.name }}
-                  <input type="hidden" name="product[]" value="{{ product.product_id }}" />
-                </div>
+              <select name="template_id" id="input-template" class="form-control">
+                {% for template in templates %}
+                  <option
+                          value="{{ template.id }}"
+                          {{ template.id == template_id ? 'selected="selected"' : '' }}
+                  >{{ template.name }}</option>
                 {% endfor %}
-              </div>
+              </select>
             </div>
           </div>
+
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-limit">{{ entry_limit }}</label>
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_product_filters }}</label>
             <div class="col-sm-10">
-              <input type="text" name="limit" value="{{ limit }}" placeholder="{{ entry_limit }}" id="input-limit" class="form-control" />
+              <select name="filter_id" id="input-filter" class="form-control">
+                {% for filter in filters %}
+                  <option
+                          value="{{ filter.id }}"
+                          {{ filter.id == filter_id ? 'selected="selected"' : '' }}
+                  >{{ filter.name }}</option>
+                {% endfor %}
+              </select>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-width">{{ entry_width }}</label>
-            <div class="col-sm-10">
-              <input type="text" name="width" value="{{ width }}" placeholder="{{ entry_width }}" id="input-width" class="form-control" />
-              {% if error_width %}
-              <div class="text-danger">{{ error_width }}</div>
-              {% endif %}
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-height">{{ entry_height }}</label>
-            <div class="col-sm-10">
-              <input type="text" name="height" value="{{ height }}" placeholder="{{ entry_height }}" id="input-height" class="form-control" />
-              {% if error_height %}
-              <div class="text-danger">{{ error_height }}</div>
-              {% endif %}
-            </div>
-          </div>
+
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
             <div class="col-sm-10">
@@ -91,11 +83,11 @@
   </div>
   <script type="text/javascript"><!--
 // Reorderable drag-and-drop lists
-$('#featured-product div input').before(' <i class="fa fa-hand-grab-o handle"></i> ');
-$('#featured-product').sortable({
-  handle: '.handle',
-  chosenClass: 'handle-active',
-});
+// $('#featured-product div input').before(' <i class="fa fa-hand-grab-o handle"></i> ');
+// $('#featured-product').sortable({
+//   handle: '.handle',
+//   chosenClass: 'handle-active',
+// });
 $('input[name=\'product_name\']').autocomplete({
 	source: function(request, response) {
 		$.ajax({
@@ -120,8 +112,8 @@ $('input[name=\'product_name\']').autocomplete({
 	}
 });
 	
-$('#featured-product').delegate('.fa-minus-circle', 'click', function() {
-	$(this).parent().remove();
-});
+// $('#featured-product').delegate('.fa-minus-circle', 'click', function() {
+// 	$(this).parent().remove();
+// });
 //--></script></div>
 {{ footer }}

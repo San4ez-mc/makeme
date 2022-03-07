@@ -1,21 +1,31 @@
 <div class="productFilters__el">
-    <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el1" aria-expanded="true">
-        Основные фильтры
+    <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el2" aria-expanded="true">
+        ГРУППА ТОВАРОВ
     </button>
-    <div class="collapse productFilters__el-collapse show" id="productFilters__el1">
+    <div class="collapse productFilters__el-collapse show" id="productFilters__el2">
         <div class="productFilters__el-body">
-            <label class="checkboxEl">
-                <input type="checkbox" class="checkboxEl__input" checked>
-                <span class="checkboxEl__body">Выбор экспертов</span>
-            </label>
-            <label class="checkboxEl">
-                <input type="checkbox" class="checkboxEl__input">
-                <span class="checkboxEl__body">Выбор селебритис</span>
-            </label>
-            <label class="checkboxEl">
-                <input type="checkbox" class="checkboxEl__input">
-                <span class="checkboxEl__body">Выбор покупателей</span>
-            </label>
+            {% for category in categories %}
+                <label class="checkboxEl">
+                    <input type="checkbox" class="checkboxEl__input" checked value="{{ category.category_id }}">
+                    <span class="checkboxEl__body">{{ category.name }}</span>
+                </label>
+            {% endfor %}
+
+            {% if categories|length > 7 %}
+            <div class="productFilters__el-innerCollapse">
+                <button class="link1 productFilters__el-innerCollapse-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el-innerCollapse1" aria-expanded="false">
+                    Показать все
+                </button>
+                <div class="collapse productFilters__el-innerCollapse-collapse" id="productFilters__el-innerCollapse1">
+                    {% for category in categories|slice(7) %}
+                    <label class="checkboxEl">
+                        <input type="checkbox" class="checkboxEl__input" value="{{ category.category_id }}">
+                        <span class="checkboxEl__body">{{ category.name }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

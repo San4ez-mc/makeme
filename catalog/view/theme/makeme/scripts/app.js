@@ -485,6 +485,6 @@ $('#modalShureRemove')
   $('.productCard.toRemove').removeClass('toRemove');
 });
 
-if($('.videoBG').length) {
-  document.getElementsByClassName('.videoBG').play();
-}
+// if($('.videoBG').length) {
+//   document.getElementsByClassName('.videoBG').play();
+// }

@@ -1,0 +1,114 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Личный кабинет</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section lk">
+            <h1 class="section__title">Личный кабинет</h1>
+            <div class="row">
+                <div class="col-xl-3 col-lg-4">
+                    <aside class="lk__nav">
+                        <div class="lk__nav-user">
+                            <label class="lk__nav-user-avatar">
+                                <input type="file" class="lk__nav-user-avatar-input">
+                                <span class="lk__nav-user-avatar-body"></span>
+                            </label>
+                            <span class="lk__nav-user-info">
+                                  <span class="lk__nav-user-name">{{ customer.firstname }}</span>
+                                <a href="mailto:{{ customer.email }}" class="lk__nav-user-email">{{ customer.email }}</a>
+                             </span>
+                        </div>
+                        {{ menu }}
+                    </aside>
+                </div>
+                <div class="col-xl-9 col-lg-8">
+                    <div class="lk__body">
+                        <div class="contentBlock lk__info">
+                            <h2 class="lk__body-title">Добавление нового адреса</h2>
+                            <form action="#" class="form">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form__field">
+                                            <label class="form__label">Имя получателя</label>
+                                            <div class="form__field-body">
+                                                <input type="text" class="form__field-input">
+                                            </div>
+                                        </div>
+                                        <div class="form__field">
+                                            <label class="form__label">Фамилия получателя</label>
+                                            <div class="form__field-body">
+                                                <input type="text" class="form__field-input">
+                                            </div>
+                                        </div>
+                                        <div class="form__field">
+                                            <label class="form__label">Телефон</label>
+                                            <div class="form__field-body">
+                                                <input type="tel" class="form__field-input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form__field">
+                                            <label class="form__label">Город</label>
+                                            <div class="form__field-body">
+                                                <input type="text" class="form__field-input">
+                                            </div>
+                                        </div>
+                                        <div class="form__field">
+                                            <label class="form__label">Улица</label>
+                                            <div class="form__field-body">
+                                                <input type="text" class="form__field-input">
+                                            </div>
+                                        </div>
+                                        <div class="threeFields">
+                                            <div class="form__field">
+                                                <label class="form__label">Дом</label>
+                                                <div class="form__field-body">
+                                                    <input type="text" class="form__field-input number">
+                                                </div>
+                                            </div>
+                                            <div class="form__field">
+                                                <label class="form__label">Квартира</label>
+                                                <div class="form__field-body">
+                                                    <input type="text" class="form__field-input number">
+                                                </div>
+                                            </div>
+                                            <div class="form__field">
+                                                <label class="form__label">Индекс</label>
+                                                <div class="form__field-body">
+                                                    <input type="text" class="form__field-input number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="button button--primary form__submit">Сохранить</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</main>
+{{ footer }}

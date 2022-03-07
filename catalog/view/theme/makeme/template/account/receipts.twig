@@ -1,0 +1,202 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Личный кабинет</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section lk">
+            <h1 class="section__title">Мои рецепты</h1>
+            <div class="row">
+                <div class="col-xl-3 col-lg-4">
+                    <aside class="lk__nav">
+                        <div class="lk__nav-user">
+                            <label class="lk__nav-user-avatar">
+                                <input type="file" class="lk__nav-user-avatar-input">
+                                <span class="lk__nav-user-avatar-body"></span>
+                            </label>
+                            <span class="lk__nav-user-info">
+                     <span class="lk__nav-user-name">{{ customer.firstname }}</span>
+                                <a href="mailto:{{ customer.email }}"
+                                   class="lk__nav-user-email">{{ customer.email }}</a>
+                  </span>
+                        </div>
+                        {{ menu }}
+                    </aside>
+                </div>
+                <div class="col-xl-9 col-lg-8">
+                    <div class="lk__body">
+                        <div class="lk__recipes">
+                            <div class="contentBlock lk__recipes-bonus">
+                                <div class="lk__recipes-bonus-toggle" data-toggle="collapse"
+                                     data-target="#lk__recipes-bonus" aria-expanded="true" role="button">
+                                    <div class="quantity">
+                                        <span class="quantity__value">+234</span> бонуса
+                                    </div>
+                                </div>
+                                <div class="collapse show" id="lk__recipes-bonus">
+                                    <div class="lk__recipes-bonus-body">
+                                        <div class="lk__recipes-bonus-body-title">Создавай рецепты-получай бонусы!</div>
+                                        <p class="lk__recipes-bonus-body-text">Создавай средство для своей кожи, и если
+                                            ты поймешь что хочешь поделимться этим рецептом со всем миром, то мы тебе
+                                            поможем в этом! Сделай свой любимый состав доступным для заказов других
+                                            пользователей и получай от каждогог заказа 100 баллов. Обменивай эти баллы
+                                            на скидки!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% for receipt in receipts %}
+                                <div class="contentBlock lk__recipes-product">
+                                    <div class="lk__recipes-product-main">
+                                        <div class="lk__recipes-product-imgContainer">
+                                            <img src="{{ receipt.thumb }}" alt="{{ receipt.name }}"
+                                                 class="lazy lk__recipes-product-img">
+                                        </div>
+                                        <div class="lk__recipes-product-main-body">
+                                            <div class="lk__recipes-product-info">
+                                                <div class="productCard__rating">
+                                                    {% for i in 5 %}
+                                                        {% if receipt.rating >= i %}
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                        {% else %}
+                                                            <span class="productCard__rating-el"></span>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                                <div class="lk__recipes-product-bonus">+234 бонуса</div>
+                                            </div>
+                                            <h3 class="lk__recipes-product-title">{{ receipt.name }}</h3>
+                                            <p class="lk__recipes-product-text">{{ receipt.description }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="lk__recipes-product-nav">
+                                        <a href="{{ receipt.href }}"
+                                           class="button button--primary lk__recipes-product-viewRecipe">Просмотреть
+                                            рецепт</a>
+                                        <a href="#" class="lk__recipes-product-removeRecipe">Удалить рецепт</a>
+                                        <label class="checkboxEl">
+                                            <input type="checkbox" class="checkboxEl__input" checked>
+                                            <span class="checkboxEl__body">Сделать рецепт доступным для заказов других пользователей</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            {#                            <div class="contentBlock lk__recipes-product">#}
+                            {#                                <div class="lk__recipes-product-main">#}
+                            {#                                    <div class="lk__recipes-product-imgContainer">#}
+                            {#                                        <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#" class="lazy lk__recipes-product-img">#}
+                            {#                                    </div>#}
+                            {#                                    <div class="lk__recipes-product-main-body">#}
+                            {#                                        <div class="lk__recipes-product-info">#}
+                            {#                                            <div class="productCard__rating">#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el"></span>#}
+                            {#                                            </div>#}
+                            {#                                            <div class="lk__recipes-product-bonus">+234 бонуса</div>#}
+                            {#                                        </div>#}
+                            {#                                        <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+                            {#                                        <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
+                            {#                                            кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                                <div class="lk__recipes-product-nav">#}
+                            {#                                    <a href="#" class="button button--primary lk__recipes-product-viewRecipe">Просмотреть#}
+                            {#                                        рецепт</a>#}
+                            {#                                    <a href="#" class="lk__recipes-product-removeRecipe">Удалить рецепт</a>#}
+                            {#                                    <label class="checkboxEl">#}
+                            {#                                        <input type="checkbox" class="checkboxEl__input" checked>#}
+                            {#                                        <span class="checkboxEl__body">Сделать рецепт доступным для заказов других пользователей</span>#}
+                            {#                                    </label>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                            <div class="contentBlock lk__recipes-product">#}
+                            {#                                <div class="lk__recipes-product-main">#}
+                            {#                                    <div class="lk__recipes-product-imgContainer">#}
+                            {#                                        <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#" class="lazy lk__recipes-product-img">#}
+                            {#                                    </div>#}
+                            {#                                    <div class="lk__recipes-product-main-body">#}
+                            {#                                        <div class="lk__recipes-product-info">#}
+                            {#                                            <div class="productCard__rating">#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el"></span>#}
+                            {#                                            </div>#}
+                            {#                                            <div class="lk__recipes-product-bonus">+234 бонуса</div>#}
+                            {#                                        </div>#}
+                            {#                                        <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+                            {#                                        <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
+                            {#                                            кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                                <div class="lk__recipes-product-nav">#}
+                            {#                                    <a href="#" class="button button--primary lk__recipes-product-viewRecipe">Просмотреть#}
+                            {#                                        рецепт</a>#}
+                            {#                                    <a href="#" class="lk__recipes-product-removeRecipe">Удалить рецепт</a>#}
+                            {#                                    <label class="checkboxEl">#}
+                            {#                                        <input type="checkbox" class="checkboxEl__input" checked>#}
+                            {#                                        <span class="checkboxEl__body">Сделать рецепт доступным для заказов других пользователей</span>#}
+                            {#                                    </label>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                            <div class="contentBlock lk__recipes-product">#}
+                            {#                                <div class="lk__recipes-product-main">#}
+                            {#                                    <div class="lk__recipes-product-imgContainer">#}
+                            {#                                        <img src="catalog/view/theme/makeme/image/contentBlock lk__recipes-productshampoo.png" alt="#" class="lazy lk__recipes-product-img">#}
+                            {#                                    </div>#}
+                            {#                                    <div class="lk__recipes-product-main-body">#}
+                            {#                                        <div class="lk__recipes-product-info">#}
+                            {#                                            <div class="productCard__rating">#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el productCard__rating-el--full"></span>#}
+                            {#                                                <span class="productCard__rating-el"></span>#}
+                            {#                                            </div>#}
+                            {#                                            <div class="lk__recipes-product-bonus">+234 бонуса</div>#}
+                            {#                                        </div>#}
+                            {#                                        <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+                            {#                                        <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
+                            {#                                            кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                                <div class="lk__recipes-product-nav">#}
+                            {#                                    <a href="#" class="button button--primary lk__recipes-product-viewRecipe">Просмотреть#}
+                            {#                                        рецепт</a>#}
+                            {#                                    <a href="#" class="lk__recipes-product-removeRecipe">Удалить рецепт</a>#}
+                            {#                                    <label class="checkboxEl">#}
+                            {#                                        <input type="checkbox" class="checkboxEl__input" checked>#}
+                            {#                                        <span class="checkboxEl__body">Сделать рецепт доступным для заказов других пользователей</span>#}
+                            {#                                    </label>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</main>
+{{ footer }}

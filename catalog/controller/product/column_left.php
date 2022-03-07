@@ -2,7 +2,7 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerCommonColumnLeft extends Controller {
+class ControllerProductColumnLeft extends Controller {
 	public function index() {
 		$this->load->model('design/layout');
 
@@ -78,6 +78,6 @@ class ControllerCommonColumnLeft extends Controller {
 			}
 		}
 
-		return $this->load->view('common/column_left', $data);
+		return $this->load->view('product/column_left', $data);
 	}
 }

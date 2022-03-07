@@ -15,7 +15,7 @@ class ControllerCommonMenu extends Controller
         $data['menu_items'] = [
             [
                 'name' => 'Конструктор',
-                'href' => $this->url->link('constructor/index')
+                'href' => $this->url->link('constructor/stage1')
             ],
             [
                 'name' => 'Каталог',
@@ -23,7 +23,7 @@ class ControllerCommonMenu extends Controller
             ],
             [
                 'name' => 'Компоненты',
-                'href' => $this->url->link('information/components')
+                'href' => $this->url->link('product/component')
             ],
             [
                 'name' => 'О нас',

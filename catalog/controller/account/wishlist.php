@@ -107,10 +107,18 @@ class ControllerAccountWishList extends Controller {
 
 		$data['continue'] = $this->url->link('account/account', '', true);
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
+        $data['customer'] = [
+            'firstname' => $this->customer->getFirstName(),
+            'lastname' => $this->customer->getLastName(),
+            'email' => $this->customer->getEmail(),
+        ];
+
+        $data['menu'] = $this->load->controller('account/menu');
+
+//		$data['column_left'] = $this->load->controller('common/column_left');
+//		$data['column_right'] = $this->load->controller('common/column_right');
+//		$data['content_top'] = $this->load->controller('common/content_top');
+//		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 

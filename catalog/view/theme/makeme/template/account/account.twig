@@ -3,18 +3,31 @@
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Главная</span>
-                        <meta itemprop="position" content="1">
-                    </a>
-                </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Личный кабинет</span>
-                        <meta itemprop="position" content="2">
-                    </a>
-                </li>
+                {% for breadcrumb in breadcrumbs %}
+                    {% set counter = 1 %}
+                    {#                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>#}
+                    <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                            <span itemprop="name">{{ breadcrumb.text }}</span>
+                            <meta itemprop="position" content="{{ counter }}">
+                        </a>
+                    </li>
+                    {% set counter = counter  + 1 %}
+                {% endfor %}
+                {#                #}
+                {#                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">#}
+                {#                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">#}
+                {#                        <span itemprop="name">Главная</span>#}
+                {#                        <meta itemprop="position" content="1">#}
+                {#                    </a>#}
+                {#                </li>#}
+                {#                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">#}
+                {#                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">#}
+                {#                        <span itemprop="name">Личный кабинет</span>#}
+                {#                        <meta itemprop="position" content="2">#}
+                {#                    </a>#}
+                {#                </li>#}
 
             </ul>
             <a href="#" class="page-breadcrumbs__back">Назад</a>
@@ -30,34 +43,11 @@
                                 <span class="lk__nav-user-avatar-body"></span>
                             </label>
                             <span class="lk__nav-user-info">
-                    <span class="lk__nav-user-name">Мария Дмитриенко </span>
-                    <a href="#" class="lk__nav-user-email">Hello@gmail.com</a>
-                  </span>
+                            <span class="lk__nav-user-name">{{ customer.firstname }}</span>
+                            <a href="mailto:{{ customer.email }}" class="lk__nav-user-email">{{ customer.email }}</a>
+                          </span>
                         </div>
-                        <nav class="lk__menu">
-                            <a href="#" class="lk__menu-el lk__menu-el--info active">
-                                <span class="lk__menu-el-text">Личная информация</span>
-                            </a>
-                            <a href="#" class="lk__menu-el lk__menu-el--club">
-                                <span class="lk__menu-el-text">MM Club</span>
-                            </a>
-                            <a href="#" class="lk__menu-el lk__menu-el--desires">
-                                <span class="lk__menu-el-text">Список желаний</span>
-                                <span class="lk__menu-el-new">3</span>
-                            </a>
-                            <a href="#" class="lk__menu-el lk__menu-el--address">
-                                <span class="lk__menu-el-text">Мои адреса</span>
-                            </a>
-                            <a href="#" class="lk__menu-el lk__menu-el--history">
-                                <span class="lk__menu-el-text">История заказов</span>
-                            </a>
-                            <a href="#" class="lk__menu-el lk__menu-el--recipes">
-                                <span class="lk__menu-el-text">Мои рецепты</span>
-                            </a>
-                            <a href="#" class="lk__menu-el lk__menu-el--exit">
-                                <span class="lk__menu-el-text">Выход</span>
-                            </a>
-                        </nav>
+                        {{ menu }}
                     </aside>
                 </div>
                 <div class="col-xl-9 col-lg-8">
@@ -70,31 +60,32 @@
                                         <div class="form__field">
                                             <label class="form__label">Имя</label>
                                             <div class="form__field-body">
-                                                <input type="text" class="form__field-input" value="Мария">
+                                                <input type="text" class="form__field-input" value="{{ customer.firstname }}">
                                             </div>
                                         </div>
                                         <div class="form__field">
                                             <label class="form__label">Фамилия</label>
                                             <div class="form__field-body">
-                                                <input type="text" class="form__field-input" value="Дмитриенко">
+                                                <input type="text" class="form__field-input" value="{{ customer.lastname }}">
                                             </div>
                                         </div>
                                         <div class="form__field">
                                             <label class="form__label">Отчество</label>
                                             <div class="form__field-body">
-                                                <input type="text" class="form__field-input">
+                                                <input type="text" class="form__field-input" value="{{ customer.middlename }}">
                                             </div>
                                         </div>
                                         <div class="form__field">
                                             <label class="form__label">Телефон</label>
                                             <div class="form__field-body">
-                                                <input type="tel" class="form__field-input" value="+38 067 566 34 56">
+                                                <input type="tel" class="form__field-input" value="{{ customer.phone }}">
                                             </div>
                                         </div>
                                         <div class="form__field">
                                             <label class="form__label">Дата рождения</label>
                                             <div class="form__field-body">
-                                                <input type="text" class="form__field-input birthday" value="08.09.1993">
+                                                <input type="text" class="form__field-input birthday"
+                                                       value="{{ customer.birthdate }}">
                                             </div>
                                         </div>
                                     </div>
@@ -102,16 +93,22 @@
                                         <div class="form__field">
                                             <label class="form__label">Email</label>
                                             <div class="form__field-body">
-                                                <input type="email" class="form__field-input form__field-input--password" value="Hello123456@gmail.com" readonly>
-                                                <span class="form__field-edit" data-toggle="modal" data-target="#modalChangeEmail"></span>
+                                                <input type="email"
+                                                       class="form__field-input form__field-input--password"
+                                                       value="{{ customer.email }}" readonly>
+                                                <span class="form__field-edit" data-toggle="modal"
+                                                      data-target="#modalChangeEmail"></span>
                                             </div>
                                         </div>
                                         <div class="form__field">
                                             <label class="form__label">Пароль</label>
                                             <div class="form__field-body">
-                                                <input type="password" class="form__field-input form__field-input--password" value="1234567890" readonly>
+                                                <input type="password"
+                                                       class="form__field-input form__field-input--password"
+                                                       value="1234567890" readonly>
                                                 <span class="form__field-passwordShow d-xl-flex d-none"></span>
-                                                <span class="form__field-edit" data-toggle="modal" data-target="#modalChangePassword"></span>
+                                                <span class="form__field-edit" data-toggle="modal"
+                                                      data-target="#modalChangePassword"></span>
                                             </div>
                                         </div>
                                         <div class="form__field">

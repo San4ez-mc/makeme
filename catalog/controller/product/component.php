@@ -2,15 +2,15 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerProductCatalog extends Controller
+class ControllerProductComponent extends Controller
 {
     public function index()
     {
-        $this->load->language('product/catalog');
+        $this->load->language('product/component');
 
         $this->load->model('catalog/category');
 
-        $this->load->model('catalog/product');
+        $this->load->model('catalog/component');
 
         $this->load->model('tool/image');
 
@@ -109,7 +109,7 @@ class ControllerProductCatalog extends Controller
                 if ($category_info) {
                     $data['breadcrumbs'][] = array(
                         'text' => $this->language->get('text_title'),
-                        'href' => $this->url->link('product/catalog', 'path=' . $path . $url)
+                        'href' => $this->url->link('product/component', 'path=' . $path . $url)
                     );
                 }
             }
@@ -136,7 +136,7 @@ class ControllerProductCatalog extends Controller
         // Set the last category breadcrumb
         $data['breadcrumbs'][] = array(
             'text' => $this->language->get('text_title'),
-            'href' => $this->url->link('product/catalog')
+            'href' => $this->url->link('product/component')
         );
 
 //        $data['thumb'] = '';
@@ -173,8 +173,8 @@ class ControllerProductCatalog extends Controller
             );
 
             $data['categories'][] = array(
-                'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-                'href' => $this->url->link('product/catalog',  $url)
+                'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_component->getTotalComponents($filter_data) . ')' : ''),
+                'href' => $this->url->link('product/component',  $url)
             );
         }
 
@@ -188,9 +188,9 @@ class ControllerProductCatalog extends Controller
             'limit' => $limit
         );
 
-        $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+        $component_total = $this->model_catalog_component->getTotalComponents($filter_data);
 
-        $results = $this->model_catalog_product->getProducts($filter_data);
+        $results = $this->model_catalog_component->getComponents($filter_data);
 
         foreach ($results as $result) {
             if ($result['image']) {
@@ -205,37 +205,14 @@ class ControllerProductCatalog extends Controller
                 $price = false;
             }
 
-            if (!is_null($result['special']) && (float)$result['special'] >= 0) {
-                $special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
-                $tax_price = (float)$result['special'];
-            } else {
-                $special = false;
-                $tax_price = (float)$result['price'];
-            }
-
-            if ($this->config->get('config_tax')) {
-                $tax = $this->currency->format($tax_price, $this->session->data['currency']);
-            } else {
-                $tax = false;
-            }
-
-            if ($this->config->get('config_review_status')) {
-                $rating = (int)$result['rating'];
-            } else {
-                $rating = false;
-            }
-
-            $data['products'][] = array(
-                'product_id' => $result['product_id'],
+            $data['components'][] = array(
+                'component_id' => $result['component_id'],
                 'thumb' => $image,
                 'name' => $result['name'],
-                'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
+                'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_component_description_length')) . '..',
                 'price' => $price,
-                'special' => $special,
-                'tax' => $tax,
                 'minimum' => $result['minimum'] > 0 ? $result['minimum'] : 1,
-                'rating' => $result['rating'],
-                'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+                'href' => $this->url->link('product/component', 'component_id=' . $result['component_id'] . $url)
             );
         }
 
@@ -254,25 +231,25 @@ class ControllerProductCatalog extends Controller
         $data['sorts'][] = array(
             'text' => $this->language->get('text_price_asc'),
             'value' => 'p.price-ASC',
-            'href' => $this->url->link('product/catalog', 'sort=p.price&order=ASC' . $url)
+            'href' => $this->url->link('product/component', 'sort=p.price&order=ASC' . $url)
         );
 
         $data['sorts'][] = array(
             'text' => $this->language->get('text_price_desc'),
             'value' => 'p.price-DESC',
-            'href' => $this->url->link('product/catalog', 'sort=p.price&order=DESC' . $url)
+            'href' => $this->url->link('product/component', 'sort=p.price&order=DESC' . $url)
         );
 
         $data['sorts'][] = array(
             'text' => $this->language->get('text_new_asc'),
             'value' => 'p.date-ASC',
-            'href' => $this->url->link('product/catalog', 'sort=p.date&order=ASC' . $url)
+            'href' => $this->url->link('product/component', 'sort=p.date&order=ASC' . $url)
         );
 
         $data['sorts'][] = array(
             'text' => $this->language->get('text_rating_asc'),
             'value' => 'rating-ASC',
-            'href' => $this->url->link('product/catalog', 'sort=rating&order=ASC' . $url)
+            'href' => $this->url->link('product/component', 'sort=rating&order=ASC' . $url)
         );
 
         $url = '';
@@ -291,7 +268,7 @@ class ControllerProductCatalog extends Controller
 
         $data['limits'] = array();
 
-        $limits = array_unique(array($this->config->get('theme_' . $this->config->get('config_theme') . '_product_limit'), 25, 50, 75, 100));
+        $limits = array_unique(array($this->config->get('theme_' . $this->config->get('config_theme') . '_component_limit'), 25, 50, 75, 100));
 
         sort($limits);
 
@@ -299,7 +276,7 @@ class ControllerProductCatalog extends Controller
             $data['limits'][] = array(
                 'text' => $value,
                 'value' => $value,
-                'href' => $this->url->link('product/catalog', 'limit=' . $value)
+                'href' => $this->url->link('product/component', 'limit=' . $value)
             );
         }
 
@@ -322,28 +299,28 @@ class ControllerProductCatalog extends Controller
         }
 
         $pagination = new Pagination();
-        $pagination->total = $product_total;
+        $pagination->total = $component_total;
         $pagination->page = $page;
         $pagination->limit = $limit;
-        $pagination->url = $this->url->link('product/catalog', 'page={page}');
+        $pagination->url = $this->url->link('product/component', 'page={page}');
 
         $data['pagination'] = $pagination->render();
 
-        $data['results'] = sprintf($this->language->get('text_pagination'), ($product_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($product_total - $limit)) ? $product_total : ((($page - 1) * $limit) + $limit), $product_total, ceil($product_total / $limit));
-        $data['pages'] = ceil($product_total / $limit);
+        $data['results'] = sprintf($this->language->get('text_pagination'), ($component_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($component_total - $limit)) ? $component_total : ((($page - 1) * $limit) + $limit), $component_total, ceil($component_total / $limit));
+        $data['pages'] = ceil($component_total / $limit);
 
         if (!$this->config->get('config_canonical_method')) {
             // http://googlewebmastercentral.blogspot.com/2011/09/pagination-with-relnext-and-relprev.html
             if ($page == 1) {
-                $this->document->addLink($this->url->link('product/catalog', $url), 'canonical');
+                $this->document->addLink($this->url->link('product/component', $url), 'canonical');
             } elseif ($page == 2) {
-                $this->document->addLink($this->url->link('product/catalog',  $url), 'prev');
+                $this->document->addLink($this->url->link('product/component',  $url), 'prev');
             } else {
-                $this->document->addLink($this->url->link('product/catalog', 'page=' . ($page - 1)), 'prev');
+                $this->document->addLink($this->url->link('product/component', 'page=' . ($page - 1)), 'prev');
             }
 
-            if ($limit && ceil($product_total / $limit) > $page) {
-                $this->document->addLink($this->url->link('product/catalog', 'page=' . ($page + 1)), 'next');
+            if ($limit && ceil($component_total / $limit) > $page) {
+                $this->document->addLink($this->url->link('product/component', 'page=' . ($page + 1)), 'next');
             }
         } else {
 
@@ -354,7 +331,7 @@ class ControllerProductCatalog extends Controller
             };
 
             $request_url = rtrim($server, '/') . $this->request->server['REQUEST_URI'];
-            $canonical_url = $this->url->link('product/catalog', 'path=' . $category_info['category_id']);
+            $canonical_url = $this->url->link('product/component', 'path=' . $category_info['category_id']);
 
             if (($request_url != $canonical_url) || $this->config->get('config_canonical_self')) {
                 $this->document->addLink($canonical_url, 'canonical');
@@ -363,13 +340,13 @@ class ControllerProductCatalog extends Controller
             if ($this->config->get('config_add_prevnext')) {
 
                 if ($page == 2) {
-                    $this->document->addLink($this->url->link('product/catalog',  $url, 'prev'));
+                    $this->document->addLink($this->url->link('product/component',  $url, 'prev'));
                 } elseif ($page > 2) {
-                    $this->document->addLink($this->url->link('product/catalog', 'page=' . ($page - 1)), 'prev');
+                    $this->document->addLink($this->url->link('product/component', 'page=' . ($page - 1)), 'prev');
                 }
 
-                if ($limit && ceil($product_total / $limit) > $page) {
-                    $this->document->addLink($this->url->link('product/catalog', 'page=' . ($page + 1)), 'next');
+                if ($limit && ceil($component_total / $limit) > $page) {
+                    $this->document->addLink($this->url->link('product/component', 'page=' . ($page + 1)), 'next');
                 }
             }
         }
@@ -387,6 +364,6 @@ class ControllerProductCatalog extends Controller
         $data['footer'] = $this->load->controller('common/footer');
         $data['header'] = $this->load->controller('common/header');
         $data['page'] = $page;
-        $this->response->setOutput($this->load->view('product/category', $data));
+        $this->response->setOutput($this->load->view('product/component', $data));
     }
 }

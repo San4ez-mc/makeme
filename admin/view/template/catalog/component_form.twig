@@ -3,7 +3,7 @@
   <div class="page-header">
     <div class="container-fluid">
       <div class="pull-right">
-        <button type="submit" form="form-product" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <button type="submit" form="form-component" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
         <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
       <h1>{{ heading_title }}</h1>
       <ul class="breadcrumb">
@@ -23,7 +23,7 @@
         <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
       </div>
       <div class="panel-body">
-        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-component" class="form-horizontal">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
             <li><a href="#tab-data" data-toggle="tab">{{ tab_data }}</a></li>
@@ -50,7 +50,7 @@
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-name{{ language.language_id }}">{{ entry_name }}</label>
                     <div class="col-sm-10">
-                      <input type="text" name="product_description[{{ language.language_id }}][name]" value="{{ product_description[language.language_id] ? product_description[language.language_id].name }}" placeholder="{{ entry_name }}" id="input-name{{ language.language_id }}" class="form-control" />
+                      <input type="text" name="component_description[{{ language.language_id }}][name]" value="{{ component_description[language.language_id] ? component_description[language.language_id].name }}" placeholder="{{ entry_name }}" id="input-name{{ language.language_id }}" class="form-control" />
                       {% if error_name[language.language_id] %}
                       <div class="text-danger">{{ error_name[language.language_id] }}</div>
                       {% endif %} </div>
@@ -58,37 +58,37 @@
 				  <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-meta-h1{{ language.language_id }}">{{ entry_meta_h1 }}</label>
                     <div class="col-sm-10">
-                      <input type="text" name="product_description[{{ language.language_id }}][meta_h1]" value="{{ product_description[language.language_id] ? product_description[language.language_id].meta_h1 }}" placeholder="{{ entry_meta_h1 }}" id="input-meta-h1{{ language.language_id }}" class="form-control" />
+                      <input type="text" name="component_description[{{ language.language_id }}][meta_h1]" value="{{ component_description[language.language_id] ? component_description[language.language_id].meta_h1 }}" placeholder="{{ entry_meta_h1 }}" id="input-meta-h1{{ language.language_id }}" class="form-control" />
 					</div>
 				  </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-meta-title{{ language.language_id }}">{{ entry_meta_title }}</label>
                     <div class="col-sm-10">
-                      <input type="text" name="product_description[{{ language.language_id }}][meta_title]" value="{{ product_description[language.language_id] ? product_description[language.language_id].meta_title }}" placeholder="{{ entry_meta_title }}" id="input-meta-title{{ language.language_id }}" class="form-control" />
+                      <input type="text" name="component_description[{{ language.language_id }}][meta_title]" value="{{ component_description[language.language_id] ? component_description[language.language_id].meta_title }}" placeholder="{{ entry_meta_title }}" id="input-meta-title{{ language.language_id }}" class="form-control" />
 					</div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-meta-description{{ language.language_id }}">{{ entry_meta_description }}</label>
                     <div class="col-sm-10">
-                      <textarea name="product_description[{{ language.language_id }}][meta_description]" rows="5" placeholder="{{ entry_meta_description }}" id="input-meta-description{{ language.language_id }}" class="form-control">{{ product_description[language.language_id] ? product_description[language.language_id].meta_description }}</textarea>
+                      <textarea name="component_description[{{ language.language_id }}][meta_description]" rows="5" placeholder="{{ entry_meta_description }}" id="input-meta-description{{ language.language_id }}" class="form-control">{{ component_description[language.language_id] ? component_description[language.language_id].meta_description }}</textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-meta-keyword{{ language.language_id }}">{{ entry_meta_keyword }}</label>
                     <div class="col-sm-10">
-                      <textarea name="product_description[{{ language.language_id }}][meta_keyword]" rows="5" placeholder="{{ entry_meta_keyword }}" id="input-meta-keyword{{ language.language_id }}" class="form-control">{{ product_description[language.language_id] ? product_description[language.language_id].meta_keyword }}</textarea>
+                      <textarea name="component_description[{{ language.language_id }}][meta_keyword]" rows="5" placeholder="{{ entry_meta_keyword }}" id="input-meta-keyword{{ language.language_id }}" class="form-control">{{ component_description[language.language_id] ? component_description[language.language_id].meta_keyword }}</textarea>
                     </div>
                   </div>
 				  <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description{{ language.language_id }}">{{ entry_description }}</label>
                     <div class="col-sm-10">
-                      <textarea name="product_description[{{ language.language_id }}][description]" placeholder="{{ entry_description }}" id="input-description{{ language.language_id }}" data-toggle="summernote" data-lang="{{ summernote }}" class="form-control">{{ product_description[language.language_id] ? product_description[language.language_id].description }}</textarea>
+                      <textarea name="component_description[{{ language.language_id }}][description]" placeholder="{{ entry_description }}" id="input-description{{ language.language_id }}" data-toggle="summernote" data-lang="{{ summernote }}" class="form-control">{{ component_description[language.language_id] ? component_description[language.language_id].description }}</textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-tag{{ language.language_id }}"><span data-toggle="tooltip" title="{{ help_tag }}">{{ entry_tag }}</span></label>
                     <div class="col-sm-10">
-                      <input type="text" name="product_description[{{ language.language_id }}][tag]" value="{{ product_description[language.language_id] ? product_description[language.language_id].tag }}" placeholder="{{ entry_tag }}" id="input-tag{{ language.language_id }}" class="form-control" />
+                      <input type="text" name="component_description[{{ language.language_id }}][tag]" value="{{ component_description[language.language_id] ? component_description[language.language_id].tag }}" placeholder="{{ entry_tag }}" id="input-tag{{ language.language_id }}" class="form-control" />
                     </div>
                   </div>
                 </div>
@@ -387,9 +387,9 @@
                 <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="{{ help_category }}">{{ entry_category }}</span></label>
                 <div class="col-sm-10">
                   <input type="text" name="category" value="" placeholder="{{ entry_category }}" id="input-category" class="form-control"/>
-                  <div id="product-category" class="well well-sm" style="height: 150px; overflow: auto;"> {% for product_category in product_categories %}
-                      <div id="product-category{{ product_category.category_id }}"><i class="fa fa-minus-circle"></i> {{ product_category.name }}
-                        <input type="hidden" name="product_category[]" value="{{ product_category.category_id }}"/>
+                  <div id="component-category" class="well well-sm" style="height: 150px; overflow: auto;"> {% for component_category in component_categories %}
+                      <div id="component-category{{ component_category.category_id }}"><i class="fa fa-minus-circle"></i> {{ component_category.name }}
+                        <input type="hidden" name="component_category[]" value="{{ component_category.category_id }}"/>
                       </div>
                     {% endfor %}</div>
                 </div>
@@ -413,9 +413,9 @@
                 <label class="col-sm-2 control-label" for="input-filter"><span data-toggle="tooltip" title="{{ help_filter }}">{{ entry_filter }}</span></label>
                 <div class="col-sm-10">
                   <input type="text" name="filter" value="" placeholder="{{ entry_filter }}" id="input-filter" class="form-control"/>
-                  <div id="product-filter" class="well well-sm" style="height: 150px; overflow: auto;"> {% for product_filter in product_filters %}
-                      <div id="product-filter{{ product_filter.filter_id }}"><i class="fa fa-minus-circle"></i> {{ product_filter.name }}
-                        <input type="hidden" name="product_filter[]" value="{{ product_filter.filter_id }}"/>
+                  <div id="component-filter" class="well well-sm" style="height: 150px; overflow: auto;"> {% for component_filter in component_filters %}
+                      <div id="component-filter{{ component_filter.filter_id }}"><i class="fa fa-minus-circle"></i> {{ component_filter.name }}
+                        <input type="hidden" name="component_filter[]" value="{{ component_filter.filter_id }}"/>
                       </div>
                     {% endfor %}</div>
                 </div>
@@ -425,11 +425,11 @@
                 <div class="col-sm-10">
                   <div class="well well-sm" style="height: 150px; overflow: auto;"> {% for store in stores %}
                       <div class="checkbox">
-                        <label> {% if store.store_id in product_store %}
-                            <input type="checkbox" name="product_store[]" value="{{ store.store_id }}" checked="checked"/>
+                        <label> {% if store.store_id in component_store %}
+                            <input type="checkbox" name="component_store[]" value="{{ store.store_id }}" checked="checked"/>
                             {{ store.name }}
                           {% else %}
-                            <input type="checkbox" name="product_store[]" value="{{ store.store_id }}"/>
+                            <input type="checkbox" name="component_store[]" value="{{ store.store_id }}"/>
                             {{ store.name }}
                           {% endif %} </label>
                       </div>
@@ -440,9 +440,9 @@
                 <label class="col-sm-2 control-label" for="input-download"><span data-toggle="tooltip" title="{{ help_download }}">{{ entry_download }}</span></label>
                 <div class="col-sm-10">
                   <input type="text" name="download" value="" placeholder="{{ entry_download }}" id="input-download" class="form-control"/>
-                  <div id="product-download" class="well well-sm" style="height: 150px; overflow: auto;"> {% for product_download in product_downloads %}
-                      <div id="product-download{{ product_download.download_id }}"><i class="fa fa-minus-circle"></i> {{ product_download.name }}
-                        <input type="hidden" name="product_download[]" value="{{ product_download.download_id }}"/>
+                  <div id="component-download" class="well well-sm" style="height: 150px; overflow: auto;"> {% for component_download in component_downloads %}
+                      <div id="component-download{{ component_download.download_id }}"><i class="fa fa-minus-circle"></i> {{ component_download.name }}
+                        <input type="hidden" name="component_download[]" value="{{ component_download.download_id }}"/>
                       </div>
                     {% endfor %}</div>
                 </div>
@@ -451,9 +451,9 @@
                 <label class="col-sm-2 control-label" for="input-related"><span data-toggle="tooltip" title="{{ help_related }}">{{ entry_related }}</span></label>
                 <div class="col-sm-10">
                   <input type="text" name="related" value="" placeholder="{{ entry_related }}" id="input-related" class="form-control"/>
-                  <div id="product-related" class="well well-sm" style="height: 150px; overflow: auto;"> {% for product_related in product_relateds %}
-                      <div id="product-related{{ product_related.product_id }}"><i class="fa fa-minus-circle"></i> {{ product_related.name }}
-                        <input type="hidden" name="product_related[]" value="{{ product_related.product_id }}"/>
+                  <div id="component-related" class="well well-sm" style="height: 150px; overflow: auto;"> {% for component_related in component_relateds %}
+                      <div id="component-related{{ component_related.component_id }}"><i class="fa fa-minus-circle"></i> {{ component_related.name }}
+                        <input type="hidden" name="component_related[]" value="{{ component_related.component_id }}"/>
                       </div>
                     {% endfor %}</div>
                 </div>
@@ -461,10 +461,10 @@
 			  <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-related-article"><span data-toggle="tooltip" title="{{ help_related }}">{{ entry_related_article }}</span></label>
                 <div class="col-sm-10">
-                  <input type="text" name="product_related_article_input" value="" placeholder="{{ entry_related_article }}" id="input-related-article" class="form-control" />
-                  <div id="article-related" class="well well-sm" style="height: 150px; overflow: auto;"> {% for product_related_article in product_related_article %}
-                    <div id="article-related{{ product_related_article.article_id }}"><i class="fa fa-minus-circle"></i> {{ product_related_article.name }}
-                      <input type="hidden" name="product_related_article[]" value="{{ product_related_article.article_id }}" />
+                  <input type="text" name="component_related_article_input" value="" placeholder="{{ entry_related_article }}" id="input-related-article" class="form-control" />
+                  <div id="article-related" class="well well-sm" style="height: 150px; overflow: auto;"> {% for component_related_article in component_related_article %}
+                    <div id="article-related{{ component_related_article.article_id }}"><i class="fa fa-minus-circle"></i> {{ component_related_article.name }}
+                      <input type="hidden" name="component_related_article[]" value="{{ component_related_article.article_id }}" />
                     </div>
                     {% endfor %}</div>
                 </div>
@@ -483,11 +483,11 @@
                   <tbody>
 
                     {% set attribute_row = 0 %}
-                    {% for product_attribute in product_attributes %}
+                    {% for component_attribute in component_attributes %}
                       <tr id="attribute-row{{ attribute_row }}">
-                        <td class="text-left" style="width: 40%;"><input type="text" name="product_attribute[{{ attribute_row }}][name]" value="{{ product_attribute.name }}" placeholder="{{ entry_attribute }}" class="form-control"/> <input type="hidden" name="product_attribute[{{ attribute_row }}][attribute_id]" value="{{ product_attribute.attribute_id }}"/></td>
+                        <td class="text-left" style="width: 40%;"><input type="text" name="component_attribute[{{ attribute_row }}][name]" value="{{ component_attribute.name }}" placeholder="{{ entry_attribute }}" class="form-control"/> <input type="hidden" name="component_attribute[{{ attribute_row }}][attribute_id]" value="{{ component_attribute.attribute_id }}"/></td>
                         <td class="text-left">{% for language in languages %}
-                            <div class="input-group"><span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}"/></span> <textarea name="product_attribute[{{ attribute_row }}][product_attribute_description][{{ language.language_id }}][text]" rows="5" placeholder="{{ entry_text }}" class="form-control">{{ product_attribute.product_attribute_description[language.language_id] ? product_attribute.product_attribute_description[language.language_id].text }}</textarea>
+                            <div class="input-group"><span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}"/></span> <textarea name="component_attribute[{{ attribute_row }}][component_attribute_description][{{ language.language_id }}][text]" rows="5" placeholder="{{ entry_text }}" class="form-control">{{ component_attribute.component_attribute_description[language.language_id] ? component_attribute.component_attribute_description[language.language_id].text }}</textarea>
                             </div>
                           {% endfor %}</td>
                         <td class="text-right"><button type="button" onclick="$('#attribute-row{{ attribute_row }}').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
@@ -510,8 +510,8 @@
                 <div class="col-sm-2">
                   <ul class="nav nav-pills nav-stacked" id="option">
                     {% set option_row = 0 %}
-                    {% for product_option in product_options %}
-                      <li><a href="#tab-option{{ option_row }}" data-toggle="tab"><i class="fa fa-minus-circle" onclick="$('a[href=\'#tab-option{{ option_row }}\']').parent().remove(); $('#tab-option{{ option_row }}').remove(); $('#option a:first').tab('show');"></i> {{ product_option.name }}</a></li>
+                    {% for component_option in component_options %}
+                      <li><a href="#tab-option{{ option_row }}" data-toggle="tab"><i class="fa fa-minus-circle" onclick="$('a[href=\'#tab-option{{ option_row }}\']').parent().remove(); $('#tab-option{{ option_row }}').remove(); $('#option a:first').tab('show');"></i> {{ component_option.name }}</a></li>
                       {% set option_row = option_row + 1 %}
                     {% endfor %}
                     <li>
@@ -522,16 +522,16 @@
                 <div class="col-sm-10">
                   <div class="tab-content"> {% set option_row = 0 %}
                     {% set option_value_row = 0 %}
-                    {% for product_option in product_options %}
+                    {% for component_option in component_options %}
                       <div class="tab-pane" id="tab-option{{ option_row }}">
-                        <input type="hidden" name="product_option[{{ option_row }}][product_option_id]" value="{{ product_option.product_option_id }}"/> <input type="hidden" name="product_option[{{ option_row }}][name]" value="{{ product_option.name }}"/> <input type="hidden" name="product_option[{{ option_row }}][option_id]" value="{{ product_option.option_id }}"/> <input type="hidden" name="product_option[{{ option_row }}][type]" value="{{ product_option.type }}"/>
+                        <input type="hidden" name="component_option[{{ option_row }}][component_option_id]" value="{{ component_option.component_option_id }}"/> <input type="hidden" name="component_option[{{ option_row }}][name]" value="{{ component_option.name }}"/> <input type="hidden" name="component_option[{{ option_row }}][option_id]" value="{{ component_option.option_id }}"/> <input type="hidden" name="component_option[{{ option_row }}][type]" value="{{ component_option.type }}"/>
                         <div class="form-group">
                           <label class="col-sm-2 control-label" for="input-required{{ option_row }}">{{ entry_required }}</label>
                           <div class="col-sm-10">
-                            <select name="product_option[{{ option_row }}][required]" id="input-required{{ option_row }}" class="form-control">
+                            <select name="component_option[{{ option_row }}][required]" id="input-required{{ option_row }}" class="form-control">
 
 
-                              {% if product_option.required %}
+                              {% if component_option.required %}
 
 
                                 <option value="1" selected="selected">{{ text_yes }}</option>
@@ -551,64 +551,64 @@
                             </select>
                           </div>
                         </div>
-                        {% if product_option.type == 'text' %}
+                        {% if component_option.type == 'text' %}
                           <div class="form-group">
                             <label class="col-sm-2 control-label" for="input-value{{ option_row }}">{{ entry_option_value }}</label>
                             <div class="col-sm-10">
-                              <input type="text" name="product_option[{{ option_row }}][value]" value="{{ product_option.value }}" placeholder="{{ entry_option_value }}" id="input-value{{ option_row }}" class="form-control"/>
+                              <input type="text" name="component_option[{{ option_row }}][value]" value="{{ component_option.value }}" placeholder="{{ entry_option_value }}" id="input-value{{ option_row }}" class="form-control"/>
                             </div>
                           </div>
                         {% endif %}
-                        {% if product_option.type == 'textarea' %}
+                        {% if component_option.type == 'textarea' %}
                           <div class="form-group">
                             <label class="col-sm-2 control-label" for="input-value{{ option_row }}">{{ entry_option_value }}</label>
                             <div class="col-sm-10">
-                              <textarea name="product_option[{{ option_row }}][value]" rows="5" placeholder="{{ entry_option_value }}" id="input-value{{ option_row }}" class="form-control">{{ product_option.value }}</textarea>
+                              <textarea name="component_option[{{ option_row }}][value]" rows="5" placeholder="{{ entry_option_value }}" id="input-value{{ option_row }}" class="form-control">{{ component_option.value }}</textarea>
                             </div>
                           </div>
                         {% endif %}
-                        {% if product_option.type == 'file' %}
+                        {% if component_option.type == 'file' %}
                           <div class="form-group" style="display: none;">
                             <label class="col-sm-2 control-label" for="input-value{{ option_row }}">{{ entry_option_value }}</label>
                             <div class="col-sm-10">
-                              <input type="text" name="product_option[{{ option_row }}][value]" value="{{ product_option.value }}" placeholder="{{ entry_option_value }}" id="input-value{{ option_row }}" class="form-control"/>
+                              <input type="text" name="component_option[{{ option_row }}][value]" value="{{ component_option.value }}" placeholder="{{ entry_option_value }}" id="input-value{{ option_row }}" class="form-control"/>
                             </div>
                           </div>
                         {% endif %}
-                        {% if product_option.type == 'date' %}
+                        {% if component_option.type == 'date' %}
                           <div class="form-group">
                             <label class="col-sm-2 control-label" for="input-value{{ option_row }}">{{ entry_option_value }}</label>
                             <div class="col-sm-3">
                               <div class="input-group date">
-                                <input type="text" name="product_option[{{ option_row }}][value]" value="{{ product_option.value }}" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD" id="input-value{{ option_row }}" class="form-control"/> <span class="input-group-btn">
+                                <input type="text" name="component_option[{{ option_row }}][value]" value="{{ component_option.value }}" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD" id="input-value{{ option_row }}" class="form-control"/> <span class="input-group-btn">
                             <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                             </span></div>
                             </div>
                           </div>
                         {% endif %}
-                        {% if product_option.type == 'time' %}
+                        {% if component_option.type == 'time' %}
                           <div class="form-group">
                             <label class="col-sm-2 control-label" for="input-value{{ option_row }}">{{ entry_option_value }}</label>
                             <div class="col-sm-10">
                               <div class="input-group time">
-                                <input type="text" name="product_option[{{ option_row }}][value]" value="{{ product_option.value }}" placeholder="{{ entry_option_value }}" data-date-format="HH:mm" id="input-value{{ option_row }}" class="form-control"/> <span class="input-group-btn">
+                                <input type="text" name="component_option[{{ option_row }}][value]" value="{{ component_option.value }}" placeholder="{{ entry_option_value }}" data-date-format="HH:mm" id="input-value{{ option_row }}" class="form-control"/> <span class="input-group-btn">
                             <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                             </span></div>
                             </div>
                           </div>
                         {% endif %}
-                        {% if product_option.type == 'datetime' %}
+                        {% if component_option.type == 'datetime' %}
                           <div class="form-group">
                             <label class="col-sm-2 control-label" for="input-value{{ option_row }}">{{ entry_option_value }}</label>
                             <div class="col-sm-10">
                               <div class="input-group datetime">
-                                <input type="text" name="product_option[{{ option_row }}][value]" value="{{ product_option.value }}" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-value{{ option_row }}" class="form-control"/> <span class="input-group-btn">
+                                <input type="text" name="component_option[{{ option_row }}][value]" value="{{ component_option.value }}" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-value{{ option_row }}" class="form-control"/> <span class="input-group-btn">
                             <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                             </span></div>
                             </div>
                           </div>
                         {% endif %}
-                        {% if product_option.type == 'select' or product_option.type == 'radio' or product_option.type == 'checkbox' or product_option.type == 'image' %}
+                        {% if component_option.type == 'select' or component_option.type == 'radio' or component_option.type == 'checkbox' or component_option.type == 'image' %}
                           <div class="table-responsive">
                             <table id="option-value{{ option_row }}" class="table table-striped table-bordered table-hover">
                               <thead>
@@ -624,16 +624,16 @@
                               </thead>
                               <tbody>
 
-                                {% for product_option_value in product_option.product_option_value %}
+                                {% for component_option_value in component_option.component_option_value %}
                                   <tr id="option-value-row{{ option_value_row }}">
-                                    <td class="text-left"><select name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][option_value_id]" class="form-control">
+                                    <td class="text-left"><select name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][option_value_id]" class="form-control">
 
 
-                                        {% if option_values[product_option.option_id] %}
+                                        {% if option_values[component_option.option_id] %}
 
-                                          {% for option_value in option_values[product_option.option_id] %}
+                                          {% for option_value in option_values[component_option.option_id] %}
 
-                                            {% if option_value.option_value_id == product_option_value.option_value_id %}
+                                            {% if option_value.option_value_id == component_option_value.option_value_id %}
 
 
                                               <option value="{{ option_value.option_value_id }}" selected="selected">{{ option_value.name }}</option>
@@ -650,12 +650,12 @@
                                         {% endif %}
 
 
-                                      </select> <input type="hidden" name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][product_option_value_id]" value="{{ product_option_value.product_option_value_id }}"/></td>
-                                    <td class="text-right"><input type="text" name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][quantity]" value="{{ product_option_value.quantity }}" placeholder="{{ entry_quantity }}" class="form-control"/></td>
-                                    <td class="text-left"><select name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][subtract]" class="form-control">
+                                      </select> <input type="hidden" name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][component_option_value_id]" value="{{ component_option_value.component_option_value_id }}"/></td>
+                                    <td class="text-right"><input type="text" name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][quantity]" value="{{ component_option_value.quantity }}" placeholder="{{ entry_quantity }}" class="form-control"/></td>
+                                    <td class="text-left"><select name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][subtract]" class="form-control">
 
 
-                                        {% if product_option_value.subtract %}
+                                        {% if component_option_value.subtract %}
 
 
                                           <option value="1" selected="selected">{{ text_yes }}</option>
@@ -673,10 +673,10 @@
 
 
                                       </select></td>
-                                    <td class="text-right"><select name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][price_prefix]" class="form-control">
+                                    <td class="text-right"><select name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][price_prefix]" class="form-control">
 
 
-                                        {% if product_option_value.price_prefix == '+' %}
+                                        {% if component_option_value.price_prefix == '+' %}
 
 
                                           <option value="+" selected="selected">+</option>
@@ -689,7 +689,7 @@
 
 
                                         {% endif %}
-                                        {% if product_option_value.price_prefix == '-' %}
+                                        {% if component_option_value.price_prefix == '-' %}
 
 
                                           <option value="-" selected="selected">-</option>
@@ -704,11 +704,11 @@
                                         {% endif %}
 
 
-                                      </select> <input type="text" name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][price]" value="{{ product_option_value.price }}" placeholder="{{ entry_price }}" class="form-control"/></td>
-                                    <td class="text-right"><select name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][points_prefix]" class="form-control">
+                                      </select> <input type="text" name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][price]" value="{{ component_option_value.price }}" placeholder="{{ entry_price }}" class="form-control"/></td>
+                                    <td class="text-right"><select name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][points_prefix]" class="form-control">
 
 
-                                        {% if product_option_value.points_prefix == '+' %}
+                                        {% if component_option_value.points_prefix == '+' %}
 
 
                                           <option value="+" selected="selected">+</option>
@@ -721,7 +721,7 @@
 
 
                                         {% endif %}
-                                        {% if product_option_value.points_prefix == '-' %}
+                                        {% if component_option_value.points_prefix == '-' %}
 
 
                                           <option value="-" selected="selected">-</option>
@@ -736,11 +736,11 @@
                                         {% endif %}
 
 
-                                      </select> <input type="text" name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][points]" value="{{ product_option_value.points }}" placeholder="{{ entry_points }}" class="form-control"/></td>
-                                    <td class="text-right"><select name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][weight_prefix]" class="form-control">
+                                      </select> <input type="text" name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][points]" value="{{ component_option_value.points }}" placeholder="{{ entry_points }}" class="form-control"/></td>
+                                    <td class="text-right"><select name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][weight_prefix]" class="form-control">
 
 
-                                        {% if product_option_value.weight_prefix == '+' %}
+                                        {% if component_option_value.weight_prefix == '+' %}
 
 
                                           <option value="+" selected="selected">+</option>
@@ -753,7 +753,7 @@
 
 
                                         {% endif %}
-                                        {% if product_option_value.weight_prefix == '-' %}
+                                        {% if component_option_value.weight_prefix == '-' %}
 
 
                                           <option value="-" selected="selected">-</option>
@@ -768,7 +768,7 @@
                                         {% endif %}
 
 
-                                      </select> <input type="text" name="product_option[{{ option_row }}][product_option_value][{{ option_value_row }}][weight]" value="{{ product_option_value.weight }}" placeholder="{{ entry_weight }}" class="form-control"/></td>
+                                      </select> <input type="text" name="component_option[{{ option_row }}][component_option_value][{{ option_value_row }}][weight]" value="{{ component_option_value.weight }}" placeholder="{{ entry_weight }}" class="form-control"/></td>
                                     <td class="text-right"><button type="button" onclick="$(this).tooltip('destroy');$('#option-value-row{{ option_value_row }}').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                                   </tr>
                                   {% set option_value_row = option_value_row + 1 %}
@@ -786,8 +786,8 @@
                           <select id="option-values{{ option_row }}" style="display: none;">
 
 
-                            {% if option_values[product_option.option_id] %}
-                              {% for option_value in option_values[product_option.option_id] %}
+                            {% if option_values[component_option.option_id] %}
+                              {% for option_value in option_values[component_option.option_id] %}
 
 
                                 <option value="{{ option_value.option_value_id }}">{{ option_value.name }}</option>
@@ -817,13 +817,13 @@
                   <tbody>
 
                     {% set recurring_row = 0 %}
-                    {% for product_recurring in product_recurrings %}
+                    {% for component_recurring in component_recurrings %}
                       <tr id="recurring-row{{ recurring_row }}">
-                        <td class="text-left"><select name="product_recurring[{{ recurring_row }}][recurring_id]" class="form-control">
+                        <td class="text-left"><select name="component_recurring[{{ recurring_row }}][recurring_id]" class="form-control">
 
 
                             {% for recurring in recurrings %}
-                              {% if recurring.recurring_id == product_recurring.recurring_id %}
+                              {% if recurring.recurring_id == component_recurring.recurring_id %}
 
 
                                 <option value="{{ recurring.recurring_id }}" selected="selected">{{ recurring.name }}</option>
@@ -840,11 +840,11 @@
 
 
                           </select></td>
-                        <td class="text-left"><select name="product_recurring[{{ recurring_row }}][customer_group_id]" class="form-control">
+                        <td class="text-left"><select name="component_recurring[{{ recurring_row }}][customer_group_id]" class="form-control">
 
 
                             {% for customer_group in customer_groups %}
-                              {% if customer_group.customer_group_id == product_recurring.customer_group_id %}
+                              {% if customer_group.customer_group_id == component_recurring.customer_group_id %}
 
 
                                 <option value="{{ customer_group.customer_group_id }}" selected="selected">{{ customer_group.name }}</option>
@@ -893,29 +893,29 @@
                   <tbody>
 
                     {% set discount_row = 0 %}
-                    {% for product_discount in product_discounts %}
+                    {% for component_discount in component_discounts %}
                       <tr id="discount-row{{ discount_row }}">
-                        <td class="text-left"><select name="product_discount[{{ discount_row }}][customer_group_id]" class="form-control">
+                        <td class="text-left"><select name="component_discount[{{ discount_row }}][customer_group_id]" class="form-control">
                             {% for customer_group in customer_groups %}
-                              {% if customer_group.customer_group_id == product_discount.customer_group_id %}
+                              {% if customer_group.customer_group_id == component_discount.customer_group_id %}
                                 <option value="{{ customer_group.customer_group_id }}" selected="selected">{{ customer_group.name }}</option>
                               {% else %}
                                 <option value="{{ customer_group.customer_group_id }}">{{ customer_group.name }}</option>
                               {% endif %}
                             {% endfor %}
                           </select></td>
-                        <td class="text-right"><input type="text" name="product_discount[{{ discount_row }}][quantity]" value="{{ product_discount.quantity }}" placeholder="{{ entry_quantity }}" class="form-control"/></td>
-                        <td class="text-right"><input type="text" name="product_discount[{{ discount_row }}][priority]" value="{{ product_discount.priority }}" placeholder="{{ entry_priority }}" class="form-control"/></td>
-                        <td class="text-right"><input type="text" name="product_discount[{{ discount_row }}][price]" value="{{ product_discount.price }}" placeholder="{{ entry_price }}" class="form-control"/></td>
+                        <td class="text-right"><input type="text" name="component_discount[{{ discount_row }}][quantity]" value="{{ component_discount.quantity }}" placeholder="{{ entry_quantity }}" class="form-control"/></td>
+                        <td class="text-right"><input type="text" name="component_discount[{{ discount_row }}][priority]" value="{{ component_discount.priority }}" placeholder="{{ entry_priority }}" class="form-control"/></td>
+                        <td class="text-right"><input type="text" name="component_discount[{{ discount_row }}][price]" value="{{ component_discount.price }}" placeholder="{{ entry_price }}" class="form-control"/></td>
                         <td class="text-left" style="width: 20%;">
                           <div class="input-group date">
-                            <input type="text" name="product_discount[{{ discount_row }}][date_start]" value="{{ product_discount.date_start }}" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control"/> <span class="input-group-btn">
+                            <input type="text" name="component_discount[{{ discount_row }}][date_start]" value="{{ component_discount.date_start }}" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control"/> <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                         </span></div>
                         </td>
                         <td class="text-left" style="width: 20%;">
                           <div class="input-group date">
-                            <input type="text" name="product_discount[{{ discount_row }}][date_end]" value="{{ product_discount.date_end }}" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control"/> <span class="input-group-btn">
+                            <input type="text" name="component_discount[{{ discount_row }}][date_end]" value="{{ component_discount.date_end }}" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control"/> <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                         </span></div>
                         </td>
@@ -950,13 +950,13 @@
                   <tbody>
 
                     {% set special_row = 0 %}
-                    {% for product_special in product_specials %}
+                    {% for component_special in component_specials %}
                       <tr id="special-row{{ special_row }}">
-                        <td class="text-left"><select name="product_special[{{ special_row }}][customer_group_id]" class="form-control">
+                        <td class="text-left"><select name="component_special[{{ special_row }}][customer_group_id]" class="form-control">
 
 
                             {% for customer_group in customer_groups %}
-                              {% if customer_group.customer_group_id == product_special.customer_group_id %}
+                              {% if customer_group.customer_group_id == component_special.customer_group_id %}
 
 
                                 <option value="{{ customer_group.customer_group_id }}" selected="selected">{{ customer_group.name }}</option>
@@ -973,17 +973,17 @@
 
 
                           </select></td>
-                        <td class="text-right"><input type="text" name="product_special[{{ special_row }}][priority]" value="{{ product_special.priority }}" placeholder="{{ entry_priority }}" class="form-control"/></td>
-                        <td class="text-right"><input type="text" name="product_special[{{ special_row }}][price]" value="{{ product_special.price }}" placeholder="{{ entry_price }}" class="form-control"/></td>
+                        <td class="text-right"><input type="text" name="component_special[{{ special_row }}][priority]" value="{{ component_special.priority }}" placeholder="{{ entry_priority }}" class="form-control"/></td>
+                        <td class="text-right"><input type="text" name="component_special[{{ special_row }}][price]" value="{{ component_special.price }}" placeholder="{{ entry_price }}" class="form-control"/></td>
                         <td class="text-left" style="width: 20%;">
                           <div class="input-group date">
-                            <input type="text" name="product_special[{{ special_row }}][date_start]" value="{{ product_special.date_start }}" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control"/> <span class="input-group-btn">
+                            <input type="text" name="component_special[{{ special_row }}][date_start]" value="{{ component_special.date_start }}" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control"/> <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                         </span></div>
                         </td>
                         <td class="text-left" style="width: 20%;">
                           <div class="input-group date">
-                            <input type="text" name="product_special[{{ special_row }}][date_end]" value="{{ product_special.date_end }}" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control"/> <span class="input-group-btn">
+                            <input type="text" name="component_special[{{ special_row }}][date_end]" value="{{ component_special.date_end }}" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control"/> <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                         </span></div>
                         </td>
@@ -1030,10 +1030,10 @@
                   <tbody>
 
                     {% set image_row = 0 %}
-                    {% for product_image in product_images %}
+                    {% for component_image in component_images %}
                       <tr id="image-row{{ image_row }}">
-                        <td class="text-left"><a href="" id="thumb-image{{ image_row }}" data-toggle="image" class="img-thumbnail"><img src="{{ product_image.thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a> <input type="hidden" name="product_image[{{ image_row }}][image]" value="{{ product_image.image }}" id="input-image{{ image_row }}"/></td>
-                        <td class="text-right"><input type="text" name="product_image[{{ image_row }}][sort_order]" value="{{ product_image.sort_order }}" placeholder="{{ entry_sort_order }}" class="form-control"/></td>
+                        <td class="text-left"><a href="" id="thumb-image{{ image_row }}" data-toggle="image" class="img-thumbnail"><img src="{{ component_image.thumb }}" alt="" title="" data-placeholder="{{ placeholder }}"/></a> <input type="hidden" name="component_image[{{ image_row }}][image]" value="{{ component_image.image }}" id="input-image{{ image_row }}"/></td>
+                        <td class="text-right"><input type="text" name="component_image[{{ image_row }}][sort_order]" value="{{ component_image.sort_order }}" placeholder="{{ entry_sort_order }}" class="form-control"/></td>
                         <td class="text-left"><button type="button" onclick="$('#image-row{{ image_row }}').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                       </tr>
                       {% set image_row = image_row + 1 %}
@@ -1069,7 +1069,7 @@
                     {% for customer_group in customer_groups %}
                       <tr>
                         <td class="text-left">{{ customer_group.name }}</td>
-                        <td class="text-right"><input type="text" name="product_reward[{{ customer_group.customer_group_id }}][points]" value="{{ product_reward[customer_group.customer_group_id] ? product_reward[customer_group.customer_group_id].points }}" class="form-control"/></td>
+                        <td class="text-right"><input type="text" name="component_reward[{{ customer_group.customer_group_id }}][points]" value="{{ component_reward[customer_group.customer_group_id] ? component_reward[customer_group.customer_group_id].points }}" class="form-control"/></td>
                       </tr>
                     {% endfor %}
                   </tbody>
@@ -1092,7 +1092,7 @@
                       <tr>
                         <td class="text-left">{{ store.name }}</td>
                         <td class="text-left">{% for language in languages %}
-                            <div class="input-group"><span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}"/></span> <input type="text" name="product_seo_url[{{ store.store_id }}][{{ language.language_id }}]" value="{% if product_seo_url[store.store_id][language.language_id] %}{{ product_seo_url[store.store_id][language.language_id] }}{% endif %}" placeholder="{{ entry_keyword }}" class="form-control"/>
+                            <div class="input-group"><span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}"/></span> <input type="text" name="component_seo_url[{{ store.store_id }}][{{ language.language_id }}]" value="{% if component_seo_url[store.store_id][language.language_id] %}{{ component_seo_url[store.store_id][language.language_id] }}{% endif %}" placeholder="{{ entry_keyword }}" class="form-control"/>
                             </div>
                             {% if error_keyword[store.store_id][language.language_id] %}
                               <div class="text-danger">{{ error_keyword[store.store_id][language.language_id] }}</div>
@@ -1132,12 +1132,12 @@
                     {% for store in stores %}
                       <tr>
                         <td class="text-left">{{ store.name }}</td>
-                        <td class="text-left"><select name="product_layout[{{ store.store_id }}]" class="form-control">
+                        <td class="text-left"><select name="component_layout[{{ store.store_id }}]" class="form-control">
                             <option value=""></option>
 
 
                             {% for layout in layouts %}
-                              {% if product_layout[store.store_id] and product_layout[store.store_id] == layout.layout_id %}
+                              {% if component_layout[store.store_id] and component_layout[store.store_id] == layout.layout_id %}
 
 
                                 <option value="{{ layout.layout_id }}" selected="selected">{{ layout.name }}</option>
@@ -1221,13 +1221,13 @@
 	  'select': function(item) {
 		  $('input[name=\'category\']').val('');
 
-		  $('#product-category' + item['value']).remove();
+		  $('#component-category' + item['value']).remove();
 
-		  $('#product-category').append('<div id="product-category' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_category[]" value="' + item['value'] + '" /></div>');
+		  $('#component-category').append('<div id="component-category' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="component_category[]" value="' + item['value'] + '" /></div>');
 	  }
   });
 
-  $('#product-category').delegate('.fa-minus-circle', 'click', function() {
+  $('#component-category').delegate('.fa-minus-circle', 'click', function() {
 	  $(this).parent().remove();
   });
 
@@ -1250,13 +1250,13 @@
 	  'select': function(item) {
 		  $('input[name=\'filter\']').val('');
 
-		  $('#product-filter' + item['value']).remove();
+		  $('#component-filter' + item['value']).remove();
 
-		  $('#product-filter').append('<div id="product-filter' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_filter[]" value="' + item['value'] + '" /></div>');
+		  $('#component-filter').append('<div id="component-filter' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="component_filter[]" value="' + item['value'] + '" /></div>');
 	  }
   });
 
-  $('#product-filter').delegate('.fa-minus-circle', 'click', function() {
+  $('#component-filter').delegate('.fa-minus-circle', 'click', function() {
 	  $(this).parent().remove();
   });
 
@@ -1279,13 +1279,13 @@
 	  'select': function(item) {
 		  $('input[name=\'download\']').val('');
 
-		  $('#product-download' + item['value']).remove();
+		  $('#component-download' + item['value']).remove();
 
-		  $('#product-download').append('<div id="product-download' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_download[]" value="' + item['value'] + '" /></div>');
+		  $('#component-download').append('<div id="component-download' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="component_download[]" value="' + item['value'] + '" /></div>');
 	  }
   });
 
-  $('#product-download').delegate('.fa-minus-circle', 'click', function() {
+  $('#component-download').delegate('.fa-minus-circle', 'click', function() {
 	  $(this).parent().remove();
   });
 
@@ -1293,13 +1293,13 @@
   $('input[name=\'related\']').autocomplete({
 	  'source': function(request, response) {
 		  $.ajax({
-			  url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+			  url: 'index.php?route=catalog/component/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
 			  dataType: 'json',
 			  success: function(json) {
 				  response($.map(json, function(item) {
 					  return {
 						  label: item['name'],
-						  value: item['product_id']
+						  value: item['component_id']
 					  }
 				  }));
 			  }
@@ -1308,18 +1308,18 @@
 	  'select': function(item) {
 		  $('input[name=\'related\']').val('');
 
-		  $('#product-related' + item['value']).remove();
+		  $('#component-related' + item['value']).remove();
 
-		  $('#product-related').append('<div id="product-related' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_related[]" value="' + item['value'] + '" /></div>');
+		  $('#component-related').append('<div id="component-related' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="component_related[]" value="' + item['value'] + '" /></div>');
 	  }
   });
 
-$('#product-related').delegate('.fa-minus-circle', 'click', function() {
+$('#component-related').delegate('.fa-minus-circle', 'click', function() {
 	$(this).parent().remove();
 });
 
 // Related Article
-$('input[name=\'product_related_article_input\']').autocomplete({
+$('input[name=\'component_related_article_input\']').autocomplete({
 	'source': function(request, response) {
 		$.ajax({
 			url: 'index.php?route=blog/article/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
@@ -1335,11 +1335,11 @@ $('input[name=\'product_related_article_input\']').autocomplete({
 		});
 	},
 	'select': function(item) {
-		$('input[name=\'product_related_article\']').val('');
+		$('input[name=\'component_related_article\']').val('');
 
 		$('#article-related' + item['value']).remove();
 
-		$('#article-related').append('<div id="article-related' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_related_article[]" value="' + item['value'] + '" /></div>');
+		$('#article-related').append('<div id="article-related' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="component_related_article[]" value="' + item['value'] + '" /></div>');
 	}
 });
 
@@ -1352,10 +1352,10 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 
   function addAttribute() {
 	  html = '<tr id="attribute-row' + attribute_row + '">';
-	  html += '  <td class="text-left" style="width: 20%;"><input type="text" name="product_attribute[' + attribute_row + '][name]" value="" placeholder="{{ entry_attribute }}" class="form-control" /><input type="hidden" name="product_attribute[' + attribute_row + '][attribute_id]" value="" /></td>';
+	  html += '  <td class="text-left" style="width: 20%;"><input type="text" name="component_attribute[' + attribute_row + '][name]" value="" placeholder="{{ entry_attribute }}" class="form-control" /><input type="hidden" name="component_attribute[' + attribute_row + '][attribute_id]" value="" /></td>';
 	  html += '  <td class="text-left">';
     {% for language in languages %}
-	  html += '<div class="input-group"><span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span><textarea name="product_attribute[' + attribute_row + '][product_attribute_description][{{ language.language_id }}][text]" rows="5" placeholder="{{ entry_text }}" class="form-control"></textarea></div>';
+	  html += '<div class="input-group"><span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span><textarea name="component_attribute[' + attribute_row + '][component_attribute_description][{{ language.language_id }}][text]" rows="5" placeholder="{{ entry_text }}" class="form-control"></textarea></div>';
     {% endfor %}
 	  html += '  </td>';
 	  html += '  <td class="text-right"><button type="button" onclick="$(\'#attribute-row' + attribute_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
@@ -1369,7 +1369,7 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
   }
 
   function attributeautocomplete(attribute_row) {
-	  $('input[name=\'product_attribute[' + attribute_row + '][name]\']').autocomplete({
+	  $('input[name=\'component_attribute[' + attribute_row + '][name]\']').autocomplete({
 		  'source': function(request, response) {
 			  $.ajax({
 				  url: 'index.php?route=catalog/attribute/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
@@ -1386,8 +1386,8 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 			  });
 		  },
 		  'select': function(item) {
-			  $('input[name=\'product_attribute[' + attribute_row + '][name]\']').val(item['label']);
-			  $('input[name=\'product_attribute[' + attribute_row + '][attribute_id]\']').val(item['value']);
+			  $('input[name=\'component_attribute[' + attribute_row + '][name]\']').val(item['label']);
+			  $('input[name=\'component_attribute[' + attribute_row + '][attribute_id]\']').val(item['value']);
 		  }
 	  });
   }
@@ -1419,14 +1419,14 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 	  },
 	  'select': function(item) {
 		  html = '<div class="tab-pane" id="tab-option' + option_row + '">';
-		  html += '	<input type="hidden" name="product_option[' + option_row + '][product_option_id]" value="" />';
-		  html += '	<input type="hidden" name="product_option[' + option_row + '][name]" value="' + item['label'] + '" />';
-		  html += '	<input type="hidden" name="product_option[' + option_row + '][option_id]" value="' + item['value'] + '" />';
-		  html += '	<input type="hidden" name="product_option[' + option_row + '][type]" value="' + item['type'] + '" />';
+		  html += '	<input type="hidden" name="component_option[' + option_row + '][component_option_id]" value="" />';
+		  html += '	<input type="hidden" name="component_option[' + option_row + '][name]" value="' + item['label'] + '" />';
+		  html += '	<input type="hidden" name="component_option[' + option_row + '][option_id]" value="' + item['value'] + '" />';
+		  html += '	<input type="hidden" name="component_option[' + option_row + '][type]" value="' + item['type'] + '" />';
 
 		  html += '	<div class="form-group">';
 		  html += '	  <label class="col-sm-2 control-label" for="input-required' + option_row + '">{{ entry_required }}</label>';
-		  html += '	  <div class="col-sm-10"><select name="product_option[' + option_row + '][required]" id="input-required' + option_row + '" class="form-control">';
+		  html += '	  <div class="col-sm-10"><select name="component_option[' + option_row + '][required]" id="input-required' + option_row + '" class="form-control">';
 		  html += '	      <option value="1">{{ text_yes }}</option>';
 		  html += '	      <option value="0">{{ text_no }}</option>';
 		  html += '	  </select></div>';
@@ -1435,42 +1435,42 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 		  if (item['type'] == 'text') {
 			  html += '	<div class="form-group">';
 			  html += '	  <label class="col-sm-2 control-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-			  html += '	  <div class="col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control" /></div>';
+			  html += '	  <div class="col-sm-10"><input type="text" name="component_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control" /></div>';
 			  html += '	</div>';
 		  }
 
 		  if (item['type'] == 'textarea') {
 			  html += '	<div class="form-group">';
 			  html += '	  <label class="col-sm-2 control-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-			  html += '	  <div class="col-sm-10"><textarea name="product_option[' + option_row + '][value]" rows="5" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control"></textarea></div>';
+			  html += '	  <div class="col-sm-10"><textarea name="component_option[' + option_row + '][value]" rows="5" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control"></textarea></div>';
 			  html += '	</div>';
 		  }
 
 		  if (item['type'] == 'file') {
 			  html += '	<div class="form-group" style="display: none;">';
 			  html += '	  <label class="col-sm-2 control-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-			  html += '	  <div class="col-sm-10"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control" /></div>';
+			  html += '	  <div class="col-sm-10"><input type="text" name="component_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" id="input-value' + option_row + '" class="form-control" /></div>';
 			  html += '	</div>';
 		  }
 
 		  if (item['type'] == 'date') {
 			  html += '	<div class="form-group">';
 			  html += '	  <label class="col-sm-2 control-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-			  html += '	  <div class="col-sm-3"><div class="input-group date"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+			  html += '	  <div class="col-sm-3"><div class="input-group date"><input type="text" name="component_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 			  html += '	</div>';
 		  }
 
 		  if (item['type'] == 'time') {
 			  html += '	<div class="form-group">';
 			  html += '	  <label class="col-sm-2 control-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-			  html += '	  <div class="col-sm-10"><div class="input-group time"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="HH:mm" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+			  html += '	  <div class="col-sm-10"><div class="input-group time"><input type="text" name="component_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="HH:mm" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 			  html += '	</div>';
 		  }
 
 		  if (item['type'] == 'datetime') {
 			  html += '	<div class="form-group">';
 			  html += '	  <label class="col-sm-2 control-label" for="input-value' + option_row + '">{{ entry_option_value }}</label>';
-			  html += '	  <div class="col-sm-10"><div class="input-group datetime"><input type="text" name="product_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
+			  html += '	  <div class="col-sm-10"><div class="input-group datetime"><input type="text" name="component_option[' + option_row + '][value]" value="" placeholder="{{ entry_option_value }}" data-date-format="YYYY-MM-DD HH:mm" id="input-value' + option_row + '" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></div>';
 			  html += '	</div>';
 		  }
 
@@ -1545,29 +1545,29 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 
   function addOptionValue(option_row) {
 	  html = '<tr id="option-value-row' + option_value_row + '">';
-	  html += '  <td class="text-left"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][option_value_id]" class="form-control">';
+	  html += '  <td class="text-left"><select name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][option_value_id]" class="form-control">';
 	  html += $('#option-values' + option_row).html();
-	  html += '  </select><input type="hidden" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][product_option_value_id]" value="" /></td>';
-	  html += '  <td class="text-right"><input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][quantity]" value="" placeholder="{{ entry_quantity }}" class="form-control" /></td>';
-	  html += '  <td class="text-left"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][subtract]" class="form-control">';
+	  html += '  </select><input type="hidden" name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][component_option_value_id]" value="" /></td>';
+	  html += '  <td class="text-right"><input type="text" name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][quantity]" value="" placeholder="{{ entry_quantity }}" class="form-control" /></td>';
+	  html += '  <td class="text-left"><select name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][subtract]" class="form-control">';
 	  html += '    <option value="1">{{ text_yes }}</option>';
 	  html += '    <option value="0">{{ text_no }}</option>';
 	  html += '  </select></td>';
-	  html += '  <td class="text-right"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price_prefix]" class="form-control">';
+	  html += '  <td class="text-right"><select name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][price_prefix]" class="form-control">';
 	  html += '    <option value="+">+</option>';
 	  html += '    <option value="-">-</option>';
 	  html += '  </select>';
-	  html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price]" value="" placeholder="{{ entry_price }}" class="form-control" /></td>';
-	  html += '  <td class="text-right"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points_prefix]" class="form-control">';
+	  html += '  <input type="text" name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][price]" value="" placeholder="{{ entry_price }}" class="form-control" /></td>';
+	  html += '  <td class="text-right"><select name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][points_prefix]" class="form-control">';
 	  html += '    <option value="+">+</option>';
 	  html += '    <option value="-">-</option>';
 	  html += '  </select>';
-	  html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][points]" value="" placeholder="{{ entry_points }}" class="form-control" /></td>';
-	  html += '  <td class="text-right"><select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight_prefix]" class="form-control">';
+	  html += '  <input type="text" name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][points]" value="" placeholder="{{ entry_points }}" class="form-control" /></td>';
+	  html += '  <td class="text-right"><select name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][weight_prefix]" class="form-control">';
 	  html += '    <option value="+">+</option>';
 	  html += '    <option value="-">-</option>';
 	  html += '  </select>';
-	  html += '  <input type="text" name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][weight]" value="" placeholder="{{ entry_weight }}" class="form-control" /></td>';
+	  html += '  <input type="text" name="component_option[' + option_row + '][component_option_value][' + option_value_row + '][weight]" value="" placeholder="{{ entry_weight }}" class="form-control" /></td>';
 	  html += '  <td class="text-left"><button type="button" onclick="$(this).tooltip(\'destroy\');$(\'#option-value-row' + option_value_row + '\').remove();" data-toggle="tooltip" rel="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 	  html += '</tr>';
 
@@ -1583,16 +1583,16 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 
   function addDiscount() {
 	  html = '<tr id="discount-row' + discount_row + '">';
-	  html += '  <td class="text-left"><select name="product_discount[' + discount_row + '][customer_group_id]" class="form-control">';
+	  html += '  <td class="text-left"><select name="component_discount[' + discount_row + '][customer_group_id]" class="form-control">';
     {% for customer_group in customer_groups %}
 	  html += '    <option value="{{ customer_group.customer_group_id }}">{{ customer_group.name|escape('js') }}</option>';
     {% endfor %}
 	  html += '  </select></td>';
-	  html += '  <td class="text-right"><input type="text" name="product_discount[' + discount_row + '][quantity]" value="" placeholder="{{ entry_quantity }}" class="form-control" /></td>';
-	  html += '  <td class="text-right"><input type="text" name="product_discount[' + discount_row + '][priority]" value="" placeholder="{{ entry_priority }}" class="form-control" /></td>';
-	  html += '  <td class="text-right"><input type="text" name="product_discount[' + discount_row + '][price]" value="" placeholder="{{ entry_price }}" class="form-control" /></td>';
-	  html += '  <td class="text-left" style="width: 20%;"><div class="input-group date"><input type="text" name="product_discount[' + discount_row + '][date_start]" value="" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
-	  html += '  <td class="text-left" style="width: 20%;"><div class="input-group date"><input type="text" name="product_discount[' + discount_row + '][date_end]" value="" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
+	  html += '  <td class="text-right"><input type="text" name="component_discount[' + discount_row + '][quantity]" value="" placeholder="{{ entry_quantity }}" class="form-control" /></td>';
+	  html += '  <td class="text-right"><input type="text" name="component_discount[' + discount_row + '][priority]" value="" placeholder="{{ entry_priority }}" class="form-control" /></td>';
+	  html += '  <td class="text-right"><input type="text" name="component_discount[' + discount_row + '][price]" value="" placeholder="{{ entry_price }}" class="form-control" /></td>';
+	  html += '  <td class="text-left" style="width: 20%;"><div class="input-group date"><input type="text" name="component_discount[' + discount_row + '][date_start]" value="" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
+	  html += '  <td class="text-left" style="width: 20%;"><div class="input-group date"><input type="text" name="component_discount[' + discount_row + '][date_end]" value="" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
 	  html += '  <td class="text-left"><button type="button" onclick="$(\'#discount-row' + discount_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 	  html += '</tr>';
 
@@ -1611,15 +1611,15 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 
   function addSpecial() {
 	  html = '<tr id="special-row' + special_row + '">';
-	  html += '  <td class="text-left"><select name="product_special[' + special_row + '][customer_group_id]" class="form-control">';
+	  html += '  <td class="text-left"><select name="component_special[' + special_row + '][customer_group_id]" class="form-control">';
     {% for customer_group in customer_groups %}
 	  html += '      <option value="{{ customer_group.customer_group_id }}">{{ customer_group.name|escape('js') }}</option>';
     {% endfor %}
 	  html += '  </select></td>';
-	  html += '  <td class="text-right"><input type="text" name="product_special[' + special_row + '][priority]" value="" placeholder="{{ entry_priority }}" class="form-control" /></td>';
-	  html += '  <td class="text-right"><input type="text" name="product_special[' + special_row + '][price]" value="" placeholder="{{ entry_price }}" class="form-control" /></td>';
-	  html += '  <td class="text-left" style="width: 20%;"><div class="input-group date"><input type="text" name="product_special[' + special_row + '][date_start]" value="" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
-	  html += '  <td class="text-left" style="width: 20%;"><div class="input-group date"><input type="text" name="product_special[' + special_row + '][date_end]" value="" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
+	  html += '  <td class="text-right"><input type="text" name="component_special[' + special_row + '][priority]" value="" placeholder="{{ entry_priority }}" class="form-control" /></td>';
+	  html += '  <td class="text-right"><input type="text" name="component_special[' + special_row + '][price]" value="" placeholder="{{ entry_price }}" class="form-control" /></td>';
+	  html += '  <td class="text-left" style="width: 20%;"><div class="input-group date"><input type="text" name="component_special[' + special_row + '][date_start]" value="" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
+	  html += '  <td class="text-left" style="width: 20%;"><div class="input-group date"><input type="text" name="component_special[' + special_row + '][date_end]" value="" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button></span></div></td>';
 	  html += '  <td class="text-left"><button type="button" onclick="$(\'#special-row' + special_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 	  html += '</tr>';
 
@@ -1639,8 +1639,8 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
 
   function addImage() {
 	  html = '<tr id="image-row' + image_row + '">';
-	  html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
-	  html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="{{ entry_sort_order }}" class="form-control" /></td>';
+	  html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="component_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
+	  html += '  <td class="text-right"><input type="text" name="component_image[' + image_row + '][sort_order]" value="" placeholder="{{ entry_sort_order }}" class="form-control" /></td>';
 	  html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 	  html += '</tr>';
 
@@ -1656,14 +1656,14 @@ $('#article-related').delegate('.fa-minus-circle', 'click', function() {
   function addRecurring() {
 	  html = '<tr id="recurring-row' + recurring_row + '">';
 	  html += '  <td class="left">';
-	  html += '    <select name="product_recurring[' + recurring_row + '][recurring_id]" class="form-control">>';
+	  html += '    <select name="component_recurring[' + recurring_row + '][recurring_id]" class="form-control">>';
     {% for recurring in recurrings %}
 	  html += '      <option value="{{ recurring.recurring_id }}">{{ recurring.name }}</option>';
     {% endfor %}
 	  html += '    </select>';
 	  html += '  </td>';
 	  html += '  <td class="left">';
-	  html += '    <select name="product_recurring[' + recurring_row + '][customer_group_id]" class="form-control">>';
+	  html += '    <select name="component_recurring[' + recurring_row + '][customer_group_id]" class="form-control">>';
     {% for customer_group in customer_groups %}
 	  html += '      <option value="{{ customer_group.customer_group_id }}">{{ customer_group.name }}</option>';
     {% endfor %}

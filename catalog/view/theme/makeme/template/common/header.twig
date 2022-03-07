@@ -47,7 +47,7 @@
     {% for script in scripts %}
         <script src="{{ script }}" type="text/javascript"></script>
     {% endfor %}
-    {#    <script src="catalog/view/javascript/common.js" type="text/javascript"></script>#}
+
     {% for link in links %}
         <link href="{{ link.href }}" rel="{{ link.rel }}"/>
     {% endfor %}
@@ -57,6 +57,7 @@
 </head>
 <body>
 <div class="page-wrapper">
+    <video src="catalog/view/theme/makeme/video/fon.webm" class="videoBG" id="videoBG" autoplay loop muted></video>
     {{ preloader }}
     <header class="page-header" itemscope itemtype="https://schema.org/WPHeader" id="header">
         <div class="container">
@@ -98,16 +99,26 @@
             {#                </ul>#}
             {#            </nav>#}
             {{ menu }}
-            <nav class="page-header__buttons">
-                <a href="{{ account }}" class="page-header__buttons-el page-header__buttons-el--user"></a>
-                <a href="#" class="page-header__buttons-el page-header__buttons-el--likes"></a>
-                <a href="#" class="page-header__buttons-el page-header__buttons-el--basket">
-                    <span class="basket-quantity">5</span>
-                </a>
-            </nav>
+            {% if logged %}
+                <nav class="page-header__buttons">
+                    <a href="{{ account }}" class="page-header__buttons-el page-header__buttons-el--user"></a>
+                    <a href="{{ wishlist }}" class="page-header__buttons-el page-header__buttons-el--likes"></a>
+                    <a href="{{ shopping_cart }}" class="page-header__buttons-el page-header__buttons-el--basket">
+                        <span class="basket-quantity">{{ text_items }}</span>
+                    </a>
+                </nav>
+            {% else %}
+                <nav class="page-header__buttons">
+                    <a href="#modalLogin" data-toggle="modal"
+                       class="page-header__buttons-el page-header__buttons-el--user"></a>
+                    <a href="#modalLogin" data-toggle="modal" class="page-header__buttons-el page-header__buttons-el--likes"></a>
+                    <a href="{{ shopping_cart }}" class="page-header__buttons-el page-header__buttons-el--basket">
+                        <span class="basket-quantity">{{ text_items }}</span>
+                    </a>
+                </nav>
+            {% endif %}
         </div>
     </header>
-
     <div class="menuMobile">
         <div class="menuMobile__header">
             <a href="#" class="menuMobile__logo">

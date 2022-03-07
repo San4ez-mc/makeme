@@ -1,31 +1,115 @@
 <?php
-class ControllerExtensionModuleBanner extends Controller {
-	public function index($setting) {
-		static $module = 0;
 
-		$this->load->model('design/banner');
-		$this->load->model('tool/image');
+class ControllerExtensionModuleBanner extends Controller
+{
+    public function index($setting)
+    {
+        static $module = 0;
 
-		$this->document->addStyle('catalog/view/javascript/jquery/swiper/css/swiper.min.css');
-		$this->document->addStyle('catalog/view/javascript/jquery/swiper/css/opencart.css');
-		$this->document->addScript('catalog/view/javascript/jquery/swiper/js/swiper.jquery.js');
+        $this->load->model('design/banner');
+        $this->load->model('tool/image');
 
-		$data['banners'] = array();
+        $this->document->addStyle('catalog/view/javascript/jquery/swiper/css/swiper.min.css');
+        $this->document->addStyle('catalog/view/javascript/jquery/swiper/css/opencart.css');
+        $this->document->addScript('catalog/view/javascript/jquery/swiper/js/swiper.jquery.js');
 
-		$results = $this->model_design_banner->getBanner($setting['banner_id']);
+        $data['banners'] = array();
 
-		foreach ($results as $result) {
-			if (is_file(DIR_IMAGE . $result['image'])) {
-				$data['banners'][] = array(
-					'title' => $result['title'],
-					'link'  => $result['link'],
-					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
-				);
-			}
-		}
+        $results = $this->model_design_banner->getBanner($setting['banner_id']);
+        if (!empty($results)) {
 
-		$data['module'] = $module++;
 
-		return $this->load->view('extension/module/banner', $data);
-	}
+            $data['module'] = $module++;
+            $banner_template = $results[0]['template_id'];
+
+            switch ($banner_template) {
+                case 1: // Верхний баннер на главной
+                    foreach ($results as $result) {
+//                if (is_file(DIR_IMAGE . $result['image'])) {
+                        $data['banners'][] = array(
+                            'title' => $result['title'],
+                            'text' => $result['text'],
+                            'link' => $result['link'],
+                            'button' => $result['button'],
+                            'image' => is_file(DIR_IMAGE . $result['image']) ? $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']) : ''
+                        );
+//                }
+                    }
+
+                    return $this->load->view('extension/module/banners/banner_main_page_top', $data);
+                    break;
+                case 2: // Этапы создания
+                    foreach ($results as $result) {
+                        $data['banners'][] = array(
+                            'title' => $result['title'],
+                            'text' => $result['text'],
+                            'link' => $result['link'],
+                            'button' => $result['button'],
+//                            'image' => is_file(DIR_IMAGE . $result['image']) ? $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']) : ''
+                            'image' => is_file(DIR_IMAGE . $result['image']) ? $this->model_tool_image->resize($result['image'], $result['width'], $result['height']) : ''
+                        );
+                    }
+
+                    return $this->load->view('extension/module/banners/banner_main_page_stages', $data);
+                    break;
+                case 3: // Создай СВОЮ, неповторимую!
+
+                    foreach ($results as $result) {
+//                if (is_file(DIR_IMAGE . $result['image'])) {
+                        $data['banners'][] = array(
+                            'title' => $result['title'],
+                            'text' => $result['text'],
+                            'link' => $result['link'],
+                            'button' => $result['button'],
+                            'image' => is_file(DIR_IMAGE . $result['image']) ? $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']) : ''
+                        );
+//                }
+                    }
+
+                    foreach ($data['banners'] as $key => $banner) {
+                        $data['banners'][$key]['title'] = html_entity_decode($data['banners'][$key]['title']);
+                        $data['banners'][$key]['text'] = html_entity_decode($data['banners'][$key]['text']);
+                    }
+
+                    return $this->load->view('extension/module/banners/banner_main_page_create', $data);
+                    break;
+                case 4: // Создай СВОE!
+
+                    foreach ($results as $result) {
+//                if (is_file(DIR_IMAGE . $result['image'])) {
+                        $data['banners'][] = array(
+                            'title' => $result['title'],
+                            'text' => $result['text'],
+                            'link' => $result['link'],
+                            'button' => $result['button'],
+                            'image' => is_file(DIR_IMAGE . $result['image']) ? $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']) : ''
+                        );
+//                }
+                    }
+
+                    foreach ($data['banners'] as $key => $banner) {
+                        $data['banners'][$key]['title'] = html_entity_decode($data['banners'][$key]['title']);
+                        $data['banners'][$key]['text'] = html_entity_decode($data['banners'][$key]['text']);
+                    }
+
+                    return $this->load->view('extension/module/banners/create_yours', $data);
+                    break;
+                default:
+                    foreach ($results as $result) {
+                        if (is_file(DIR_IMAGE . $result['image'])) {
+                            $data['banners'][] = array(
+                                'title' => $result['title'],
+                                'text' => $result['text'],
+                                'link' => $result['link'],
+                                'button' => $result['button'],
+                                'image' => is_file(DIR_IMAGE . $result['image']) ? $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']) : ''
+                            );
+                        }
+                    }
+
+                    return $this->load->view('extension/module/banner', $data);
+                    break;
+            }
+        }
+    }
 }

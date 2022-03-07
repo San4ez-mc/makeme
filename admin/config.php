@@ -1,18 +1,18 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://makeme.local/admin/');
-define('HTTP_CATALOG', 'http://makeme.local/');
+define('HTTP_SERVER', 'http://makemy.ua/admin/');
+define('HTTP_CATALOG', 'http://makemy.ua/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://makeme.local/admin/');
-define('HTTPS_CATALOG', 'http://makeme.local/');
+define('HTTPS_SERVER', 'https://makemy.ua/admin/');
+define('HTTPS_CATALOG', 'https://makemy.ua/');
 
 // DIR
-define('DIR_APPLICATION', 'E:/RunninPorgs/OS21/OSPanel/domains/makeme.local/admin/');
-define('DIR_SYSTEM', 'E:/RunninPorgs/OS21/OSPanel/domains/makeme.local/system/');
-define('DIR_IMAGE', 'E:/RunninPorgs/OS21/OSPanel/domains/makeme.local/image/');
+define('DIR_APPLICATION', '/var/www/www-root/data/www/makemy.ua/admin/');
+define('DIR_SYSTEM', '/var/www/www-root/data/www/makemy.ua/system/');
+define('DIR_IMAGE', '/var/www/www-root/data/www/makemy.ua/image/');
 define('DIR_STORAGE', DIR_SYSTEM . 'storage/');
-define('DIR_CATALOG', 'E:/RunninPorgs/OS21/OSPanel/domains/makeme.local/catalog/');
+define('DIR_CATALOG', '/var/www/www-root/data/www/makemy.ua/catalog/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/template/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -26,12 +26,15 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 // DB
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', 'makeme');
+define('DB_USERNAME', 'jaracom');
+define('DB_PASSWORD', 'Vjhjpjdrf1240');
+define('DB_DATABASE', 'makemy');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');
 
 // OpenCart API
 define('OPENCART_SERVER', 'https://www.opencart.com/');
 define('OPENCARTFORUM_SERVER', 'https://opencartforum.com/');
+
+setlocale(LC_ALL, "ru_RU.UTF-8");
+ini_set("display_errors", 1);

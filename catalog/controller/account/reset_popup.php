@@ -2,7 +2,7 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerAccountReset extends Controller {
+class ControllerAccountResetPopup extends Controller {
 	private $error = array();
 
 	public function index() {
@@ -92,11 +92,11 @@ class ControllerAccountReset extends Controller {
 //			$this->response->setOutput($this->load->view('account/reset', $data));
 			$this->response->setOutput($this->load->view('account/password_popup', $data));
 		} else {
-			$this->load->language('account/reset');
-
-			$this->session->data['error'] = $this->language->get('error_code');
-
-			return new Action('account/login');
+//			$this->load->language('account/reset');
+//
+//			$this->session->data['error'] = $this->language->get('error_code');
+//
+//			return new Action('account/login');
 		}
 	}
 

@@ -35,6 +35,14 @@ class ControllerCommonColumnLeft extends Controller {
 				);
 			}
 
+            if ($this->user->hasPermission('access', 'catalog/component')) {
+                $catalog[] = array(
+                    'name'	   => $this->language->get('text_component'),
+                    'href'     => $this->url->link('catalog/component', 'user_token=' . $this->session->data['user_token'], true),
+                    'children' => array()
+                );
+            }
+
 			if ($this->user->hasPermission('access', 'catalog/recurring')) {
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_recurring'),

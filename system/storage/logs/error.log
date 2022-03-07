@@ -53,3 +53,57 @@
 2022-01-26 20:11:35 - PHP Warning:  Cannot modify header information - headers already sent by (output started at E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\startup\error.php:34) in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\library\response.php on line 36
 2022-01-26 20:11:47 - PHP Notice:  Undefined index: code in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\model\design\layout.php on line 38
 2022-01-26 20:11:47 - PHP Warning:  Cannot modify header information - headers already sent by (output started at E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\startup\error.php:34) in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\library\response.php on line 36
+2022-01-26 21:26:10 - PHP Notice:  Undefined index: code in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\model\design\layout.php on line 38
+2022-01-26 21:26:10 - PHP Warning:  Cannot modify header information - headers already sent by (output started at E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\startup\error.php:34) in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\library\response.php on line 36
+2022-01-26 21:26:47 - PHP Notice:  Undefined index: code in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\model\design\layout.php on line 38
+2022-01-26 21:26:47 - PHP Warning:  Cannot modify header information - headers already sent by (output started at E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\startup\error.php:34) in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\library\response.php on line 36
+2022-01-28 19:33:25 - PHP Notice:  Undefined index: text_default in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\design\banner.php on line 380
+2022-01-28 19:33:49 - PHP Notice:  Undefined index: text_default in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\design\banner.php on line 380
+2022-01-31 15:47:17 - PHP Notice:  Undefined offset: 0 in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\extension\module\banner.php on line 34
+2022-01-31 15:47:27 - PHP Notice:  Undefined offset: 0 in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\extension\module\banner.php on line 34
+2022-01-31 15:50:57 - PHP Notice:  Array to string conversion in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\e9\e9353cc0be0a90a0b4db9bf80d418e2362d3184353e41758d5f7e4dcff9eba81.php on line 37
+2022-01-31 17:19:24 - PHP Warning:  var_dump() expects at least 1 parameter, 0 given in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\extension\module\banner.php on line 34
+2022-01-31 17:19:24 - PHP Warning:  var_dump() expects at least 1 parameter, 0 given in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\extension\module\banner.php on line 34
+2022-01-31 17:19:27 - PHP Warning:  var_dump() expects at least 1 parameter, 0 given in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\extension\module\banner.php on line 34
+2022-01-31 17:19:27 - PHP Warning:  var_dump() expects at least 1 parameter, 0 given in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\extension\module\banner.php on line 34
+2022-02-01 20:04:55 - PHP Notice:  Undefined index: path in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\extension\module\featured_product.php on line 28
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 122
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 125
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 128
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 132
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 135
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 138
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 139
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 145
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 149
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 155
+2022-02-01 20:30:18 - PHP Notice:  Undefined variable: category_info in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 381
+2022-02-03 20:00:39 - PHP Notice:  Undefined index: width in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\extension\module\filter_sort.php on line 140
+2022-02-03 20:00:40 - PHP Notice:  Undefined index: height in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\extension\module\filter_sort.php on line 144
+2022-02-03 20:04:31 - PHP Notice:  Undefined index: limit in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\extension\module\filter_sort.php on line 111
+2022-02-03 20:05:40 - PHP Notice:  Undefined index: template_id in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\extension\module\filter_sort.php on line 111
+2022-02-03 20:07:01 - PHP Notice:  Undefined index: template_id in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\extension\module\filter_sort.php on line 111
+2022-02-03 20:11:54 - PHP Notice:  Undefined index: template_id in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\admin\controller\extension\module\filter_sort.php on line 111
+2022-02-07 19:24:17 - PHP Notice:  Undefined index: filter in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\product\catalog.php on line 445
+2022-02-09 19:41:42 - PHP Notice:  Array to string conversion in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\f0\f031c613c4531d0091c5941bb1603f8b22aa5509056bf79f4fd0fa3f38a6f1fa.php on line 209
+2022-02-09 19:42:28 - PHP Notice:  Array to string conversion in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\3b\3b37694e27a3ee30c1b254bd2428705af3d6a741f20b06aacc495f8a2c8642f4.php on line 209
+2022-02-09 21:48:46 - PHP Notice:  Undefined index: firstname in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register_popup.php on line 226
+2022-02-09 21:48:46 - PHP Notice:  Undefined index: lastname in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register_popup.php on line 230
+2022-02-09 21:48:46 - PHP Notice:  Undefined index: telephone in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register_popup.php on line 242
+2022-02-09 21:48:46 - PHP Notice:  Undefined index: confirm in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register_popup.php on line 272
+2022-02-11 20:11:27 - PHP Notice:  Undefined index: firstname in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register.php on line 248
+2022-02-11 20:11:27 - PHP Notice:  Undefined index: lastname in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register.php on line 252
+2022-02-11 20:11:28 - PHP Notice:  Undefined index: telephone in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register.php on line 264
+2022-02-11 20:11:28 - PHP Notice:  Undefined index: confirm in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register.php on line 294
+2022-02-11 20:14:21 - PHP Notice:  Undefined index: firstname in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register.php on line 248
+2022-02-11 20:14:21 - PHP Notice:  Undefined index: confirm in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\controller\account\register.php on line 294
+2022-02-11 20:14:34 - PHP Unknown:  Object of class Action could not be converted to string in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\c9\c9c86e1eb2da6108d9bc3389b4f79817cba99ef1d5be2d5114d94f4f5c6bcc99.php on line 203
+2022-02-11 20:37:43 - PHP Unknown:  Object of class Action could not be converted to string in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\c9\c9c86e1eb2da6108d9bc3389b4f79817cba99ef1d5be2d5114d94f4f5c6bcc99.php on line 203
+2022-02-11 20:39:18 - PHP Unknown:  Object of class Action could not be converted to string in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\c9\c9c86e1eb2da6108d9bc3389b4f79817cba99ef1d5be2d5114d94f4f5c6bcc99.php on line 203
+2022-02-11 20:40:36 - PHP Unknown:  Object of class Action could not be converted to string in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\c9\c9c86e1eb2da6108d9bc3389b4f79817cba99ef1d5be2d5114d94f4f5c6bcc99.php on line 203
+2022-02-11 20:52:52 - PHP Unknown:  Object of class Action could not be converted to string in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\c9\c9c86e1eb2da6108d9bc3389b4f79817cba99ef1d5be2d5114d94f4f5c6bcc99.php on line 203
+2022-02-11 20:55:07 - PHP Unknown:  Object of class Action could not be converted to string in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\c9\c9c86e1eb2da6108d9bc3389b4f79817cba99ef1d5be2d5114d94f4f5c6bcc99.php on line 203
+2022-02-11 20:58:24 - PHP Unknown:  Object of class Action could not be converted to string in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\c9\c9c86e1eb2da6108d9bc3389b4f79817cba99ef1d5be2d5114d94f4f5c6bcc99.php on line 203
+2022-02-11 20:58:45 - PHP Notice:  Undefined index: lastname in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\model\account\customer.php on line 14
+2022-02-11 20:58:45 - PHP Notice:  Undefined index: telephone in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\catalog\model\account\customer.php on line 14
+2022-02-15 18:16:44 - PHP Unknown:  Object of class Action could not be converted to string in E:\RunninPorgs\OS21\OSPanel\domains\makeme.local\system\storage\cache\template\c9\c9c86e1eb2da6108d9bc3389b4f79817cba99ef1d5be2d5114d94f4f5c6bcc99.php on line 203

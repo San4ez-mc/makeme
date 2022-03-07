@@ -20,10 +20,15 @@ $_['column_action']      = 'Действие';
 // Entry
 $_['entry_name']         = 'Название баннера';
 $_['entry_title']        = 'Заголовок';
+$_['entry_text']         = 'Текст';
 $_['entry_link']         = 'Ссылка';
+$_['entry_button']       = 'Кнопка';
 $_['entry_image']        = 'Изображение';
+$_['entry_template']     = 'Шаблон';
 $_['entry_status']       = 'Статус';
 $_['entry_sort_order']   = 'Порядок сортировки';
+$_['entry_width']        = 'Ширина';
+$_['entry_height']       = 'Висота';
 
 // Error
 $_['error_permission']   = 'У вас недостаточно прав для внесения изменений!';

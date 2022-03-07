@@ -1,14 +1,24 @@
 <?php
 class ModelDesignBanner extends Model {
 	public function addBanner($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "banner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "banner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "', template_id = '" . (int)$data['template_id'] . "'");
 
 		$banner_id = $this->db->getLastId();
 
 		if (isset($data['banner_image'])) {
 			foreach ($data['banner_image'] as $language_id => $value) {
 				foreach ($value as $banner_image) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "banner_image SET banner_id = '" . (int)$banner_id . "', language_id = '" . (int)$language_id . "', title = '" .  $this->db->escape($banner_image['title']) . "', link = '" .  $this->db->escape($banner_image['link']) . "', image = '" .  $this->db->escape($banner_image['image']) . "', sort_order = '" .  (int)$banner_image['sort_order'] . "'");
+					$this->db->query("INSERT INTO " . DB_PREFIX . "banner_image 
+					                    SET banner_id = '" . (int)$banner_id . "',
+					                        language_id = '" . (int)$language_id . "',
+					                        title = '" .  $this->db->escape($banner_image['title']) . "',
+					                        text = '" .  $this->db->escape($banner_image['text']) . "',
+					                        link = '" .  $this->db->escape($banner_image['link']) . "',
+					                        button = '" .  $this->db->escape($banner_image['button']) . "',
+					                        image = '" .  $this->db->escape($banner_image['image']) . "',
+					                        width = '" .  $this->db->escape($banner_image['width']) . "',
+					                        height = '" .  $this->db->escape($banner_image['height']) . "',
+					                        sort_order = '" .  (int)$banner_image['sort_order'] . "'");
 				}
 			}
 		}
@@ -17,14 +27,24 @@ class ModelDesignBanner extends Model {
 	}
 
 	public function editBanner($banner_id, $data) {
-		$this->db->query("UPDATE " . DB_PREFIX . "banner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "' WHERE banner_id = '" . (int)$banner_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "banner SET name = '" . $this->db->escape($data['name']) . "', status = '" . (int)$data['status'] . "', template_id = '" . (int)$data['template_id'] . "' WHERE banner_id = '" . (int)$banner_id . "'");
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "banner_image WHERE banner_id = '" . (int)$banner_id . "'");
 
 		if (isset($data['banner_image'])) {
 			foreach ($data['banner_image'] as $language_id => $value) {
 				foreach ($value as $banner_image) {
-					$this->db->query("INSERT INTO " . DB_PREFIX . "banner_image SET banner_id = '" . (int)$banner_id . "', language_id = '" . (int)$language_id . "', title = '" .  $this->db->escape($banner_image['title']) . "', link = '" .  $this->db->escape($banner_image['link']) . "', image = '" .  $this->db->escape($banner_image['image']) . "', sort_order = '" . (int)$banner_image['sort_order'] . "'");
+					$this->db->query("INSERT INTO " . DB_PREFIX . "banner_image 
+					                    SET banner_id = '" . (int)$banner_id . "',
+					                        language_id = '" . (int)$language_id . "',
+					                        title = '" .  $this->db->escape($banner_image['title']) . "',
+					                        text = '" .  $this->db->escape($banner_image['text']) . "',
+					                        link = '" .  $this->db->escape($banner_image['link']) . "',
+					                        button = '" .  $this->db->escape($banner_image['button']) . "',
+					                        image = '" .  $this->db->escape($banner_image['image']) . "',
+					                        width = '" .  $this->db->escape($banner_image['width']) . "',
+					                        height = '" .  $this->db->escape($banner_image['height']) . "',
+					                        sort_order = '" . (int)$banner_image['sort_order'] . "'");
 				}
 			}
 		}
@@ -86,8 +106,12 @@ class ModelDesignBanner extends Model {
 		foreach ($banner_image_query->rows as $banner_image) {
 			$banner_image_data[$banner_image['language_id']][] = array(
 				'title'      => $banner_image['title'],
+				'text'       => $banner_image['text'],
 				'link'       => $banner_image['link'],
+				'button'     => $banner_image['button'],
 				'image'      => $banner_image['image'],
+				'width'      => $banner_image['width'],
+				'height'     => $banner_image['height'],
 				'sort_order' => $banner_image['sort_order']
 			);
 		}

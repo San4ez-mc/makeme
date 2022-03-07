@@ -5,7 +5,7 @@
                 <a href="#" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand">
                     <img
                             src="catalog/view/theme/makeme/image/icons/logo-footer.svg"
-{#                            src="{{ logo }}"#}
+                            {#                            src="{{ logo }}"#}
                             alt="logo" class="page-footer__logo-img" itemprop="logo">
                 </a>
                 <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2022 Make My - Все права защищены.
@@ -97,60 +97,86 @@
 </footer>
 
 <a class="toTop scrollto" href="#header"></a>
+</div>
+<script src="catalog/view/theme/makeme/libs/jquery.min.js"></script>
+
+<script src="catalog/view/theme/makeme/libs/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="catalog/view/theme/makeme/libs/jquery.mask.min.js"></script>
+
+{% if home == og_url %}
+    <script src="catalog/view/theme/makeme/libs/owl.carousel/owl.carousel.min.js"></script>
+{% endif %}
+<script src="catalog/view/theme/makeme/libs/lazyload.min.js"></script>
+{% for script in scripts %}
+    <script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<script src="catalog/view/javascript/common-makeme.js" type="text/javascript"></script>
+<script src="catalog/view/theme/makeme/scripts/app.js" defer></script>
+
+{% for style in styles %}
+    <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}"/>
+{% endfor %}
+
+{% if logged == false %}
+    {{ login_popup }}
+    {{ register_popup }}
+    {{ password_popup }}
+{% endif %}
+
+{{ cart }}
+</body>
+</html>
 
 
+{#// default#}
 {#<footer>#}
-{#  <div class="container">#}
-{#    <div class="row">#}
-{#      {% if informations %}#}
-{#      <div class="col-sm-3">#}
-{#        <h5>{{ text_information }}</h5>#}
-{#        <ul class="list-unstyled">#}
-{#         {% for information in informations %}#}
-{#          <li><a href="{{ information.href }}">{{ information.title }}</a></li>#}
-{#          {% endfor %}#}
-{#        </ul>#}
-{#      </div>#}
-{#      {% endif %}#}
-{#      <div class="col-sm-3">#}
-{#        <h5>{{ text_service }}</h5>#}
-{#        <ul class="list-unstyled">#}
-{#          <li><a href="{{ contact }}">{{ text_contact }}</a></li>#}
-{#          <li><a href="{{ return }}">{{ text_return }}</a></li>#}
-{#          <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>#}
-{#        </ul>#}
-{#      </div>#}
-{#      <div class="col-sm-3">#}
-{#        <h5>{{ text_extra }}</h5>#}
-{#        <ul class="list-unstyled">#}
-{#          <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>#}
-{#          <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>#}
-{#          <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>#}
-{#          <li><a href="{{ special }}">{{ text_special }}</a></li>#}
-{#        </ul>#}
-{#      </div>#}
-{#      <div class="col-sm-3">#}
-{#        <h5>{{ text_account }}</h5>#}
-{#        <ul class="list-unstyled">#}
-{#          <li><a href="{{ account }}">{{ text_account }}</a></li>#}
-{#          <li><a href="{{ order }}">{{ text_order }}</a></li>#}
-{#          <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>#}
-{#          <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>#}
-{#        </ul>#}
-{#      </div>#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            {% if informations %}#}
+{#                <div class="col-sm-3">#}
+{#                    <h5>{{ text_information }}</h5>#}
+{#                    <ul class="list-unstyled">#}
+{#                        {% for information in informations %}#}
+{#                            <li><a href="{{ information.href }}">{{ information.title }}</a></li>#}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+{#                </div>#}
+{#            {% endif %}#}
+{#            <div class="col-sm-3">#}
+{#                <h5>{{ text_service }}</h5>#}
+{#                <ul class="list-unstyled">#}
+{#                    <li><a href="{{ contact }}">{{ text_contact }}</a></li>#}
+{#                    <li><a href="{{ return }}">{{ text_return }}</a></li>#}
+{#                    <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div class="col-sm-3">#}
+{#                <h5>{{ text_extra }}</h5>#}
+{#                <ul class="list-unstyled">#}
+{#                    <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>#}
+{#                    <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>#}
+{#                    <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>#}
+{#                    <li><a href="{{ special }}">{{ text_special }}</a></li>#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div class="col-sm-3">#}
+{#                <h5>{{ text_account }}</h5>#}
+{#                <ul class="list-unstyled">#}
+{#                    <li><a href="{{ account }}">{{ text_account }}</a></li>#}
+{#                    <li><a href="{{ order }}">{{ text_order }}</a></li>#}
+{#                    <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>#}
+{#                    <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>#}
+{#                </ul>#}
+{#            </div>#}
+{#        </div>#}
+{#        <hr>#}
+{#        <p>{{ powered }}</p>#}
 {#    </div>#}
-{#    <hr>#}
-{#    <p>{{ powered }}</p>#}
-{#  </div>#}
 {#</footer>#}
 {#{% for style in styles %}#}
-{#<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />#}
+{#    <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}"/>#}
 {#{% endfor %}#}
 {#{% for script in scripts %}#}
-{#<script src="{{ script }}" type="text/javascript"></script>#}
+{#    <script src="{{ script }}" type="text/javascript"></script>#}
 {#{% endfor %}#}
-{#<!--#}
-{#OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.#}
-{#Please donate via PayPal to donate@opencart.com#}
-{#//-->#}
-{#</body></html>#}
+

@@ -1,0 +1,78 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Личный кабинет</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section lk">
+            <h1 class="section__title">Мои адреса</h1>
+            <div class="row">
+                <div class="col-xl-3 col-lg-4">
+                    <aside class="lk__nav">
+                        <div class="lk__nav-user">
+                            <label class="lk__nav-user-avatar">
+                                <input type="file" class="lk__nav-user-avatar-input">
+                                <span class="lk__nav-user-avatar-body"></span>
+                            </label>
+                            <span class="lk__nav-user-info">
+                                 <span class="lk__nav-user-name">{{ customer.firstname }}</span>
+                            <a href="mailto:{{ customer.email }}" class="lk__nav-user-email">{{ customer.email }}</a>
+                          </span>
+                        </div>
+                        {{ menu }}
+                    </aside>
+                </div>
+                <div class="col-xl-9 col-lg-8">
+                    <div class="lk__body">
+                        <div class="contentBlock lk__address">
+                            <div class="lk__address-el">
+                                <label class="lk__address-el-main">
+                                    <input type="radio" name="lk__address" class="lk__address-el-input" checked>
+                                    <span class="lk__address-el-info">
+                        <span class="lk__address-el-info-el font-weight-bold">Мария Дмитриенко</span>
+                        <span class="lk__address-el-info-el">бул. Леси Украинки, 26</span>
+                        <span class="lk__address-el-info-el">Киев</span>
+                        <span class="lk__address-el-info-el">тел. 067 567 54 56</span>
+                      </span>
+                                </label>
+                                <a href="#" class="lk__address-el-edit">Редактировать адрес</a>
+                            </div>
+                            <div class="lk__address-el">
+                                <label class="lk__address-el-main">
+                                    <input type="radio" name="lk__address" class="lk__address-el-input">
+                                    <span class="lk__address-el-info">
+                        <span class="lk__address-el-info-el font-weight-bold">Мария Дмитриенко</span>
+                        <span class="lk__address-el-info-el">бул. Леси Украинки, 26</span>
+                        <span class="lk__address-el-info-el">Киев</span>
+                        <span class="lk__address-el-info-el">тел. 067 567 54 56</span>
+                      </span>
+                                </label>
+                                <a href="#" class="lk__address-el-edit">Редактировать адрес</a>
+                            </div>
+                            <a href="{{ add }}" class="lk__address-el lk__address-el--add">Добавить новый адрес</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</main>
+{{ footer }}

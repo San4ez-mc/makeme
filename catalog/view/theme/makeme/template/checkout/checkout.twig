@@ -1,0 +1,432 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Корзина</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section checkout">
+            <h1 class="section__title">Оформление заказа</h1>
+            {% if not logged %}
+            <div class="checkout__info">
+                Есть аккаунт ? <a href="#modalLogin" data-toggle="modal" class="link3">Авторизоваться</a>
+            </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-xl-8 col-lg-7">
+                    <form action="#" class="form" name="form">
+                        <div class="contentBlock checkout__el stage1">
+                            <div class="checkout__el-header">
+                                <h2 class="section__subtitle checkout__el-title"><span
+                                            class="color-primary checkout__el-number">1.</span>Контактные данные</h2>
+                                <button type="button" class="checkout__edit">
+                      <span class="checkout__edit-text">
+                        Редактировать
+                      </span>
+                                </button>
+                            </div>
+                            <div class="checkout__el-body">
+                                <div class="checkout__fields">
+                                    <div class="form__field">
+                                        <div class="form__field-body">
+                                            <input type="text" class="form__field-input" placeholder="Имя" required
+                                                   id="checkout__nameInput">
+                                        </div>
+                                    </div>
+                                    <div class="form__field">
+                                        <div class="form__field-body">
+                                            <input type="text" class="form__field-input" placeholder="Фамилия" required
+                                                   id="checkout__surnameInput">
+                                        </div>
+                                    </div>
+                                    <div class="form__field">
+                                        <div class="form__field-body">
+                                            <input type="tel" class="form__field-input" placeholder="Телефон" required
+                                                   id="checkout__telInput">
+                                        </div>
+                                    </div>
+                                    <div class="form__field">
+                                        <div class="form__field-body">
+                                            <input type="email" class="form__field-input" placeholder="Email" required
+                                                   id="checkout__emailInput">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="button button--primary checkout__fields-next" disabled>
+                                        Дальше
+                                    </button>
+                                </div>
+                                <div class="checkout__el-results">
+                      <span class="checkout__el-results-first">
+                        <span class="checkout__el-results-first-number">1.</span>
+                        <span class="checkout__el-results-el" id="checkout__name">Мария</span>
+                        <span class="checkout__el-results-el" id="checkout__surname">Глушко</span>
+                      </span>
+                                    <span class="checkout__el-results-space"> ,&nbsp;</span>
+                                    <span class="checkout__el-results-el" id="checkout__tel">+38 067 567 54 54</span>
+                                    <span class="checkout__el-results-space"> ,&nbsp;</span>
+                                    <span class="checkout__el-results-el"
+                                          id="checkout__email">Hello12345@gmail.com  </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentBlock checkout__el stage2 empty">
+                            <div class="checkout__el-header">
+                                <h2 class="section__subtitle checkout__el-title"><span
+                                            class="color-primary checkout__el-number">2.</span>Способ доставки</h2>
+                                <button type="button" class="checkout__edit">
+                      <span class="checkout__edit-text">
+                        Редактировать
+                      </span>
+                                </button>
+                            </div>
+                            <div class="checkout__el-body">
+                                <div class="checkout__fields">
+                                    <div class="form__field">
+                                        <label class="form__label">Город</label>
+                                        <div class="form__field-body">
+                                            <select class="select2-city">
+                                                <option value="" label="empty"></option>
+                                                <option value="Киев">Киев</option>
+                                                <option value="Одесса">Одесса</option>
+                                                <option value="Харьков">Харьков</option>
+                                                <option value="Чернигов">Чернигов</option>
+                                                <option value="Кривой Рог">Кривой Рог</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form__radios">
+                                        <div class="form__radioEl active">
+                                            <label class="form__radio">
+                                                <input type="radio" class="form__radio-input" name="deliveryMethod"
+                                                       checked>
+                                                <span class="form__radio-body">
+                              <span class="form__radio-body-text">Из отделения “Нова Пошта”</span>
+                            </span>
+                                            </label>
+                                            <div class="form__radioEl-body active">
+                                                <select class="select2-postBranch form__radioEl-body-select">
+                                                    <option value="" label="empty"></option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                </select>
+                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>
+                                            </div>
+                                        </div>
+                                        <div class="form__radioEl">
+                                            <label class="form__radio">
+                                                <input type="radio" class="form__radio-input" name="deliveryMethod">
+                                                <span class="form__radio-body">
+                              <span class="form__radio-body-text">Из отделения Justin</span>
+                            </span>
+                                            </label>
+                                            <div class="form__radioEl-body">
+                                                <select class="select2-postBranch form__radioEl-body-select">
+                                                    <option value="" label="empty"></option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                </select>
+                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>
+                                            </div>
+                                        </div>
+                                        <div class="form__radioEl">
+                                            <label class="form__radio">
+                                                <input type="radio" class="form__radio-input" name="deliveryMethod">
+                                                <span class="form__radio-body">
+                              <span class="form__radio-body-text">Доставка по адресу </span>
+                            </span>
+                                            </label>
+                                            <div class="form__radioEl-body">
+                                                <select class="select2-postBranch form__radioEl-body-select">
+                                                    <option value="" label="empty"></option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                </select>
+                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>
+                                            </div>
+                                        </div>
+                                        <div class="form__radioEl">
+                                            <label class="form__radio">
+                                                <input type="radio" class="form__radio-input" name="deliveryMethod">
+                                                <span class="form__radio-body">
+                              <span class="form__radio-body-text">Из отделения “Укрпошта”</span>
+                            </span>
+                                            </label>
+                                            <div class="form__radioEl-body">
+                                                <select class="select2-postBranch form__radioEl-body-select">
+                                                    <option value="" label="empty"></option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                </select>
+                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="button button--primary checkout__fields-next"
+                                                disabled>ДАЛЬШЕ
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="checkout__el-results">
+                      <span class="checkout__el-results-first">
+                      <span class="checkout__el-results-first-number">2.</span>
+                      <span class="checkout__el-results-el"
+                            id="checkout__postBranch">Из отделения "Нова Пошта"</span></span>
+                                    <span class="checkout__el-results-space"> ,&nbsp;</span>
+                                    <span class="checkout__el-results-el" id="checkout__city">г. Киев, Отделение №3: ул. Калачевская</span>
+                                    <span class="checkout__el-results-space"> ,&nbsp;</span>
+                                    <span class="checkout__el-results-el" id="checkout__postBranchAddress">13 (Старая Дарница)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentBlock checkout__el stage3 empty">
+                            <div class="checkout__el-header">
+                                <h2 class="section__subtitle checkout__el-title"><span
+                                            class="color-primary checkout__el-number">3.</span>Способ оплаты</h2>
+                                <!-- <button type="button" class="checkout__edit">Редактировать</button> -->
+                            </div>
+                            <div class="checkout__el-body">
+                                <div class="checkout__fields">
+                                    <div class="form__radios d-flex">
+                                        <div class="form__radioEl">
+                                            <label class="form__radio">
+                                                <input type="radio" class="form__radio-input" name="payMethod" checked>
+                                                <span class="form__radio-body">
+                              <span class="form__radio-body-text">Оплата при получении</span>
+                            </span>
+                                            </label>
+                                        </div>
+                                        <div class="form__radioEl">
+                                            <label class="form__radio">
+                                                <input type="radio" class="form__radio-input" name="payMethod">
+                                                <span class="form__radio-body">
+                              <span class="form__radio-body-text">Оплата картой</span>
+                            </span>
+                                            </label>
+                                        </div>
+                                        <div class="form__radioEl">
+                                            <label class="form__radio">
+                                                <input type="radio" class="form__radio-input" name="payMethod">
+                                                <span class="form__radio-body">
+                              <span class="form__radio-body-text">PrivatPay</span>
+                            </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentBlock checkout__el checkout__feedback">
+                            <div class="checkout__el-body">
+                                <div class="checkout__fields">
+                                    <div class="form__field">
+                                        <label class="form__label font-weight-bold">Коментарий к заказу</label>
+                                        <div class="form__field-body h-auto">
+                                            <textarea class="form__field-textarea"
+                                                      placeholder="Добавить комментарий"></textarea>
+                                        </div>
+                                    </div>
+                                    <label class="checkboxEl">
+                                        <input type="checkbox" class="checkboxEl__input" checked>
+                                        <span class="checkboxEl__body">Мне можно не перезванивать</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="contentBlock basket basket--aside">
+                        <div class="lk__order-body">
+                            <h3 class="section__subtitle">Ваш заказ</h3>
+                            <div class="lk__order-products">
+                                {% for product in products %}
+                                    <div class="lk__order-product">
+                                        <div class="lk__recipes-product-main">
+                                            <div class="lk__recipes-product-imgContainer">
+                                                <img src="{{ product.thumb }}" alt="{{ product.name }}"
+                                                     title="{{ product.name }}" class="lazy lk__recipes-product-img">
+                                            </div>
+                                            <div class="lk__recipes-product-main-body">
+                                                <h3 class="lk__recipes-product-title">{{ product.name }}</h3>
+                                                <p class="lk__recipes-product-text">{{ product.description }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="lk__order-additionalEls">
+                                            <div class="quantityEl">
+                                                <button type="button" class="quantityEl__minus">-</button>
+                                                <input type="number" value="{{ product.quantity }}" min="1" max="1000"
+                                                       class="quantityEl__input">
+                                                <button type="button" class="quantityEl__plus">+</button>
+                                            </div>
+                                            <div class="lk__order-price">
+                                            <span class="lk__order-price-value" data-value="{{ product.total }}">
+                                                {{ product.total }}</span>
+                                            </div>
+                                            <div class="lk__order-nav">
+                                                <div class="like">
+                                                    <label class="like__button">
+                                                        <input type="checkbox" class="like__input">
+                                                        <span class="like__body"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="productCard__remove" data-product_id="{{ product.cart_id }}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                {#                                <div class="lk__order-product">#}
+                                {#                                    <div class="lk__recipes-product-main">#}
+                                {#                                        <div class="lk__recipes-product-imgContainer">#}
+                                {#                                            <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">#}
+                                {#                                        </div>#}
+                                {#                                        <div class="lk__recipes-product-main-body">#}
+                                {#                                            <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+                                {#                                            <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица,#}
+                                {#                                                Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного#}
+                                {#                                                перца.</p>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="lk__order-additionalEls">#}
+                                {#                                        <div class="quantityEl">#}
+                                {#                                            <button type="button" class="quantityEl__minus">-</button>#}
+                                {#                                            <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
+                                {#                                            <button type="button" class="quantityEl__plus">+</button>#}
+                                {#                                        </div>#}
+                                {#                                        <div class="lk__order-price"><span class="lk__order-price-value"#}
+                                {#                                                                           data-value="237">237</span>₴#}
+                                {#                                        </div>#}
+                                {#                                        <div class="lk__order-nav">#}
+                                {#                                            <div class="like">#}
+                                {#                                                <label class="like__button">#}
+                                {#                                                    <input type="checkbox" class="like__input">#}
+                                {#                                                    <span class="like__body"></span>#}
+                                {#                                                </label>#}
+                                {#                                            </div>#}
+                                {#                                            <div class="productCard__remove"></div>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                                <div class="lk__order-product">#}
+                                {#                                    <div class="lk__recipes-product-main">#}
+                                {#                                        <div class="lk__recipes-product-imgContainer">#}
+                                {#                                            <img src="img/shampoo.png" alt="#" class="lazy lk__recipes-product-img">#}
+                                {#                                        </div>#}
+                                {#                                        <div class="lk__recipes-product-main-body">#}
+                                {#                                            <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+                                {#                                            <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица,#}
+                                {#                                                Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного#}
+                                {#                                                перца.</p>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="lk__order-additionalEls">#}
+                                {#                                        <div class="quantityEl">#}
+                                {#                                            <button type="button" class="quantityEl__minus">-</button>#}
+                                {#                                            <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
+                                {#                                            <button type="button" class="quantityEl__plus">+</button>#}
+                                {#                                        </div>#}
+                                {#                                        <div class="lk__order-price"><span class="lk__order-price-value"#}
+                                {#                                                                           data-value="237">237</span>₴#}
+                                {#                                        </div>#}
+                                {#                                        <div class="lk__order-nav">#}
+                                {#                                            <div class="like">#}
+                                {#                                                <label class="like__button">#}
+                                {#                                                    <input type="checkbox" class="like__input">#}
+                                {#                                                    <span class="like__body"></span>#}
+                                {#                                                </label>#}
+                                {#                                            </div>#}
+                                {#                                            <div class="productCard__remove"></div>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                            </div>
+                            <div class="lk__order-sum">
+                                <div class="lk__order-sum-group">
+                                    <form action="#" class="form form__promocode" name="form__promocode">
+                                        <div class="form__field">
+                                            <div class="form__field-body">
+                                                <input type="text" class="form__field-input"
+                                                       placeholder="Введите промокод ">
+                                            </div>
+                                        </div>
+                                        <button class="button form__promocode-submit" type="submit" disabled>
+                                            <span class="d-lg-block d-none">Применить</span>
+                                            <span class="d-lg-none d-block">Ок</span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="lk__order-sum-group">
+                                    <div class="lk__order-sum-el">
+                                        <span class="lk__order-sum-el-type">Сумма заказа</span>
+                                        <span class="lk__order-sum-el-value">{{ totals|first.text }}</span>
+                                    </div>
+                                    <div class="lk__order-sum-el color-secondary">
+                                        <span class="lk__order-sum-el-type">Скидка</span>
+                                        <span class="lk__order-sum-el-value">-60 ₴</span>
+                                    </div>
+                                    <div class="lk__order-sum-el sum">
+                                        <span class="lk__order-sum-el-type">Всего к оплате</span>
+                                        <span class="lk__order-sum-el-value">{{ totals.1.text }}</span>
+                                    </div>
+                                    <div class="lk__order-sum-group-buttons">
+                                        <button type="button" class="button button--primary orderButton" disabled>
+                                            Оформить заказ
+                                        </button>
+                                        <a href="#" class="link2 d-lg-block d-none">Продолжить покупки</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout__infoAfter">
+                        Оформляя заказ, я принимаю условия
+                        <a href="#">пользовательского соглашения</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="owl-carousel ticker">
+            <span class="ticker__el">Нет парабенов</span>
+            <span class="ticker__el">натуральные компоненты</span>
+            <span class="ticker__el">Нет химии</span>
+            <span class="ticker__el">Современная лаборатория</span>
+            <span class="ticker__el">Нет парабенов</span>
+            <span class="ticker__el">натуральные компоненты</span>
+            <span class="ticker__el">Нет химии</span>
+            <span class="ticker__el">Современная лаборатория</span>
+        </div>
+    </div>
+</main>
+{{ footer }}

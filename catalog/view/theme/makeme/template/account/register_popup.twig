@@ -1,46 +1,102 @@
 <div class="modal fade modalLogin modalReg" id="modalReg">
-  <div class="modal-dialog">
-    <form action="#" class="modal-content">
-      <span data-dismiss="modal" class="modal__close"></span>
-      <div class="modalLogin__body">
-        <div class="modalLogin__body-col border-0">
-          <h3 class="section__title">Регистрация</h3>
-          <p class="modalLogin__anotherWay text-left">
-            Уже есть аккаунт?
-            <a href="#" class="modalLogin__anotherWay-link">Войти</a>
-          </p>
-          <div class="form__field">
-            <label class="form__label">Ваше имя</label>
-            <div class="form__field-body">
-              <input type="text" class="form__field-input" name="nameInput">
+    <div class="modal-dialog">
+        <form action="#" class="modal-content">
+            <span data-dismiss="modal" class="modal__close"></span>
+            <div class="modalLogin__body">
+                <div class="modalLogin__body-col border-0">
+                    <h3 class="section__title">Регистрация</h3>
+                    <p class="modalLogin__anotherWay text-left">
+                        Уже есть аккаунт?
+                        <a href="#modalLogin" data-toggle="modal" data-dismiss="modal"
+                           class="modalLogin__anotherWay-link">Войти</a>
+                    </p>
+                    <div class="form__field">
+                        <label class="form__label">Ваше имя</label>
+                        <div class="form__field-body">
+                            <input type="text" class="form__field-input" name="nameInput">
+                        </div>
+                    </div>
+                    <div class="form__field">
+                        <label class="form__label">Email</label>
+                        <div class="form__field-body">
+                            <input type="email" class="form__field-input" name="emailInput">
+                        </div>
+                    </div>
+                    <div class="form__field">
+                        <label class="form__label">Пароль</label>
+                        <div class="form__field-body">
+                            <input type="password" class="form__field-input form__field-input--password"
+                                   name="passowordInput1">
+                            <span class="form__field-passwordShow"></span>
+                        </div>
+                    </div>
+                    <div class="form__field">
+                        <label class="form__label">Продублируйте пароль</label>
+                        <div class="form__field-body">
+                            <input type="password" class="form__field-input form__field-input--password"
+                                   name="passowordInput2">
+                            <span class="form__field-passwordShow"></span>
+                        </div>
+                    </div>
+                    <div class="errors_div"></div>
+                    <div class="modalLogin__nav">
+                        <button class="button button--primary button--small register_btn" type="button">
+                            Зарегистрироваться
+                        </button>
+                        <span class="modalLogin__nav-text">Нажимая кнопку «Зарегистрироваться», <br> я принимаю условия <a
+                                    href="#">Пользовательского соглашения</a></span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="form__field">
-            <label class="form__label">Email</label>
-            <div class="form__field-body">
-              <input type="email" class="form__field-input" name="emailInput">
-            </div>
-          </div>
-          <div class="form__field">
-            <label class="form__label">Пароль</label>
-            <div class="form__field-body">
-              <input type="password" class="form__field-input form__field-input--password" name="passowordInput1">
-              <span class="form__field-passwordShow"></span>
-            </div>
-          </div>
-          <div class="form__field">
-            <label class="form__label">Продублируйте пароль</label>
-            <div class="form__field-body">
-              <input type="password" class="form__field-input form__field-input--password" name="passowordInput2">
-              <span class="form__field-passwordShow"></span>
-            </div>
-          </div>
-          <div class="modalLogin__nav">
-            <button class="button button--primary button--small" type="button">Зарегистрироваться</button>
-            <span class="modalLogin__nav-text">Нажимая кнопку «Зарегистрироваться», <br> я принимаю условия <a href="#">Пользовательского соглашения</a></span>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
+        </form>
+    </div>
 </div>
+<script>
+    jQuery(document).ready(function ($) {
+        $('body').on('click', '.register_btn', function (e) {
+            e.preventDefault();
+            let form = $(this).closest('form');
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: 'index.php?route=account/register_popup/register_ajax',
+                data: {
+                    'firstname': form.find('[name=nameInput]').val(),
+                    'lastname': '',
+                    'email': form.find('[name=emailInput]').val(),
+                    'password': form.find('[name=passowordInput1]').val(),
+                    'confirm': form.find('[name=passowordInput2]').val(),
+                    'telephone': '',
+                    'agree': true
+                },
+                beforeSend: function (xhr) {
+                    // form.find('.loader').show();
+                },
+                success: function (data) {
+
+                    if (data.status === 'ok') {
+                        console.log(data);
+                        location.reload()
+                    } else {
+                        console.log(data);
+                        let errors_html = '';
+                        data.errors.forEach(error => {
+                            errors_html += '<span class="error_span" >' + error + '</span>';
+                        });
+
+                        $('.errors_div').html(errors_html);
+                    }
+                    // $('form#login p.status').text(data.message);
+                    // if (data.loggedin == true) {
+                    //     // document.location.href = app_object.redirecturl;
+                    //     document.location.href = form.find('[name=redirect_url]').val();
+                    // } else {
+                    //     form.find('.loader').hide();
+                    //     $('#modalLogin span.popup_error_span').text(data.message);
+                    //     $('#modalLogin span.popup_error_span').css('display', 'block');
+                    // }
+                }
+            });
+        });
+    });
+</script>

@@ -1,5 +1,5 @@
 <?php
-class ControllerConstructorStage1 extends Controller {
+class ControllerConstructorStage2 extends Controller {
 	public function index() {
 		$this->document->setTitle($this->config->get('config_meta_title'));
 		$this->document->setDescription($this->config->get('config_meta_description'));
@@ -13,6 +13,6 @@ class ControllerConstructorStage1 extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('constructor/index', $data));
+		$this->response->setOutput($this->load->view('constructor/stage2', $data));
 	}
 }

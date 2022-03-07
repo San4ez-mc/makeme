@@ -89,7 +89,8 @@ class ControllerAccountReset extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('account/reset', $data));
+//			$this->response->setOutput($this->load->view('account/reset', $data));
+			$this->response->setOutput($this->load->view('account/password_popup', $data));
 		} else {
 			$this->load->language('account/reset');
 

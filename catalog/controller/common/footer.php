@@ -28,6 +28,17 @@ class ControllerCommonFooter extends Controller {
 		$data['order'] = $this->url->link('account/order', '', true);
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
 		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
+        $data['logged'] = $this->customer->isLogged();
+        $data['home'] = $this->url->link('common/home');
+
+        $data['cart'] = $this->load->controller('common/cart');
+
+        $host = isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1')) ? HTTPS_SERVER : HTTP_SERVER;
+        if ($this->request->server['REQUEST_URI'] == '/') {
+            $data['og_url'] = $this->url->link('common/home');
+        } else {
+            $data['og_url'] = $host . substr($this->request->server['REQUEST_URI'], 1, (strlen($this->request->server['REQUEST_URI'])-1));
+        }
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 
@@ -58,7 +69,13 @@ class ControllerCommonFooter extends Controller {
 
 		$data['scripts'] = $this->document->getScripts('footer');
 		$data['styles'] = $this->document->getStyles('footer');
-		
+
+        if (!$this->customer->isLogged()) {
+            $data['login_popup'] = $this->load->controller('account/login_popup');
+            $data['register_popup'] = $this->load->controller('account/register_popup');
+            $data['password_popup'] = $this->load->controller('account/reset_popup');
+        }
+
 		return $this->load->view('common/footer', $data);
 	}
 }

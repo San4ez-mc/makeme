@@ -3,7 +3,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']    = 'Баннер';
+$_['heading_title']    = 'Баннери расширенные';
 
 // Text
 $_['text_module']      = 'Модули';

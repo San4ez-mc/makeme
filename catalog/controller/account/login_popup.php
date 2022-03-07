@@ -2,7 +2,7 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerAccountLogin extends Controller {
+class ControllerAccountLoginPopup extends Controller {
 	private $error = array();
 
 	public function index() {
@@ -50,8 +50,8 @@ class ControllerAccountLogin extends Controller {
 
 		$this->load->language('account/login');
 
-		$this->document->setTitle($this->language->get('heading_title'));
-		$this->document->setRobots('noindex,follow');
+//		$this->document->setTitle($this->language->get('heading_title'));
+//		$this->document->setRobots('noindex,follow');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			// Unset guest
@@ -149,14 +149,15 @@ class ControllerAccountLogin extends Controller {
 			$data['password'] = '';
 		}
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+//		$data['column_left'] = $this->load->controller('common/column_left');
+//		$data['column_right'] = $this->load->controller('common/column_right');
+//		$data['content_top'] = $this->load->controller('common/content_top');
+//		$data['content_bottom'] = $this->load->controller('common/content_bottom');
+//		$data['footer'] = $this->load->controller('common/footer');
+//		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('account/login', $data));
+//		$this->response->setOutput($this->load->view('account/login_popup', $data));
+        return $this->load->view('account/login_popup', $data);
 	}
 
 	protected function validate() {

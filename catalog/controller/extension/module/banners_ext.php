@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionModuleBanner extends Controller {
+class ControllerExtensionModuleBannersExt extends Controller {
 	public function index($setting) {
 		static $module = 0;
 
