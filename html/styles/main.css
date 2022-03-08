@@ -8006,3 +8006,66 @@ input[type=number] {
 .page-content {
   position: relative;
 }
+
+
+
+
+.uniqueCarousel .owl-item:nth-of-type(4n) .productCard__imgContainer {
+  background: url(../image/home/heroUniqueCarouselElBGOil.jpg) center no-repeat;
+}
+
+.uniqueCarousel .owl-item:nth-of-type(4n):hover .productCard__imgContainer {
+  background: url(../image/home/heroUniqueCarouselElBGOil.jpg) center no-repeat;
+}
+
+@media (max-width: 767px) {
+  .uniqueCarousel .owl-item:nth-of-type(4n) .productCard__imgContainer {
+      background: url(../image/home/heroUniqueCarouselElBGOil.jpg) center no-repeat;
+  }
+}
+
+.uniqueCarousel .owl-item:nth-of-type(4n + 1) .productCard__imgContainer {
+  background: url(../image/home/heroUniqueCarouselElBGShampoo.jpg) center no-repeat;
+}
+
+.uniqueCarousel .owl-item:nth-of-type(4n + 1):hover .productCard__imgContainer {
+  background: url(../image/home/heroUniqueCarouselElBGShampoo.jpg) center no-repeat;
+}
+
+@media (max-width: 767px) {
+  .uniqueCarousel .owl-item:nth-of-type(4n + 1) .productCard__imgContainer {
+      background: url(../image/home/heroUniqueCarouselElBGShampoo.jpg) center no-repeat;
+  }
+}
+
+.uniqueCarousel .owl-item:nth-of-type(4n + 2) .productCard__imgContainer {
+  background: url(../image/home/heroUniqueCarouselElBGCream.jpg) center no-repeat;
+}
+
+.uniqueCarousel .owl-item:nth-of-type(4n + 2):hover .productCard__imgContainer {
+  background: url(../image/home/heroUniqueCarouselElBGCream.jpg) center no-repeat;
+}
+
+@media (max-width: 767px) {
+  .uniqueCarousel .owl-item:nth-of-type(4n + 2) .productCard__imgContainer {
+      background: url(../image/home/heroUniqueCarouselElBGCream.jpg) center no-repeat;
+  }
+}
+
+.uniqueCarousel .owl-item:nth-of-type(4n + 2) .productCard__img {
+  margin-bottom: 13px;
+}
+
+.uniqueCarousel .owl-item:nth-of-type(4n + 3) .productCard__imgContainer {
+  background: url(../image/home/heroUniqueCarouselElBGScrab.jpg) center no-repeat;
+}
+
+.uniqueCarousel .owl-item:nth-of-type(4n + 3):hover .productCard__imgContainer {
+  background: url(../image/home/heroUniqueCarouselElBGScrab.jpg) center no-repeat;
+}
+
+@media (max-width: 767px) {
+  .uniqueCarousel .owl-item:nth-of-type(4n + 3) .productCard__imgContainer {
+      background: url(../image/home/heroUniqueCarouselElBGScrab.jpg) center no-repeat;
+  }
+}
