@@ -436,7 +436,7 @@ class ControllerCatalogComponent extends Controller {
 
 
 
-				$category = $this->model_catalog_category->getCategory($filter_category);
+				$category = $this->model_catalog_component_category->getCategory($filter_category);
 				if ($category) {
 					$filter_category_name = ($category['path']) ? $category['path'] . ' &gt; ' . $category['name'] : $category['name'];
 				} else {
@@ -1276,9 +1276,9 @@ class ControllerCatalogComponent extends Controller {
 		}
 
 		// Categories
-		$this->load->model('catalog/category');
+		$this->load->model('catalog/component_category');
 		
-		$data['categories'] = $this->model_catalog_category->getAllCategories();
+		$data['categories'] = $this->model_catalog_component_category->getAllCategories();
 		
 		if (isset($this->request->post['main_category_id'])) {
 			$data['main_category_id'] = $this->request->post['main_category_id'];
@@ -1299,7 +1299,7 @@ class ControllerCatalogComponent extends Controller {
 		$data['component_categories'] = array();
 
 		foreach ($categories as $category_id) {
-			$category_info = $this->model_catalog_category->getCategory($category_id);
+			$category_info = $this->model_catalog_component_category->getCategory($category_id);
 
 			if ($category_info) {
 				$data['component_categories'][] = array(
@@ -1580,21 +1580,21 @@ class ControllerCatalogComponent extends Controller {
 			$data['points'] = '';
 		}
 
-		if (isset($this->request->post['component_reward'])) {
-			$data['component_reward'] = $this->request->post['component_reward'];
-		} elseif (isset($this->request->get['component_id'])) {
-			$data['component_reward'] = $this->model_catalog_component->getComponentRewards($this->request->get['component_id']);
-		} else {
+//		if (isset($this->request->post['component_reward'])) {
+//			$data['component_reward'] = $this->request->post['component_reward'];
+//		} elseif (isset($this->request->get['component_id'])) {
+//			$data['component_reward'] = $this->model_catalog_component->getComponentRewards($this->request->get['component_id']);
+//		} else {
 			$data['component_reward'] = array();
-		}
+//		}
 
-		if (isset($this->request->post['component_seo_url'])) {
-			$data['component_seo_url'] = $this->request->post['component_seo_url'];
-		} elseif (isset($this->request->get['component_id'])) {
-			$data['component_seo_url'] = $this->model_catalog_component->getComponentSeoUrls($this->request->get['component_id']);
-		} else {
+//		if (isset($this->request->post['component_seo_url'])) {
+//			$data['component_seo_url'] = $this->request->post['component_seo_url'];
+//		} elseif (isset($this->request->get['component_id'])) {
+//			$data['component_seo_url'] = $this->model_catalog_component->getComponentSeoUrls($this->request->get['component_id']);
+//		} else {
 			$data['component_seo_url'] = array();
-		}
+//		}
 
 		if (isset($this->request->post['component_layout'])) {
 			$data['component_layout'] = $this->request->post['component_layout'];

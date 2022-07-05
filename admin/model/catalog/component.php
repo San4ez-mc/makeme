@@ -109,21 +109,21 @@ class ModelCatalogComponent extends Model {
 			}
 		}
 
-//		if (isset($data['component_related'])) {
-//			foreach ($data['component_related'] as $related_id) {
-//				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "' AND related_id = '" . (int)$related_id . "'");
-//				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related SET component_id = '" . (int)$component_id . "', related_id = '" . (int)$related_id . "'");
-//				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$related_id . "' AND related_id = '" . (int)$component_id . "'");
-//				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related SET component_id = '" . (int)$related_id . "', related_id = '" . (int)$component_id . "'");
-//			}
-//		}
+		if (isset($data['component_related'])) {
+			foreach ($data['component_related'] as $related_id) {
+				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "' AND related_id = '" . (int)$related_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related SET component_id = '" . (int)$component_id . "', related_id = '" . (int)$related_id . "'");
+				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$related_id . "' AND related_id = '" . (int)$component_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related SET component_id = '" . (int)$related_id . "', related_id = '" . (int)$component_id . "'");
+			}
+		}
 		
-//		if (isset($data['component_related_article'])) {
-//			foreach ($data['component_related_article'] as $article_id) {
-//				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "' AND article_id = '" . (int)$article_id . "'");
-//				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related_article SET component_id = '" . (int)$component_id . "', article_id = '" . (int)$article_id . "'");
-//			}
-//		}
+		if (isset($data['component_related_article'])) {
+			foreach ($data['component_related_article'] as $article_id) {
+				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "' AND article_id = '" . (int)$article_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related_article SET component_id = '" . (int)$component_id . "', article_id = '" . (int)$article_id . "'");
+			}
+		}
 
 //		if (isset($data['component_reward'])) {
 //			foreach ($data['component_reward'] as $customer_group_id => $component_reward) {
@@ -284,26 +284,26 @@ class ModelCatalogComponent extends Model {
 			}
 		}
 
-//		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "'");
-//		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE related_id = '" . (int)$component_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE related_id = '" . (int)$component_id . "'");
 
-//		if (isset($data['component_related'])) {
-//			foreach ($data['component_related'] as $related_id) {
-//				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "' AND related_id = '" . (int)$related_id . "'");
-//				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related SET component_id = '" . (int)$component_id . "', related_id = '" . (int)$related_id . "'");
-//				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$related_id . "' AND related_id = '" . (int)$component_id . "'");
-//				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related SET component_id = '" . (int)$related_id . "', related_id = '" . (int)$component_id . "'");
-//			}
-//		}
-//
-//		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "'");
-//
-//		if (isset($data['component_related_article'])) {
-//			foreach ($data['component_related_article'] as $article_id) {
-//				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "' AND article_id = '" . (int)$article_id . "'");
-//				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related_article SET component_id = '" . (int)$component_id . "', article_id = '" . (int)$article_id . "'");
-//			}
-//		}
+		if (isset($data['component_related'])) {
+			foreach ($data['component_related'] as $related_id) {
+				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "' AND related_id = '" . (int)$related_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related SET component_id = '" . (int)$component_id . "', related_id = '" . (int)$related_id . "'");
+				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$related_id . "' AND related_id = '" . (int)$component_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related SET component_id = '" . (int)$related_id . "', related_id = '" . (int)$component_id . "'");
+			}
+		}
+
+		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "'");
+
+		if (isset($data['component_related_article'])) {
+			foreach ($data['component_related_article'] as $article_id) {
+				$this->db->query("DELETE FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "' AND article_id = '" . (int)$article_id . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "component_related_article SET component_id = '" . (int)$component_id . "', article_id = '" . (int)$article_id . "'");
+			}
+		}
 
 //		$this->db->query("DELETE FROM " . DB_PREFIX . "component_reward WHERE component_id = '" . (int)$component_id . "'");
 //
@@ -368,19 +368,19 @@ class ModelCatalogComponent extends Model {
 			$data['status'] = '0';
 			$data['noindex'] = '0';
 
-			$data['component_attribute'] = $this->getcomponentAttributes($component_id);
-			$data['component_description'] = $this->getcomponentDescriptions($component_id);
-			$data['component_discount'] = $this->getcomponentDiscounts($component_id);
-			$data['component_filter'] = $this->getcomponentFilters($component_id);
-			$data['component_image'] = $this->getcomponentImages($component_id);
-			$data['component_option'] = $this->getcomponentOptions($component_id);
-			$data['component_related'] = $this->getcomponentRelated($component_id);
+			$data['component_attribute'] = $this->getComponentAttributes($component_id);
+			$data['component_description'] = $this->getComponentDescriptions($component_id);
+			$data['component_discount'] = $this->getComponentDiscounts($component_id);
+			$data['component_filter'] = $this->getComponentFilters($component_id);
+			$data['component_image'] = $this->getComponentImages($component_id);
+			$data['component_option'] = $this->getComponentOptions($component_id);
+			$data['component_related'] = $this->getComponentRelated($component_id);
 			$data['component_related_article'] = $this->getArticleRelated($component_id);
-//			$data['component_reward'] = $this->getcomponentRewards($component_id);
+//			$data['component_reward'] = $this->getComponentRewards($component_id);
 			$data['component_special'] = $this->getComponentspecials($component_id);
-			$data['component_category'] = $this->getcomponentCategories($component_id);
-			$data['component_download'] = $this->getcomponentDownloads($component_id);
-			$data['component_layout'] = $this->getcomponentLayouts($component_id);
+			$data['component_category'] = $this->getComponentCategories($component_id);
+			$data['component_download'] = $this->getComponentDownloads($component_id);
+			$data['component_layout'] = $this->getComponentLayouts($component_id);
 			$data['component_store'] = $this->getComponentstores($component_id);
 			$data['component_recurrings'] = $this->getRecurrings($component_id);
 
@@ -397,10 +397,10 @@ class ModelCatalogComponent extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component_image WHERE component_id = '" . (int)$component_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component_option WHERE component_id = '" . (int)$component_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component_option_value WHERE component_id = '" . (int)$component_id . "'");
-//		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "'");
-//		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE related_id = '" . (int)$component_id . "'");
-//		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "'");
-//		$this->db->query("DELETE FROM " . DB_PREFIX . "component_reward WHERE component_id = '" . (int)$component_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related WHERE related_id = '" . (int)$component_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "component_reward WHERE component_id = '" . (int)$component_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component_special WHERE component_id = '" . (int)$component_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component_to_category WHERE component_id = '" . (int)$component_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component_to_download WHERE component_id = '" . (int)$component_id . "'");
@@ -549,7 +549,7 @@ class ModelCatalogComponent extends Model {
 		return $query->rows;
 	}
 
-	public function getcomponentDescriptions($component_id) {
+	public function getComponentDescriptions($component_id) {
 		$component_description_data = array();
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_description WHERE component_id = '" . (int)$component_id . "'");
@@ -569,7 +569,7 @@ class ModelCatalogComponent extends Model {
 		return $component_description_data;
 	}
 
-	public function getcomponentCategories($component_id) {
+	public function getComponentCategories($component_id) {
 		$component_category_data = array();
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_to_category WHERE component_id = '" . (int)$component_id . "'");
@@ -581,13 +581,13 @@ class ModelCatalogComponent extends Model {
 		return $component_category_data;
 	}
 	
-	public function getcomponentMainCategoryId($component_id) {
+	public function getComponentMainCategoryId($component_id) {
 		$query = $this->db->query("SELECT category_id FROM " . DB_PREFIX . "component_to_category WHERE component_id = '" . (int)$component_id . "' AND main_category = '1' LIMIT 1");
 		
 		return ($query->num_rows ? (int)$query->row['category_id'] : 0);
 	}
 
-	public function getcomponentFilters($component_id) {
+	public function getComponentFilters($component_id) {
 		$component_filter_data = array();
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_filter WHERE component_id = '" . (int)$component_id . "'");
@@ -599,7 +599,7 @@ class ModelCatalogComponent extends Model {
 		return $component_filter_data;
 	}
 
-	public function getcomponentAttributes($component_id) {
+	public function getComponentAttributes($component_id) {
 		$component_attribute_data = array();
 
 		$component_attribute_query = $this->db->query("SELECT attribute_id FROM " . DB_PREFIX . "component_attribute WHERE component_id = '" . (int)$component_id . "' GROUP BY attribute_id");
@@ -622,7 +622,7 @@ class ModelCatalogComponent extends Model {
 		return $component_attribute_data;
 	}
 
-	public function getcomponentOptions($component_id) {
+	public function getComponentOptions($component_id) {
 		$component_option_data = array();
 
 		$component_option_query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "component_option` po LEFT JOIN `" . DB_PREFIX . "option` o ON (po.option_id = o.option_id) LEFT JOIN `" . DB_PREFIX . "option_description` od ON (o.option_id = od.option_id) WHERE po.component_id = '" . (int)$component_id . "' AND od.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY o.sort_order ASC");
@@ -661,19 +661,19 @@ class ModelCatalogComponent extends Model {
 		return $component_option_data;
 	}
 
-	public function getcomponentOptionValue($component_id, $component_option_value_id) {
+	public function getComponentOptionValue($component_id, $component_option_value_id) {
 		$query = $this->db->query("SELECT pov.option_value_id, ovd.name, pov.quantity, pov.subtract, pov.price, pov.price_prefix, pov.points, pov.points_prefix, pov.weight, pov.weight_prefix FROM " . DB_PREFIX . "component_option_value pov LEFT JOIN " . DB_PREFIX . "option_value ov ON (pov.option_value_id = ov.option_value_id) LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE pov.component_id = '" . (int)$component_id . "' AND pov.component_option_value_id = '" . (int)$component_option_value_id . "' AND ovd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
 
 		return $query->row;
 	}
 
-	public function getcomponentImages($component_id) {
+	public function getComponentImages($component_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_image WHERE component_id = '" . (int)$component_id . "' ORDER BY sort_order ASC");
 
 		return $query->rows;
 	}
 
-	public function getcomponentDiscounts($component_id) {
+	public function getComponentDiscounts($component_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_discount WHERE component_id = '" . (int)$component_id . "' ORDER BY quantity, priority, price");
 
 		return $query->rows;
@@ -685,7 +685,7 @@ class ModelCatalogComponent extends Model {
 		return $query->rows;
 	}
 
-//	public function getcomponentRewards($component_id) {
+//	public function getComponentRewards($component_id) {
 //		$component_reward_data = array();
 //
 //		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_reward WHERE component_id = '" . (int)$component_id . "'");
@@ -697,7 +697,7 @@ class ModelCatalogComponent extends Model {
 //		return $component_reward_data;
 //	}
 
-	public function getcomponentDownloads($component_id) {
+	public function getComponentDownloads($component_id) {
 		$component_download_data = array();
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_to_download WHERE component_id = '" . (int)$component_id . "'");
@@ -709,7 +709,7 @@ class ModelCatalogComponent extends Model {
 		return $component_download_data;
 	}
 
-	public function getComponentstores($component_id) {
+	public function getComponentStores($component_id) {
 		$component_store_data = array();
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_to_store WHERE component_id = '" . (int)$component_id . "'");
@@ -733,7 +733,7 @@ class ModelCatalogComponent extends Model {
 		return $component_seo_url_data;
 	}
 	
-	public function getcomponentLayouts($component_id) {
+	public function getComponentLayouts($component_id) {
 		$component_layout_data = array();
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_to_layout WHERE component_id = '" . (int)$component_id . "'");
@@ -745,29 +745,29 @@ class ModelCatalogComponent extends Model {
 		return $component_layout_data;
 	}
 
-//	public function getcomponentRelated($component_id) {
-//		$component_related_data = array();
-//
-//		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "'");
-//
-//		foreach ($query->rows as $result) {
-//			$component_related_data[] = $result['related_id'];
-//		}
-//
-//		return $component_related_data;
-//	}
+	public function getComponentRelated($component_id) {
+		$component_related_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_related WHERE component_id = '" . (int)$component_id . "'");
+
+		foreach ($query->rows as $result) {
+			$component_related_data[] = $result['related_id'];
+		}
+
+		return $component_related_data;
+	}
 	
-//	public function getArticleRelated($component_id) {
-//		$article_related_data = array();
-//
-//		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "'");
-//
-//		foreach ($query->rows as $result) {
-//			$article_related_data[] = $result['article_id'];
-//		}
-//
-//		return $article_related_data;
-//	}
+	public function getArticleRelated($component_id) {
+		$article_related_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "component_related_article WHERE component_id = '" . (int)$component_id . "'");
+
+		foreach ($query->rows as $result) {
+			$article_related_data[] = $result['article_id'];
+		}
+
+		return $article_related_data;
+	}
 
 	public function getRecurrings($component_id) {
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "component_recurring` WHERE component_id = '" . (int)$component_id . "'");

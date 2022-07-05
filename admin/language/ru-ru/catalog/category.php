@@ -31,6 +31,7 @@ $_['entry_meta_description'] = 'Мета-тег Description';
 $_['entry_keyword']          = 'SEO URL';
 $_['entry_parent']           = 'Родительская категория';
 $_['entry_filter']           = 'Фильтры';
+$_['entry_boxing']           = 'Тара';
 $_['entry_store']            = 'Магазины';
 $_['entry_image']            = 'Изображение';
 $_['entry_top']              = 'Главное меню';

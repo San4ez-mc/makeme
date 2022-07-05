@@ -17,17 +17,18 @@
                         <div class="col-lg-6">
                             <ul>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#" class="page-footer__menu-el">Конструктор</a>
+                                    <a itemprop="url" href="{{ constructor }}"
+                                       class="page-footer__menu-el">Конструктор</a>
                                 </li>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#" class="page-footer__menu-el">Каталог</a>
+                                    <a itemprop="url" href="{{ catalog }}" class="page-footer__menu-el">Каталог</a>
                                 </li>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#"
+                                    <a itemprop="url" href="#{{ components }}"
                                        class="page-footer__menu-el">Компоненты</a>
                                 </li>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#" class="page-footer__menu-el">О нас</a>
+                                    <a itemprop="url" href="{{ about }}" class="page-footer__menu-el">О нас</a>
                                 </li>
                             </ul>
 
@@ -35,21 +36,21 @@
                         <div class="col-lg-6">
                             <ul>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#" class="page-footer__menu-el">Доставка и
+                                    <a itemprop="url" href="{{ delivery }}" class="page-footer__menu-el">Доставка и
                                         оплата</a>
                                 </li>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#"
+                                    <a itemprop="url" href="{{ mmclub }}"
                                        class="page-footer__menu-el color-primary">MM Club</a>
                                 </li>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#" class="page-footer__menu-el">Акции</a>
+                                    <a itemprop="url" href="{{ promo }}" class="page-footer__menu-el">Акции</a>
                                 </li>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#" class="page-footer__menu-el">Блог</a>
+                                    <a itemprop="url" href="{{ blog }}" class="page-footer__menu-el">Блог</a>
                                 </li>
                                 <li itemprop="name">
-                                    <a itemprop="url" href="#" class="page-footer__menu-el">Публичная
+                                    <a itemprop="url" href="{{ public_offer }}" class="page-footer__menu-el">Публичная
                                         оферта</a>
                                 </li>
                             </ul>
@@ -103,9 +104,8 @@
 <script src="catalog/view/theme/makeme/libs/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="catalog/view/theme/makeme/libs/jquery.mask.min.js"></script>
 
-{% if home == og_url %}
-    <script src="catalog/view/theme/makeme/libs/owl.carousel/owl.carousel.min.js"></script>
-{% endif %}
+<script src="catalog/view/theme/makeme/libs/owl.carousel/owl.carousel.min.js"></script>
+
 <script src="catalog/view/theme/makeme/libs/lazyload.min.js"></script>
 {% for script in scripts %}
     <script src="{{ script }}" type="text/javascript"></script>

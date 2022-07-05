@@ -30,4 +30,5 @@ $_['text_default']   	= 'По умолчанию';
 $_['text_empty']        = 'В блоге нет записей.';
 
 $_['button_more']       = 'подробнее';
+$_['date_format_word']  = 'd F Y';
 ?>

@@ -1,0 +1,11 @@
+{
+    "name":"makemy.ua",
+    "host": "185.233.38.48",
+    "port": 22,
+    "username": "root",
+    "password": "DVAb5bE798bt",
+    "remotePath": "/www/makemy.ua",
+    "localPath": "/",
+    "disable": false,
+    "private_key": "~/.ssh/id_rsa"
+}

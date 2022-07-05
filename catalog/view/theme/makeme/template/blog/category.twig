@@ -1,0 +1,126 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Компоненты</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Экстракт лаванды</span>
+                        <meta itemprop="position" content="3">
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+
+        <section class="section aboutComponents">
+            <h1 class="section__title">Блог</h1>
+
+            <nav class="aboutComponents__nav">
+                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--all">Все</a>
+                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--advice">Советы</a>
+                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--recipes">Рецепты</a>
+                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--news">Новости</a>
+            </nav>
+
+            <div class="row">
+                {% if articles|length > 0 %}
+                    {% for article in articles %}
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="blogItem">
+                                <a class="blogItem__imgContainer" href="{{ article.href }}">
+                                    <img src="{{ article.thumb }}"
+                                            {#                                         data-srcset="#}
+                                            {#                    catalog/view/theme/makeme/image/blog1.jpg 767w, #}
+                                            {#                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, #}
+                                            {#                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w#}
+                                            {#                  "#}
+                                         alt="{{ article.name }}" class="lazy blogItem__img">
+                                </a>
+                                <div class="blogItem__desc">
+                                    <div class="blogItem__desc-header">
+                                        <span class="blogItem__type blogItem__type--advice">СОВЕТЫ</span>
+                                        <time class="blogItem__date"
+                                              datetime="2021-04-26">{{ article.date_added }}</time>
+                                    </div>
+                                    <p class="blogItem__text"><a href="{{ article.href }}">{{ article.name }}</a>
+                                    </p>
+                                    <div class="blogItem__stats">
+                                        <div class="like">
+                                            <label class="like__button">
+                                                <input type="checkbox" class="like__input">
+                                                <span class="like__body"></span>
+                                            </label>
+                                            <span class="like__quantity">10</span>
+                                        </div>
+                                        <a href="{{ article.href }}" class="blogItem__comments">0</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="col-12">
+                    <a href="#" class="button button--stroke button--reload stocks__loadMore">
+                        <span class="button__icon"><i class="fas fa-sync-alt"></i></span>
+                        <span class="button__text">Загрузить еще</span>
+                    </a>
+                    <nav class="pagination">
+                        <a href="#" class="pagination__el active">1</a>
+                        <a href="#" class="pagination__el">2</a>
+                        <a href="#" class="pagination__el">3</a>
+                        <a href="#" class="pagination__el">4</a>
+                        <a href="#" class="pagination__el">...</a>
+                        <a href="#" class="pagination__el">10</a>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        {{ content_bottom }}
+{#        <aside class="section createYours">#}
+{#            <div class="createYours__title">Создай <span class="color-primary">свое!</span></div>#}
+{#            <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая#}
+{#                баночка на 100% индивидуальна.</p>#}
+{#            <a href="#" class="button button--stroke createYours__button">Создать средство</a>#}
+{#        </aside>#}  
+
+        <section class="section seoText">
+            <h2 class="section__title">Как создать косметику для себя</h2>
+            <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для
+                восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа,
+                выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут
+                эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что
+                даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно
+                останутся довольные приобретением.</p>
+            <div class="collapse" id="seoText__collapse">
+                <p class="seoText__text">
+                    У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления
+                    повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение
+                    волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут
+                    эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный,
+                    что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и
+                    обязательно останутся довольные приобретением.
+                </p>
+            </div>
+            <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="link1 seoText__link">Показать
+                все</a>
+        </section>
+    </div>
+</main>
+{{ footer }}

@@ -10,6 +10,8 @@ class ControllerProductCatalog extends Controller
 
         $this->load->model('catalog/category');
 
+//        $this->load->model('catalog/filter');
+
         $this->load->model('catalog/product');
 
         $this->load->model('tool/image');
@@ -76,51 +78,66 @@ class ControllerProductCatalog extends Controller
             'href' => $this->url->link('common/home')
         );
 
-        if (isset($this->request->get['path'])) {
-            $url = '';
-
-            if (isset($this->request->get['sort'])) {
-                $url .= '&sort=' . $this->request->get['sort'];
-            }
-
-            if (isset($this->request->get['order'])) {
-                $url .= '&order=' . $this->request->get['order'];
-            }
-
-            if (isset($this->request->get['limit'])) {
-                $url .= '&limit=' . $this->request->get['limit'];
-            }
-
-            $path = '';
-
-            $parts = explode('_', (string)$this->request->get['path']);
-
-            $category_id = (int)array_pop($parts);
-
-            foreach ($parts as $path_id) {
-                if (!$path) {
-                    $path = (int)$path_id;
-                } else {
-                    $path .= '_' . (int)$path_id;
-                }
-
-                $category_info = $this->model_catalog_category->getCategory($path_id);
-
-                if ($category_info) {
-                    $data['breadcrumbs'][] = array(
-                        'text' => $this->language->get('text_title'),
-                        'href' => $this->url->link('product/catalog', 'path=' . $path . $url)
-                    );
-                }
-            }
-        } else {
-            $category_id = 0;
+        // filter_params
+        $filter_pararms = [];
+        if (isset($this->request->get['min_price'])) {
+            $filter_pararms['min_price'] = $this->request->get['min_price'];
+        }
+        if (isset($this->request->get['max_price'])) {
+            $filter_pararms['max_price'] = $this->request->get['max_price'];
+        }
+        if (isset($this->request->get['s'])) {
+            $filter_pararms['search'] = $this->request->get['s'];
         }
 
-        $category_info = $this->model_catalog_category->getCategory($category_id);
+//        if (isset($this->request->get['path'])) {
+//            $url = '';
+//
+//            if (isset($this->request->get['sort'])) {
+//                $url .= '&sort=' . $this->request->get['sort'];
+//            }
+//
+//            if (isset($this->request->get['order'])) {
+//                $url .= '&order=' . $this->request->get['order'];
+//            }
+//
+//            if (isset($this->request->get['limit'])) {
+//                $url .= '&limit=' . $this->request->get['limit'];
+//            }
+//
+//            $path = '';
+//
+//            $parts = explode('_', (string)$this->request->get['path']);
+//
+//            $category_id = (int)array_pop($parts);
+//
+//            foreach ($parts as $path_id) {
+//                if (!$path) {
+//                    $path = (int)$path_id;
+//                } else {
+//                    $path .= '_' . (int)$path_id;
+//                }
+//
+//                $category_info = $this->model_catalog_category->getCategory($path_id);
+//
+//                if ($category_info) {
+//                    $data['breadcrumbs'][] = array(
+//                        'text' => $this->language->get('text_title'),
+//                        'href' => $this->url->link('product/catalog', 'path=' . $path . $url)
+//                    );
+//                }
+//            }
+//        } else {
+        $category_id = 0;
+//        }
+
+//        $category_info = $this->model_catalog_category->getCategory($category_id);
 
 
-        $this->document->setTitle($this->language->get('text_title'));
+
+
+
+    $this->document->setTitle($this->language->get('text_title'));
 
         if ($this->config->get('config_noindex_status')) {
             $this->document->setRobots('noindex,follow');
@@ -174,7 +191,7 @@ class ControllerProductCatalog extends Controller
 
             $data['categories'][] = array(
                 'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-                'href' => $this->url->link('product/catalog',  $url)
+                'href' => $this->url->link('product/catalog', $url)
             );
         }
 
@@ -182,6 +199,7 @@ class ControllerProductCatalog extends Controller
 
         $filter_data = array(
             'filter_filter' => $filter,
+            'filter_params' => '',
             'sort' => $sort,
             'order' => $order,
             'start' => ($page - 1) * $limit,
@@ -337,7 +355,7 @@ class ControllerProductCatalog extends Controller
             if ($page == 1) {
                 $this->document->addLink($this->url->link('product/catalog', $url), 'canonical');
             } elseif ($page == 2) {
-                $this->document->addLink($this->url->link('product/catalog',  $url), 'prev');
+                $this->document->addLink($this->url->link('product/catalog', $url), 'prev');
             } else {
                 $this->document->addLink($this->url->link('product/catalog', 'page=' . ($page - 1)), 'prev');
             }
@@ -354,16 +372,16 @@ class ControllerProductCatalog extends Controller
             };
 
             $request_url = rtrim($server, '/') . $this->request->server['REQUEST_URI'];
-            $canonical_url = $this->url->link('product/catalog', 'path=' . $category_info['category_id']);
+//            $canonical_url = $this->url->link('product/catalog', 'path=' . $category_info['category_id']);
 
-            if (($request_url != $canonical_url) || $this->config->get('config_canonical_self')) {
-                $this->document->addLink($canonical_url, 'canonical');
-            }
+//            if (($request_url != $canonical_url) || $this->config->get('config_canonical_self')) {
+//                $this->document->addLink($canonical_url, 'canonical');
+//            }
 
             if ($this->config->get('config_add_prevnext')) {
 
                 if ($page == 2) {
-                    $this->document->addLink($this->url->link('product/catalog',  $url, 'prev'));
+                    $this->document->addLink($this->url->link('product/catalog', $url, 'prev'));
                 } elseif ($page > 2) {
                     $this->document->addLink($this->url->link('product/catalog', 'page=' . ($page - 1)), 'prev');
                 }
@@ -377,6 +395,8 @@ class ControllerProductCatalog extends Controller
         $data['sort'] = $sort;
         $data['order'] = $order;
         $data['limit'] = $limit;
+
+        $this->document->addScript('catalog/view/theme/makeme/scripts/catalog.js', 'footer');
 
         $data['continue'] = $this->url->link('common/home');
 

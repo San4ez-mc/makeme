@@ -91,12 +91,14 @@ class ControllerAccountReceipts extends Controller
 
 
         $this->load->model('catalog/component');
+        $this->load->model('tool/image');
 
         $results = $this->model_catalog_component->getReceipts();
 
         $url = '';
 
         foreach ($results as $result) {
+
             if ($result['image']) {
                 $image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
             } else {
@@ -139,10 +141,10 @@ class ControllerAccountReceipts extends Controller
                 'tax' => $tax,
                 'minimum' => $result['minimum'] > 0 ? $result['minimum'] : 1,
                 'rating' => $result['rating'],
-                'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+                'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
+                'constructor' => $this->url->link('constructor/stage1', 'product_id=' . $result['product_id'] . $url)
             );
         }
-        var_dump($data['receipts']);
 
         $data['customer'] = [
             'firstname' => $this->customer->getFirstName(),
@@ -151,6 +153,7 @@ class ControllerAccountReceipts extends Controller
         ];
 
         $data['menu'] = $this->load->controller('account/menu');
+
 
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['column_right'] = $this->load->controller('common/column_right');

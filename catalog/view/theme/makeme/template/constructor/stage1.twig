@@ -24,7 +24,7 @@
     <div class="constructorTabs">
 
         <div class="tab-content">
-            <div class="tab-pane fade show active" id="el1">
+            <div class="tab-pane fade {{ stage == 1 ? 'show active' : '' }}" id="el1">
                 <div class="constructorTabs__tab constructorTabs__tab--1">
                     <div class="container">
                         <div class="constructorTabs__tab-header">
@@ -37,69 +37,73 @@
                             <div class="row">
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <label class="constructorTabs__el">
-                                        <input type="radio" name="el1" class="constructorTabs__el-input">
+                                        <input type="radio" name="body_part" value="60"
+                                               class="constructorTabs__el-input">
                                         <span class="constructorTabs__el-body">
-
-                                                <span class="constructorTabs__el-imgContainer">
+                                            <span class="constructorTabs__el-imgContainer">
                                                   <img src="catalog/view/theme/makeme/image/constructorGirl1.png"
-                                                       alt="#"
-                                                       class="lazy constructorTabs__el-img constructorTabs__el-img--default">
+                                                       alt="face"
+                                                       class="lazy constructorTabs__el-img constructorTabs__el-img--default"/>
                                                   <img src="catalog/view/theme/makeme/image/constructorGirl1Hover.png"
-                                                       alt="#"
-                                                       class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
-                                                </span>
+                                                       alt="face"
+                                                       class="lazy constructorTabs__el-img constructorTabs__el-img--hover"/>
+                                            </span>
+                                            <span class="constructorTabs__el-title">Лицо</span>
+                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
 
-                                        <span class="constructorTabs__el-title">Лицо</span>
-                                        <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
-                                         <a href="{{ stage2 }}&type=face">
-                                                <span class="constructorTabs__el-hover">
+                                             <a href="{{ stage1 }}&cat=60">
+                                                 <span class="constructorTabs__el-hover">
                                                     <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
                                                     <span class="constructorTabs__el-hover-icon"></span>
                                                 </span>
-                                            </a>
-                                      </span>
+                                             </a>
+                                        </span>
                                     </label>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <label class="constructorTabs__el">
-                                        <input type="radio" name="el1" class="constructorTabs__el-input">
+                                        <input type="radio" name="body_part" value="61"
+                                               class="constructorTabs__el-input">
                                         <span class="constructorTabs__el-body">
-                            <span class="constructorTabs__el-imgContainer">
-                              <img src="catalog/view/theme/makeme/image/constructorGirl2.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
-                              <img src="catalog/view/theme/makeme/image/constructorGirl2Hover.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
-                            </span>
-                            <span class="constructorTabs__el-title">Тело</span>
-                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
-                              <a href="{{ stage2 }}&type=body">
-                                  <span class="constructorTabs__el-hover">
-                                      <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
-                                      <span class="constructorTabs__el-hover-icon"></span>
-                                  </span>
-                              </a>
-                          </span>
+                                            <span class="constructorTabs__el-imgContainer">
+                                              <img src="catalog/view/theme/makeme/image/constructorGirl2.png" alt="#"
+                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
+                                              <img src="catalog/view/theme/makeme/image/constructorGirl2Hover.png"
+                                                   alt="#"
+                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
+                                            </span>
+                                            <span class="constructorTabs__el-title">Тело</span>
+                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
+                                              <a href="{{ stage1 }}&cat=61">
+                                                  <span class="constructorTabs__el-hover">
+                                                      <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
+                                                      <span class="constructorTabs__el-hover-icon"></span>
+                                                  </span>
+                                              </a>
+                                          </span>
                                     </label>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <label class="constructorTabs__el">
-                                        <input type="radio" name="el1" class="constructorTabs__el-input">
+                                        <input type="radio" name="body_part" value="59"
+                                               class="constructorTabs__el-input">
                                         <span class="constructorTabs__el-body">
-                            <span class="constructorTabs__el-imgContainer">
-                              <img src="catalog/view/theme/makeme/image/constructorGirl3.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
-                              <img src="catalog/view/theme/makeme/image/constructorGirl3Hover.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
-                            </span>
-                            <span class="constructorTabs__el-title">Волосы</span>
-                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
-                              <a href="{{ stage2 }}&type=hair">
-                                            <span class="constructorTabs__el-hover">
-                              <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
-                              <span class="constructorTabs__el-hover-icon"></span>
-                            </span>
-                              </a>
-                          </span>
+                                            <span class="constructorTabs__el-imgContainer">
+                                              <img src="catalog/view/theme/makeme/image/constructorGirl3.png" alt="#"
+                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
+                                              <img src="catalog/view/theme/makeme/image/constructorGirl3Hover.png"
+                                                   alt="#"
+                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
+                                            </span>
+                                            <span class="constructorTabs__el-title">Волосы</span>
+                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
+                                              <a href="{{ stage1 }}&cat=59">
+                                                    <span class="constructorTabs__el-hover">
+                                                      <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
+                                                      <span class="constructorTabs__el-hover-icon"></span>
+                                                    </span>
+                                              </a>
+                                          </span>
                                     </label>
                                 </div>
                             </div>
@@ -107,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="el2">
+            <div class="tab-pane fade {{ stage == 2 ? 'show active' : '' }}" id="el2">
                 <div class="constructorTabs__tab constructorTabs__tab--2">
                     <div class="container">
                         <div class="constructorTabs__tab-header">
@@ -117,69 +121,100 @@
                         </div>
                         <div class="constructorTabs__tab-body">
                             <div class="row">
-                                <div class="col-lg-4 col-sm-6 col-12">
-                                    <label class="constructorTabs__el">
-                                        <input type="radio" name="el2" class="constructorTabs__el-input">
-                                        <span class="constructorTabs__el-body">
-                            <span class="constructorTabs__el-imgContainer">
-                              <img src="catalog/view/theme/makeme/image/constructorProduct1.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
-                              <img src="catalog/view/theme/makeme/image/constructorProduct1Hover.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
-                            </span>
-                            <span class="constructorTabs__el-title">Крем</span>
-                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
-                            <span class="constructorTabs__el-hover">
-                              <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
-                              <span class="constructorTabs__el-hover-icon"></span>
-                            </span>
-                          </span>
-                                    </label>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 col-12">
-                                    <label class="constructorTabs__el">
-                                        <input type="radio" name="el2" class="constructorTabs__el-input">
-                                        <span class="constructorTabs__el-body">
-                            <span class="constructorTabs__el-imgContainer">
-                              <img src="catalog/view/theme/makeme/image/constructorProduct2.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
-                              <img src="catalog/view/theme/makeme/image/constructorProduct2Hover.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
-                            </span>
-                            <span class="constructorTabs__el-title">Очищение</span>
-                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
-                            <span class="constructorTabs__el-hover">
-                              <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
-                              <span class="constructorTabs__el-hover-icon"></span>
-                            </span>
-                          </span>
-                                    </label>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 col-12">
-                                    <label class="constructorTabs__el">
-                                        <input type="radio" name="el2" class="constructorTabs__el-input">
-                                        <span class="constructorTabs__el-body">
-                            <span class="constructorTabs__el-imgContainer">
-                              <img src="catalog/view/theme/makeme/image/constructorProduct3.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
-                              <img src="catalog/view/theme/makeme/image/constructorProduct3Hover.png" alt="#"
-                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
-                            </span>
-                            <span class="constructorTabs__el-title">Маска</span>
-                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
-                            <span class="constructorTabs__el-hover">
-                              <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
-                              <span class="constructorTabs__el-hover-icon"></span>
-                            </span>
-                          </span>
-                                    </label>
-                                </div>
+                                {% for category in categories %}
+                                    <div class="col-lg-4 col-sm-6 col-12">
+                                        <label class="constructorTabs__el">
+                                            <input type="radio" name="product_type" value="1"
+                                                   class="constructorTabs__el-input">
+                                            <span class="constructorTabs__el-body">
+                                            <span class="constructorTabs__el-imgContainer">
+                                              <img src="{{ category.image }}" alt="category_image"
+                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
+                                              <img src="{{ category.bg_image }}"
+                                                   alt="bg"
+                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
+                                            </span>
+                                            <span class="constructorTabs__el-title">{{ category.name }}</span>
+                                            <span class="constructorTabs__el-text">{{ category.description }}</span>
+                                             <a href="{{ stage1 }}&cat={{ cat }}&subcat={{ category.id }}">
+                                                <span class="constructorTabs__el-hover">
+                                                  <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
+                                                  <span class="constructorTabs__el-hover-icon"></span>
+                                                </span>
+                                             </a>
+                                          </span>
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                                {#                                <div class="col-lg-4 col-sm-6 col-12">#}
+                                {#                                    <label class="constructorTabs__el">#}
+                                {#                                        <input type="radio" name="product_type" value="1"#}
+                                {#                                               class="constructorTabs__el-input">#}
+                                {#                                        <span class="constructorTabs__el-body">#}
+                                {#                                            <span class="constructorTabs__el-imgContainer">#}
+                                {#                                              <img src="catalog/view/theme/makeme/image/constructorProduct1.png" alt="#"#}
+                                {#                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">#}
+                                {#                                              <img src="catalog/view/theme/makeme/image/constructorProduct1Hover.png"#}
+                                {#                                                   alt="#"#}
+                                {#                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">#}
+                                {#                                            </span>#}
+                                {#                                            <span class="constructorTabs__el-title">Крем</span>#}
+                                {#                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>#}
+                                {#                                            <span class="constructorTabs__el-hover">#}
+                                {#                                              <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>#}
+                                {#                                              <span class="constructorTabs__el-hover-icon"></span>#}
+                                {#                                            </span>#}
+                                {#                                          </span>#}
+                                {#                                    </label>#}
+                                {#                                </div>#}
+                                {#                                <div class="col-lg-4 col-sm-6 col-12">#}
+                                {#                                    <label class="constructorTabs__el">#}
+                                {#                                        <input type="radio" name="product_type" value="2"#}
+                                {#                                               class="constructorTabs__el-input">#}
+                                {#                                        <span class="constructorTabs__el-body">#}
+                                {#                                            <span class="constructorTabs__el-imgContainer">#}
+                                {#                                              <img src="catalog/view/theme/makeme/image/constructorProduct2.png" alt="#"#}
+                                {#                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">#}
+                                {#                                              <img src="catalog/view/theme/makeme/image/constructorProduct2Hover.png"#}
+                                {#                                                   alt="#"#}
+                                {#                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">#}
+                                {#                                            </span>#}
+                                {#                                            <span class="constructorTabs__el-title">Очищение</span>#}
+                                {#                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>#}
+                                {#                                            <span class="constructorTabs__el-hover">#}
+                                {#                                              <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>#}
+                                {#                                              <span class="constructorTabs__el-hover-icon"></span>#}
+                                {#                                            </span>#}
+                                {#                                          </span>#}
+                                {#                                    </label>#}
+                                {#                                </div>#}
+                                {#                                <div class="col-lg-4 col-sm-6 col-12">#}
+                                {#                                    <label class="constructorTabs__el">#}
+                                {#                                        <input type="radio" name="product_type" value="3"#}
+                                {#                                               class="constructorTabs__el-input">#}
+                                {#                                        <span class="constructorTabs__el-body">#}
+                                {#                                            <span class="constructorTabs__el-imgContainer">#}
+                                {#                                              <img src="catalog/view/theme/makeme/image/constructorProduct3.png" alt="#"#}
+                                {#                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">#}
+                                {#                                              <img src="catalog/view/theme/makeme/image/constructorProduct3Hover.png"#}
+                                {#                                                   alt="#"#}
+                                {#                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">#}
+                                {#                                            </span>#}
+                                {#                                            <span class="constructorTabs__el-title">Маска</span>#}
+                                {#                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>#}
+                                {#                                            <span class="constructorTabs__el-hover">#}
+                                {#                                              <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>#}
+                                {#                                              <span class="constructorTabs__el-hover-icon"></span>#}
+                                {#                                            </span>#}
+                                {#                                          </span>#}
+                                {#                                    </label>#}
+                                {#                                </div>#}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="el3">
+            <div class="tab-pane fade {{ stage == 3 ? 'show active' : '' }}" id="el3">
                 <div class="constructorTabs__tab constructorTabs__tab--3">
                     <div class="container">
                         <div class="constructorTabs__tab-header">
@@ -188,32 +223,50 @@
                             <p class="constructorTabs__text">Выбери тип своей кожи, а мы предложим тебе максимально
                                 эфективные компоненты</p>
                         </div>
-                        <div class="constructorTabs__tab-body">
+                        <div class="constructorTabs__tab-body" data-constructor_url="{{ stage2 }}">
                             <div class="row">
-                                <div class="col-sm-6 col-12">
-                                    <label class="constructorTabs__skinType">
-                                        <input type="radio" name="el3" class="constructorTabs__skinType-input">
-                                        <span class="constructorTabs__skinType-body constructorTabs__skinType-body--1">Сухая</span>
-                                    </label>
-                                </div>
-                                <div class="col-sm-6 col-12">
-                                    <label class="constructorTabs__skinType">
-                                        <input type="radio" name="el3" class="constructorTabs__skinType-input">
-                                        <span class="constructorTabs__skinType-body constructorTabs__skinType-body--2">Жирная</span>
-                                    </label>
-                                </div>
-                                <div class="col-sm-6 col-12">
-                                    <label class="constructorTabs__skinType">
-                                        <input type="radio" name="el3" class="constructorTabs__skinType-input">
-                                        <span class="constructorTabs__skinType-body constructorTabs__skinType-body--3">Нормальная и комбинированая</span>
-                                    </label>
-                                </div>
-                                <div class="col-sm-6 col-12">
-                                    <label class="constructorTabs__skinType">
-                                        <input type="radio" name="el3" class="constructorTabs__skinType-input">
-                                        <span class="constructorTabs__skinType-body constructorTabs__skinType-body--4">Возрастная</span>
-                                    </label>
-                                </div>
+                                {% for filter in filters %}
+                                    <div class="col-sm-6 col-12 constructorTabs__skinType_block"
+                                         data-url="{{ stage2 }}&cat={{ cat }}&subcat={{ subcat }}&filter_id={{ filter.filter_id }}">
+                                        {#                                        <a href="{{ stage2 }}&cat={{ cat }}&subcat={{ category.id }}&filter_id={{ filter.filter_id }}">#}
+                                        <label class="constructorTabs__skinType">
+                                            <input type="radio" name="skin_type" value="{{ filter.filter_id }}"
+                                                   class="constructorTabs__skinType-input">
+                                            <span class="constructorTabs__skinType-body constructorTabs__skinType-body--{{ filter.filter_id }}">{{ filter.name }}</span>
+                                        </label>
+                                        {#                                        </a>#}
+                                    </div>
+                                {% endfor %}
+                                {#                                <div class="col-sm-6 col-12">#}
+                                {#                                    <a href="{{ stage2 }}&cat={{ cat }}&subcat={{ category.id }}&skin_type=">#}
+                                {#                                        <label class="constructorTabs__skinType">#}
+                                {#                                            <input type="radio" name="skin_type" value="1"#}
+                                {#                                                   class="constructorTabs__skinType-input">#}
+                                {#                                            <span class="constructorTabs__skinType-body constructorTabs__skinType-body--1">Сухая</span>#}
+                                {#                                        </label>#}
+                                {#                                    </a>#}
+                                {#                                </div>#}
+                                {#                                <div class="col-sm-6 col-12">#}
+                                {#                                    <label class="constructorTabs__skinType">#}
+                                {#                                        <input type="radio" name="skin_type" value="2"#}
+                                {#                                               class="constructorTabs__skinType-input">#}
+                                {#                                        <span class="constructorTabs__skinType-body constructorTabs__skinType-body--2">Жирная</span>#}
+                                {#                                    </label>#}
+                                {#                                </div>#}
+                                {#                                <div class="col-sm-6 col-12">#}
+                                {#                                    <label class="constructorTabs__skinType">#}
+                                {#                                        <input type="radio" name="skin_type" value="3"#}
+                                {#                                               class="constructorTabs__skinType-input">#}
+                                {#                                        <span class="constructorTabs__skinType-body constructorTabs__skinType-body--3">Нормальная и комбинированая</span>#}
+                                {#                                    </label>#}
+                                {#                                </div>#}
+                                {#                                <div class="col-sm-6 col-12">#}
+                                {#                                    <label class="constructorTabs__skinType">#}
+                                {#                                        <input type="radio" name="skin_type" value="4"#}
+                                {#                                               class="constructorTabs__skinType-input">#}
+                                {#                                        <span class="constructorTabs__skinType-body constructorTabs__skinType-body--4">Возрастная</span>#}
+                                {#                                    </label>#}
+                                {#                                </div>#}
                             </div>
                         </div>
                     </div>
@@ -222,9 +275,22 @@
         </div>
         <div class="container">
             <div class="nav nav-tabs constructorTabs__nav">
-                <a class="constructorTabs__nav-el active" data-toggle="tab" href="#el1"></a>
-                <a class="constructorTabs__nav-el" href="#el2"></a>
-                <a class="constructorTabs__nav-el" href="#el3"></a>
+                {#                <a class="constructorTabs__nav-el active" data-toggle="tab" href="#el1"></a>#}
+                {% if stage == 1 %}
+                    <span class="constructorTabs__nav-el active"></span>
+                    <span class="constructorTabs__nav-el"></span>
+                    <span class="constructorTabs__nav-el"></span>
+                {% elseif stage == 2 %}
+                    <a class="constructorTabs__nav-el active" href="{{ stage1 }}"></a>
+                    <span class="constructorTabs__nav-el active"></span>
+                    <span class="constructorTabs__nav-el"></span>
+                {% elseif stage == 3 %}
+                    <a class="constructorTabs__nav-el active" href="{{ stage1 }}"></a>
+                    <a class="constructorTabs__nav-el active" href="{{ stage1 }}&cat={{ cat }}"></a>
+                    <span class="constructorTabs__nav-el active"></span>
+                {% endif %}
+                {#                <a class="constructorTabs__nav-el" href="#el2"></a>#}
+                {#                <a class="constructorTabs__nav-el" href="#el3"></a>#}
             </div>
         </div>
     </div>
@@ -241,132 +307,124 @@
                 <span class="ticker__el">Современная лаборатория</span>
             </div>
         </aside>
-        <section class="section">
-            <div class="section__header d-flex align-items-center justify-content-between flex-wrap">
-                <h2 class="section__title mr-4"><span class="color-primary">Рекомендации</span> лаборатории</h2>
-                <a href="#" class="showMore">Смотреть больше</a>
-            </div>
-            <div class="owl-carousel carousel-3els">
-                <div class="blogItem">
-                    <a class="blogItem__imgContainer" href="#">
-                        <img src="catalog/view/theme/makeme/image/blog1.jpg"
-                             data-srcset="
-                    catalog/view/theme/makeme/image/blog1.jpg 767w, 
-                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, 
-                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w
-                  " alt="#" class="lazy blogItem__img">
-                    </a>
-                    <div class="blogItem__desc">
-                        <div class="blogItem__desc-header">
-                            <span class="blogItem__type blogItem__type--news">Новости</span>
-                            <time class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>
-                        </div>
-                        <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
-                        <div class="blogItem__stats">
-                            <div class="like">
-                                <label class="like__button">
-                                    <input type="checkbox" class="like__input">
-                                    <span class="like__body"></span>
-                                </label>
-                                <span class="like__quantity">10</span>
-                            </div>
-                            <a href="#" class="blogItem__comments">0</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blogItem">
-                    <a class="blogItem__imgContainer" href="#">
-                        <img src="catalog/view/theme/makeme/image/blog1.jpg"
-                             data-srcset="
-                    catalog/view/theme/makeme/image/blog1.jpg 767w, 
-                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, 
-                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w
-                  " alt="#" class="lazy blogItem__img">
-                    </a>
-                    <div class="blogItem__desc">
-                        <div class="blogItem__desc-header">
-                            <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
-                            <time class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>
-                        </div>
-                        <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
-                        <div class="blogItem__stats">
-                            <div class="like">
-                                <label class="like__button">
-                                    <input type="checkbox" class="like__input">
-                                    <span class="like__body"></span>
-                                </label>
-                                <span class="like__quantity">10</span>
-                            </div>
-                            <a href="#" class="blogItem__comments">0</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blogItem">
-                    <a class="blogItem__imgContainer" href="#">
-                        <img src="catalog/view/theme/makeme/image/blog1.jpg"
-                             data-srcset="
-                    catalog/view/theme/makeme/image/blog1.jpg 767w, 
-                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, 
-                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w
-                  " alt="#" class="lazy blogItem__img">
-                    </a>
-                    <div class="blogItem__desc">
-                        <div class="blogItem__desc-header">
-                            <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
-                            <time class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>
-                        </div>
-                        <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
-                        <div class="blogItem__stats">
-                            <div class="like">
-                                <label class="like__button">
-                                    <input type="checkbox" class="like__input">
-                                    <span class="like__body"></span>
-                                </label>
-                                <span class="like__quantity">10</span>
-                            </div>
-                            <a href="#" class="blogItem__comments">0</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blogItem">
-                    <a class="blogItem__imgContainer" href="#">
-                        <img src="catalog/view/theme/makeme/image/blog1.jpg"
-                             data-srcset="
-                    catalog/view/theme/makeme/image/blog1.jpg 767w, 
-                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, 
-                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w
-                  " alt="#" class="lazy blogItem__img">
-                    </a>
-                    <div class="blogItem__desc">
-                        <div class="blogItem__desc-header">
-                            <span class="blogItem__type blogItem__type--recipes">Рецепты</span>
-                            <time class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>
-                        </div>
-                        <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>
-                        <div class="blogItem__stats">
-                            <div class="like">
-                                <label class="like__button">
-                                    <input type="checkbox" class="like__input">
-                                    <span class="like__body"></span>
-                                </label>
-                                <span class="like__quantity">10</span>
-                            </div>
-                            <a href="#" class="blogItem__comments">0</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <aside class="section createYours yourNewsletter">
-            <div class="createYours__title"><span class="color-primary">ТВОЯ</span> рассылка!</div>
-            <p class="createYours__text">Самые выгодные цены, крутые акции и персональные предложения в твоей
-                рассылке</p>
-            <form action="#" class="yourNewsletter__form">
-                <input type="text" class="yourNewsletter__form-input" placeholder="Введите свою почту">
-                <button type="submit" class="button button--primary yourNewsletter__form-button">ПОДПИСАТЬСЯ</button>
-            </form>
-        </aside>
+        {{ recommended }}
+        {#        <section class="section">#}
+        {#            <div class="section__header d-flex align-items-center justify-content-between flex-wrap">#}
+        {#                <h2 class="section__title mr-4"><span class="color-primary">Рекомендации</span> лаборатории</h2>#}
+        {#                <a href="#" class="showMore">Смотреть больше</a>#}
+        {#            </div>#}
+        {#            <div class="owl-carousel carousel-3els">#}
+        {#                <div class="blogItem">#}
+        {#                    <a class="blogItem__imgContainer" href="#">#}
+        {#                        <img src="catalog/view/theme/makeme/image/blog1.jpg"#}
+        {#                             data-srcset="#}
+        {#                    catalog/view/theme/makeme/image/blog1.jpg 767w, #}
+        {#                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, #}
+        {#                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w#}
+        {#                  " alt="#" class="lazy blogItem__img">#}
+        {#                    </a>#}
+        {#                    <div class="blogItem__desc">#}
+        {#                        <div class="blogItem__desc-header">#}
+        {#                            <span class="blogItem__type blogItem__type--news">Новости</span>#}
+        {#                            <time class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>#}
+        {#                        </div>#}
+        {#                        <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>#}
+        {#                        <div class="blogItem__stats">#}
+        {#                            <div class="like">#}
+        {#                                <label class="like__button">#}
+        {#                                    <input type="checkbox" class="like__input">#}
+        {#                                    <span class="like__body"></span>#}
+        {#                                </label>#}
+        {#                                <span class="like__quantity">10</span>#}
+        {#                            </div>#}
+        {#                            <a href="#" class="blogItem__comments">0</a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="blogItem">#}
+        {#                    <a class="blogItem__imgContainer" href="#">#}
+        {#                        <img src="catalog/view/theme/makeme/image/blog1.jpg"#}
+        {#                             data-srcset="#}
+        {#                    catalog/view/theme/makeme/image/blog1.jpg 767w, #}
+        {#                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, #}
+        {#                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w#}
+        {#                  " alt="#" class="lazy blogItem__img">#}
+        {#                    </a>#}
+        {#                    <div class="blogItem__desc">#}
+        {#                        <div class="blogItem__desc-header">#}
+        {#                            <span class="blogItem__type blogItem__type--recipes">Рецепты</span>#}
+        {#                            <time class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>#}
+        {#                        </div>#}
+        {#                        <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>#}
+        {#                        <div class="blogItem__stats">#}
+        {#                            <div class="like">#}
+        {#                                <label class="like__button">#}
+        {#                                    <input type="checkbox" class="like__input">#}
+        {#                                    <span class="like__body"></span>#}
+        {#                                </label>#}
+        {#                                <span class="like__quantity">10</span>#}
+        {#                            </div>#}
+        {#                            <a href="#" class="blogItem__comments">0</a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="blogItem">#}
+        {#                    <a class="blogItem__imgContainer" href="#">#}
+        {#                        <img src="catalog/view/theme/makeme/image/blog1.jpg"#}
+        {#                             data-srcset="#}
+        {#                    catalog/view/theme/makeme/image/blog1.jpg 767w, #}
+        {#                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, #}
+        {#                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w#}
+        {#                  " alt="#" class="lazy blogItem__img">#}
+        {#                    </a>#}
+        {#                    <div class="blogItem__desc">#}
+        {#                        <div class="blogItem__desc-header">#}
+        {#                            <span class="blogItem__type blogItem__type--recipes">Рецепты</span>#}
+        {#                            <time class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>#}
+        {#                        </div>#}
+        {#                        <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>#}
+        {#                        <div class="blogItem__stats">#}
+        {#                            <div class="like">#}
+        {#                                <label class="like__button">#}
+        {#                                    <input type="checkbox" class="like__input">#}
+        {#                                    <span class="like__body"></span>#}
+        {#                                </label>#}
+        {#                                <span class="like__quantity">10</span>#}
+        {#                            </div>#}
+        {#                            <a href="#" class="blogItem__comments">0</a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="blogItem">#}
+        {#                    <a class="blogItem__imgContainer" href="#">#}
+        {#                        <img src="catalog/view/theme/makeme/image/blog1.jpg"#}
+        {#                             data-srcset="#}
+        {#                    catalog/view/theme/makeme/image/blog1.jpg 767w, #}
+        {#                    catalog/view/theme/makeme/image/blog1@2x.jpg 1199w, #}
+        {#                    catalog/view/theme/makeme/image/blog1@3x.jpg 1920w#}
+        {#                  " alt="#" class="lazy blogItem__img">#}
+        {#                    </a>#}
+        {#                    <div class="blogItem__desc">#}
+        {#                        <div class="blogItem__desc-header">#}
+        {#                            <span class="blogItem__type blogItem__type--recipes">Рецепты</span>#}
+        {#                            <time class="blogItem__date" datetime="2021-04-26">26 апреля 2021</time>#}
+        {#                        </div>#}
+        {#                        <p class="blogItem__text"><a href="#">Тоник для жирной кожи с экстрактом лаванды и мяты</a></p>#}
+        {#                        <div class="blogItem__stats">#}
+        {#                            <div class="like">#}
+        {#                                <label class="like__button">#}
+        {#                                    <input type="checkbox" class="like__input">#}
+        {#                                    <span class="like__body"></span>#}
+        {#                                </label>#}
+        {#                                <span class="like__quantity">10</span>#}
+        {#                            </div>#}
+        {#                            <a href="#" class="blogItem__comments">0</a>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </section>#}
+        {{ content_bottom }}
     </div>
 
 </main>

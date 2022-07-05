@@ -1,0 +1,8 @@
+<aside class="section createYours yourNewsletter">
+    <div class="createYours__title">{{ banners|first.title }}</div>
+    <p class="createYours__text">{{ banners|first.text }}</p>
+    <form action="{{ banners|first.url }}" class="yourNewsletter__form">
+        <input type="text" class="yourNewsletter__form-input" placeholder="Введите свою почту">
+        <button type="submit" class="button button--primary yourNewsletter__form-button">{{ banners|first.button }}</button>
+    </form>
+</aside>

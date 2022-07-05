@@ -73,12 +73,27 @@ class ControllerExtensionModuleFilterSort extends Controller
         $data = [];
         switch ($settings["template_id"]) {
             case 1: // Поиск
+                $data['search'] = !empty($_GET['s']) ? $_GET['s'] : '';
                 return $this->load->view('extension/module/filter_sort/search', $data);
                 break;
             case 2: // Фильтр по цене
                 return $this->load->view('extension/module/filter_sort/price', $data);
                 break;
             case 3: // Основные фильтры
+
+                $this->load->model('catalog/filter');
+                $filter_groups = $this->model_catalog_filter->getFilterGroupsWithFilters();
+                if (!empty($filter_groups)) {
+                    foreach ($filter_groups as &$filter_group) {
+                        if (!empty($filter_group['filters'])) {
+                            foreach ($filter_group['filters'] as &$filter) {
+                                $filter['selected'] = true;
+                            }
+                        }
+                    }
+                }
+
+                $data['filters_groups'] = $filter_groups;
                 return $this->load->view('extension/module/filter_sort/main', $data);
                 break;
             case 4:

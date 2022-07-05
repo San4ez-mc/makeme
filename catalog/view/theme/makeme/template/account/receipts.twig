@@ -87,14 +87,14 @@
                                         </div>
                                     </div>
                                     <div class="lk__recipes-product-nav">
-                                        <a href="{{ receipt.href }}"
+                                        <a href="{{ receipt.constructor }}"
                                            class="button button--primary lk__recipes-product-viewRecipe">Просмотреть
                                             рецепт</a>
-                                        <a href="#" class="lk__recipes-product-removeRecipe">Удалить рецепт</a>
+                                        <a href="#" data-product_id="{{ receipt.product_id }}" class="lk__recipes-product-removeRecipe removeRecipe">Удалить рецепт</a>
                                         <label class="checkboxEl">
-                                            <input type="checkbox" class="checkboxEl__input" checked>
+                                            <input type="checkbox" class="checkboxEl__input make_recipe_available" checked data-product_id="{{ receipt.product_id }}">
                                             <span class="checkboxEl__body">Сделать рецепт доступным для заказов других пользователей</span>
-                                        </label>
+                                         </label>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -200,3 +200,82 @@
     </div>
 </main>
 {{ footer }}
+<script>
+
+
+    jQuery(document).ready(function ($) { 
+        $('body').on('click', '.removeRecipe', function (e) {
+            e.preventDefault();
+            if(confirm("Вы уверенны,что хотите удалить этот рецепт?")) {
+                console.log('worked2');
+                // let form = $(this).closest('form');
+                // $.ajax({
+                //     type: 'POST',
+                //     dataType: 'json',
+                //     url: 'index.php?route=account/login/login_ajax',
+                //     data: {
+                //         'email': form.find('[name=emailInput]').val(),
+                //         'password': form.find('[name=passowordInput1]').val()
+                //     },
+                //     beforeSend: function (xhr) {
+                //         // form.find('.loader').show();
+                //     },
+                //     success: function (data) {
+                //         if (data.status === 'ok') {
+                //             console.log(data);
+                //             location.reload()
+                //         } else {
+                //             console.log(data);
+                //             let errors_html = '';
+                //             if (Array.isArray(data.errors)) {
+                //                 data.errors.forEach(error => {
+                //                     errors_html += '<span class="error_span" >' + error + '</span>';
+                //                 });
+                //             }else{
+                //                 errors_html += '<span class="error_span" >' + data.errors.warning + '</span>';
+                //             }
+                //
+                //             $('.errors_div').html(errors_html);
+                //         }
+                //     }
+                // });
+            }
+        });
+
+        $('body').on('change', '.make_recipe_available', function (e) {
+            e.preventDefault();
+            console.log('worked');
+            // let form = $(this).closest('form');
+            // $.ajax({
+            //     type: 'POST',
+            //     dataType: 'json',
+            //     url: 'index.php?route=account/login/login_ajax',
+            //     data: {
+            //         'email': form.find('[name=emailInput]').val(),
+            //         'password': form.find('[name=passowordInput1]').val()
+            //     },
+            //     beforeSend: function (xhr) {
+            //         // form.find('.loader').show();
+            //     },
+            //     success: function (data) {
+            //         if (data.status === 'ok') {
+            //             console.log(data);
+            //             location.reload()
+            //         } else {
+            //             console.log(data);
+            //             let errors_html = '';
+            //             if (Array.isArray(data.errors)) {
+            //                 data.errors.forEach(error => {
+            //                     errors_html += '<span class="error_span" >' + error + '</span>';
+            //                 });
+            //             }else{
+            //                 errors_html += '<span class="error_span" >' + data.errors.warning + '</span>';
+            //             }
+            //
+            //             $('.errors_div').html(errors_html);
+            //         }
+            //     }
+            // });
+        });
+    });
+</script>

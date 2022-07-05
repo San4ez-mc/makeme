@@ -94,6 +94,27 @@ class ControllerExtensionModuleBanner extends Controller
 
                     return $this->load->view('extension/module/banners/create_yours', $data);
                     break;
+                case 5: // ТВОЯ рассылка!
+
+                    foreach ($results as $result) {
+//                if (is_file(DIR_IMAGE . $result['image'])) {
+                        $data['banners'][] = array(
+                            'title' => $result['title'],
+                            'text' => $result['text'],
+                            'link' => $result['link'],
+                            'button' => $result['button'],
+                            'image' => is_file(DIR_IMAGE . $result['image']) ? $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']) : ''
+                        );
+//                }
+                    }
+
+                    foreach ($data['banners'] as $key => $banner) {
+                        $data['banners'][$key]['title'] = html_entity_decode($data['banners'][$key]['title']);
+                        $data['banners'][$key]['text'] = html_entity_decode($data['banners'][$key]['text']);
+                    }
+
+                    return $this->load->view('extension/module/banners/your_subscribe', $data);
+                    break;
                 default:
                     foreach ($results as $result) {
                         if (is_file(DIR_IMAGE . $result['image'])) {

@@ -148,28 +148,18 @@ var cart = {
                     .after('<img src="catalog/view/theme/makeme/image/loader.gif" alt="loader" class="loader" width="50px"/>');
             },
             complete: function () {
-               // $('.loader').remove();
-               //  $('.add_to_cart').show()
+                // $('.loader').remove();
+                //  $('.add_to_cart').show()
             },
             success: function (json) {
-
+                // console.log(json['success']);
                 if (json['redirect']) {
                     location = json['redirect'];
                 }
-
                 if (json['success']) {
-                    // $('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-
-                    // Need to set timeout otherwise it wont update the total
-                    // setTimeout(function () {
-                    // 	$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-                    // }, 100);
-                    //
-                    // $('html, body').animate({ scrollTop: 0 }, 'slow');
-
                     $('.basket-quantity').text(json['total']);
-
-                    $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content', function(){
+                    $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content', function () {
+                       console.log('123');
                         $('#modalBasket').modal();
                         $('.loader').remove();
                         $('.add_to_cart').show();
@@ -188,25 +178,28 @@ var cart = {
             data: 'key=' + key + '&quantity=' + (typeof (quantity) != 'undefined' ? quantity : 1),
             dataType: 'json',
             beforeSend: function () {
-                $('#cart > button').button('loading');
+                // $('#cart > button').button('loading');
             },
             complete: function () {
-                $('#cart > button').button('reset');
+                // $('#cart > button').button('reset');
             },
             success: function (json) {
-                // Need to set timeout otherwise it wont update the total
-                setTimeout(function () {
-                    $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-                }, 100);
-
-                if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
-                    location = 'index.php?route=checkout/cart';
-                } else {
-                    $('#cart > ul').load('index.php?route=common/cart/info ul li');
+                console.log(json['success']);
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+                if (json['success']) {
+                    $('.basket-quantity').text(json['total']);
+                    $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content', function () {
+                        console.log('123');
+                        $('#modalBasket').modal();
+                        $('.loader').remove();
+                        $('.add_to_cart').show();
+                    });
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
             }
         });
     },

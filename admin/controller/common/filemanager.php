@@ -244,7 +244,7 @@ class ControllerCommonFileManager extends Controller {
 				}
 			}
 
-			foreach ($files as $file) {
+            foreach ($files as $file) {
 				if (is_file($file['tmp_name'])) {
 					// Sanitize the filename
 					$filename = $this->basename_fixed(html_entity_decode($file['name'], ENT_QUOTES, 'UTF-8'));

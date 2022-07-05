@@ -23,168 +23,178 @@
             <h1 class="section__title">О компонентах</h1>
 
             <nav class="aboutComponents__nav">
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--all">Все</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--active">Активы</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--extracts">Экстракты</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--oils1">Эфирные масла</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--vitamins">Витамины</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--oils2">Базовые масла</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--base">Основы</a>
+                <a href="{{ main_url }}" class="aboutComponents__nav-el aboutComponents__nav-el--all">Все</a>
+                {% for category in categories %}
+                    <a href="{{ category.href }}"
+                       class="aboutComponents__nav-el aboutComponents__nav-el--active {{ category.active ? 'active' : '' }}">{{ category.name }}</a>
+                {% endfor %}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--active">Активы</a>#}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--extracts">Экстракты</a>#}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--oils1">Эфирные масла</a>#}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--vitamins">Витамины</a>#}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--oils2">Базовые масла</a>#}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--base">Основы</a>#}
             </nav>
 
             <div class="row">
                 {% for component in components %}
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="#" class="aboutComponents__el">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                        <a href="#" class="aboutComponents__el">
                         <span class="aboutComponents__el-imgContainer">
                           <img src="{{ component.thumb }}" alt="{{ component.name }}"
                                title="{{ component.name }}" class="lazy aboutComponents__el-img">
                         </span>
-                        <span class="aboutComponents__el-name">{{ component.name }}</span>
-                        <span class="aboutComponents__el-text">{{ component.description }}</span>
-                    </a>
-                </div>
+                            <span class="aboutComponents__el-name">{{ component.name }}</span>
+                            <span class="aboutComponents__el-text">{{ component.description }}</span>
+                        </a>
+                    </div>
                 {% endfor %}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component1.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Экстракт лаванды</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component2.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Экстракт арники</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component3.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Экстракт бадяги</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component4.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component5.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Экстракт лаванды</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component6.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Экстракт арники</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component7.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Экстракт бадяги</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component8.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Экстракт бадяги</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component9.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component10.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component11.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
-{#                    <a href="#" class="aboutComponents__el">#}
-{#                <span class="aboutComponents__el-imgContainer">#}
-{#                  <img src="catalog/view/theme/makeme/image/component12.png" alt="#" class="lazy aboutComponents__el-img">#}
-{#                </span>#}
-{#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
-{#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                    </a>#}
-{#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component1.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Экстракт лаванды</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component2.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Экстракт арники</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component3.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Экстракт бадяги</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component4.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component5.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Экстракт лаванды</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component6.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Экстракт арники</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component7.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Экстракт бадяги</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component8.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Экстракт бадяги</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component9.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component10.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component11.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">#}
+                {#                    <a href="#" class="aboutComponents__el">#}
+                {#                <span class="aboutComponents__el-imgContainer">#}
+                {#                  <img src="catalog/view/theme/makeme/image/component12.png" alt="#" class="lazy aboutComponents__el-img">#}
+                {#                </span>#}
+                {#                        <span class="aboutComponents__el-name">Актив ментол</span>#}
+                {#                        <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+                {#                    </a>#}
+                {#                </div>#}
                 <div class="col-12">
-                    <a href="#" class="button button--stroke button--reload stocks__loadMore">
-                        <span class="button__icon"><i class="fas fa-sync-alt"></i></span>
-                        <span class="button__text">Загрузить еще</span>
-                    </a>
-                    <nav class="pagination">
-                        <a href="#" class="pagination__el active">1</a>
-                        <a href="#" class="pagination__el">2</a>
-                        <a href="#" class="pagination__el">3</a>
-                        <a href="#" class="pagination__el">4</a>
-                        <a href="#" class="pagination__el">...</a>
-                        <a href="#" class="pagination__el">10</a>
-                    </nav>
+                    {#                    <a href="#" class="button button--stroke button--reload stocks__loadMore">#}
+                    {#                        <span class="button__icon"><i class="fas fa-sync-alt"></i></span>#}
+                    {#                        <span class="button__text">Загрузить еще</span>#}
+                    {#                    </a>#}
+
+                    {{ pagination }}
                 </div>
             </div>
         </section>
 
         <aside class="section createYours">
             <div class="createYours__title">Создай <span class="color-primary">свое!</span></div>
-            <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая баночка на 100% индивидуальна.</p>
+            <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая
+                баночка на 100% индивидуальна.</p>
             <a href="#" class="button button--stroke createYours__button">Создать средство</a>
         </aside>
 
         <section class="section seoText">
             <h2 class="section__title">Как создать косметику для себя</h2>
-            <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.</p>
+            <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для
+                восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа,
+                выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут
+                эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что
+                даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно
+                останутся довольные приобретением.</p>
             <div class="collapse" id="seoText__collapse">
                 <p class="seoText__text">
-                    У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.
+                    У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления
+                    повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение
+                    волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут
+                    эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный,
+                    что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и
+                    обязательно останутся довольные приобретением.
                 </p>
             </div>
-            <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="link1 seoText__link">Показать все</a>
+            <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="link1 seoText__link">Показать
+                все</a>
         </section>
     </div>
 </main>

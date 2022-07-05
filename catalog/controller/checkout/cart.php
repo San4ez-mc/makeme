@@ -242,6 +242,7 @@ class ControllerCheckoutCart extends Controller
 //            $data['column_right'] = $this->load->controller('common/column_right');
 //            $data['content_top'] = $this->load->controller('common/content_top');
 //            $data['content_bottom'] = $this->load->controller('common/content_bottom');
+            $data['text_items'] = $this->cart->countProducts();
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');
 
@@ -396,13 +397,15 @@ class ControllerCheckoutCart extends Controller
     {
         $this->load->language('checkout/cart');
 
-        $json = array();
+        $json = ['status'=> 'ok', 'success'=> true];
 
         // Update
-        if (!empty($this->request->post['quantity'])) {
-            foreach ($this->request->post['quantity'] as $key => $value) {
-                $this->cart->update($key, $value);
-            }
+//        if (!empty($this->request->post['quantity'])) {
+        if (!empty($this->request->post['quantity'])  && !empty($this->request->post['key'])) {
+//            foreach ($this->request->post['quantity'] as $key => $value) {
+//                $this->cart->update($key, $value);
+                $this->cart->update($this->request->post['key'], $this->request->post['quantity']);
+//            }
 
             $this->session->data['success'] = $this->language->get('text_remove');
 
@@ -412,7 +415,7 @@ class ControllerCheckoutCart extends Controller
             unset($this->session->data['payment_methods']);
             unset($this->session->data['reward']);
 
-            $this->response->redirect($this->url->link('checkout/cart'));
+//            $this->response->redirect($this->url->link('checkout/cart'));
         }
 
         $this->response->addHeader('Content-Type: application/json');

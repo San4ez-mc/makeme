@@ -1,33 +1,22 @@
 {{ header }}
-<main class="page-content">
+<main class="page-content" id="constructor">
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
                     <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
                         <span itemprop="name">Главная</span>
                         <meta itemprop="position" content="1">
                     </a>
                 </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
                     <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
                         <span itemprop="name">Конструктор</span>
                         <meta itemprop="position" content="2">
                     </a>
                 </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Конструктор</span>
-                        <meta itemprop="position" content="3">
-                    </a>
-                </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Конструктор</span>
-                        <meta itemprop="position" content="4">
-                    </a>
-                </li>
-
             </ul>
             <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
@@ -35,13 +24,15 @@
             <div class="constructor__menu-header d-md-none d-block">
                 <div class="constructor__menu-title">Крем</div>
                 <div class="constructor__menu-forWho">для сухой, возрастной кожи</div>
-                <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы приготовим крем по твоей формуле.</p>
+                <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы приготовим крем по
+                    твоей формуле.</p>
             </div>
             <div class="accordion constructor__menu" id="constructor__menu-accordion">
                 <div class="constructor__menu-header d-md-block d-none">
                     <div class="constructor__menu-title">Крем</div>
                     <div class="constructor__menu-forWho">для сухой, возрастной кожи</div>
-                    <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы приготовим крем по твоей формуле.</p>
+                    <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы приготовим крем
+                        по твоей формуле.</p>
                 </div>
                 <div class="constructor__menu-base">
                     <span class="constructor__menu-base-title">Базовый крем</span>
@@ -50,1438 +41,87 @@
                         <span class="constructor__menu-base-tooltip-body">Добавь в свой флакончик ингридиенты и мы приготовим крем по твоей формуле.</span>
                     </div>
                 </div>
-                <div class="constructor__collapse">
-                    <div class="constructor__collapse-toggle" data-toggle="collapse" data-target="#constructor__components1" aria-expanded="true" role="button">Экстракты</div>
-                    <div class="collapse show" id="constructor__components1" data-parent="#constructor__menu-accordion">
-                        <div class="constructor__collapse-body">
-                            <div class="constructor__menu-list">
-                                <div class="el" id="el1">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
+                {#                старт категорії #}
+                {% set category_index = 1 %}
+                {% for category in categories %}
+                    {% set cat_class='' %}
+                    {% if category.category_id == 6 %}
+                        {% set cat_class='basis' %}
+                    {% endif %}
+                    <div class="constructor__collapse">
+                        <div class="constructor__collapse-toggle" data-toggle="collapse"
+                             data-target="#constructor__components{{ category_index }}" aria-expanded="true"
+                             role="button">{{ category.name }}
+                        </div>
+                        <div class="collapse show" id="constructor__components{{ category_index }}"
+                             data-parent="#constructor__menu-accordion">
+                            <div class="constructor__collapse-body">
+                                <div class="constructor__menu-list">
+                                    {% set i = 1 %}
+                                    {% for component in category.components %}
+                                        <div
+                                                class="el"
+                                                id="el{{ i }}"
+                                                data-component_id="{{ component.component_id }}"
+                                                data-price="{{ component.price_ }}"
+                                        >
+                                            <div class="el__imgContainer">
+                                                <img src="{{ component.thumb }}" alt="{{ component.name }}"
+                                                     class="lazy el__img">
                                             </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el2">
-                                    <div class="el__stock">-10%</div>
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el2.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el3">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el3.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
+                                            <div class="el__tooltip">
+                                                <div class="el__title">{{ component.name }}</div>
+                                                {{ component.description }}
+                                                {#                                        <div class="el__subtitle color-primary">Наша рекомендация</div>#}
+                                                {#                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться.#}
+                                                {#                                            Снижает зуд, раздражение кожи головы.</p>#}
+                                                {#                                        <div class="el__subtitle">Рекомендации:</div>#}
+                                                {#                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться.#}
+                                                {#                                            Снижает зуд, раздражение кожи головы.</p>#}
+                                                {% if component.related|length > 0 %}
+                                                    <div class="el__subtitle">Сочетание:</div>
+                                                    <div class="el__combinations">
+                                                        {% for related in component.related %}
+                                                            <div class="el__combinations-el">
+                                                                <img src="{{ related.thumb }}"
+                                                                     alt="{{ related.name }}"
+                                                                     class="lazy el__combinations-el-img"/>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                                <div class="el__tooltip-footer">
+                                                    <span class="el__tooltip-footer-price">{{ component.price }}</span>
+                                                    <span class="button button--primary button--small el__add {{ cat_class }}">Выбрать</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el4">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el4.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el5">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el5.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el6">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el6.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el7">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el7.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el8">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el8.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el9">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el9.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el10">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el11">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el12">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el13">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
+                                        {% set i = i +1 %}
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="constructor__collapse">
-                    <div class="constructor__collapse-toggle" data-toggle="collapse" data-target="#constructor__components2" aria-expanded="false" role="button">Эфирные масла</div>
-                    <div class="collapse" id="constructor__components2" data-parent="#constructor__menu-accordion">
-                        <div class="constructor__collapse-body">
-                            <div class="constructor__menu-list">
-                                <div class="el" id="el14">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el15">
-                                    <div class="el__stock">-10%</div>
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el16">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el17">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el18">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el19">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el20">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el21">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el22">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="constructor__collapse">
-                    <div class="constructor__collapse-toggle" data-toggle="collapse" data-target="#constructor__components3" aria-expanded="false" role="button">Масла</div>
-                    <div class="collapse" id="constructor__components3" data-parent="#constructor__menu-accordion">
-                        <div class="constructor__collapse-body">
-                            <div class="constructor__menu-list">
-                                <div class="el" id="el23">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el24">
-                                    <div class="el__stock">-10%</div>
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el25">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el26">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el27">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el28">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el29">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el30">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el31">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="constructor__collapse">
-                    <div class="constructor__collapse-toggle" data-toggle="collapse" data-target="#constructor__components4" aria-expanded="false" role="button">Скраби</div>
-                    <div class="collapse" id="constructor__components4" data-parent="#constructor__menu-accordion">
-                        <div class="constructor__collapse-body">
-                            <div class="constructor__menu-list">
-                                <div class="el" id="el23">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el24">
-                                    <div class="el__stock">-10%</div>
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el25">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el26">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el27">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el28">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el29">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el30">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el31">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="constructor__collapse">
-                    <div class="constructor__collapse-toggle" data-toggle="collapse" data-target="#constructor__components5" aria-expanded="false" role="button">Другое</div>
-                    <div class="collapse" id="constructor__components5" data-parent="#constructor__menu-accordion">
-                        <div class="constructor__collapse-body">
-                            <div class="constructor__menu-list">
-                                <div class="el" id="el41">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el42">
-                                    <div class="el__stock">-10%</div>
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el43">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el44">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el45">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el46">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el47">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el48">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="el" id="el49">
-                                    <div class="el__imgContainer">
-                                        <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__img">
-                                    </div>
-                                    <div class="el__tooltip">
-                                        <div class="el__title">Экстракт ментола</div>
-                                        <div class="el__subtitle color-primary">Наша рекомендация</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Рекомендации:</div>
-                                        <p class="el__text">Ментол подарит восхитительную прохладу, поможет проснуться. Снижает зуд, раздражение кожи головы.</p>
-                                        <div class="el__subtitle">Сочетание:</div>
-                                        <div class="el__combinations">
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                            <div class="el__combinations-el">
-                                                <img src="catalog/view/theme/makeme/image/constructor/el1.png" alt="#" class="lazy el__combinations-el-img">
-                                            </div>
-                                        </div>
-                                        <div class="el__tooltip-footer">
-                                            <span class="el__tooltip-footer-price">50 ₴</span>
-                                            <span class="button button--primary button--small el__add">Выбрать</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    {% set category_index = category_index + 1 %}
+                {% endfor %}
             </div>
             <div class="constructor__product">
-                <div class="constructor__product-body">
-                    <div class="constructor__product-el">
-                <span class="constructor__product-el-imgContainer">
-                  <img src="catalog/view/theme/makeme/image/constructor/main.png" alt="#" class="constructor__product-el-img">
-                </span>
-                        <span class="constructor__product-el-name">Основа</span>
-                    </div>
-
+                <video
+                        src="catalog/view/theme/makeme/video/constructor/{{ boxing_id }}/1.webm"
+                        data-video_url="catalog/view/theme/makeme/video/constructor/{{ boxing_id }}"
+                        class="constructor__product-video" id="constructor__product-video"
+                        autoplay=""
+                        loop=""
+                        muted=""
+                ></video>
+                <div class="constructor__product-body constructor__product-body-{{ boxing_id }}">
+{#                    <div class="constructor__product-el">#}
+{#                        <span class="constructor__product-el-imgContainer">#}
+{#                          <img src="catalog/view/theme/makeme/image/constructor/main.png" alt="#"#}
+{#                               class="constructor__product-el-img">#}
+{#                        </span>#}
+{#                        <span class="constructor__product-el-name">Основа</span>#}
+{#                    </div>#}
                 </div>
                 <div class="constructor__components-footer">
                     <div class="constructor__components-sum">
@@ -1493,36 +133,46 @@
                 </div>
                 <div class="toDown">
                     <p class="toDown__text">Этот состав уже хорош, но вы можете улучшить его добавив компоненты</p>
-                    <a href="#constructor__menu-accordion" class="scrollto toDown__button"><img src="catalog/view/theme/makeme/image/constructor/toDown.svg" alt="#" class="toDown__button-img"></a>
+                    <a href="#constructor__menu-accordion" class="scrollto toDown__button">
+                        <img
+                                src="catalog/view/theme/makeme/image/constructor/toDown.svg" alt="#"
+                                class="toDown__button-img"/>
+                    </a>
                 </div>
             </div>
+            <div class="constructor__product-preloader"></div>
             <div class="constructor__components">
                 <div class="color-primary link4 backToComponents">Вернуться к выбору компонентов</div>
                 <div class="constructor__collapse">
-                    <div class="constructor__collapse-toggle" data-toggle="collapse" data-target="#constructor__components" aria-expanded="true" role="button">Компоненты</div>
-                    <div class="collapse show" id="constructor__components">
-                        <div class="constructor__collapse-body">
-                            <div class="constructor__components-el">
-                    <span class="constructor__components-el-imgContainer">
-                      <img src="catalog/view/theme/makeme/image/constructor/main.png" alt="#" class="constructor__components-el-img">
-                    </span>
-                                <span class="constructor__components-el-body">
-                      <span class="constructor__components-el-name">Основа</span>
-                      <span class="constructor__components-el-value">50 ₴</span>
-                    </span>
-                            </div>
-                        </div>
+                    <div class="constructor__collapse-toggle" data-toggle="collapse"
+                         data-target="#constructor__components" aria-expanded="true" role="button">Компоненты
                     </div>
+{#                    <div class="collapse show" id="constructor__components">#}
+{#                        <div class="constructor__collapse-body">#}
+{#                            <div class="constructor__components-el" data-price="{{ basis.price_ }}">#}
+{#                                <span class="constructor__components-el-imgContainer">#}
+{#                                  <img src="{{ basis.image }}" alt="#"#}
+{#                                       class="constructor__components-el-img">#}
+{#                                </span>#}
+{#                                <span class="constructor__components-el-body">#}
+{#                                  <span class="constructor__components-el-name">{{ basis.name }}</span>#}
+{#                                  <span class="constructor__components-el-value">{{ basis.price }}</span>#}
+{#                                </span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
                     <div class="constructor__components-footer">
                         <div class="constructor__components-sum">
                             <span class="constructor__components-sum-type">Всего к оплате</span>
-                            <span class="constructor__components-sum-value">420 ₴</span>
+                            <span class="constructor__components-sum-value">{{ basis.price }}</span>
                         </div>
-                        <a href="#modalProductNaming" class="button button--primary button--small" data-toggle="modal">Создать средство</a>
+                        <a href="#modalProductNaming" class="button button--primary button--small" data-toggle="modal">Создать
+                            средство</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
+{{ constructor_popup }}
 {{ footer }}

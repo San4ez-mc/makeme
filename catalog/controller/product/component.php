@@ -8,7 +8,7 @@ class ControllerProductComponent extends Controller
     {
         $this->load->language('product/component');
 
-        $this->load->model('catalog/category');
+        $this->load->model('catalog/component_category');
 
         $this->load->model('catalog/component');
 
@@ -104,7 +104,7 @@ class ControllerProductComponent extends Controller
                     $path .= '_' . (int)$path_id;
                 }
 
-                $category_info = $this->model_catalog_category->getCategory($path_id);
+                $category_info = $this->model_catalog_component_category->getCategory($path_id);
 
                 if ($category_info) {
                     $data['breadcrumbs'][] = array(
@@ -117,7 +117,7 @@ class ControllerProductComponent extends Controller
             $category_id = 0;
         }
 
-        $category_info = $this->model_catalog_category->getCategory($category_id);
+        $category_info = $this->model_catalog_component_category->getCategory($category_id);
 
 
         $this->document->setTitle($this->language->get('text_title'));
@@ -164,18 +164,24 @@ class ControllerProductComponent extends Controller
 
         $data['categories'] = array();
 
-        $results = $this->model_catalog_category->getCategories();
+        $results = $this->model_catalog_component_category->getCategories();
 
         foreach ($results as $result) {
-            $filter_data = array(
-                'filter_category_id' => $result['category_id'],
-                'filter_sub_category' => true
-            );
+//            $filter_data = array(
+//                'filter_category_id' => $result['category_id'],
+//                'filter_sub_category' => true
+//            );
+
+//            $data['categories'][] = array(
+//                'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_component->getTotalComponents($filter_data) . ')' : ''),
+//                'href' => $this->url->link('product/component',  $url)
+//            );
 
             $data['categories'][] = array(
-                'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_component->getTotalComponents($filter_data) . ')' : ''),
-                'href' => $this->url->link('product/component',  $url)
-            );
+                'name' => $result['name'],
+                'href' => $this->url->link('product/component',  $url) ."&component_category_id=" .$result['category_id'],
+                'active'=> !empty($_GET['component_category_id']) && $_GET['component_category_id'] === $result['category_id']
+            ); 
         }
 
         $data['products'] = array();
@@ -187,6 +193,10 @@ class ControllerProductComponent extends Controller
             'start' => ($page - 1) * $limit,
             'limit' => $limit
         );
+
+        if(!empty($_GET['component_category_id'])){
+            $filter_data['filter_category_id'] = $_GET['component_category_id'];
+        }
 
         $component_total = $this->model_catalog_component->getTotalComponents($filter_data);
 
@@ -356,6 +366,8 @@ class ControllerProductComponent extends Controller
         $data['limit'] = $limit;
 
         $data['continue'] = $this->url->link('common/home');
+
+        $data['main_url'] =  $this->url->link('product/component');
 
         $data['column_left'] = $this->load->controller('product/column_left');
         $data['column_right'] = $this->load->controller('common/column_right');

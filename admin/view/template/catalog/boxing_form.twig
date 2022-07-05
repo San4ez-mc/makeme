@@ -1,0 +1,180 @@
+{{ header }}{{ column_left }}
+<div id="content">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <button type="submit" form="form-manufacturer" data-toggle="tooltip" title="{{ button_save }}"
+                        class="btn btn-primary"><i class="fa fa-save"></i></button>
+                <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i
+                            class="fa fa-reply"></i></a></div>
+            <h1>{{ heading_title }}</h1>
+            <ul class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid"> {% if error_warning %}
+            <div class="alert alert-danger alert-dismissible"><i
+                        class="fa fa-exclamation-circle"></i> {{ error_warning }}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        {% endif %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
+            </div>
+            <div class="panel-body">
+                <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-manufacturer"
+                      class="form-horizontal">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+                        <li><a href="#tab-data" data-toggle="tab">{{ tab_data }}</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-general">
+                            <div class="form-group required">
+                                <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}"
+                                           id="input-name" class="form-control"/>
+                                    {% if error_name %}
+                                        <div class="text-danger">{{ error_name }}</div>
+                                    {% endif %}</div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="tab-data">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">{{ entry_store }}</label>
+                                <div class="col-sm-10">
+                                    <div class="well well-sm"
+                                         style="height: 150px; overflow: auto;"> {% for store in stores %}
+                                            <div class="checkbox">
+                                                <label>{% if store.store_id in boxing_store %}
+                                                        <input type="checkbox" name="boxing_store[]"
+                                                               value="{{ store.store_id }}" checked="checked"/>
+                                                        {{ store.name }}
+                                                    {% else %}
+                                                        <input type="checkbox" name="boxing_store[]"
+                                                               value="{{ store.store_id }}"/>
+                                                        {{ store.name }}
+                                                    {% endif %}</label>
+                                            </div>
+                                        {% endfor %}</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-image">{{ entry_image }}</label>
+                                <div class="col-sm-10">
+                                    <a href="" id="thumb-image" data-toggle="image"
+                                       class="img-thumbnail">
+                                        <img src="{{ thumb }}" alt="" title=""
+                                             data-placeholder="{{ placeholder }}"/></a>
+                                    <input type="hidden" name="image" value="{{ image }}" id="input-image"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-bg-image">{{ entry_bg_image }}</label>
+                                <div class="col-sm-10">
+                                    <a href="" id="thumb-bg-image" data-toggle="image"
+                                       class="img-thumbnail">
+                                        <img src="{{ bg_thumb }}" alt="bg_image" title=""
+                                             data-placeholder="{{ placeholder }}"/></a>
+                                    <input type="hidden" name="bg_image" value="{{ bg_image }}" id="input-bg-image"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="input-sort-order">{{ entry_video_source }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" disabled name="sort_order"
+                                           value="catalog/view/theme/makeme/video/{{ boxing_id }}/"
+                                           placeholder="{{ entry_video_source }}" id="input-sort-order"
+                                           class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="input-sort-order">{{ entry_sort_order }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="sort_order" value="{{ sort_order }}"
+                                           placeholder="{{ entry_sort_order }}" id="input-sort-order"
+                                           class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+    <link href="view/javascript/summernote/summernote.css" rel="stylesheet"/>
+    <script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script>
+    <script type="text/javascript" src="view/javascript/summernote/opencart.js"></script>
+
+    <script type="text/javascript"><!--
+        $('#language a:first').tab('show');
+        //--></script>
+    <script type="text/javascript"><!--
+        $('input[name=\'product_related_input\']').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+                    dataType: 'json',
+                    success: function (json) {
+                        response($.map(json, function (item) {
+                            return {
+                                label: item['name'],
+                                value: item['product_id']
+                            }
+                        }));
+                    }
+                });
+            },
+            select: function (item) {
+                $('input[name=\'product\']').val('');
+
+                $('#product-related' + item['value']).remove();
+
+                $('#product-related').append('<div id="product-related' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_related[]" value="' + item['value'] + '" /></div>');
+            }
+        });
+
+        $('#product-related').delegate('.fa-minus-circle', 'click', function () {
+            $(this).parent().remove();
+        });
+        //--></script>
+    <script type="text/javascript"><!--
+        $('input[name=\'article_related_input\']').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: 'index.php?route=blog/article/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+                    dataType: 'json',
+                    success: function (json) {
+                        response($.map(json, function (item) {
+                            return {
+                                label: item['name'],
+                                value: item['article_id']
+                            }
+                        }));
+                    }
+                });
+            },
+            select: function (item) {
+                $('input[name=\'product\']').val('');
+
+                $('#article-related' + item['value']).remove();
+
+                $('#article-related').append('<div id="article-related' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="article_related[]" value="' + item['value'] + '" /></div>');
+            }
+        });
+
+        $('#article-related').delegate('.fa-minus-circle', 'click', function () {
+            $(this).parent().remove();
+        });
+        //--></script>
+</div>
+{{ footer }}

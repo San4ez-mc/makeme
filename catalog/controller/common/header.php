@@ -98,6 +98,7 @@ class ControllerCommonHeader extends Controller {
 		}
 		$data['search'] = $this->load->controller('common/search');
 		$data['menu'] = $this->load->controller('common/menu');
+		$data['menu_mobile'] = $this->load->controller('common/menu_mobile');
 
         $data['text_items'] = $this->cart->countProducts();
         $data['preloader'] = $this->load->view('common/preloader');

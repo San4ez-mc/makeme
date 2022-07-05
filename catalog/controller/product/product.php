@@ -232,7 +232,9 @@ class ControllerProductProduct extends Controller {
 			} else {
 				$data['heading_title'] = $product_info['name'];
 			}
-			
+
+
+
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
@@ -243,6 +245,7 @@ class ControllerProductProduct extends Controller {
 //			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js');
 //			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
 //			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
+            $this->document->addScript('catalog/view/theme/makeme/scripts/catalog.js', 'footer');
 
 			$data['text_minimum'] = sprintf($this->language->get('text_minimum'), $product_info['minimum']);
 			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true));
@@ -456,6 +459,7 @@ class ControllerProductProduct extends Controller {
 				}
 			}
 
+//            $data['cart'] = $this->load->controller('common/cart');
 			$data['recurrings'] = $this->model_catalog_product->getProfiles($this->request->get['product_id']);
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);

@@ -1,0 +1,29 @@
+<div class="modal fade modalProductNaming" id="modalProductNaming">
+    <div class="modal-dialog">
+        <div class="modal-content text-center">
+            <span data-dismiss="modal" class="modal__close"></span>
+            <div class="section__title">Супер!</div>
+            <p class="text--grey">Мы уже начинаем подготовку к приготовлению твоего средства, осталось только назвать
+                его так как ты хочешь! А мы приготовим и нанесем твое название на баночку :) </p>
+            <form action="#" class="form">
+                <div class="form__field">
+                    <div class="form__field-body">
+                        <input type="text" class="form__field-input" placeholder="">
+                    </div>
+                    <p class="text--grey">*от 1 до 15 знаков</p>
+                </div>
+                <button
+                        class="button button--primary button--small w-100 delayedLinkToBasket"
+                        data-dismiss="modal"
+                        disabled data-toggle="modal"
+                        data-target="#animateBottle"
+                        data-cat="{{ cat }}"
+                        data-subcat="{{ subcat }}"
+                        data-filter_id="{{ filter_id }}"
+                        data-cart_url="{{ shopping_cart }}"
+                >Создать
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

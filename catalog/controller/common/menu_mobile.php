@@ -1,6 +1,6 @@
 <?php
 
-class ControllerCommonMenu extends Controller
+class ControllerCommonMenuMobile extends Controller
 {
     public function index()
     {
@@ -43,7 +43,7 @@ class ControllerCommonMenu extends Controller
             ],
             [
                 'name' => 'Блог',
-                'href' => '#'
+                'href' => $this->url->link('blog/category')
             ],
             [
                 'name' => 'Публичная оферта',

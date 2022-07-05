@@ -3,7 +3,7 @@
         <div class="modal-content">
             {% if products or vouchers %}
                 <span data-dismiss="modal" class="modal__close"></span>
-                <h3 class="section__subtitle ">В корзине 2 товара</h3>
+                <h3 class="section__subtitle ">В корзине {{ text_items }} товар(-а/-ов)</h3>
                 <div class="basket basket--aside pt-0">
                     <div class="lk__order-products">
                         {% for product in products %}
@@ -27,11 +27,15 @@
                                         <button type="button" class="quantityEl__plus">+</button>
                                     </div>
                                     <div class="lk__order-price">
-                                        <span class="lk__order-price-value" data-value="{{ product.total }}">
+                                        <span class="lk__order-price-value"
+                                              data-price="{{ product.unit_price }}"
+                                              data-currency="{{ product.currency }}"
+                                              data-cart_id="{{ product.cart_id }}"
+                                        >
                                             {{ product.total }}
                                         </span>
                                     </div>
-                                    <div class="productCard__remove" data-product_id="{{ product.cart_id }}"></div>
+                                    <div class="productCard__remove" data-product_id="{{ product.cart_id }}" onclick="cart.remove({{ product.cart_id }});"></div>
                                 </div>
                             </div>
                         {% endfor %}

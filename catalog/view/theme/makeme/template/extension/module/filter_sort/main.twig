@@ -1,21 +1,26 @@
-<div class="productFilters__el">
-    <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el1" aria-expanded="true">
-        Основные фильтры
-    </button>
-    <div class="collapse productFilters__el-collapse show" id="productFilters__el1">
-        <div class="productFilters__el-body">
-            <label class="checkboxEl">
-                <input type="checkbox" class="checkboxEl__input" checked>
-                <span class="checkboxEl__body">Выбор экспертов</span>
-            </label>
-            <label class="checkboxEl">
-                <input type="checkbox" class="checkboxEl__input">
-                <span class="checkboxEl__body">Выбор селебритис</span>
-            </label>
-            <label class="checkboxEl">
-                <input type="checkbox" class="checkboxEl__input">
-                <span class="checkboxEl__body">Выбор покупателей</span>
-            </label>
+{% if filters_groups %}
+    {% set index = 1 %}
+    {% for filters_group in filters_groups %}
+        <div class="productFilters__el">
+            <button class="productFilters__el-toggle" type="button" data-toggle="collapse"
+                    data-target="#productFilters__el{{ index }}" aria-expanded="true">
+                {{ filters_group.name }}
+            </button>
+            {% if filters_group.filters %}
+                <div class="collapse productFilters__el-collapse show" id="productFilters__el{{ index }}">
+                    <div class="productFilters__el-body">
+                        <div class="productFilters__el">
+                            {% for filter in filters_group.filters %}
+                                <label class="checkboxEl">
+                                    <input type="checkbox" class="checkboxEl__input" {{ filter.selected ? 'checked' }}>
+                                    <span class="checkboxEl__body">{{ filter.name }}</span>
+                                </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
-    </div>
-</div>
+        {% set index = index + 1 %}
+    {% endfor %}
+{% endif %}
