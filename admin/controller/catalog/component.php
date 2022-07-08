@@ -1751,20 +1751,20 @@ class ControllerCatalogComponent extends Controller {
 	public function autocomplete() {
 		$json = array();
 
-		if (isset($this->request->get['filter_name']) || isset($this->request->get['filter_model'])) {
+		if (isset($this->request->get['component_name']) || isset($this->request->get['component_model'])) {
 			$this->load->model('catalog/component');
 			$this->load->model('catalog/option');
 
-			if (isset($this->request->get['filter_name'])) {
-				$filter_name = $this->request->get['filter_name'];
+			if (isset($this->request->get['component_name'])) {
+				$component_name = $this->request->get['component_name'];
 			} else {
-				$filter_name = '';
+				$component_name = '';
 			}
 
-			if (isset($this->request->get['filter_model'])) {
-				$filter_model = $this->request->get['filter_model'];
+			if (isset($this->request->get['component_model'])) {
+				$component_model = $this->request->get['component_model'];
 			} else {
-				$filter_model = '';
+				$component_model = '';
 			}
 
 			if (isset($this->request->get['limit'])) {
@@ -1773,14 +1773,14 @@ class ControllerCatalogComponent extends Controller {
 				$limit = $this->config->get('config_limit_autocomplete');
 			}
 
-			$filter_data = array(
-				'filter_name'  => $filter_name,
-				'filter_model' => $filter_model,
+			$component_data = array(
+				'component_name'  => $component_name,
+				'component_model' => $component_model,
 				'start'        => 0,
 				'limit'        => $limit
 			);
 
-			$results = $this->model_catalog_component->getComponents($filter_data);
+			$results = $this->model_catalog_component->getComponents($component_data);
 
 			foreach ($results as $result) {
 				$option_data = array();

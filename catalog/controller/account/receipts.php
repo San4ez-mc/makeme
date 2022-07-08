@@ -142,7 +142,8 @@ class ControllerAccountReceipts extends Controller
                 'minimum' => $result['minimum'] > 0 ? $result['minimum'] : 1,
                 'rating' => $result['rating'],
                 'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
-                'constructor' => $this->url->link('constructor/stage1', 'product_id=' . $result['product_id'] . $url)
+                'constructor' => $this->url->link('constructor/stage1', 'product_id=' . $result['product_id'] . $url),
+                'available_to_all' => $result['available_to_all'] == 1
             );
         }
 

@@ -44,9 +44,9 @@ class ControllerAccountLoginPopup extends Controller {
 			}
 		}
 
-		if ($this->customer->isLogged()) {
-			$this->response->redirect($this->url->link('account/account', '', true));
-		}
+//		if ($this->customer->isLogged()) {
+//			$this->response->redirect($this->url->link('account/account', '', true));
+//		}
 
 		$this->load->language('account/login');
 

@@ -270,6 +270,7 @@ class ModelCatalogProduct extends Model {
 		}
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_filter WHERE product_id = '" . (int)$product_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "product_components WHERE product_id = '" . (int)$product_id . "'");
 
 		if (isset($data['main_category_id']) && $data['main_category_id'] > 0) {
 			$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_category WHERE product_id = '" . (int)$product_id . "' AND category_id = '" . (int)$data['main_category_id'] . "'");
@@ -283,6 +284,12 @@ class ModelCatalogProduct extends Model {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "product_filter SET product_id = '" . (int)$product_id . "', filter_id = '" . (int)$filter_id . "'");
 			}
 		}
+
+        if (isset($data['product_components'])) {
+            foreach ($data['product_components'] as $component_id) {
+                $this->db->query("INSERT INTO " . DB_PREFIX . "product_components SET product_id = '" . (int)$product_id . "', component_id = '" . (int)$component_id . "'");
+            }
+        }
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE related_id = '" . (int)$product_id . "'");
@@ -598,6 +605,19 @@ class ModelCatalogProduct extends Model {
 
 		return $product_filter_data;
 	}
+
+
+    public function getProductComponents($product_id) {
+        $product_components_data = array();
+
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_components WHERE product_id = '" . (int)$product_id . "'");
+
+        foreach ($query->rows as $result) {
+            $product_components_data[] = $result['component_id'];
+        }
+
+        return $product_components_data;
+    }
 
 	public function getProductAttributes($product_id) {
 		$product_attribute_data = array();

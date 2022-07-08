@@ -160,7 +160,7 @@ class ModelCatalogComponent extends Model {
 		return $component_id;
 	}
 
-	public function editcomponent($component_id, $data) {
+	public function editComponent($component_id, $data) {
 		$this->db->query("UPDATE " . DB_PREFIX . "component SET model = '" . $this->db->escape($data['model']) . "', sku = '" . $this->db->escape($data['sku']) . "', upc = '" . $this->db->escape($data['upc']) . "', ean = '" . $this->db->escape($data['ean']) . "', jan = '" . $this->db->escape($data['jan']) . "', isbn = '" . $this->db->escape($data['isbn']) . "', mpn = '" . $this->db->escape($data['mpn']) . "', location = '" . $this->db->escape($data['location']) . "', quantity = '" . (int)$data['quantity'] . "', minimum = '" . (int)$data['minimum'] . "', subtract = '" . (int)$data['subtract'] . "', stock_status_id = '" . (int)$data['stock_status_id'] . "', date_available = '" . $this->db->escape($data['date_available']) . "', manufacturer_id = '" . (int)$data['manufacturer_id'] . "', shipping = '" . (int)$data['shipping'] . "', price = '" . (float)$data['price'] . "', points = '" . (int)$data['points'] . "', weight = '" . (float)$data['weight'] . "', weight_class_id = '" . (int)$data['weight_class_id'] . "', length = '" . (float)$data['length'] . "', width = '" . (float)$data['width'] . "', height = '" . (float)$data['height'] . "', length_class_id = '" . (int)$data['length_class_id'] . "', status = '" . (int)$data['status'] . "', noindex = '" . (int)$data['noindex'] . "', tax_class_id = '" . (int)$data['tax_class_id'] . "', sort_order = '" . (int)$data['sort_order'] . "', date_modified = NOW() WHERE component_id = '" . (int)$component_id . "'");
 
 		if (isset($data['image'])) {
@@ -343,7 +343,7 @@ class ModelCatalogComponent extends Model {
 		}
 	}
 	
-	public function editcomponentStatus($component_id, $status) {
+	public function editComponentStatus($component_id, $status) {
         $this->db->query("UPDATE " . DB_PREFIX . "component SET status = '" . (int)$status . "', date_modified = NOW() WHERE component_id = '" . (int)$component_id . "'");
         
 		$this->cache->delete('component');
@@ -388,7 +388,7 @@ class ModelCatalogComponent extends Model {
 		}
 	}
 
-	public function deletecomponent($component_id) {
+	public function deleteComponent($component_id) {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component WHERE component_id = '" . (int)$component_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component_attribute WHERE component_id = '" . (int)$component_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "component_description WHERE component_id = '" . (int)$component_id . "'");

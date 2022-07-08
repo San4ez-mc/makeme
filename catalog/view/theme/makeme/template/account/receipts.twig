@@ -3,21 +3,18 @@
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Главная</span>
-                        <meta itemprop="position" content="1">
-                    </a>
-                </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Личный кабинет</span>
-                        <meta itemprop="position" content="2">
-                    </a>
-                </li>
-
+                {% for breadcrumb in breadcrumbs %}
+                    {% set counter = 1 %}
+                    {#                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>#}
+                    <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                            <span itemprop="name">{{ breadcrumb.text }}</span>
+                            <meta itemprop="position" content="{{ counter }}">
+                        </a>
+                    </li>
+                    {% set counter = counter  + 1 %}
+                {% endfor %}
             </ul>
             <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
@@ -32,10 +29,10 @@
                                 <span class="lk__nav-user-avatar-body"></span>
                             </label>
                             <span class="lk__nav-user-info">
-                     <span class="lk__nav-user-name">{{ customer.firstname }}</span>
+                                <span class="lk__nav-user-name">{{ customer.firstname }}</span>
                                 <a href="mailto:{{ customer.email }}"
                                    class="lk__nav-user-email">{{ customer.email }}</a>
-                  </span>
+                            </span>
                         </div>
                         {{ menu }}
                     </aside>
@@ -90,11 +87,17 @@
                                         <a href="{{ receipt.constructor }}"
                                            class="button button--primary lk__recipes-product-viewRecipe">Просмотреть
                                             рецепт</a>
-                                        <a href="#" data-product_id="{{ receipt.product_id }}" class="lk__recipes-product-removeRecipe removeRecipe">Удалить рецепт</a>
+                                        <a href="#" data-product_id="{{ receipt.product_id }}"
+                                           class="lk__recipes-product-removeRecipe removeRecipe">Удалить рецепт</a>
                                         <label class="checkboxEl">
-                                            <input type="checkbox" class="checkboxEl__input make_recipe_available" checked data-product_id="{{ receipt.product_id }}">
+                                            <input
+                                                    type="checkbox"
+                                                    class="checkboxEl__input make_recipe_available"
+                                                    {{ receipt.available_to_all ? 'checked' : '' }}
+                                                    data-product_id="{{ receipt.product_id }}"
+                                            >
                                             <span class="checkboxEl__body">Сделать рецепт доступным для заказов других пользователей</span>
-                                         </label>
+                                        </label>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -203,79 +206,59 @@
 <script>
 
 
-    jQuery(document).ready(function ($) { 
+    jQuery(document).ready(function ($) {
         $('body').on('click', '.removeRecipe', function (e) {
             e.preventDefault();
-            if(confirm("Вы уверенны,что хотите удалить этот рецепт?")) {
+            if (confirm("Вы уверенны,что хотите удалить этот рецепт?")) {
                 console.log('worked2');
-                // let form = $(this).closest('form');
-                // $.ajax({
-                //     type: 'POST',
-                //     dataType: 'json',
-                //     url: 'index.php?route=account/login/login_ajax',
-                //     data: {
-                //         'email': form.find('[name=emailInput]').val(),
-                //         'password': form.find('[name=passowordInput1]').val()
-                //     },
-                //     beforeSend: function (xhr) {
-                //         // form.find('.loader').show();
-                //     },
-                //     success: function (data) {
-                //         if (data.status === 'ok') {
-                //             console.log(data);
-                //             location.reload()
-                //         } else {
-                //             console.log(data);
-                //             let errors_html = '';
-                //             if (Array.isArray(data.errors)) {
-                //                 data.errors.forEach(error => {
-                //                     errors_html += '<span class="error_span" >' + error + '</span>';
-                //                 });
-                //             }else{
-                //                 errors_html += '<span class="error_span" >' + data.errors.warning + '</span>';
-                //             }
-                //
-                //             $('.errors_div').html(errors_html);
-                //         }
-                //     }
-                // });
+                let button = $(this);
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: 'index.php?route=constructor/constructor/delete-ajax',
+                    data: {
+                        'product_id': button.attr('data-product_id')
+                    },
+                    beforeSend: function (xhr) {
+                        // form.find('.loader').show();
+                    },
+                    success: function (data) {
+                        if (data.status === 'ok') {
+                            console.log(data);
+                            location.reload()
+                        } else {
+                            console.log(data);
+                        }
+                    }
+                });
             }
         });
 
         $('body').on('change', '.make_recipe_available', function (e) {
             e.preventDefault();
-            console.log('worked');
-            // let form = $(this).closest('form');
-            // $.ajax({
-            //     type: 'POST',
-            //     dataType: 'json',
-            //     url: 'index.php?route=account/login/login_ajax',
-            //     data: {
-            //         'email': form.find('[name=emailInput]').val(),
-            //         'password': form.find('[name=passowordInput1]').val()
-            //     },
-            //     beforeSend: function (xhr) {
-            //         // form.find('.loader').show();
-            //     },
-            //     success: function (data) {
-            //         if (data.status === 'ok') {
-            //             console.log(data);
-            //             location.reload()
-            //         } else {
-            //             console.log(data);
-            //             let errors_html = '';
-            //             if (Array.isArray(data.errors)) {
-            //                 data.errors.forEach(error => {
-            //                     errors_html += '<span class="error_span" >' + error + '</span>';
-            //                 });
-            //             }else{
-            //                 errors_html += '<span class="error_span" >' + data.errors.warning + '</span>';
-            //             }
-            //
-            //             $('.errors_div').html(errors_html);
-            //         }
-            //     }
-            // });
+            let button = $(this);
+            let checked = button.prop('checked');
+
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: 'index.php?route=constructor/constructor/make-public-ajax',
+                data: {
+                    product_id: button.attr('data-product_id'),
+                    public: checked ? 1 : 0
+                },
+                beforeSend: function (xhr) {
+                    // form.find('.loader').show();
+                },
+                success: function (data) {
+                    // if (data.status === 'ok') {
+                    //     console.log(data);
+                    //     location.reload()
+                    // } else {
+                    console.log(data);
+                    // }
+                }
+            });
         });
     });
 </script>

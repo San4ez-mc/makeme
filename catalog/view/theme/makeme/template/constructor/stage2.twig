@@ -22,20 +22,22 @@
         </nav>
         <div class="constructor">
             <div class="constructor__menu-header d-md-none d-block">
-                <div class="constructor__menu-title">Крем</div>
+                <div class="constructor__menu-title">{{ subcat.name }}</div>
                 <div class="constructor__menu-forWho">для сухой, возрастной кожи</div>
-                <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы приготовим крем по
+                <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы
+                    приготовим {{ subcat.name }} по
                     твоей формуле.</p>
             </div>
             <div class="accordion constructor__menu" id="constructor__menu-accordion">
                 <div class="constructor__menu-header d-md-block d-none">
-                    <div class="constructor__menu-title">Крем</div>
+                    <div class="constructor__menu-title">{{ subcat.name }}</div>
                     <div class="constructor__menu-forWho">для сухой, возрастной кожи</div>
-                    <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы приготовим крем
+                    <p class="text--simple font-weight-medium">Добавь в свой флакончик ингридиенты и мы
+                        приготовим {{ subcat.name }}
                         по твоей формуле.</p>
                 </div>
                 <div class="constructor__menu-base">
-                    <span class="constructor__menu-base-title">Базовый крем</span>
+                    <span class="constructor__menu-base-title">{{ subcat.name }}</span>
                     <div class="constructor__menu-base-tooltip">
                         <span class="constructor__menu-base-tooltip-toggle"></span>
                         <span class="constructor__menu-base-tooltip-body">Добавь в свой флакончик ингридиенты и мы приготовим крем по твоей формуле.</span>
@@ -115,13 +117,13 @@
                         muted=""
                 ></video>
                 <div class="constructor__product-body constructor__product-body-{{ boxing_id }}">
-{#                    <div class="constructor__product-el">#}
-{#                        <span class="constructor__product-el-imgContainer">#}
-{#                          <img src="catalog/view/theme/makeme/image/constructor/main.png" alt="#"#}
-{#                               class="constructor__product-el-img">#}
-{#                        </span>#}
-{#                        <span class="constructor__product-el-name">Основа</span>#}
-{#                    </div>#}
+                    {#                    <div class="constructor__product-el">#}
+                    {#                        <span class="constructor__product-el-imgContainer">#}
+                    {#                          <img src="catalog/view/theme/makeme/image/constructor/main.png" alt="#"#}
+                    {#                               class="constructor__product-el-img">#}
+                    {#                        </span>#}
+                    {#                        <span class="constructor__product-el-name">Основа</span>#}
+                    {#                    </div>#}
                 </div>
                 <div class="constructor__components-footer">
                     <div class="constructor__components-sum">
@@ -147,20 +149,20 @@
                     <div class="constructor__collapse-toggle" data-toggle="collapse"
                          data-target="#constructor__components" aria-expanded="true" role="button">Компоненты
                     </div>
-{#                    <div class="collapse show" id="constructor__components">#}
-{#                        <div class="constructor__collapse-body">#}
-{#                            <div class="constructor__components-el" data-price="{{ basis.price_ }}">#}
-{#                                <span class="constructor__components-el-imgContainer">#}
-{#                                  <img src="{{ basis.image }}" alt="#"#}
-{#                                       class="constructor__components-el-img">#}
-{#                                </span>#}
-{#                                <span class="constructor__components-el-body">#}
-{#                                  <span class="constructor__components-el-name">{{ basis.name }}</span>#}
-{#                                  <span class="constructor__components-el-value">{{ basis.price }}</span>#}
-{#                                </span>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+                    <div class="collapse show" id="constructor__components">
+                        <div class="constructor__collapse-body">
+                            {#                            <div class="constructor__components-el" data-price="{{ basis.price_ }}">#}
+                            {#                                <span class="constructor__components-el-imgContainer">#}
+                            {#                                  <img src="{{ basis.image }}" alt="#"#}
+                            {#                                       class="constructor__components-el-img">#}
+                            {#                                </span>#}
+                            {#                                <span class="constructor__components-el-body">#}
+                            {#                                  <span class="constructor__components-el-name">{{ basis.name }}</span>#}
+                            {#                                  <span class="constructor__components-el-value">{{ basis.price }}</span>#}
+                            {#                                </span>#}
+                            {#                            </div>#}
+                        </div>
+                    </div>
                     <div class="constructor__components-footer">
                         <div class="constructor__components-sum">
                             <span class="constructor__components-sum-type">Всего к оплате</span>

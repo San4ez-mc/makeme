@@ -57,7 +57,9 @@
 </head>
 <body>
 <div class="page-wrapper">
-    <video src="catalog/view/theme/makeme/video/fon.webm" class="videoBG" id="videoBG" autoplay loop muted></video>
+    {% if route != 'constructor/stage2' %}
+        <video src="catalog/view/theme/makeme/video/fon.webm" class="videoBG" id="videoBG" autoplay loop muted></video>
+    {% endif %}
     {{ preloader }}
     <header class="page-header" itemscope itemtype="https://schema.org/WPHeader" id="header">
         <div class="container">
@@ -111,7 +113,8 @@
                 <nav class="page-header__buttons">
                     <a href="#modalLogin" data-toggle="modal"
                        class="page-header__buttons-el page-header__buttons-el--user"></a>
-                    <a href="#modalLogin" data-toggle="modal" class="page-header__buttons-el page-header__buttons-el--likes"></a>
+                    <a href="#modalLogin" data-toggle="modal"
+                       class="page-header__buttons-el page-header__buttons-el--likes"></a>
                     <a href="{{ shopping_cart }}" class="page-header__buttons-el page-header__buttons-el--basket">
                         <span class="basket-quantity">{{ text_items }}</span>
                     </a>

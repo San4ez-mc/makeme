@@ -99,8 +99,12 @@ class ControllerConstructorStage2 extends Controller
 
         if (!empty($_GET['cat']) && !empty($_GET['subcat'])) {
             $this->load->model('catalog/category');
+
             $boxing = $this->model_catalog_category->getCategoryBoxing($_GET['subcat']);
+
             $data['boxing_id'] = $boxing['id'];
+            $data['subcat'] = $this->model_catalog_category->getCategory($_GET['subcat']);
+
         }
 
         $data['articles'] = $this->model_blog_article->getArticles($filter_data);

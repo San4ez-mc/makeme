@@ -102,6 +102,7 @@ class ControllerCommonHeader extends Controller {
 
         $data['text_items'] = $this->cart->countProducts();
         $data['preloader'] = $this->load->view('common/preloader');
+        $data['route'] = $_GET['route'];
 
         return $this->load->view('common/header', $data);
 	}

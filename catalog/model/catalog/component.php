@@ -533,7 +533,8 @@ class ModelCatalogComponent extends Model
                      (SELECT lcd.unit FROM " . DB_PREFIX . "length_class_description lcd WHERE p.length_class_id = lcd.length_class_id AND lcd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS length_class,
                       (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating,
                        (SELECT COUNT(*) AS total FROM " . DB_PREFIX . "review r2 WHERE r2.product_id = p.product_id AND r2.status = '1' GROUP BY r2.product_id) AS reviews,
-                        p.sort_order 
+                        p.sort_order,
+                         p.available_to_all 
                         FROM " . DB_PREFIX . "product p 
                         LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) 
                         LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)
@@ -589,7 +590,8 @@ class ModelCatalogComponent extends Model
                 'status' => $query->row['status'],
                 'date_added' => $query->row['date_added'],
                 'date_modified' => $query->row['date_modified'],
-                'viewed' => $query->row['viewed']
+                'viewed' => $query->row['viewed'],
+                'available_to_all' => $query->row['available_to_all']
             );
         } else {
             return false;
@@ -598,10 +600,33 @@ class ModelCatalogComponent extends Model
 
     public function getReceipts($data = array())
     {
-        $sql = "SELECT p.product_id, 
-                (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating,
-                  (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount,
-                   (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";
+        $sql = "SELECT 
+                    p.product_id, 
+                    (
+                        SELECT AVG(rating) AS total 
+                        FROM " . DB_PREFIX . "review r1
+                        WHERE r1.product_id = p.product_id 
+                        AND r1.status = '1' 
+                        GROUP BY r1.product_id) AS rating,
+                    (
+                        SELECT price 
+                        FROM " . DB_PREFIX . "product_discount pd2 
+                        WHERE pd2.product_id = p.product_id 
+                        AND pd2.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' 
+                        AND pd2.quantity = '1' 
+                        AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) 
+                        AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())
+                    ) 
+                    ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount,
+                   (
+                        SELECT price 
+                        FROM " . DB_PREFIX . "product_special ps 
+                        WHERE ps.product_id = p.product_id 
+                        AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' 
+                        AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) 
+                        AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())
+                   ) 
+                   ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";
 
         if (!empty($data['filter_category_id'])) {
             if (!empty($data['filter_sub_category'])) {
@@ -693,6 +718,10 @@ class ModelCatalogComponent extends Model
             $sql .= ")";
         }
 
+        if (!empty($this->session->data['user_id'])) {
+            $sql .= " AND p.receipt_author_id = '" . (int)$this->session->data['user_id'] . "'";
+        }
+
         if (!empty($data['filter_manufacturer_id'])) {
             $sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
         }
@@ -754,7 +783,7 @@ class ModelCatalogComponent extends Model
     {
         $model = $this->createModel($data['name']);
 
-        $this->db->query("INSERT INTO " . DB_PREFIX . "product SET model = '" . $this->db->escape($model) . "', sku = '" . $this->db->escape($data['sku']) . "', upc = '" . $this->db->escape($data['upc']) . "', ean = '" . $this->db->escape($data['ean']) . "', jan = '" . $this->db->escape($data['jan']) . "', isbn = '" . $this->db->escape($data['isbn']) . "', mpn = '" . $this->db->escape($data['mpn']) . "', location = '" . $this->db->escape($data['location']) . "', quantity = '" . (int)$data['quantity'] . "', minimum = '" . (int)$data['minimum'] . "', subtract = '" . (int)$data['subtract'] . "', stock_status_id = '" . (int)$data['stock_status_id'] . "', date_available = '" . $this->db->escape($data['date_available']) . "', manufacturer_id = '" . (int)$data['manufacturer_id'] . "', shipping = '" . (int)$data['shipping'] . "', price = '" . (float)$data['price'] . "', points = '" . (int)$data['points'] . "', weight = '" . (float)$data['weight'] . "', weight_class_id = '" . (int)$data['weight_class_id'] . "', length = '" . (float)$data['length'] . "', width = '" . (float)$data['width'] . "', height = '" . (float)$data['height'] . "', length_class_id = '" . (int)$data['length_class_id'] . "', status = '" . (int)$data['status'] . "', noindex = '" . (int)$data['noindex'] . "', tax_class_id = '" . (int)$data['tax_class_id'] . "', sort_order = '" . (int)$data['sort_order'] . "', is_receipt = '" . (int)$data['is_receipt'] ."', receipt_author_id = '" . (int)$data['receipt_author_id'] ."', date_added = NOW(), date_modified = NOW()");
+        $this->db->query("INSERT INTO " . DB_PREFIX . "product SET model = '" . $this->db->escape($model) . "', sku = '" . $this->db->escape($data['sku']) . "', upc = '" . $this->db->escape($data['upc']) . "', ean = '" . $this->db->escape($data['ean']) . "', jan = '" . $this->db->escape($data['jan']) . "', isbn = '" . $this->db->escape($data['isbn']) . "', mpn = '" . $this->db->escape($data['mpn']) . "', location = '" . $this->db->escape($data['location']) . "', quantity = '" . (int)$data['quantity'] . "', minimum = '" . (int)$data['minimum'] . "', subtract = '" . (int)$data['subtract'] . "', stock_status_id = '" . (int)$data['stock_status_id'] . "', date_available = '" . $this->db->escape($data['date_available']) . "', manufacturer_id = '" . (int)$data['manufacturer_id'] . "', shipping = '" . (int)$data['shipping'] . "', price = '" . (float)$data['price'] . "', points = '" . (int)$data['points'] . "', weight = '" . (float)$data['weight'] . "', weight_class_id = '" . (int)$data['weight_class_id'] . "', length = '" . (float)$data['length'] . "', width = '" . (float)$data['width'] . "', height = '" . (float)$data['height'] . "', length_class_id = '" . (int)$data['length_class_id'] . "', status = '" . (int)$data['status'] . "', noindex = '" . (int)$data['noindex'] . "', tax_class_id = '" . (int)$data['tax_class_id'] . "', sort_order = '" . (int)$data['sort_order'] . "', is_receipt = '" . (int)$data['is_receipt'] . "', receipt_author_id = '" . (int)$data['receipt_author_id'] . "', date_added = NOW(), date_modified = NOW()");
 
         $product_id = $this->db->getLastId();
 
@@ -900,6 +929,11 @@ class ModelCatalogComponent extends Model
             }
         }
 
+        if (!empty($components)) {
+            foreach ($components as $component_id) {
+                $this->db->query("INSERT INTO " . DB_PREFIX . "product_components SET product_id = '" . (int)$product_id . "', component_id = '" . (int)$component_id . "'");
+            }
+        }
 
         $this->cache->delete('product');
 

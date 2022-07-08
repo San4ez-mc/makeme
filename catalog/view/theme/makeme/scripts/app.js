@@ -377,8 +377,8 @@ $('.constructorTabs__nav-el').on('click', function () {
 })
 
 $('.constructor__menu-list').on('click', '.el__add', function () {
-    const amount = $('.constructor__menu .el.active').length;
-    if (amount < 4 && !$(this).closest('.el').hasClass('active')) {
+    const amount = $('.added_component').length;
+    if (amount < 5 && !$(this).closest('.el').hasClass('active')) {
         // $('.constructor__product-body').addClass('active');
         $('.constructor__product').hide();
         $('.constructor__product-preloader').show();
@@ -411,6 +411,16 @@ $('.constructor__menu-list').on('click', '.el__add', function () {
             </div>
         `);
 
+        // обрахунок нової ціни
+        let total_price = 0;
+        const total_span = $('.constructor__components-sum-value');
+        const currency = total_span.text().substring(total_span.text().length - 1);
+        $('.added_component').each(function (index) {
+            total_price += parseInt($(this).attr('data-price'));
+        })
+        $('.constructor__components-sum-value').text(total_price + currency);
+        $('.constructor__components-sum-value').attr('data-total', total_price);
+
         // додавання зображення компонента і стрілки біля тари
         $('.constructor__product-body').append(`
             <div class="constructor__product-el" data-id="${id}">
@@ -422,7 +432,7 @@ $('.constructor__menu-list').on('click', '.el__add', function () {
          `);
 
         // заміна відео
-        $('#constructor__product-video').attr('src', video_src + '/' + (parseInt(amount) + 2) + '.webm');
+        $('#constructor__product-video').attr('src', video_src + '/' + (parseInt(amount) + 1) + '.webm');
 
         setTimeout(function () {
             $('.constructor__product-preloader').hide();
@@ -440,6 +450,8 @@ $('.constructor__components').on('click', '.constructor__components-el-remove', 
             $('.constructor__menu .el').eq(i).removeClass('active');
         }
     }
+
+    // видалення поряд з баночкою
     for (let i = 0; i < $('.constructor__product-el').length; i++) {
         if ($(this).closest('.constructor__components-el').data('id') == $('.constructor__product-el').eq(i).data('id')) {
             $('.constructor__product-el').eq(i).remove();
@@ -495,6 +507,7 @@ $(function () {
         const subcat = button.attr('data-subcat');
         const filter_id = button.attr('data-filter_id');
         const cart_url = button.attr('data-cart_url');
+        const total = $('.constructor__components-sum-value').attr('data-total');
         let components_ids = [];
         $('.added_component').each(function (index) {
             components_ids.push($(this).attr('data-component_id'))
@@ -505,7 +518,8 @@ $(function () {
             cat: cat,
             subcat: subcat,
             filter_id: filter_id,
-            components: components_ids
+            components: components_ids,
+            total: total
         }
 
         $.ajax({
@@ -570,3 +584,7 @@ $('#modalShureRemove')
 // if($('.videoBG').length) {
 //   document.getElementsByClassName('.videoBG').play();
 // }
+
+$(document).on('click', '.make_recipe_available', function () {
+   console.log('12321332');
+});
