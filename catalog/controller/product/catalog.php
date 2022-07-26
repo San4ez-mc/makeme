@@ -208,6 +208,7 @@ class ControllerProductCatalog extends Controller
         $results = $this->model_catalog_product->getProducts($filter_data);
 
         $this->load->model('account/customer');
+        $this->load->model('account/wishlist');
 
         foreach ($results as $result) {
             if ($result['image']) {
@@ -258,7 +259,8 @@ class ControllerProductCatalog extends Controller
                 'rating' => $result['rating'],
                 'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
                 'is_receipt' => $result['is_receipt'],
-                'author_name' => !empty($customer) ? $customer['firstname'] . ' ' . $customer['lastname'] : ''
+                'author_name' => !empty($customer) ? $customer['firstname'] . ' ' . $customer['lastname'] : '',
+                'in_wishlist' => $this->model_account_wishlist->isInWishlist($result['product_id'])
             );
         }
 
@@ -404,6 +406,7 @@ class ControllerProductCatalog extends Controller
         $this->document->addScript('catalog/view/theme/makeme/scripts/catalog.js', 'footer');
 
         $data['continue'] = $this->url->link('common/home');
+        $data['logged'] = $this->customer->isLogged();
 
         $data['column_left'] = $this->load->controller('product/column_left');
         $data['column_right'] = $this->load->controller('common/column_right');

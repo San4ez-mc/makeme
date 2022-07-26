@@ -50,6 +50,23 @@ jQuery(document).ready(function ($) {
             );
         }
     });
+
+    // jQuery(document).ready(function ($) {
+    $('body').on('click', '.add_to_cart', function (e) {
+        e.preventDefault();
+        cart.add($(this).attr('data-product_id'), $('.product_quantity').val());
+    });
+
+    $('body').on('change', '.add_to_wishlist', function (e) {
+        e.preventDefault();
+        if (!$(this).is(':checked')) {
+            console.log('1231111');
+            wishlist.remove($(this).attr('data-product_id'));
+        } else {
+            wishlist.add($(this).attr('data-product_id'));
+        }
+    });
+    // })
 });
 
 function objectToQueryString(obj) {

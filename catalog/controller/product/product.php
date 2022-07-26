@@ -370,6 +370,19 @@ class ControllerProductProduct extends Controller
                 $data['minimum'] = 1;
             }
 
+            if ($product_info['is_receipt']) {
+                $data['is_receipt'] = $product_info['is_receipt'];
+            } else {
+                $data['is_receipt'] = false;
+            }
+
+            if ($product_info['product_id']) {
+                $this->load->model('account/wishlist');
+                $data['in_wishlist'] = $this->model_account_wishlist->isInWishlist($product_info['product_id']);
+            } else {
+                $data['in_wishlist'] = false;
+            }
+
             $data['review_status'] = $this->config->get('config_review_status');
 
             if ($this->config->get('config_review_guest') || $this->customer->isLogged()) {
@@ -463,6 +476,10 @@ class ControllerProductProduct extends Controller
                     $rating = false;
                 }
 
+                if (!empty($result['receipt_author_id'])) {
+                    $customer = $this->model_account_customer->getCustomer($result['receipt_author_id']);
+                }
+
                 $data['products'][] = array(
                     'product_id' => $result['product_id'],
                     'thumb' => $image,
@@ -473,7 +490,11 @@ class ControllerProductProduct extends Controller
                     'tax' => $tax,
                     'minimum' => $result['minimum'] > 0 ? $result['minimum'] : 1,
                     'rating' => $rating,
-                    'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+                    'href' => $this->url->link('product/product', 'product_id=' . $result['product_id']),
+                    'is_receipt' => $result['is_receipt'],
+                    'author_name' => !empty($customer) ? $customer['firstname'] . ' ' . $customer['lastname'] : '',
+                    'in_wishlist' => $this->model_account_wishlist->isInWishlist($result['product_id'])
+
                 );
             }
 
@@ -492,6 +513,7 @@ class ControllerProductProduct extends Controller
 
 //            $data['cart'] = $this->load->controller('common/cart');
             $data['recurrings'] = $this->model_catalog_product->getProfiles($this->request->get['product_id']);
+            $data['logged'] = $this->customer->isLogged();
 
             $this->model_catalog_product->updateViewed($this->request->get['product_id']);
 
