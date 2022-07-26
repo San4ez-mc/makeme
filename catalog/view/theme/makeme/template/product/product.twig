@@ -1,5 +1,5 @@
 {{ header }}
-<main class="page-content">
+<main class="page-content" id="product_page">
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -67,10 +67,17 @@
                         {% else %}
                             {% set product_minimum = product.minimum %}
                         {% endif %}
-                        <button type="button" class="quantityEl__minus">-</button>
-                        <input type="number" value="1" min="{{ product_minimum }}" max="1000"
-                               class="quantityEl__input product_quantity">
-                        <button type="button" class="quantityEl__plus">+</button>
+                        <button type="button" class="quantityEl__minus not_add_to_cart">-</button>
+                        <input
+                                type="number"
+                                value="1"
+                                min="{{ product_minimum }}"
+                                max="1000"
+                                class="quantityEl__input product_quantity"
+                                data-price="{{ price_ }}"
+                                data-currency="{{ currency }}"
+                        >
+                        <button type="button" class="quantityEl__plus not_add_to_cart">+</button>
                     </div>
                     <label class="like">
                         <input type="checkbox" class="like__input add_to_wishlist"
@@ -92,45 +99,6 @@
                 <div class="col-lg-5">
                     <div class="contentBlock productBig__about">
                         {{ description }}
-                        {#                        <h2 class="section__subtitle">Состав</h2>#}
-                        {#                        <p class="productBig__about-compound">Базовый крем для сухой кожи лица, Экстракт кокоса,#}
-                        {#                            Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
-
-                        {#                        <div class="productBig__about-el">#}
-                        {#                            <h3 class="productBig__about-el-title">Способ применения:#}
-                        {#                            </h3>#}
-                        {#                            <p class="productBig__about-el-text">Фито-крем рекомендуется использовать ежедневно. Нанося#}
-                        {#                                утром и вечером на слегка влажную кожу лица и тела по массажным линиям. Дать#}
-                        {#                                впитаться.</p>#}
-                        {#                        </div>#}
-
-                        {#                        <div class="productBig__about-el">#}
-                        {#                            <h3 class="productBig__about-el-title">Описание действия продукта:#}
-                        {#                            </h3>#}
-                        {#                            <p class="productBig__about-el-text">Фито-крем рекомендуется использовать ежедневно. Нанося#}
-                        {#                                утром и вечером на слегка влажную кожу лица и тела по массажным линиям. Дать#}
-                        {#                                впитаться.</p>#}
-                        {#                        </div>#}
-
-                        {#                        <div class="productBig__about-el">#}
-                        {#                            <h3 class="productBig__about-el-title">Условия и сроки хранения:#}
-                        {#                            </h3>#}
-                        {#                            <p class="productBig__about-el-text">Фито-крем рекомендуется использовать ежедневно. Нанося#}
-                        {#                                утром и вечером на слегка влажную кожу лица и тела по массажным линиям. Дать#}
-                        {#                                впитаться.</p>#}
-                        {#                        </div>#}
-
-                        {#                        <div class="collapse" id="infoCollapse">#}
-                        {#                            <div class="colapse__body">#}
-                        {#                                <div class="productBig__about-el">#}
-                        {#                                    <h3 class="productBig__about-el-title">Условия и сроки хранения:#}
-                        {#                                    </h3>#}
-                        {#                                    <p class="productBig__about-el-text">Фито-крем рекомендуется использовать ежедневно.#}
-                        {#                                        Нанося утром и вечером на слегка влажную кожу лица и тела по массажным линиям.#}
-                        {#                                        Дать впитаться.</p>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
                         <br/>
                         <br/>
                         <button class="button button--primary" type="button" data-toggle="collapse"
@@ -155,26 +123,6 @@
                                 </div>
                             {% endfor %}
                         {% endif %}
-{#                        <div class="col-xl-4 col-mb-6 col-sm-6 col-6">#}
-{#                            <div class="aboutComponents__el green">#}
-{#                    <span class="aboutComponents__el-imgContainer">#}
-{#                      <img src="catalog/view/theme/makeme/image/component5.png" alt="#"#}
-{#                           class="lazy aboutComponents__el-img">#}
-{#                    </span>#}
-{#                                <span class="aboutComponents__el-name">Экстракт лаванды</span>#}
-{#                                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col-xl-4 col-mb-6 col-sm-6 col-6">#}
-{#                            <div class="aboutComponents__el pink">#}
-{#                    <span class="aboutComponents__el-imgContainer">#}
-{#                      <img src="catalog/view/theme/makeme/image/component5.png" alt="#"#}
-{#                           class="lazy aboutComponents__el-img">#}
-{#                    </span>#}
-{#                                <span class="aboutComponents__el-name">Экстракт лаванды</span>#}
-{#                                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
-{#                            </div>#}
-{#                        </div>#}
                     </div>
                 </div>
             </div>

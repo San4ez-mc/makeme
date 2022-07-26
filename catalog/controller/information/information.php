@@ -60,7 +60,10 @@ class ControllerInformationInformation extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('information/information', $data));
+            $this->document->addStyle('catalog/view/theme/makeme/stylesheet/typography.css');
+            $data['styles'] = $this->document->getStyles();
+
+            $this->response->setOutput($this->load->view('information/information', $data));
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),

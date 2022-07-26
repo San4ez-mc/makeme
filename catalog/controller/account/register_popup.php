@@ -203,7 +203,7 @@ class ControllerAccountRegisterPopup extends Controller
             } else {
                 $data['text_agree'] = '';
             }
-        } else {
+        } else { 
             $data['text_agree'] = '';
         }
 
@@ -212,6 +212,8 @@ class ControllerAccountRegisterPopup extends Controller
         } else {
             $data['agree'] = false;
         }
+
+        $data['terms'] = $this->url->link('information/information', ['information_id' => 3]);
 
 //		$data['column_left'] = $this->load->controller('common/column_left');
 //		$data['column_right'] = $this->load->controller('common/column_right');

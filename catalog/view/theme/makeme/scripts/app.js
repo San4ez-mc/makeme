@@ -139,61 +139,76 @@ $('.lk__order-products .quantityEl__input').on('keyup', function () {
     );
 });
 
-
-$(document).on('click', '.lk__order-products .quantityEl__plus', function () {
+$(document).on('click', '.quantityEl__plus', function () {
     if ($(this).prev().val() < 1000) {
-        $(this).prev().val(+$(this).prev().val() + 1);
+        if (!$(this).hasClass('not_add_to_cart')) {
+            $(this).prev().val(+$(this).prev().val() + 1);
 
-        let cart_id = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-cart_id');
-        let amount = $(this).siblings('.quantityEl__input').val();
+            let cart_id = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-cart_id');
+            let amount = $(this).siblings('.quantityEl__input').val();
 
-        const url_string = window.location.href;
-        const url = new URL(url_string);
-        const route = url.searchParams.get("route");
+            const url_string = window.location.href;
+            const url = new URL(url_string);
+            const route = url.searchParams.get("route");
 
-        if (!route.includes('checkout')) {
-            cart.update(cart_id, amount);
-        } else {
-            cart.update(cart_id, amount, true);
-            let price = $('.lk__order-price-value').attr('data-value');
-            let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
-            if ($('.total_span').length > 0) {
-                $('.total_span').text((price * amount).toFixed(2) + currency);
+            if (!route.includes('checkout')) {
+                cart.update(cart_id, amount);
+            } else {
+                cart.update(cart_id, amount, true);
+                let price = $('.lk__order-price-value').attr('data-value');
+                let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
+                if ($('.total_span').length > 0) {
+                    $('.total_span').text((price * amount).toFixed(2) + currency);
+                }
+                $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
             }
-            $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
+        } else {
+            console.log('here');
+            let quantity_input = $(this).siblings('.quantityEl__input');
+            let amount = quantity_input.val();
+            let price = quantity_input.attr('data-price');
+            let currency = quantity_input.attr('data-currency');
+            $('#product_page .productBig__price').text((price * amount).toFixed(2) + currency);
         }
     }
 });
 
-$(document).on('click', '.lk__order-products .quantityEl__minus', function () {
+$(document).on('click', '.quantityEl__minus', function () {
     if ($(this).next().val() > 1) {
-        if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-        // let price = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-price');
-        // let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
-        let cart_id = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-cart_id');
-        let amount = $(this).siblings('.quantityEl__input').val();
+        if (!$(this).hasClass('not_add_to_cart')) {
+            if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+            // let price = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-price');
+            // let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
+            let cart_id = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-cart_id');
+            let amount = $(this).siblings('.quantityEl__input').val();
 
-        // $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
+            // $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
 
-        const url_string = window.location.href;
-        const url = new URL(url_string);
-        const route = url.searchParams.get("route");
+            const url_string = window.location.href;
+            const url = new URL(url_string);
+            const route = url.searchParams.get("route");
 
-        if (!route.includes('checkout')) {
-            cart.update(cart_id, amount);
-        } else {
-            cart.update(cart_id, amount, true);
-            let price = $('.lk__order-price-value').attr('data-value');
-            let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
+            if (!route.includes('checkout')) {
+                cart.update(cart_id, amount);
+            } else {
+                cart.update(cart_id, amount, true);
+                let price = $('.lk__order-price-value').attr('data-value');
+                let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
 
-            if ($('.total_span').length > 0) {
-                $('.total_span').text((price * amount).toFixed(2) + currency);
+                if ($('.total_span').length > 0) {
+                    $('.total_span').text((price * amount).toFixed(2) + currency);
+                }
+                $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
             }
-            $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
+        } else {
+            let quantity_input = $(this).siblings('.quantityEl__input');
+            let amount = quantity_input.val();
+            let price = quantity_input.attr('data-price');
+            let currency = quantity_input.attr('data-currency');
+            $('#product_page .productBig__price').text((price * amount).toFixed(2) + currency);
         }
     }
 });
-
 
 $('.productFilters--toggle').on('click', function () {
     $('.productFilters, .productFilters__bg').toggleClass('active');

@@ -80,8 +80,8 @@ class ControllerCommonFooter extends Controller
             ],
             [
                 'name' => 'Публичная оферта',
-                'url' => $this->url->link('information/public_offer'),
-                'route' => 'information/public_offer'
+                'url' => $this->url->link('information/information', ['information_id' => 3]),
+                'route' => 'information/information'
             ],
         ];
 

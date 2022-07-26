@@ -223,9 +223,10 @@ var cart = {
                 }, 100);
 
                 if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
-                    location = 'index.php?route=checkout/cart';
+                    location.href = 'index.php?route=checkout/cart';
                 } else {
-                    $('#cart > ul').load('index.php?route=common/cart/info ul li');
+                    // $('#cart > ul').load('index.php?route=common/cart/info ul li');
+                    $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content');
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
