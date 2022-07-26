@@ -134,10 +134,7 @@ class ControllerProductCatalog extends Controller
 //        $category_info = $this->model_catalog_category->getCategory($category_id);
 
 
-
-
-
-    $this->document->setTitle($this->language->get('text_title'));
+        $this->document->setTitle($this->language->get('text_title'));
 
         if ($this->config->get('config_noindex_status')) {
             $this->document->setRobots('noindex,follow');
@@ -210,6 +207,8 @@ class ControllerProductCatalog extends Controller
 
         $results = $this->model_catalog_product->getProducts($filter_data);
 
+        $this->load->model('account/customer');
+
         foreach ($results as $result) {
             if ($result['image']) {
                 $image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
@@ -243,6 +242,10 @@ class ControllerProductCatalog extends Controller
                 $rating = false;
             }
 
+            if (!empty($result['receipt_author_id'])) {
+                $customer = $this->model_account_customer->getCustomer($result['receipt_author_id']);
+            }
+
             $data['products'][] = array(
                 'product_id' => $result['product_id'],
                 'thumb' => $image,
@@ -253,7 +256,9 @@ class ControllerProductCatalog extends Controller
                 'tax' => $tax,
                 'minimum' => $result['minimum'] > 0 ? $result['minimum'] : 1,
                 'rating' => $result['rating'],
-                'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+                'href' => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
+                'is_receipt' => $result['is_receipt'],
+                'author_name' => !empty($customer) ? $customer['firstname'] . ' ' . $customer['lastname'] : ''
             );
         }
 

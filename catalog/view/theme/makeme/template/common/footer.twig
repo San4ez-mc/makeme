@@ -14,47 +14,38 @@
             <div class="col-xl-5 col-lg-8 col-md-7">
                 <nav class="page-footer__menu" itemscope itemtype="https://schema.org/SiteNavigationElement">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <ul>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="{{ constructor }}"
-                                       class="page-footer__menu-el">Конструктор</a>
-                                </li>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="{{ catalog }}" class="page-footer__menu-el">Каталог</a>
-                                </li>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="#{{ components }}"
-                                       class="page-footer__menu-el">Компоненты</a>
-                                </li>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="{{ about }}" class="page-footer__menu-el">О нас</a>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="col-lg-6">
-                            <ul>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="{{ delivery }}" class="page-footer__menu-el">Доставка и
-                                        оплата</a>
-                                </li>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="{{ mmclub }}"
-                                       class="page-footer__menu-el color-primary">MM Club</a>
-                                </li>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="{{ promo }}" class="page-footer__menu-el">Акции</a>
-                                </li>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="{{ blog }}" class="page-footer__menu-el">Блог</a>
-                                </li>
-                                <li itemprop="name">
-                                    <a itemprop="url" href="{{ public_offer }}" class="page-footer__menu-el">Публичная
-                                        оферта</a>
-                                </li>
-                            </ul>
-                        </div>
+                        {% if menu1 %}
+                            <div class="col-lg-6">
+                                <ul>
+                                    {% for menu_item in menu1 %}
+                                        {% set active = '' %}
+                                        {% if menu_item.route == route %}
+                                            {% set active = 'color-primary' %}
+                                        {% endif %}
+                                        <li itemprop="name">
+                                            <a itemprop="url" href="{{ menu_item.url }}"
+                                               class="page-footer__menu-el {{ active }}">{{ menu_item.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                        {% if menu2 %}
+                            <div class="col-lg-6">
+                                <ul>
+                                    {% for menu_item in menu2 %}
+                                        {% set active = '' %}
+                                        {% if menu_item.route == route %}
+                                            {% set active = 'color-primary' %}
+                                        {% endif %}
+                                        <li itemprop="name">
+                                            <a itemprop="url" href="{{ menu_item.url }}"
+                                               class="page-footer__menu-el {{ active }}">{{ menu_item.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
                     </div>
                 </nav>
             </div>
@@ -127,56 +118,4 @@
 </body>
 </html>
 
-
-{#// default#}
-{#<footer>#}
-{#    <div class="container">#}
-{#        <div class="row">#}
-{#            {% if informations %}#}
-{#                <div class="col-sm-3">#}
-{#                    <h5>{{ text_information }}</h5>#}
-{#                    <ul class="list-unstyled">#}
-{#                        {% for information in informations %}#}
-{#                            <li><a href="{{ information.href }}">{{ information.title }}</a></li>#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-{#            {% endif %}#}
-{#            <div class="col-sm-3">#}
-{#                <h5>{{ text_service }}</h5>#}
-{#                <ul class="list-unstyled">#}
-{#                    <li><a href="{{ contact }}">{{ text_contact }}</a></li>#}
-{#                    <li><a href="{{ return }}">{{ text_return }}</a></li>#}
-{#                    <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>#}
-{#                </ul>#}
-{#            </div>#}
-{#            <div class="col-sm-3">#}
-{#                <h5>{{ text_extra }}</h5>#}
-{#                <ul class="list-unstyled">#}
-{#                    <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>#}
-{#                    <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>#}
-{#                    <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>#}
-{#                    <li><a href="{{ special }}">{{ text_special }}</a></li>#}
-{#                </ul>#}
-{#            </div>#}
-{#            <div class="col-sm-3">#}
-{#                <h5>{{ text_account }}</h5>#}
-{#                <ul class="list-unstyled">#}
-{#                    <li><a href="{{ account }}">{{ text_account }}</a></li>#}
-{#                    <li><a href="{{ order }}">{{ text_order }}</a></li>#}
-{#                    <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>#}
-{#                    <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>#}
-{#                </ul>#}
-{#            </div>#}
-{#        </div>#}
-{#        <hr>#}
-{#        <p>{{ powered }}</p>#}
-{#    </div>#}
-{#</footer>#}
-{#{% for style in styles %}#}
-{#    <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}"/>#}
-{#{% endfor %}#}
-{#{% for script in scripts %}#}
-{#    <script src="{{ script }}" type="text/javascript"></script>#}
-{#{% endfor %}#}
 

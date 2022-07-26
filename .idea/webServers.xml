@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="0b075d1b-bc89-4e44-9244-29aeb8ea52d8" name="makeme" url="http://185.233.38.48">
-        <fileTransfer host="185.233.38.48" port="21" rootFolder="/www/makemy.ua">
+        <fileTransfer host="185.233.38.48" port="21" rootFolder="/www">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

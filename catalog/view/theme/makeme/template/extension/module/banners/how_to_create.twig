@@ -1,0 +1,11 @@
+<section class="section seoText">
+    <h2 class="section__title">{{ banners|first.title }}</h2>
+    <p class="seoText__text">{{ banners|first.text }}
+    </p>
+    <div class="collapse" id="seoText__collapse">
+        <p class="seoText__text">
+            {{ banners|first.text }}
+        </p>
+    </div>
+    <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="link1 seoText__link">{{ banners|first.button }}</a>
+</section>

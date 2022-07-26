@@ -23,6 +23,8 @@ class ControllerAccountLogout extends Controller {
 			$this->response->redirect($this->url->link('account/logout', '', true));
 		}
 
+        $this->response->redirect($this->url->link('common/home', '', true));
+
 		$this->load->language('account/logout');
 
 		$this->document->setTitle($this->language->get('heading_title'));

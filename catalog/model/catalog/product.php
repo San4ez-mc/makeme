@@ -54,7 +54,9 @@ class ModelCatalogProduct extends Model {
 				'status'           => $query->row['status'],
 				'date_added'       => $query->row['date_added'],
 				'date_modified'    => $query->row['date_modified'],
-				'viewed'           => $query->row['viewed']
+				'viewed'           => $query->row['viewed'],
+				'is_receipt'       => $query->row['is_receipt'],
+				'receipt_author_id'=> $query->row['receipt_author_id']
 			);
 		} else {
 			return false;

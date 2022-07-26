@@ -68,7 +68,8 @@
                             {% set product_minimum = product.minimum %}
                         {% endif %}
                         <button type="button" class="quantityEl__minus">-</button>
-                        <input type="number" value="1" min="{{ product_minimum }}" max="1000" class="quantityEl__input product_quantity">
+                        <input type="number" value="1" min="{{ product_minimum }}" max="1000"
+                               class="quantityEl__input product_quantity">
                         <button type="button" class="quantityEl__plus">+</button>
                     </div>
                     <label class="like">
@@ -130,6 +131,8 @@
                         {#                                </div>#}
                         {#                            </div>#}
                         {#                        </div>#}
+                        <br/>
+                        <br/>
                         <button class="button button--primary" type="button" data-toggle="collapse"
                                 data-target="#infoCollapse" aria-expanded="false">
                             ЧИТАТЬ ПОЛНОСТЬЮ
@@ -138,36 +141,40 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="row">
-                        <div class="col-xl-4 col-mb-6 col-sm-6 col-6">
-                            <div class="aboutComponents__el blue">
-                    <span class="aboutComponents__el-imgContainer">
-                      <img src="catalog/view/theme/makeme/image/component5.png" alt="#"
-                           class="lazy aboutComponents__el-img">
-                    </span>
-                                <span class="aboutComponents__el-name">Экстракт лаванды</span>
-                                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-mb-6 col-sm-6 col-6">
-                            <div class="aboutComponents__el green">
-                    <span class="aboutComponents__el-imgContainer">
-                      <img src="catalog/view/theme/makeme/image/component5.png" alt="#"
-                           class="lazy aboutComponents__el-img">
-                    </span>
-                                <span class="aboutComponents__el-name">Экстракт лаванды</span>
-                                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-mb-6 col-sm-6 col-6">
-                            <div class="aboutComponents__el pink">
-                    <span class="aboutComponents__el-imgContainer">
-                      <img src="catalog/view/theme/makeme/image/component5.png" alt="#"
-                           class="lazy aboutComponents__el-img">
-                    </span>
-                                <span class="aboutComponents__el-name">Экстракт лаванды</span>
-                                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>
-                            </div>
-                        </div>
+                        {% if components %}
+                            {% for component in components %}
+                                <div class="col-xl-4 col-mb-6 col-sm-6 col-6">
+                                    <div class="aboutComponents__el blue">
+                                <span class="aboutComponents__el-imgContainer">
+                                  <img src="{{ component.thumb }}" alt="{{ component.name }}"
+                                       class="lazy aboutComponents__el-img">
+                                </span>
+                                        <span class="aboutComponents__el-name">{{ component.name }}</span>
+                                        <span class="aboutComponents__el-text">{{ component.description }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+{#                        <div class="col-xl-4 col-mb-6 col-sm-6 col-6">#}
+{#                            <div class="aboutComponents__el green">#}
+{#                    <span class="aboutComponents__el-imgContainer">#}
+{#                      <img src="catalog/view/theme/makeme/image/component5.png" alt="#"#}
+{#                           class="lazy aboutComponents__el-img">#}
+{#                    </span>#}
+{#                                <span class="aboutComponents__el-name">Экстракт лаванды</span>#}
+{#                                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-xl-4 col-mb-6 col-sm-6 col-6">#}
+{#                            <div class="aboutComponents__el pink">#}
+{#                    <span class="aboutComponents__el-imgContainer">#}
+{#                      <img src="catalog/view/theme/makeme/image/component5.png" alt="#"#}
+{#                           class="lazy aboutComponents__el-img">#}
+{#                    </span>#}
+{#                                <span class="aboutComponents__el-name">Экстракт лаванды</span>#}
+{#                                <span class="aboutComponents__el-text">Является одним из лучших средств при угревой болезни: дезинфицирует воспаления, балансирует производство кожного сала (себума) и вместе с тем заживляет раны</span>#}
+{#                            </div>#}
+{#                        </div>#}
                     </div>
                 </div>
             </div>
@@ -415,9 +422,9 @@
 
         $('body').on('change', '.add_to_wishlist', function (e) {
             e.preventDefault();
-            if(!$(this).is(':checked')){
+            if (!$(this).is(':checked')) {
                 wishlist.remove($(this).attr('data-product_id'));
-            }else{
+            } else {
                 wishlist.add($(this).attr('data-product_id'));
             }
         });

@@ -143,19 +143,31 @@ $('.lk__order-products .quantityEl__input').on('keyup', function () {
 $(document).on('click', '.lk__order-products .quantityEl__plus', function () {
     if ($(this).prev().val() < 1000) {
         $(this).prev().val(+$(this).prev().val() + 1);
-        // let price = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-price');
-        // let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
+
         let cart_id = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-cart_id');
         let amount = $(this).siblings('.quantityEl__input').val();
-        // $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
-        cart.update(cart_id, amount);
+
+        const url_string = window.location.href;
+        const url = new URL(url_string);
+        const route = url.searchParams.get("route");
+
+        if (!route.includes('checkout')) {
+            cart.update(cart_id, amount);
+        } else {
+            cart.update(cart_id, amount, true);
+            let price = $('.lk__order-price-value').attr('data-value');
+            let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
+            if ($('.total_span').length > 0) {
+                $('.total_span').text((price * amount).toFixed(2) + currency);
+            }
+            $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
+        }
     }
 });
 
 $(document).on('click', '.lk__order-products .quantityEl__minus', function () {
     if ($(this).next().val() > 1) {
         if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-
         // let price = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-price');
         // let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
         let cart_id = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-cart_id');
@@ -163,7 +175,22 @@ $(document).on('click', '.lk__order-products .quantityEl__minus', function () {
 
         // $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
 
-        cart.update(cart_id, amount);
+        const url_string = window.location.href;
+        const url = new URL(url_string);
+        const route = url.searchParams.get("route");
+
+        if (!route.includes('checkout')) {
+            cart.update(cart_id, amount);
+        } else {
+            cart.update(cart_id, amount, true);
+            let price = $('.lk__order-price-value').attr('data-value');
+            let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
+
+            if ($('.total_span').length > 0) {
+                $('.total_span').text((price * amount).toFixed(2) + currency);
+            }
+            $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
+        }
     }
 });
 
@@ -251,13 +278,71 @@ $('.form__promocode input').on('keyup', function () {
 if ($('.select2-city').length) {
     $('.select2-city').select2({
         placeholder: "Начните вводить город",
-        allowClear: true
+        allowClear: true,
+        language: {
+            "noResults": function () {
+                return "Результатов не найдено";
+            },
+            searching: function () {
+                return "Поиск";
+            }
+        },
+        escapeMarkup: function (markup) {
+            return markup;
+        },
+        ajax: {
+            url: 'index.php?route=checkout/checkout/zones',
+            data: function (params) {
+                // Query parameters will be ?search=[term]&type=public
+                return {
+                    search: params.term
+                };
+            },
+            processResults: function (data) {
+                // Transforms the top-level key of the response object from 'items' to 'results'
+                return {
+                    results: data
+                };
+            },
+        }
     });
 }
 if ($('.select2-postBranch').length) {
     $('.select2-postBranch').select2({
         placeholder: "Введите номер отделения или адрес",
-        allowClear: true
+        allowClear: true,
+        language: {
+            "noResults": function () {
+                return "Результатов не найдено";
+            },
+            searching: function () {
+                return "Поиск";
+            }
+        },
+        escapeMarkup: function (markup) {
+            return markup;
+        },
+        ajax: {
+            url: 'index.php?route=checkout/checkout/zone',
+            data: function (params) {
+                // Query parameters will be ?search=[term]&type=public
+                return {
+                    search: params.term,
+                    zone_id: $('#city_id').val()
+                };
+            },
+            processResults: function (data) {
+                // Transforms the top-level key of the response object from 'items' to 'results'
+                return {
+                    results: data.map(function (dep) {
+                        return {
+                            id: dep.city_id,
+                            text: dep.name
+                        }
+                    })
+                };
+            },
+        }
     });
 }
 
@@ -581,10 +666,132 @@ $('#modalShureRemove')
         $('.productCard.toRemove').removeClass('toRemove');
     });
 
+$(document).on('select2:open', () => {
+    document.querySelector('.select2-search__field').focus();
+});
 // if($('.videoBG').length) {
 //   document.getElementsByClassName('.videoBG').play();
 // }
 
-$(document).on('click', '.make_recipe_available', function () {
-   console.log('12321332');
+if ($('#checkout_page').length > 0) {
+    $('#checkout_page select[name=\'zone_id\']').on('change', function () {
+        $('#city_id').val($(this).val());
+        // if (this.value == '') return;
+        // $.ajax({
+        //     url: 'index.php?route=checkout/checkout/zone&zone_id=' + this.value,
+        //     dataType: 'json',
+        //     beforeSend: function () {
+        //         $('#checkout_page select[name=\'zone_id\']').after(' <i class="fa fa-circle-o-notch fa-spin"></i>');
+        //     },
+        //     complete: function () {
+        //         $('.fa-spin').remove();
+        //     },
+        //     success: function (json) {
+        //         $('.fa-spin').remove();
+        //
+        //         html = '<option value="">{{ text_select }}</option>';
+        //
+        //         if (json['city'] != '') {
+        //             for (i = 0; i < json['city'].length; i++) {
+        //                 html += '<option value="' + json['city'][i]['name'] + '"';
+        //
+        //                 if (json['city'][i]['name'] == '{{ city }}') {
+        //                     html += ' selected="selected"';
+        //                 }
+        //
+        //                 html += '>' + json['city'][i]['name'] + '</option>';
+        //             }
+        //         } else {
+        //             html += '<option value="0" selected="selected">{{ text_none }}</option>';
+        //         }
+        //
+        //         $('#checkout_page select[name=\'city\']').html(html);
+        //     },
+        //     error: function (xhr, ajaxOptions, thrownError) {
+        //         alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        //     }
+        // });
+    });
+    //
+    // $('#checkout_page select[name=\'zone_id\']').trigger('change');
+
+}
+
+$('#checkout_page select[name=\'zone_id\']').on('change', function () {
+    $('#city_id').val($(this).val());
+    // if (this.value == '') return;
+    // $.ajax({
+    //     url: 'index.php?route=checkout/checkout/zone&zone_id=' + this.value,
+    //     dataType: 'json',
+    //     beforeSend: function () {
+    //         $('#checkout_page select[name=\'zone_id\']').after(' <i class="fa fa-circle-o-notch fa-spin"></i>');
+    //     },
+    //     complete: function () {
+    //         $('.fa-spin').remove();
+    //     },
+    //     success: function (json) {
+    //         $('.fa-spin').remove();
+    //
+    //         html = '<option value="">{{ text_select }}</option>';
+    //
+    //         if (json['city'] != '') {
+    //             for (i = 0; i < json['city'].length; i++) {
+    //                 html += '<option value="' + json['city'][i]['name'] + '"';
+    //
+    //                 if (json['city'][i]['name'] == '{{ city }}') {
+    //                     html += ' selected="selected"';
+    //                 }
+    //
+    //                 html += '>' + json['city'][i]['name'] + '</option>';
+    //             }
+    //         } else {
+    //             html += '<option value="0" selected="selected">{{ text_none }}</option>';
+    //         }
+    //
+    //         $('#checkout_page select[name=\'city\']').html(html);
+    //     },
+    //     error: function (xhr, ajaxOptions, thrownError) {
+    //         alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    //     }
+    // });
+});
+
+$('#checkout_page .orderButton').on('click', function () {
+    let form1 = $('#form1');
+    let form2 = $('.stage2');
+    let form3 = $('.stage3');
+    let form4 = $('.checkout__feedback');
+    let deliveryMethod = form2.find('[name=deliveryMethod]').val();
+    let paymentMethod = form3.find('[name=payMethod]').val();
+    console.log(form4.find('[name=no_call]').val());
+    $.ajax({
+        url: 'index.php?route=checkout/confirm/ajax',
+        dataType: 'json',
+        method: 'POST',
+        data: {
+            name: form1.find('[name=name]').val(),
+            surname: form1.find('[name=surname]').val(),
+            email: form1.find('[name=email]').val(),
+            phone: form1.find('[name=phone]').val(),
+            city_id: $('#city_id').val(),
+            deliveryMethod: deliveryMethod,
+            paymentMethod: paymentMethod,
+            zone_id: $('#np_dep_id').val(),
+            address: form2.find('.address_delivery').val(),
+            comment: form4.find('[name=comment]').val(),
+            no_call: form4.find('[name=no_call]').prop('checked') ? 1 : 0,
+        },
+        // beforeSend: function () {
+        //     $('#checkout_page select[name=\'zone_id\']').after(' <i class="fa fa-circle-o-notch fa-spin"></i>');
+        // },
+        complete: function () {
+            $('.fa-spin').remove();
+        },
+        success: function (json) {
+            location.href = 'index.php?route=checkout/confirm'
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
 });

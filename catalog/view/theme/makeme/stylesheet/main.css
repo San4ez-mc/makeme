@@ -9432,3 +9432,8 @@ input[type=number] {
 #constructor .constructor__components-el-imgContainer img {
     max-width: 44px;
 }
+
+#checkout_page .select2-selection__clear{
+    background: none;
+    border: none;
+}

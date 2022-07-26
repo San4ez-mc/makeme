@@ -92,6 +92,8 @@ class ControllerExtensionModuleBanner extends Controller
                         $data['banners'][$key]['text'] = html_entity_decode($data['banners'][$key]['text']);
                     }
 
+                    $data['constructor'] = $this->url->link('constructor/stage1');
+
                     return $this->load->view('extension/module/banners/create_yours', $data);
                     break;
                 case 5: // ТВОЯ рассылка!
@@ -114,6 +116,23 @@ class ControllerExtensionModuleBanner extends Controller
                     }
 
                     return $this->load->view('extension/module/banners/your_subscribe', $data);
+                    break;
+                case 6: // Как создать косметику для себя
+
+                    foreach ($results as $result) {
+                        $data['banners'][] = array(
+                            'title' => $result['title'],
+                            'text' => $result['text'],
+                            'button' => $result['button']
+                        );
+                    }
+
+                    foreach ($data['banners'] as $key => $banner) {
+                        $data['banners'][$key]['title'] = html_entity_decode($data['banners'][$key]['title']);
+                        $data['banners'][$key]['text'] = html_entity_decode($data['banners'][$key]['text']);
+                    }
+
+                    return $this->load->view('extension/module/banners/how_to_create', $data);
                     break;
                 default:
                     foreach ($results as $result) {

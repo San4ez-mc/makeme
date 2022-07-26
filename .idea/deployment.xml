@@ -5,7 +5,7 @@
       <paths name="makeme">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/makemy.ua" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

@@ -159,7 +159,6 @@ var cart = {
                 if (json['success']) {
                     $('.basket-quantity').text(json['total']);
                     $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content', function () {
-                       console.log('123');
                         $('#modalBasket').modal();
                         $('.loader').remove();
                         $('.add_to_cart').show();
@@ -171,7 +170,7 @@ var cart = {
             }
         });
     },
-    'update': function (key, quantity) {
+    'update': function (key, quantity, in_cart = false) {
         $.ajax({
             url: 'index.php?route=checkout/cart/edit',
             type: 'post',
@@ -184,18 +183,20 @@ var cart = {
                 // $('#cart > button').button('reset');
             },
             success: function (json) {
-                console.log(json['success']);
                 if (json['redirect']) {
                     location = json['redirect'];
                 }
                 if (json['success']) {
-                    $('.basket-quantity').text(json['total']);
-                    $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content', function () {
-                        console.log('123');
-                        $('#modalBasket').modal();
-                        $('.loader').remove();
-                        $('.add_to_cart').show();
-                    });
+                    if (!in_cart) {
+                        $('.basket-quantity').text(json['total']);
+                        $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content', function () {
+                            $('#modalBasket').modal();
+                            $('.loader').remove();
+                            $('.add_to_cart').show();
+                        });
+                    } else {
+                        console.log('worked');
+                    }
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {

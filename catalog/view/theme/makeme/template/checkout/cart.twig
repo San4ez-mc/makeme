@@ -48,8 +48,10 @@
                                                class="quantityEl__input">
                                         <button type="button" class="quantityEl__plus">+</button>
                                     </div>
-                                    <div class="lk__order-price"><span class="lk__order-price-value"
-                                                                       data-value="{{ product.total }}">{{ product.total }}</span>
+                                    <div class="lk__order-price">
+                                        <span class="lk__order-price-value"
+                                              data-value="{{ product.price_ }}"
+                                              data-currency="{{ product.currency }}">{{ product.total }}</span>
                                     </div>
                                     <div class="lk__order-nav">
                                         <div class="like">
@@ -63,70 +65,70 @@
                                 </div>
                             </div>
                         {% endfor %}
-{#                        <div class="lk__order-product">#}
-{#                            <div class="lk__recipes-product-main">#}
-{#                                <div class="lk__recipes-product-imgContainer">#}
-{#                                    <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
-{#                                         class="lazy lk__recipes-product-img">#}
-{#                                </div>#}
-{#                                <div class="lk__recipes-product-main-body">#}
-{#                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
-{#                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
-{#                                        кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                            <div class="lk__order-additionalEls">#}
-{#                                <div class="quantityEl">#}
-{#                                    <button type="button" class="quantityEl__minus">-</button>#}
-{#                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
-{#                                    <button type="button" class="quantityEl__plus">+</button>#}
-{#                                </div>#}
-{#                                <div class="lk__order-price"><span class="lk__order-price-value"#}
-{#                                                                   data-value="237">237</span>₴#}
-{#                                </div>#}
-{#                                <div class="lk__order-nav">#}
-{#                                    <div class="like">#}
-{#                                        <label class="like__button">#}
-{#                                            <input type="checkbox" class="like__input">#}
-{#                                            <span class="like__body"></span>#}
-{#                                        </label>#}
-{#                                    </div>#}
-{#                                    <div class="productCard__remove"></div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="lk__order-product">#}
-{#                            <div class="lk__recipes-product-main">#}
-{#                                <div class="lk__recipes-product-imgContainer">#}
-{#                                    <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
-{#                                         class="lazy lk__recipes-product-img">#}
-{#                                </div>#}
-{#                                <div class="lk__recipes-product-main-body">#}
-{#                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
-{#                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
-{#                                        кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                            <div class="lk__order-additionalEls">#}
-{#                                <div class="quantityEl">#}
-{#                                    <button type="button" class="quantityEl__minus">-</button>#}
-{#                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
-{#                                    <button type="button" class="quantityEl__plus">+</button>#}
-{#                                </div>#}
-{#                                <div class="lk__order-price"><span class="lk__order-price-value"#}
-{#                                                                   data-value="237">237</span>₴#}
-{#                                </div>#}
-{#                                <div class="lk__order-nav">#}
-{#                                    <div class="like">#}
-{#                                        <label class="like__button">#}
-{#                                            <input type="checkbox" class="like__input">#}
-{#                                            <span class="like__body"></span>#}
-{#                                        </label>#}
-{#                                    </div>#}
-{#                                    <div class="productCard__remove"></div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
+                        {#                        <div class="lk__order-product">#}
+                        {#                            <div class="lk__recipes-product-main">#}
+                        {#                                <div class="lk__recipes-product-imgContainer">#}
+                        {#                                    <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
+                        {#                                         class="lazy lk__recipes-product-img">#}
+                        {#                                </div>#}
+                        {#                                <div class="lk__recipes-product-main-body">#}
+                        {#                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+                        {#                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
+                        {#                                        кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        {#                            <div class="lk__order-additionalEls">#}
+                        {#                                <div class="quantityEl">#}
+                        {#                                    <button type="button" class="quantityEl__minus">-</button>#}
+                        {#                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
+                        {#                                    <button type="button" class="quantityEl__plus">+</button>#}
+                        {#                                </div>#}
+                        {#                                <div class="lk__order-price"><span class="lk__order-price-value"#}
+                        {#                                                                   data-value="237">237</span>₴#}
+                        {#                                </div>#}
+                        {#                                <div class="lk__order-nav">#}
+                        {#                                    <div class="like">#}
+                        {#                                        <label class="like__button">#}
+                        {#                                            <input type="checkbox" class="like__input">#}
+                        {#                                            <span class="like__body"></span>#}
+                        {#                                        </label>#}
+                        {#                                    </div>#}
+                        {#                                    <div class="productCard__remove"></div>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
+                        {#                        <div class="lk__order-product">#}
+                        {#                            <div class="lk__recipes-product-main">#}
+                        {#                                <div class="lk__recipes-product-imgContainer">#}
+                        {#                                    <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
+                        {#                                         class="lazy lk__recipes-product-img">#}
+                        {#                                </div>#}
+                        {#                                <div class="lk__recipes-product-main-body">#}
+                        {#                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+                        {#                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
+                        {#                                        кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        {#                            <div class="lk__order-additionalEls">#}
+                        {#                                <div class="quantityEl">#}
+                        {#                                    <button type="button" class="quantityEl__minus">-</button>#}
+                        {#                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
+                        {#                                    <button type="button" class="quantityEl__plus">+</button>#}
+                        {#                                </div>#}
+                        {#                                <div class="lk__order-price"><span class="lk__order-price-value"#}
+                        {#                                                                   data-value="237">237</span>₴#}
+                        {#                                </div>#}
+                        {#                                <div class="lk__order-nav">#}
+                        {#                                    <div class="like">#}
+                        {#                                        <label class="like__button">#}
+                        {#                                            <input type="checkbox" class="like__input">#}
+                        {#                                            <span class="like__body"></span>#}
+                        {#                                        </label>#}
+                        {#                                    </div>#}
+                        {#                                    <div class="productCard__remove"></div>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
                     </div>
                     <div class="lk__order-sum">
                         <div class="lk__order-sum-group">
@@ -146,19 +148,19 @@
                         <div class="lk__order-sum-group">
                             <div class="lk__order-sum-el">
                                 <span class="lk__order-sum-el-type">Сумма заказа</span>
-                                <span class="lk__order-sum-el-value">{{ totals|first.text }}</span>
+                                <span class="lk__order-sum-el-value total_span">{{ totals|first.text }}</span>
                             </div>
                             <div class="lk__order-sum-el color-secondary">
                                 <span class="lk__order-sum-el-type">Скидка</span>
-                                <span class="lk__order-sum-el-value">-60 ₴</span>
+                                <span class="lk__order-sum-el-value">0 ₴</span>
                             </div>
                             <div class="lk__order-sum-el sum">
                                 <span class="lk__order-sum-el-type">Всего к оплате</span>
-                                <span class="lk__order-sum-el-value">{{ totals.1.text }}</span>
+                                <span class="lk__order-sum-el-value total_span">{{ totals.1.text }}</span>
                             </div>
                             <div class="lk__order-sum-group-buttons">
                                 <a href="{{ checkout }}" class="button button--primary">Оформить заказ</a>
-                                <a href="{{ continue }}" class="link2">Продолжить покупки</a>
+                                <a href="{{ catalog }}" class="link2">Продолжить покупки</a>
                             </div>
                         </div>
                     </div>

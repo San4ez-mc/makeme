@@ -1,0 +1,149 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Главная</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
+                        <span itemprop="name">Корзина</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section checkout checkoutFinal">
+            <div class="checkoutFinal__banner">
+                <img src="catalog/view/theme/makeme/image/girls.jpg" alt="#" class="lazy checkoutFinal__banner-img">
+            </div>
+            <div class="row flex-lg-row flex-column-reverse">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="lk__order-sum-group w-100">
+                        <div class="lk__order-sum-el align-items-center">
+                            <span class="lk__order-sum-el-type">Номер заказа:</span>
+                            <span class="lk__order-sum-el-value lk__order-sum-el-value--orderNumber">{{ order_id }}</span>
+                        </div>
+                        <div class="lk__order-sum-el">
+                            <span class="lk__order-sum-el-type">Имя:</span>
+                            <span class="lk__order-sum-el-value">{{ surname }} {{ name }}</span>
+                        </div>
+                        <div class="lk__order-sum-el">
+                            <span class="lk__order-sum-el-type">Email:</span>
+                            <span class="lk__order-sum-el-value">{{ email }}</span>
+                        </div>
+                        <div class="lk__order-sum-el">
+                            <span class="lk__order-sum-el-type">Телефон:</span>
+                            <span class="lk__order-sum-el-value">{{ phone }}</span>
+                        </div>
+                        <div class="lk__order-sum-el">
+                            <span class="lk__order-sum-el-type">Доставка:</span>
+                            <span class="lk__order-sum-el-value">{{ address }}</span>
+                        </div>
+                        <div class="lk__order-sum-el">
+                            <span class="lk__order-sum-el-type">Оплата:</span>
+                            <span class="lk__order-sum-el-value">{{ paymentMethod }}</span>
+                        </div>
+                        <div class="lk__order-sum-el">
+                            <span class="lk__order-sum-el-type">Дата:</span>
+                            <span class="lk__order-sum-el-value">{{ date }}</span>
+                        </div>
+                    </div>
+                    <a href="{{ catalog }}" class="button button--primary continueBuying">Продолжить покупки</a>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="basket">
+
+                        <div class="lk__order-body">
+                            <div class="contentBlock py-0">
+                                <div class="lk__order-products">
+                                    {% for product in products %}
+                                        <div class="lk__order-product">
+                                            <div class="lk__recipes-product-main">
+                                                <div class="lk__recipes-product-imgContainer">
+                                                    <img src="{{ product.thumb }}" alt="{{ product.name }}"
+                                                         class="lazy lk__recipes-product-img">
+                                                </div>
+                                                <div class="lk__recipes-product-main-body">
+                                                    <h3 class="lk__recipes-product-title">{{ product.name }}</h3>
+                                                    <p class="lk__recipes-product-text">{{ product.description }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="lk__order-additionalEls">
+                                                <div class="quantityEl border-0 h-auto">
+                                                    {{ product.quantity }} шт.
+                                                </div>
+                                                <div class="lk__order-price"><span class="lk__order-price-value"
+                                                                                   data-value="{{ product.total }}">{{ product.total }}</span>₴
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    {#                                    <div class="lk__order-product">#}
+                                    {#                                        <div class="lk__recipes-product-main">#}
+                                    {#                                            <div class="lk__recipes-product-imgContainer">#}
+                                    {#                                                <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
+                                    {#                                                     class="lazy lk__recipes-product-img">#}
+                                    {#                                            </div>#}
+                                    {#                                            <div class="lk__recipes-product-main-body">#}
+                                    {#                                                <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
+                                    {#                                                <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица,#}
+                                    {#                                                    Экстракт кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло#}
+                                    {#                                                    черного перца.</p>#}
+                                    {#                                            </div>#}
+                                    {#                                        </div>#}
+                                    {#                                        <div class="lk__order-additionalEls">#}
+                                    {#                                            <div class="quantityEl border-0 h-auto">#}
+                                    {#                                                1шт.#}
+                                    {#                                            </div>#}
+                                    {#                                            <div class="lk__order-price"><span class="lk__order-price-value"#}
+                                    {#                                                                               data-value="237">237</span>₴#}
+                                    {#                                            </div>#}
+
+                                    {#                                        </div>#}
+                                    {#                                    </div>#}
+                                </div>
+                            </div>
+                            <div class="contentBlock">
+                                <div class="lk__order-sum">
+                                    <div class="lk__order-sum-group mw-100 mr-0 mb-0">
+                                        <div class="lk__order-sum-el justify-content-between flex-row">
+                                            <span class="lk__order-sum-el-type">Сумма заказа</span>
+                                            <span class="lk__order-sum-el-value">{{ totals.0.text }}</span>
+                                        </div>
+                                        <div class="lk__order-sum-el color-secondary justify-content-between flex-row">
+                                            <span class="lk__order-sum-el-type">Скидка</span>
+                                            <span class="lk__order-sum-el-value">0 ₴</span>
+                                        </div>
+                                        <div class="lk__order-sum-el sum justify-content-between flex-row">
+                                            <span class="lk__order-sum-el-type">Всего к оплате</span>
+                                            <span class="lk__order-sum-el-value">{{ totals.0.text }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="owl-carousel ticker">
+            <span class="ticker__el">Нет парабенов</span>
+            <span class="ticker__el">натуральные компоненты</span>
+            <span class="ticker__el">Нет химии</span>
+            <span class="ticker__el">Современная лаборатория</span>
+            <span class="ticker__el">Нет парабенов</span>
+            <span class="ticker__el">натуральные компоненты</span>
+            <span class="ticker__el">Нет химии</span>
+            <span class="ticker__el">Современная лаборатория</span>
+        </div>
+    </div>
+</main>
+{{ footer }}

@@ -11,7 +11,7 @@ define('HTTPS_CATALOG', 'https://makemy.ua/');
 define('DIR_APPLICATION', '/var/www/www-root/data/www/makemy.ua/admin/');
 define('DIR_SYSTEM', '/var/www/www-root/data/www/makemy.ua/system/');
 define('DIR_IMAGE', '/var/www/www-root/data/www/makemy.ua/image/');
-define('DIR_STORAGE', DIR_SYSTEM . 'storage/');
+define('DIR_STORAGE', '/var/www/www-root/data/www/storage/');
 define('DIR_CATALOG', '/var/www/www-root/data/www/makemy.ua/catalog/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/template/');

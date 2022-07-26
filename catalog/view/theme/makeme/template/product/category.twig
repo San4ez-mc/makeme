@@ -77,16 +77,23 @@
                                                 <span class="like__body"></span>
                                             </label>
                                         </div>
-                                        <div class="productCard__feature productCard__feature--stock">-10%</div>
-                                        <div class="productCard__producer">
-                                        <span class="productCard__producer-toggle">
-                                          <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="#"
-                                               class="lazy productCard__producer-icon">
-                                        </span>
-                                            <p class="productCard__producer-text">
-                                                Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
-                                            </p>
-                                        </div>
+                                        <!-- знижка -->
+                                        {#                                        <div class="productCard__feature productCard__feature--stock">-10%</div>#}
+                                        {% if product.is_receipt == 1 %}
+                                            <div class="productCard__producer">
+                                            <span class="productCard__producer-toggle">
+                                              <img src="catalog/view/theme/makeme/image/icons/selebrity.svg"
+                                                   alt="celebrity"
+                                                   class="lazy productCard__producer-icon"/>
+                                            </span>
+                                                <p class="productCard__producer-text">
+                                                    Средство создано селебрети <br>
+                                                    {% if product.author_name %}
+                                                        <span class="font-weight-bold">@{{ product.author_name }}</span>
+                                                    {% endif %}
+                                                </p>
+                                            </div>
+                                        {% endif %}
                                         <a href="{{ product.href }}" class="productCard__imgContainer">
                                             <img src="{{ product.thumb }}" alt="{{ product.name }}"
                                                  title="{{ product.name }}" class="lazy productCard__img">
@@ -152,29 +159,6 @@
             </div>
         </section>
         {{ content_bottom }}
-
-        <section class="section seoText">
-            <h2 class="section__title">Как создать косметику для себя</h2>
-            <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для
-                восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа,
-                выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут
-                эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что
-                даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно
-                останутся довольные приобретением.
-            </p>
-            <div class="collapse" id="seoText__collapse">
-                <p class="seoText__text">
-                    У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления
-                    повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение
-                    волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут
-                    эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный,
-                    что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и
-                    обязательно останутся довольные приобретением.
-                </p>
-            </div>
-            <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="link1 seoText__link">Показать
-                все</a>
-        </section>
     </div>
 </main>
 {{ footer }}

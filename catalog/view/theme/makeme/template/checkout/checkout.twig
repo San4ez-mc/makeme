@@ -1,5 +1,5 @@
 {{ header }}
-<main class="page-content">
+<main class="page-content" id="checkout_page">
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -23,59 +23,72 @@
         <section class="section checkout">
             <h1 class="section__title">Оформление заказа</h1>
             {% if not logged %}
-            <div class="checkout__info">
-                Есть аккаунт ? <a href="#modalLogin" data-toggle="modal" class="link3">Авторизоваться</a>
-            </div>
+                <div class="checkout__info">
+                    Есть аккаунт ? <a href="#modalLogin" data-toggle="modal" class="link3">Авторизоваться</a>
+                </div>
             {% endif %}
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
-                    <form action="#" class="form" name="form">
+                    <form action="#" class="form" id="form1" name="form">
                         <div class="contentBlock checkout__el stage1">
                             <div class="checkout__el-header">
-                                <h2 class="section__subtitle checkout__el-title"><span
-                                            class="color-primary checkout__el-number">1.</span>Контактные данные</h2>
+                                <h2 class="section__subtitle checkout__el-title">
+                                    <span class="color-primary checkout__el-number">1.</span>
+                                    Контактные данные
+                                </h2>
                                 <button type="button" class="checkout__edit">
-                      <span class="checkout__edit-text">
-                        Редактировать
-                      </span>
+                                  <span class="checkout__edit-text">
+                                    Редактировать
+                                  </span>
                                 </button>
                             </div>
                             <div class="checkout__el-body">
                                 <div class="checkout__fields">
                                     <div class="form__field">
                                         <div class="form__field-body">
-                                            <input type="text" class="form__field-input" placeholder="Имя" required
+                                            <input type="text" name="name" class="form__field-input" placeholder="Имя"
+                                                   required value="{{ customer.name }}"
                                                    id="checkout__nameInput">
                                         </div>
                                     </div>
                                     <div class="form__field">
                                         <div class="form__field-body">
-                                            <input type="text" class="form__field-input" placeholder="Фамилия" required
-                                                   id="checkout__surnameInput">
+                                            <input type="text" name="surname" class="form__field-input"
+                                                   placeholder="Фамилия" required
+                                                   id="checkout__surnameInput"
+                                                   value="{{ customer.surname }}"
+                                            >
                                         </div>
                                     </div>
                                     <div class="form__field">
                                         <div class="form__field-body">
-                                            <input type="tel" class="form__field-input" placeholder="Телефон" required
+                                            <input type="tel" name="phone" class="form__field-input"
+                                                   placeholder="Телефон" required
+                                                   value="{{ customer.phone }}"
                                                    id="checkout__telInput">
                                         </div>
                                     </div>
                                     <div class="form__field">
                                         <div class="form__field-body">
-                                            <input type="email" class="form__field-input" placeholder="Email" required
+                                            <input type="email" name="email" class="form__field-input"
+                                                   placeholder="Email" required value="{{ customer.email }}"
                                                    id="checkout__emailInput">
                                         </div>
                                     </div>
-                                    <button type="button" class="button button--primary checkout__fields-next" disabled>
+                                    {% if not customer.step2 %}
+                                        {% set btn_disabled = 'disabled' %}
+                                    {% endif %}
+                                    <button type="button"
+                                            class="button button--primary checkout__fields-next" {{ btn_disabled }}>
                                         Дальше
                                     </button>
                                 </div>
                                 <div class="checkout__el-results">
-                      <span class="checkout__el-results-first">
-                        <span class="checkout__el-results-first-number">1.</span>
-                        <span class="checkout__el-results-el" id="checkout__name">Мария</span>
-                        <span class="checkout__el-results-el" id="checkout__surname">Глушко</span>
-                      </span>
+                                      <span class="checkout__el-results-first">
+                                        <span class="checkout__el-results-first-number">1.</span>
+                                        <span class="checkout__el-results-el" id="checkout__name">Мария</span>
+                                        <span class="checkout__el-results-el" id="checkout__surname">Глушко</span>
+                                      </span>
                                     <span class="checkout__el-results-space"> ,&nbsp;</span>
                                     <span class="checkout__el-results-el" id="checkout__tel">+38 067 567 54 54</span>
                                     <span class="checkout__el-results-space"> ,&nbsp;</span>
@@ -90,54 +103,66 @@
                                 <h2 class="section__subtitle checkout__el-title"><span
                                             class="color-primary checkout__el-number">2.</span>Способ доставки</h2>
                                 <button type="button" class="checkout__edit">
-                      <span class="checkout__edit-text">
-                        Редактировать
-                      </span>
+                                      <span class="checkout__edit-text">
+                                        Редактировать
+                                      </span>
                                 </button>
                             </div>
                             <div class="checkout__el-body">
                                 <div class="checkout__fields">
                                     <div class="form__field">
-                                        <label class="form__label">Город</label>
-                                        <div class="form__field-body">
-                                            <select class="select2-city">
-                                                <option value="" label="empty"></option>
-                                                <option value="Киев">Киев</option>
-                                                <option value="Одесса">Одесса</option>
-                                                <option value="Харьков">Харьков</option>
-                                                <option value="Чернигов">Чернигов</option>
-                                                <option value="Кривой Рог">Кривой Рог</option>
-                                            </select>
-                                        </div>
+                                        {#                                        <label class="form__label">Город</label>#}
+                                        {#                                        <div class="form__field-body">#}
+                                        {#                                            <select class="select2-city">#}
+                                        {#                                                <option value="" label="empty"></option>#}
+                                        {#                                                <option value="Киев">Киев</option>#}
+                                        {#                                                <option value="Одесса">Одесса</option>#}
+                                        {#                                                <option value="Харьков">Харьков</option>#}
+                                        {#                                                <option value="Чернигов">Чернигов</option>#}
+                                        {#                                                <option value="Кривой Рог">Кривой Рог</option>#}
+                                        {#                                            </select>#}
+                                        {#                                        </div>#}
+                                        <select name="zone_id" id="input-payment-zone"
+                                                class="form__field-input select2-city"></select>
+                                        <input type="hidden" id="city_id"/>
+                                        {#                                            <div class="form-group required">#}
+                                        {#                                                <label class="control-label" for="input-payment-city">{{ entry_city }}</label>#}
+                                        {#                                                <select name="city" id="input-payment-city" class="form-control">#}
+                                        {#                                                </select>#}
+                                        {#                                            </div>#}
                                     </div>
+
                                     <div class="form__radios">
                                         <div class="form__radioEl active">
                                             <label class="form__radio">
                                                 <input type="radio" class="form__radio-input" name="deliveryMethod"
+                                                       value="NP"
                                                        checked>
                                                 <span class="form__radio-body">
-                              <span class="form__radio-body-text">Из отделения “Нова Пошта”</span>
-                            </span>
+                                                  <span class="form__radio-body-text">Из отделения “Нова Пошта”</span>
+                                                </span>
                                             </label>
                                             <div class="form__radioEl-body active">
-                                                <select class="select2-postBranch form__radioEl-body-select">
-                                                    <option value="" label="empty"></option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
+                                                <select class="select2-postBranch form__radioEl-body-select"
+                                                        id="np_dep_id">
+                                                    {#                                                    <option value="" label="empty"></option>#}
+                                                    {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                    {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                    {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                    {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                    {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                    {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
                                                 </select>
                                                 <a href="#" class="chooseOnMap">Выбрать на карте</a>
                                             </div>
                                         </div>
                                         <div class="form__radioEl">
                                             <label class="form__radio">
-                                                <input type="radio" class="form__radio-input" name="deliveryMethod">
+                                                <input type="radio" class="form__radio-input" name="deliveryMethod"
+                                                       value="Justin">
                                                 <span class="form__radio-body">
-                              <span class="form__radio-body-text">Из отделения Justin</span>
-                            </span>
+                                              <span class="form__radio-body-text">Из отделения Justin</span>
+                                            </span>
                                             </label>
                                             <div class="form__radioEl-body">
                                                 <select class="select2-postBranch form__radioEl-body-select">
@@ -154,30 +179,23 @@
                                         </div>
                                         <div class="form__radioEl">
                                             <label class="form__radio">
-                                                <input type="radio" class="form__radio-input" name="deliveryMethod">
+                                                <input type="radio" class="form__radio-input" name="deliveryMethod"
+                                                       value="address">
                                                 <span class="form__radio-body">
-                              <span class="form__radio-body-text">Доставка по адресу </span>
-                            </span>
+                                                  <span class="form__radio-body-text">Доставка по адресу </span>
+                                                </span>
                                             </label>
                                             <div class="form__radioEl-body">
-                                                <select class="select2-postBranch form__radioEl-body-select">
-                                                    <option value="" label="empty"></option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                </select>
-                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>
+                                                <input class="form__radio-input" name="address_delivery"/>
                                             </div>
                                         </div>
                                         <div class="form__radioEl">
                                             <label class="form__radio">
-                                                <input type="radio" class="form__radio-input" name="deliveryMethod">
+                                                <input type="radio" class="form__radio-input" name="deliveryMethod"
+                                                       value="Ukrposhta">
                                                 <span class="form__radio-body">
-                              <span class="form__radio-body-text">Из отделения “Укрпошта”</span>
-                            </span>
+                                                  <span class="form__radio-body-text">Из отделения “Укрпошта”</span>
+                                                </span>
                                             </label>
                                             <div class="form__radioEl-body">
                                                 <select class="select2-postBranch form__radioEl-body-select">
@@ -198,10 +216,10 @@
                                     </div>
                                 </div>
                                 <div class="checkout__el-results">
-                      <span class="checkout__el-results-first">
-                      <span class="checkout__el-results-first-number">2.</span>
-                      <span class="checkout__el-results-el"
-                            id="checkout__postBranch">Из отделения "Нова Пошта"</span></span>
+                                      <span class="checkout__el-results-first">
+                                      <span class="checkout__el-results-first-number">2.</span>
+                                      <span class="checkout__el-results-el"
+                                            id="checkout__postBranch">Из отделения "Нова Пошта"</span></span>
                                     <span class="checkout__el-results-space"> ,&nbsp;</span>
                                     <span class="checkout__el-results-el" id="checkout__city">г. Киев, Отделение №3: ул. Калачевская</span>
                                     <span class="checkout__el-results-space"> ,&nbsp;</span>
@@ -221,26 +239,29 @@
                                     <div class="form__radios d-flex">
                                         <div class="form__radioEl">
                                             <label class="form__radio">
-                                                <input type="radio" class="form__radio-input" name="payMethod" checked>
+                                                <input type="radio" class="form__radio-input" name="payMethod"
+                                                       value="free_checkout" checked>
                                                 <span class="form__radio-body">
-                              <span class="form__radio-body-text">Оплата при получении</span>
-                            </span>
+                                                  <span class="form__radio-body-text">Оплата при получении</span>
+                                                </span>
                                             </label>
                                         </div>
                                         <div class="form__radioEl">
                                             <label class="form__radio">
-                                                <input type="radio" class="form__radio-input" name="payMethod">
+                                                <input type="radio" class="form__radio-input" name="payMethod"
+                                                       value="cart">
                                                 <span class="form__radio-body">
-                              <span class="form__radio-body-text">Оплата картой</span>
-                            </span>
+                                                  <span class="form__radio-body-text">Оплата картой</span>
+                                                </span>
                                             </label>
                                         </div>
                                         <div class="form__radioEl">
                                             <label class="form__radio">
-                                                <input type="radio" class="form__radio-input" name="payMethod">
+                                                <input type="radio" class="form__radio-input" name="payMethod"
+                                                       value="liqpay">
                                                 <span class="form__radio-body">
-                              <span class="form__radio-body-text">PrivatPay</span>
-                            </span>
+                                                  <span class="form__radio-body-text">PrivatPay</span>
+                                                </span>
                                             </label>
                                         </div>
                                     </div>
@@ -254,12 +275,13 @@
                                     <div class="form__field">
                                         <label class="form__label font-weight-bold">Коментарий к заказу</label>
                                         <div class="form__field-body h-auto">
-                                            <textarea class="form__field-textarea"
+                                            <textarea class="form__field-textarea" name="comment"
                                                       placeholder="Добавить комментарий"></textarea>
                                         </div>
                                     </div>
                                     <label class="checkboxEl">
-                                        <input type="checkbox" class="checkboxEl__input" checked>
+                                        <input type="checkbox" class="checkboxEl__input" checked name="no_call"
+                                               value="no_call">
                                         <span class="checkboxEl__body">Мне можно не перезванивать</span>
                                     </label>
                                 </div>
@@ -302,7 +324,8 @@
                                                         <span class="like__body"></span>
                                                     </label>
                                                 </div>
-                                                <div class="productCard__remove" data-product_id="{{ product.cart_id }}"></div>
+                                                <div class="productCard__remove"
+                                                     data-product_id="{{ product.cart_id }}"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -394,7 +417,7 @@
                                     </div>
                                     <div class="lk__order-sum-el color-secondary">
                                         <span class="lk__order-sum-el-type">Скидка</span>
-                                        <span class="lk__order-sum-el-value">-60 ₴</span>
+                                        <span class="lk__order-sum-el-value">0 ₴</span>
                                     </div>
                                     <div class="lk__order-sum-el sum">
                                         <span class="lk__order-sum-el-type">Всего к оплате</span>
@@ -429,4 +452,5 @@
         </div>
     </div>
 </main>
+
 {{ footer }}

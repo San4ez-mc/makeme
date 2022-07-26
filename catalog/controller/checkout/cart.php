@@ -147,6 +147,8 @@ class ControllerCheckoutCart extends Controller
                     'stock' => $product['stock'] ? true : !(!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning')),
                     'reward' => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
                     'price' => $price,
+                    'price_' => !empty($unit_price) ? $unit_price : 0,
+                    'currency' => substr($price, -3),
                     'total' => $total,
                     'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'])
                 );
@@ -218,7 +220,7 @@ class ControllerCheckoutCart extends Controller
                 );
             }
 
-            $data['continue'] = $this->url->link('common/home');
+            $data['catalog'] = $this->url->link('product/catalog');
 
             $data['checkout'] = $this->url->link('checkout/checkout', '', true);
 
@@ -246,7 +248,7 @@ class ControllerCheckoutCart extends Controller
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');
 
-            $this->document->addScript('catalog/view/theme/makeme/libs/owl.carousel/owl.carousel.min.js', 'footer' );
+            $this->document->addScript('catalog/view/theme/makeme/libs/owl.carousel/owl.carousel.min.js', 'footer');
 
             $this->response->setOutput($this->load->view('checkout/cart', $data));
         } else {
@@ -256,7 +258,7 @@ class ControllerCheckoutCart extends Controller
 
             unset($this->session->data['success']);
 
-            $data['constructor_url'] =$this->url->link('constructor/index');
+            $data['constructor_url'] = $this->url->link('constructor/stage1');
             $data['catalog_url'] = $this->url->link('product/catalog');
 
 //			$data['column_left'] = $this->load->controller('common/column_left');
@@ -397,14 +399,14 @@ class ControllerCheckoutCart extends Controller
     {
         $this->load->language('checkout/cart');
 
-        $json = ['status'=> 'ok', 'success'=> true];
+        $json = ['status' => 'ok', 'success' => true];
 
         // Update
 //        if (!empty($this->request->post['quantity'])) {
-        if (!empty($this->request->post['quantity'])  && !empty($this->request->post['key'])) {
+        if (!empty($this->request->post['quantity']) && !empty($this->request->post['key'])) {
 //            foreach ($this->request->post['quantity'] as $key => $value) {
 //                $this->cart->update($key, $value);
-                $this->cart->update($this->request->post['key'], $this->request->post['quantity']);
+            $this->cart->update($this->request->post['key'], $this->request->post['quantity']);
 //            }
 
             $this->session->data['success'] = $this->language->get('text_remove');

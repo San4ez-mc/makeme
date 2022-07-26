@@ -319,6 +319,8 @@ class ControllerProductComponent extends Controller
         $data['results'] = sprintf($this->language->get('text_pagination'), ($component_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($component_total - $limit)) ? $component_total : ((($page - 1) * $limit) + $limit), $component_total, ceil($component_total / $limit));
         $data['pages'] = ceil($component_total / $limit);
 
+//        $data['banners']= $this->load->controller('extension/module/banner', ['banner_id' => 4]);
+//        var_dump($data['banners']);
         if (!$this->config->get('config_canonical_method')) {
             // http://googlewebmastercentral.blogspot.com/2011/09/pagination-with-relnext-and-relprev.html
             if ($page == 1) {
