@@ -1,13 +1,24 @@
 <div class="productFilters__el">
-    <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el3" aria-expanded="true">
+    <button class="productFilters__el-toggle" type="button" data-toggle="collapse" data-target="#productFilters__el3"
+            aria-expanded="true">
         Цена
     </button>
     <div class="collapse productFilters__el-collapse show" id="productFilters__el3">
         <div class="productFilters__el-body">
             <div class="priceInputs">
-                <input type="text" class="textInput number minPriceInput" placeholder="0">
+                <input
+                        type="text"
+                        class="textInput number minPriceInput"
+                        placeholder="{{ min_price_end }}"
+                        data-min_price_end="{{ min_price_end }}"
+                        value="{{ min_price }}">
                 <span class="priceInputs__line">-</span>
-                <input type="text" class="textInput number maxPriceInput" placeholder="59999">
+                <input
+                        type="text"
+                        class="textInput number maxPriceInput"
+                        placeholder="{{ max_price_end }}"
+                        data-max_price_end="{{ max_price_end }}"
+                        value="{{ max_price }}">
             </div>
         </div>
     </div>

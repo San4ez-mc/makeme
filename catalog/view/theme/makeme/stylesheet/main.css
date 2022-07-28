@@ -4248,6 +4248,14 @@ input[type=number] {
     background: #FF6B98 url(../image/icons/check.svg) center no-repeat;
 }
 
+.link1.productFilters__el-innerCollapse-toggle.collapsed {
+    display: block;
+}
+
+.link1.productFilters__el-innerCollapse-toggle {
+    display: none;
+}
+
 .checkboxEl {
     font-weight: 500;
     font-size: 14px;
@@ -9433,7 +9441,7 @@ input[type=number] {
     max-width: 44px;
 }
 
-#checkout_page .select2-selection__clear{
+#checkout_page .select2-selection__clear {
     background: none;
     border: none;
 }

@@ -300,7 +300,6 @@ var wishlist = {
         });
     },
     'remove': function (product_id) {
-        console.log(4444);
         $.ajax({
             url: 'index.php?route=account/wishlist/remove',
             type: 'post',

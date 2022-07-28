@@ -1,7 +1,7 @@
 {% if filters_groups %}
     {% set index = 1 %}
     {% for filters_group in filters_groups %}
-        <div class="productFilters__el">
+        <div class="productFilters__el main_filter_block" data-filter_group_id="{{ filters_group.filter_group_id }}">
             <button class="productFilters__el-toggle" type="button" data-toggle="collapse"
                     data-target="#productFilters__el{{ index }}" aria-expanded="true">
                 {{ filters_group.name }}
@@ -12,7 +12,12 @@
                         <div class="productFilters__el">
                             {% for filter in filters_group.filters %}
                                 <label class="checkboxEl">
-                                    <input type="checkbox" class="checkboxEl__input" {{ filter.selected ? 'checked' }}>
+                                    <input
+                                            type="checkbox"
+                                            class="checkboxEl__input"
+                                            {{ filter.selected ? 'checked' }}
+                                            data-filter_id="{{ filter.filter_id }}"
+                                    >
                                     <span class="checkboxEl__body">{{ filter.name }}</span>
                                 </label>
                             {% endfor %}

@@ -77,6 +77,15 @@ class ControllerExtensionModuleFilterSort extends Controller
                 return $this->load->view('extension/module/filter_sort/search', $data);
                 break;
             case 2: // Фильтр по цене
+                $this->load->model('catalog/product');
+
+                $price_ends = $this->model_catalog_product->getProductsEndPrices();
+
+                $data['min_price_end'] = (int)$price_ends['min_price'];
+                $data['max_price_end'] = (int)$price_ends['max_price'];
+
+                $data['min_price'] = !empty($_GET['min_price']) ? $_GET['min_price'] : '';
+                $data['max_price'] = !empty($_GET['max_price']) ? $_GET['max_price'] : '';
                 return $this->load->view('extension/module/filter_sort/price', $data);
                 break;
             case 3: // Основные фильтры
@@ -118,7 +127,8 @@ class ControllerExtensionModuleFilterSort extends Controller
                 $second_level_categories = [];
 
                 foreach ($categories as $category) {
-                    if ($category['category_id'] == $data['category_id']) {
+                    if ((!empty($data['category_id']) && $category['category_id'] == $data['category_id']) ||
+                        empty($data['category_id'])) {
                         $children = $this->model_catalog_category->getCategories($category['category_id']);
 
                         foreach ($children as $child) {

@@ -1,29 +1,28 @@
 jQuery(document).ready(function ($) {
-    $('.searchInput').bind("enterKey", function (e) {
-        const params_string = window.location.search.substring(1)
-        const params_obj = JSON.parse('{"' + decodeURI(params_string.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}');
-        params_obj.s = $(this).val();
-        window.location.href = location.protocol + '//' + location.host + location.pathname + '?' + objectToQueryString(params_obj)
-    });
-
-    $('.minPriceInput, .maxPriceInput').bind("enterKey", function (e) {
-        const params_string = window.location.search.substring(1)
-        const params_obj = JSON.parse('{"' + decodeURI(params_string.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}');
-        const min_price = $('.minPriceInput').val();
-        const max_price = $('.maxPriceInput').val();
-        if (min_price !== '') {
-            params_obj.min_price = min_price
-        }
-        if (max_price !== '') {
-            params_obj.max_price = max_price
-        }
-        window.location.href = location.protocol + '//' + location.host + location.pathname + '?' + objectToQueryString(params_obj)
-    });
-
     $('.searchInput, .minPriceInput, .maxPriceInput').keyup(function (e) {
         if (e.keyCode === 13) {
-            $(this).trigger("enterKey");
+            Filter();
         }
+    });
+
+    $('.searchInput, .minPriceInput, .maxPriceInput').focusout(function (e) {
+        Filter()
+    });
+
+    $('.minPriceInput').keyup(function () {
+        if (parseInt($(this).val()) < parseInt($(this).attr('data-min_price_end'))) {
+            $(this).val($(this).attr('data-min_price_end'));
+        }
+    });
+
+    $('.maxPriceInput').keyup(function () {
+        if (parseInt($(this).val()) > parseInt($(this).attr('data-max_price_end'))) {
+            $(this).val($(this).attr('data-max_price_end'));
+        }
+    });
+
+    $('.checkboxEl__input').click(function () {
+        Filter();
     });
 
     // product
@@ -51,7 +50,6 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    // jQuery(document).ready(function ($) {
     $('body').on('click', '.add_to_cart', function (e) {
         e.preventDefault();
         cart.add($(this).attr('data-product_id'), $('.product_quantity').val());
@@ -66,14 +64,108 @@ jQuery(document).ready(function ($) {
             wishlist.add($(this).attr('data-product_id'));
         }
     });
-    // })
 });
+
+function Filter() {
+    const params_string = window.location.search.substring(1);
+    const params_obj = JSON.parse('{"' + decodeURI(params_string.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}');
+
+    const min_price = $('.minPriceInput').val();
+    const max_price = $('.maxPriceInput').val();
+
+    // пошук
+    if ($('.searchInput').val().length > 0) {
+        params_obj.s = $('.searchInput').val();
+    }
+
+    // ціновий дапазон
+    if (min_price !== '') {
+        params_obj.min_price = min_price
+    }
+    if (max_price !== '') {
+        params_obj.max_price = max_price
+    }
+
+    // категорії ( групи товарів )
+    let categories_arr = [];
+    let categories_off_arr = [];
+    $('.filter_categories_block').each(function () {
+        let total = 0;
+        let categories = [];
+        let checked = 0;
+        $(this).find('.checkboxEl__input').each(function () {
+            total++;
+            if ($(this).prop('checked')) {
+                checked++;
+                categories.push($(this).attr('data-category_id'));
+            }
+        })
+
+        if (checked < total) {
+            if (checked === 0) {
+                $(this).find('.checkboxEl__input').each(function () {
+                    categories_off_arr.push($(this).attr('data-category_id'));
+                })
+            } else {
+                categories.forEach(function (category) {
+                    categories_arr.push(category);
+                })
+            }
+        }
+    })
+
+    if (categories_arr.length > 0) {
+        params_obj.categories = categories_arr
+    }
+
+    if (categories_off_arr.length > 0) {
+        params_obj.categories_off = categories_off_arr
+    }
+
+    // фільтри
+    let checked_arr = [];
+    let unchecked_arr = [];
+    $('.main_filter_block').each(function () {
+        let total_ = 0;
+        let filters = [];
+        let checked_ = 0;
+        $(this).find('.checkboxEl__input').each(function () {
+            total_++;
+            if ($(this).prop('checked')) {
+                checked_++;
+                filters.push($(this).attr('data-filter_id'));
+            }
+        })
+
+        if (checked_ < total_) {
+            if (checked_ === 0) {
+                $(this).find('.checkboxEl__input').each(function () {
+                    unchecked_arr.push($(this).attr('data-filter_id'));
+                })
+            } else {
+                filters.forEach(function (filter) {
+                    checked_arr.push(filter);
+                })
+            }
+        }
+    })
+
+    if (checked_arr.length > 0) {
+        params_obj.filters = checked_arr
+    }
+
+    if (unchecked_arr.length > 0) {
+        params_obj.filters_off = unchecked_arr
+    }
+
+    window.location.href = location.protocol + '//' + location.host + location.pathname + '?' + objectToQueryString(params_obj)
+}
 
 function objectToQueryString(obj) {
     const str = [];
 
     for (const [key, value] of Object.entries(obj)) {
-        console.log(`${key}: ${value}`);
+        // console.log(`${key}: ${value}`);
         str.push(encodeURIComponent(key) + "=" + value);
     }
     return str.join("&");
