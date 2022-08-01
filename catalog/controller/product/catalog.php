@@ -78,17 +78,6 @@ class ControllerProductCatalog extends Controller
             'href' => $this->url->link('common/home')
         );
 
-        // filter_params
-        $filter_pararms = [];
-        if (isset($this->request->get['min_price'])) {
-            $filter_pararms['min_price'] = $this->request->get['min_price'];
-        }
-        if (isset($this->request->get['max_price'])) {
-            $filter_pararms['max_price'] = $this->request->get['max_price'];
-        }
-        if (isset($this->request->get['s'])) {
-            $filter_pararms['search'] = $this->request->get['s'];
-        }
 
 //        if (isset($this->request->get['path'])) {
 //            $url = '';
@@ -194,18 +183,49 @@ class ControllerProductCatalog extends Controller
 
         $data['products'] = array();
 
-        $filter_data = array(
-            'filter_filter' => $filter,
-            'filter_params' => '',
-            'sort' => $sort,
-            'order' => $order,
-            'start' => ($page - 1) * $limit,
-            'limit' => $limit
-        );
+//        $products_filter_data = array(
+//            'filter_filter' => $filter,
+//
+//            'filter_params' => '',
+//            'sort' => $sort,
+//            'order' => $order,
+//            'start' => ($page - 1) * $limit,
+//            'limit' => $limit
+//        );
 
-        $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+        // filter_params
+        $filter_params = [];
+        if (isset($this->request->get['s'])) {
+            $filter_params['filter_name'] = $this->request->get['s'];
+        }
+        if (isset($this->request->get['min_price'])) {
+            $filter_params['min_price'] = $this->request->get['min_price'];
+        }
+        if (isset($this->request->get['max_price'])) {
+            $filter_params['max_price'] = $this->request->get['max_price'];
+        }
+        if (isset($this->request->get['filters'])) {
+            $filter_params['filter_filter'] = $this->request->get['filters'];
+        }
+        if (isset($this->request->get['filters_off'])) {
+            $filter_params['filter_filters_off'] = $this->request->get['filters_off'];
+        }
+        if (isset($this->request->get['categories'])) {
+            $filter_params['filter_categories'] = $this->request->get['categories'];
+        }
+        if (isset($this->request->get['categories_off'])) {
+            $filter_params['filter_categories_off'] = $this->request->get['categories_off'];
+        }
 
-        $results = $this->model_catalog_product->getProducts($filter_data);
+        $filter_params['sort'] = $sort;
+        $filter_params['order'] = $order;
+        $filter_params['start'] = ($page - 1) * $limit;
+        $filter_params['limit'] = $limit;
+
+//        $product_total = $this->model_catalog_product->getTotalProducts($filter_params);
+
+        $results = $this->model_catalog_product->getProducts($filter_params);
+        $product_total = count($results);
 
         $this->load->model('account/customer');
         $this->load->model('account/wishlist');
@@ -355,6 +375,7 @@ class ControllerProductCatalog extends Controller
         $data['pagination'] = $pagination->render();
 
         $data['results'] = sprintf($this->language->get('text_pagination'), ($product_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($product_total - $limit)) ? $product_total : ((($page - 1) * $limit) + $limit), $product_total, ceil($product_total / $limit));
+
         $data['pages'] = ceil($product_total / $limit);
 
         if (!$this->config->get('config_canonical_method')) {

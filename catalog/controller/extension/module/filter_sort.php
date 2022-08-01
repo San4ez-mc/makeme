@@ -94,9 +94,22 @@ class ControllerExtensionModuleFilterSort extends Controller
                 $filter_groups = $this->model_catalog_filter->getFilterGroupsWithFilters();
                 if (!empty($filter_groups)) {
                     foreach ($filter_groups as &$filter_group) {
+                        $checked_counter = 0;
                         if (!empty($filter_group['filters'])) {
                             foreach ($filter_group['filters'] as &$filter) {
-                                $filter['selected'] = true;
+                                $filter['selected'] = false;
+                                if (!empty($this->request->get['filters']) && in_array($filter['filter_id'], explode(',', $this->request->get['filters']))) {
+                                    $filter['selected'] = true;
+                                    $checked_counter++;
+                                }
+                            }
+                        }
+                        if (empty($checked_counter)) {
+                            foreach ($filter_group['filters'] as &$filter) {
+                                if (empty($this->request->get['filters_off']) ||
+                                    (!empty($this->request->get['filters_off']) && !in_array($filter['filter_id'], explode(',', $this->request->get['filters_off'])))) {
+                                    $filter['selected'] = true;
+                                }
                             }
                         }
                     }
@@ -127,18 +140,20 @@ class ControllerExtensionModuleFilterSort extends Controller
                 $second_level_categories = [];
 
                 foreach ($categories as $category) {
-                    if ((!empty($data['category_id']) && $category['category_id'] == $data['category_id']) ||
+                    if ((!empty($data['category_id']) &&
+                            $category['category_id'] == $data['category_id']) ||
                         empty($data['category_id'])) {
                         $children = $this->model_catalog_category->getCategories($category['category_id']);
 
                         foreach ($children as $child) {
-                            $filter_data = array('filter_category_id' => $child['category_id'], 'filter_sub_category' => true);
+//                            $filter_data = array('filter_category_id' => $child['category_id'], 'filter_sub_category' => true);
 
                             $second_level_categories[] = array(
                                 'category_id' => $child['category_id'],
 //                                'name' => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
                                 'name' => $child['name'],
-                                'href' => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
+                                'href' => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']),
+                                'checked' => !empty($this->request->get['categories']) ? in_array($child['category_id'], explode(',', $this->request->get['categories'])) : false
                             );
                         }
                     }

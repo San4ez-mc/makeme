@@ -8,11 +8,15 @@
             {% set counter = 0 %}
             {% for category in categories %}
                 {% if counter < 7 %}
+                    {% set checked = '' %}
+                    {% if category.checked %}
+                        {% set checked = ' checked ' %}
+                    {% endif %}
                     <label class="checkboxEl">
                         <input
                                 type="checkbox"
                                 class="checkboxEl__input"
-                                checked
+                                {{ checked }}
                                 value="{{ category.category_id }}"
                                 data-category_id="{{ category.category_id }}"
                         />
@@ -32,12 +36,16 @@
                     <div class="collapse productFilters__el-innerCollapse-collapse"
                          id="productFilters__el-innerCollapse1">
                         {% for category in categories|slice(7) %}
+                            {% set checked = '' %}
+                            {% if category.checked %}
+                                {% set checked = ' checked ' %}
+                            {% endif %}
                             <label class="checkboxEl">
                                 <input
                                         type="checkbox"
                                         class="checkboxEl__input"
                                         value="{{ category.category_id }}"
-                                        checked
+                                        {{ checked }}
                                         data-category_id="{{ category.category_id }}"
                                 />
                                 <span class="checkboxEl__body">{{ category.name }}</span>

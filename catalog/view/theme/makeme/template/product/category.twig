@@ -169,7 +169,8 @@
                     {#                        <span class="button__icon"><i class="fas fa-sync-alt"></i></span>#}
                     {#                        <span class="button__text">Загрузить еще</span>#}
                     {#                    </a>#}
-                    {% if pages is not empty %}
+
+                    {% if pages != 0 %}
                         <nav class="pagination">
                             {% for i in 1..pages %}
                                 <a href="#" class="pagination__el active">{{ i }}</a>
