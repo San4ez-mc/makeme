@@ -2,13 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-4">
-                <a href="#" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand">
+                <a href="/" class="page-footer__logo" itemscope itemtype="https://schema.org/Brand">
                     <img
                             src="catalog/view/theme/makeme/image/icons/logo-footer.svg"
                             {#                            src="{{ logo }}"#}
                             alt="logo" class="page-footer__logo-img" itemprop="logo">
                 </a>
-                <p class="copyright">© <span itemprop="copyrightYear">2016</span> - 2022 Make My - Все права защищены.
+                <p class="copyright">© <span itemprop="copyrightYear">2016</span> - {{ year }} Make My - Все права
+                    защищены.
                 </p>
             </div>
             <div class="col-xl-5 col-lg-8 col-md-7">
@@ -54,19 +55,18 @@
                     <span class="d-none" itemprop="name">Make My</span>
                     <div class="page-footer__menu-info-el">
                         <div class="page-footer__menu-info-el-title">График работы</div>
-                        <div class="page-footer__menu-info-el-value" itemprop="openingHours">Круглосуточно</div>
+                        <div class="page-footer__menu-info-el-value" itemprop="openingHours">{{ worktime }}</div>
                     </div>
                     <div class="page-footer__menu-info-el">
                         <div class="page-footer__menu-info-el-title">Местоположение</div>
                         <div class="page-footer__menu-info-el-value" itemprop="address" itemscope
                              itemtype="https://schema.org/PostalAddress">
-                            <span itemprop="addressLocality">г. Киев </span>,
-                            <span itemprop="streetAddress">ул. Марко Вовчка, 18а</span>
+                            {{ address }}
                         </div>
                     </div>
                     <div class="page-footer__menu-info-el d-none">
                         <div class="page-footer__menu-info-el-title">Телефон</div>
-                        <a href="tel:+74950000000" class="page-footer__menu-info-el-value" itemprop="telephone">+74950000000</a>
+                        <a href="tel:{{ phone }}" class="page-footer__menu-info-el-value" itemprop="telephone">{{ phone }}</a>
                     </div>
                     <div class="page-footer__menu-info-el">
                         <div class="page-footer__menu-info-el-title">Соцсети</div>

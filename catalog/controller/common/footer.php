@@ -134,6 +134,11 @@ class ControllerCommonFooter extends Controller
             $this->model_tool_online->addOnline($ip, $this->customer->getId(), $url, $referer);
         }
 
+        $data['address'] = $this->config->get('config_address');
+        $data['year'] = date('Y');
+        $data['worktime'] =  $this->config->get('config_open');
+        $data['phone'] =  $this->config->get('config_telephone');
+
         $data['scripts'] = $this->document->getScripts('footer');
         $data['styles'] = $this->document->getStyles('footer');
 
