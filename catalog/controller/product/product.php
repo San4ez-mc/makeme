@@ -517,6 +517,8 @@ class ControllerProductProduct extends Controller
                 }
             }
 
+            $data['looked_products'] = $this->load->controller('extension/module/matrosite_looked');
+
 //            $data['cart'] = $this->load->controller('common/cart');
             $data['recurrings'] = $this->model_catalog_product->getProfiles($this->request->get['product_id']);
             $data['logged'] = $this->customer->isLogged();
