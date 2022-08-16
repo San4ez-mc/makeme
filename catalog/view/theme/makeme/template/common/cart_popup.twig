@@ -11,8 +11,8 @@
                                 <div class="lk__recipes-product-main">
                                     <div class="lk__recipes-product-imgContainer">
                                         {% if product.thumb %}
-                                        <img src="{{ product.thumb }}" alt="{{ product.name }}"
-                                             title="{{ product.name }}" class="lazy lk__recipes-product-img">
+                                            <img src="{{ product.thumb }}" alt="{{ product.name }}"
+                                                 title="{{ product.name }}" class="lazy lk__recipes-product-img">
                                         {% endif %}
                                     </div>
                                     <div class="lk__recipes-product-main-body">
@@ -22,9 +22,21 @@
                                 </div>
                                 <div class="lk__order-additionalEls">
                                     <div class="quantityEl">
-                                        <button type="button" class="quantityEl__minus">-</button>
-                                        <input type="number" value="{{ product.quantity }}" min="1" max="1000" class="quantityEl__input">
-                                        <button type="button" class="quantityEl__plus">+</button>
+
+                                        {% set max_btn_disabled = '' %}
+                                        {% set min_btn_disabled = '' %}
+                                        {% if product.quantity == 1 %}
+                                            {% set min_btn_disabled = 'disabled' %}
+                                        {% endif %}
+
+                                        {% if product.quantity == product.max %}
+                                            {% set max_btn_disabled = 'disabled' %}
+                                        {% endif %}
+                                        <button {{ min_btn_disabled }} type="button" class="quantityEl__minus">-
+                                        </button>
+                                        <input type="number" value="{{ product.quantity }}" min="1"
+                                               max="{{ product.max }}" class="quantityEl__input">
+                                        <button {{ max_btn_disabled }} type="button" class="quantityEl__plus">+</button>
                                     </div>
                                     <div class="lk__order-price">
                                         <span class="lk__order-price-value"
@@ -35,7 +47,8 @@
                                             {{ product.total }}
                                         </span>
                                     </div>
-                                    <div class="productCard__remove" data-product_id="{{ product.cart_id }}" onclick="cart.remove({{ product.cart_id }});"></div>
+                                    <div class="productCard__remove" data-product_id="{{ product.cart_id }}"
+                                         onclick="cart.remove({{ product.cart_id }});"></div>
                                 </div>
                             </div>
                         {% endfor %}
@@ -91,17 +104,18 @@
                     </div>
                 </div>
                 {% for total in totals %}
-{#                    <tr>#}
-{#                        <td class="text-right"><strong>{{ total.title }}</strong></td>#}
-{#                        <td class="text-right">{{ total.text }}</td>#}
-{#                    </tr>#}
+                    {#                    <tr>#}
+                    {#                        <td class="text-right"><strong>{{ total.title }}</strong></td>#}
+                    {#                        <td class="text-right">{{ total.text }}</td>#}
+                    {#                    </tr>#}
                     <div class="lk__order-sum-el sum">
                         <span class="lk__order-sum-el-type">{{ total.title }}</span>
                         <span class="lk__order-sum-el-value">{{ total.text }}</span>
                     </div>
                 {% endfor %}
 
-                <a href="{{ shopping_cart }}" class="button button--primary button--small" type="button">перейти В козину</a>
+                <a href="{{ shopping_cart }}" class="button button--primary button--small" type="button">перейти В
+                    козину</a>
             {% else %}
                 <span data-dismiss="modal" class="modal__close"></span>
                 <h3 class="section__subtitle"><span class="color-primary">Упс!</span> В твоей корзине пусто :( </h3>

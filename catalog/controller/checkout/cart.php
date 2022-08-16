@@ -61,6 +61,8 @@ class ControllerCheckoutCart extends Controller
 
             $data['products'] = array();
 
+            $this->load->model('catalog/product');
+
             $products = $this->cart->getProducts();
 
             foreach ($products as $product) {
@@ -136,6 +138,8 @@ class ControllerCheckoutCart extends Controller
                     }
                 }
 
+                $product_info = $this->model_catalog_product->getProduct($product['product_id']);
+
                 $data['products'][] = array(
                     'cart_id' => $product['cart_id'],
                     'thumb' => $image,
@@ -148,6 +152,8 @@ class ControllerCheckoutCart extends Controller
                     'reward' => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
                     'price' => $price,
                     'price_' => !empty($unit_price) ? $unit_price : 0,
+                    'min' => 1,
+                    'max' => $product_info['quantity'],
                     'currency' => substr($price, -3),
                     'total' => $total,
                     'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'])
@@ -240,10 +246,8 @@ class ControllerCheckoutCart extends Controller
                 }
             }
 
-//            $data['column_left'] = $this->load->controller('common/column_left');
-//            $data['column_right'] = $this->load->controller('common/column_right');
-//            $data['content_top'] = $this->load->controller('common/content_top');
-//            $data['content_bottom'] = $this->load->controller('common/content_bottom');
+            $this->document->addScript('catalog/view/theme/makeme/scripts/catalog.js', 'footer');
+
             $data['text_items'] = $this->cart->countProducts();
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');
@@ -493,5 +497,38 @@ class ControllerCheckoutCart extends Controller
 
         $this->response->addHeader('Content-Type: application/json');
         $this->response->setOutput(json_encode($json));
+    }
+
+    public function is_in_cart()
+    {
+        $this->response->addHeader('Content-Type: application/json');
+
+        if (!empty($this->request->post['product_id'])) {
+            $products = $this->cart->getProducts();
+            if (!empty($products)) {
+                foreach ($products as $product_in_cart) {
+                    $this->load->model('catalog/product');
+
+                    $product_info = $this->model_catalog_product->getProduct($product_in_cart['product_id']);
+                    if ($product_in_cart['product_id'] == $this->request->post['product_id']) {
+                        $new_total = (int)$this->request->post['quantity'] + (int)$product_in_cart['quantity'];
+                        return $this->response->setOutput(json_encode([
+                            'status' => 'ok',
+                            'in_cart' => true,
+                            'key' => $product_in_cart['cart_id'],
+                            'quantity' => $new_total > (int)$product_info['quantity'] ? $product_info['quantity'] : $new_total
+                        ]));
+                    }
+                }
+            }
+            return $this->response->setOutput(json_encode([
+                'status' => 'ok',
+                'in_cart' => false
+            ]));
+        } else {
+            return $this->response->setOutput(json_encode([
+                'status' => 'error'
+            ]));
+        }
     }
 }

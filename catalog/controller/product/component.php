@@ -6,6 +6,10 @@ class ControllerProductComponent extends Controller
 {
     public function index()
     {
+        $this->document->setTitle($this->config->get('config_meta_title') . ' | Компоненты');
+        $this->document->setDescription($this->config->get('config_meta_description'));
+        $this->document->setKeywords($this->config->get('config_meta_keyword'));
+
         $this->load->language('product/component');
 
         $this->load->model('catalog/component_category');
@@ -120,7 +124,7 @@ class ControllerProductComponent extends Controller
         $category_info = $this->model_catalog_component_category->getCategory($category_id);
 
 
-        $this->document->setTitle($this->language->get('text_title'));
+//        $this->document->setTitle($this->language->get('text_title'));
 
         if ($this->config->get('config_noindex_status')) {
             $this->document->setRobots('noindex,follow');

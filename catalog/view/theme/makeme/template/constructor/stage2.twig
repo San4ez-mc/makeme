@@ -108,9 +108,14 @@
                 {% endfor %}
             </div>
             <div class="constructor__product">
+                {% set ext = 'webm' %}
+                {% if boxing_id > 2 %}
+                    {% set ext = 'webp' %}
+                {% endif %}
                 <video
-                        src="catalog/view/theme/makeme/video/constructor/{{ boxing_id }}/1.webm"
+                        src="catalog/view/theme/makeme/video/constructor/{{ boxing_id }}/1.{{ ext }}"
                         data-video_url="catalog/view/theme/makeme/video/constructor/{{ boxing_id }}"
+                        data-ext="{{ ext }}"
                         class="constructor__product-video" id="constructor__product-video"
                         autoplay=""
                         loop=""

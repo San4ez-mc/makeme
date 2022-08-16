@@ -4,7 +4,7 @@ class ControllerConstructorStage2 extends Controller
 {
     public function index()
     {
-        $this->document->setTitle($this->config->get('config_meta_title'));
+        $this->document->setTitle($this->config->get('config_meta_title') . ' | Конструктор - 2 этап');
         $this->document->setDescription($this->config->get('config_meta_description'));
         $this->document->setKeywords($this->config->get('config_meta_keyword'));
 

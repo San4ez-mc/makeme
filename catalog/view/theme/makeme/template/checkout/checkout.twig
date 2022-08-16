@@ -165,16 +165,22 @@
                                             </span>
                                             </label>
                                             <div class="form__radioEl-body">
-                                                <select class="select2-postBranch form__radioEl-body-select">
-                                                    <option value="" label="empty"></option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                </select>
-                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>
+                                                {#                                                <input class="form__radio-input" name="justin_delivery"/>#}
+                                                <div class="form__field-body">
+                                                    <input type="number" name="name" class="form__field-input"
+                                                           placeholder="Введите номер отделения"
+                                                           id="justin_delivery">
+                                                </div>
+                                                {#                                                <select class="select2-postBranch form__radioEl-body-select">#}
+                                                {#                                                    <option value="" label="empty"></option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                </select>#}
+                                                {#                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>#}
                                             </div>
                                         </div>
                                         <div class="form__radioEl">
@@ -186,7 +192,12 @@
                                                 </span>
                                             </label>
                                             <div class="form__radioEl-body">
-                                                <input class="form__radio-input" name="address_delivery"/>
+                                                <div class="form__field-body">
+                                                    <input type="text" name="address_delivery" class="form__field-input"
+                                                           placeholder="Введите адрес"
+                                                           id="address_delivery">
+                                                </div>
+                                                {#                                                <input class="form__radio-input" name="address_delivery"/>#}
                                             </div>
                                         </div>
                                         <div class="form__radioEl">
@@ -198,16 +209,22 @@
                                                 </span>
                                             </label>
                                             <div class="form__radioEl-body">
-                                                <select class="select2-postBranch form__radioEl-body-select">
-                                                    <option value="" label="empty"></option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>
-                                                </select>
-                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>
+                                                <div class="form__field-body">
+                                                    <input type="number" name="ukrposhta_delivery"
+                                                           class="form__field-input"
+                                                           placeholder="Введите номер отделения"
+                                                           id="ukrposhta_delivery">
+                                                </div>
+                                                {#                                                <select class="select2-postBranch form__radioEl-body-select">#}
+                                                {#                                                    <option value="" label="empty"></option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                    <option value="ул. Шевченко, 321">ул. Шевченко, 321</option>#}
+                                                {#                                                </select>#}
+                                                {#                                                <a href="#" class="chooseOnMap">Выбрать на карте</a>#}
                                             </div>
                                         </div>
                                         <button type="button" class="button button--primary checkout__fields-next"
@@ -221,9 +238,9 @@
                                       <span class="checkout__el-results-el"
                                             id="checkout__postBranch">Из отделения "Нова Пошта"</span></span>
                                     <span class="checkout__el-results-space"> ,&nbsp;</span>
-                                    <span class="checkout__el-results-el" id="checkout__city">г. Киев, Отделение №3: ул. Калачевская</span>
+                                    <span class="checkout__el-results-el" id="checkout__city">г. Киев</span>
                                     <span class="checkout__el-results-space"> ,&nbsp;</span>
-                                    <span class="checkout__el-results-el" id="checkout__postBranchAddress">13 (Старая Дарница)</span>
+                                    <span class="checkout__el-results-el" id="checkout__address">Отделение №3: ул. Калачевская</span>
                                 </div>
                             </div>
                         </div>
@@ -246,22 +263,22 @@
                                                 </span>
                                             </label>
                                         </div>
-                                        <div class="form__radioEl">
-                                            <label class="form__radio">
-                                                <input type="radio" class="form__radio-input" name="payMethod"
-                                                       value="cart">
-                                                <span class="form__radio-body">
-                                                  <span class="form__radio-body-text">Оплата картой</span>
-                                                </span>
-                                            </label>
-                                        </div>
+{#                                        <div class="form__radioEl">#}
+{#                                            <label class="form__radio">#}
+{#                                                <input type="radio" class="form__radio-input" name="payMethod"#}
+{#                                                       value="cart">#}
+{#                                                <span class="form__radio-body">#}
+{#                                                  <span class="form__radio-body-text">Оплата картой</span>#}
+{#                                                </span>#}
+{#                                            </label>#}
+{#                                        </div>#}
                                         <div class="form__radioEl">
                                             <label class="form__radio">
                                                 <input type="radio" class="form__radio-input" name="payMethod"
                                                        value="liqpay">
                                                 <span class="form__radio-body">
-                                                  <span class="form__radio-body-text">PrivatPay</span>
-                                                </span>
+                                                      <span class="form__radio-body-text">PrivatPay</span>
+                                                    </span>
                                             </label>
                                         </div>
                                     </div>
@@ -435,7 +452,7 @@
                     </div>
                     <div class="checkout__infoAfter">
                         Оформляя заказ, я принимаю условия
-                        <a href="#">пользовательского соглашения</a>
+                        <a href="{{ private_policy }}">пользовательского соглашения</a>
                     </div>
                 </div>
             </div>

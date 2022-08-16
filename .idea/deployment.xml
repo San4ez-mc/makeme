@@ -7,6 +7,9 @@
           <mappings>
             <mapping deploy="/makemy.ua" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath path="/makemy.ua/config.php" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>

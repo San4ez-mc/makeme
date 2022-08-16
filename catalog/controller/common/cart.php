@@ -57,6 +57,8 @@ class ControllerCommonCart extends Controller
 
         $data['products'] = array();
 
+        $this->load->model('catalog/product');
+
         foreach ($this->cart->getProducts() as $product) {
             if ($product['image']) {
                 $image = $this->model_tool_image->resize($product['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
@@ -98,6 +100,8 @@ class ControllerCommonCart extends Controller
                 $total = false;
             }
 
+            $product_info = $this->model_catalog_product->getProduct($product['product_id']);
+
 //			var_dump( $this->currency);
             $data['products'][] = array(
                 'cart_id' => $product['cart_id'],
@@ -111,6 +115,8 @@ class ControllerCommonCart extends Controller
                 'currency' => $this->currency->getSymbolRight($this->session->data['currency']),
                 'price' => $price,
                 'total' => $total,
+                'min' => 1,
+                'max' => $product_info['quantity'],
                 'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'])
             );
         }

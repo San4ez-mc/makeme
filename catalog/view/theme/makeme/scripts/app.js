@@ -133,82 +133,39 @@ window.onload = function () {
     }
 };
 
-$('.lk__order-products .quantityEl__input').on('keyup', function () {
-    $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html(
-        +($(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').data("value")) * +($(this).val())
-    );
-});
+// $('.lk__order-products .quantityEl__input').on('keyup', function () {
+//     console.log('app.js');
+//     // todo добавити перевірку на максимальну кількість
+//     // let min = parseInt($(this).attr('min'));
+//     // let max = parseInt($(this).attr('max'));
+//     // let val = parseInt($(this).val());
+//     // console.log(min, max, val);
+//     // $('.lk__order-products .quantityEl__minus').attr('disabled', false);
+//     // $('.lk__order-products .quantityEl__plus').attr('disabled', false);
+//     // if (val <= max && val >= min) {
+//         $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html(
+//             +($(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').data("value")) * +($(this).val())
+//         );
+//     //     if (val === min) {
+//     //         $('.lk__order-products .quantityEl__minus').attr('disabled', true);
+//     //     }
+//     //
+//     //     if (val === max) {
+//     //         $('.lk__order-products .quantityEl__plus').attr('disabled', true);
+//     //     }
+//     //
+//     // } else {
+//     //     if (val < min) {
+//     //         $(this).val(min);
+//     //         $('.lk__order-products .quantityEl__minus').attr('disabled', true);
+//     //     }
+//     //     if (val > max) {
+//     //         $(this).val(max);
+//     //         $('.lk__order-products .quantityEl__plus').attr('disabled', true);
+//     //     }
+//     // }
+// });
 
-$(document).on('click', '.quantityEl__plus', function () {
-    if ($(this).prev().val() < 1000) {
-        if (!$(this).hasClass('not_add_to_cart')) {
-            $(this).prev().val(+$(this).prev().val() + 1);
-
-            let cart_id = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-cart_id');
-            let amount = $(this).siblings('.quantityEl__input').val();
-
-            const url_string = window.location.href;
-            const url = new URL(url_string);
-            const route = url.searchParams.get("route");
-
-            if (!route.includes('checkout')) {
-                cart.update(cart_id, amount);
-            } else {
-                cart.update(cart_id, amount, true);
-                let price = $('.lk__order-price-value').attr('data-value');
-                let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
-                if ($('.total_span').length > 0) {
-                    $('.total_span').text((price * amount).toFixed(2) + currency);
-                }
-                $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
-            }
-        } else {
-            console.log('here');
-            let quantity_input = $(this).siblings('.quantityEl__input');
-            let amount = quantity_input.val();
-            let price = quantity_input.attr('data-price');
-            let currency = quantity_input.attr('data-currency');
-            $('#product_page .productBig__price').text((price * amount).toFixed(2) + currency);
-        }
-    }
-});
-
-$(document).on('click', '.quantityEl__minus', function () {
-    if ($(this).next().val() > 1) {
-        if (!$(this).hasClass('not_add_to_cart')) {
-            if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-            // let price = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-price');
-            // let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
-            let cart_id = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-cart_id');
-            let amount = $(this).siblings('.quantityEl__input').val();
-
-            // $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
-
-            const url_string = window.location.href;
-            const url = new URL(url_string);
-            const route = url.searchParams.get("route");
-
-            if (!route.includes('checkout')) {
-                cart.update(cart_id, amount);
-            } else {
-                cart.update(cart_id, amount, true);
-                let price = $('.lk__order-price-value').attr('data-value');
-                let currency = $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').attr('data-currency');
-
-                if ($('.total_span').length > 0) {
-                    $('.total_span').text((price * amount).toFixed(2) + currency);
-                }
-                $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html((price * amount).toFixed(2) + currency);
-            }
-        } else {
-            let quantity_input = $(this).siblings('.quantityEl__input');
-            let amount = quantity_input.val();
-            let price = quantity_input.attr('data-price');
-            let currency = quantity_input.attr('data-currency');
-            $('#product_page .productBig__price').text((price * amount).toFixed(2) + currency);
-        }
-    }
-});
 
 $('.productFilters--toggle').on('click', function () {
     $('.productFilters, .productFilters__bg').toggleClass('active');
@@ -368,6 +325,14 @@ $('.form__radio-input').on('change', function () {
     $(this).closest('.checkout__el').find('.checkout__fields-next').prop('disabled', true);
 });
 
+$('#justin_delivery, #address_delivery, #ukrposhta_delivery').on('keyup', function () {
+    if ($(this).val().length > 0) {
+        $(this).closest('.checkout__el').find('.checkout__fields-next').prop('disabled', false);
+    } else {
+        $(this).closest('.checkout__el').find('.checkout__fields-next').prop('disabled', true);
+    }
+});
+
 $('.checkout__fields-next').on('click', function () {
     $(this).closest('.checkout__el').addClass('filled');
     $(this).closest('.checkout__el').next('.checkout__el').removeClass('empty');
@@ -383,8 +348,26 @@ $('.stage1 .checkout__fields-next').on('click', function () {
 });
 $('.stage2 .checkout__fields-next').on('click', function () {
     $('#checkout__postBranch').html($(this).closest('.checkout__el').find('.form__radioEl.active .form__radio-body-text').text());
-    $('#checkout__city').html($('.select2-city').val());
-    $('#checkout__postBranchAddress').html($(this).closest('.checkout__el').find('.form__radioEl.active .select2-postBranch').val());
+    $('#checkout__city').html('г. ' + $("#input-payment-zone option:selected").text());
+    let paymentMethod = $('[name=deliveryMethod]:checked').val();
+
+    let address = '';
+    switch (paymentMethod) {
+        case "NP":
+            address = $(this).closest('.checkout__el').find('.form__radioEl.active .select2-postBranch').val();
+            break;
+        case "Justin":
+            address = 'Отделение №' + $('#justin_delivery').val();
+            break;
+        case "address":
+            address = $('#address_delivery').val();
+            break;
+        case "Ukrposhta":
+            address = $('#ukrposhta_delivery').val();
+            break;
+    }
+
+    $('#checkout__address').html(address);
 });
 $('.checkout__edit').on('click', function () {
     $(this).closest('.checkout__el').removeClass('filled');
@@ -532,7 +515,9 @@ $('.constructor__menu-list').on('click', '.el__add', function () {
          `);
 
         // заміна відео
-        $('#constructor__product-video').attr('src', video_src + '/' + (parseInt(amount) + 1) + '.webm');
+        let video = $('#constructor__product-video');
+        let ext = video.attr('data-ext');
+        video.attr('src', video_src + '/' + (parseInt(amount) + 1) + '.' + ext);
 
         setTimeout(function () {
             $('.constructor__product-preloader').hide();
@@ -776,8 +761,8 @@ $('#checkout_page .orderButton').on('click', function () {
     let form2 = $('.stage2');
     let form3 = $('.stage3');
     let form4 = $('.checkout__feedback');
-    let deliveryMethod = form2.find('[name=deliveryMethod]').val();
-    let paymentMethod = form3.find('[name=payMethod]').val();
+    let deliveryMethod = form2.find('[name=deliveryMethod]:checked').val();
+    let paymentMethod = form3.find('[name=payMethod]:checked').val();
     console.log(form4.find('[name=no_call]').val());
     $.ajax({
         url: 'index.php?route=checkout/confirm/ajax',
@@ -807,6 +792,24 @@ $('#checkout_page .orderButton').on('click', function () {
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('.free_checkout #button-confirm').on('click', function () {
+    let button = $(this);
+    $.ajax({
+        type: 'get',
+        url: 'index.php?route=extension/payment/free_checkout/confirm',
+        cache: false,
+        beforeSend: function () {
+            $('#button-confirm').button('loading');
+        },
+        complete: function () {
+            $('#button-confirm').button('reset');
+        },
+        success: function () {
+            location.href = button.attr('data-continue');
         }
     });
 });

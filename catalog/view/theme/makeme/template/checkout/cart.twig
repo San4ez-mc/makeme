@@ -1,5 +1,5 @@
 {{ header }}
-<main class="page-content">
+<main class="page-content" id="checkout_cart_page">
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -43,10 +43,21 @@
                                 </div>
                                 <div class="lk__order-additionalEls">
                                     <div class="quantityEl">
-                                        <button type="button" class="quantityEl__minus">-</button>
-                                        <input type="number" value="{{ product.quantity }}" min="1" max="1000"
+                                        {% set max_btn_disabled = '' %}
+                                        {% set min_btn_disabled = '' %}
+                                        {% if product.quantity == 1 %}
+                                            {% set min_btn_disabled = 'disabled' %}
+                                        {% endif %}
+
+                                        {% if product.quantity == product.max %}
+                                            {% set max_btn_disabled = 'disabled' %}
+                                        {% endif %}
+                                        <button {{ min_btn_disabled }} type="button" class="quantityEl__minus">-
+                                        </button>
+                                        <input type="number" value="{{ product.quantity }}" min="1"
+                                               max="{{ product.max }}"
                                                class="quantityEl__input">
-                                        <button type="button" class="quantityEl__plus">+</button>
+                                        <button {{ max_btn_disabled }} type="button" class="quantityEl__plus">+</button>
                                     </div>
                                     <div class="lk__order-price">
                                         <span class="lk__order-price-value"
@@ -65,70 +76,6 @@
                                 </div>
                             </div>
                         {% endfor %}
-                        {#                        <div class="lk__order-product">#}
-                        {#                            <div class="lk__recipes-product-main">#}
-                        {#                                <div class="lk__recipes-product-imgContainer">#}
-                        {#                                    <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
-                        {#                                         class="lazy lk__recipes-product-img">#}
-                        {#                                </div>#}
-                        {#                                <div class="lk__recipes-product-main-body">#}
-                        {#                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
-                        {#                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
-                        {#                                        кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                            <div class="lk__order-additionalEls">#}
-                        {#                                <div class="quantityEl">#}
-                        {#                                    <button type="button" class="quantityEl__minus">-</button>#}
-                        {#                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
-                        {#                                    <button type="button" class="quantityEl__plus">+</button>#}
-                        {#                                </div>#}
-                        {#                                <div class="lk__order-price"><span class="lk__order-price-value"#}
-                        {#                                                                   data-value="237">237</span>₴#}
-                        {#                                </div>#}
-                        {#                                <div class="lk__order-nav">#}
-                        {#                                    <div class="like">#}
-                        {#                                        <label class="like__button">#}
-                        {#                                            <input type="checkbox" class="like__input">#}
-                        {#                                            <span class="like__body"></span>#}
-                        {#                                        </label>#}
-                        {#                                    </div>#}
-                        {#                                    <div class="productCard__remove"></div>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
-                        {#                        <div class="lk__order-product">#}
-                        {#                            <div class="lk__recipes-product-main">#}
-                        {#                                <div class="lk__recipes-product-imgContainer">#}
-                        {#                                    <img src="catalog/view/theme/makeme/image/shampoo.png" alt="#"#}
-                        {#                                         class="lazy lk__recipes-product-img">#}
-                        {#                                </div>#}
-                        {#                                <div class="lk__recipes-product-main-body">#}
-                        {#                                    <h3 class="lk__recipes-product-title">Молочко для тела </h3>#}
-                        {#                                    <p class="lk__recipes-product-text">Базовый крем для сухой кожи лица, Экстракт#}
-                        {#                                        кокоса, Экстракт дыни,Экстракт шалфея, Эфирное масло черного перца.</p>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                            <div class="lk__order-additionalEls">#}
-                        {#                                <div class="quantityEl">#}
-                        {#                                    <button type="button" class="quantityEl__minus">-</button>#}
-                        {#                                    <input type="number" value="1" min="1" max="1000" class="quantityEl__input">#}
-                        {#                                    <button type="button" class="quantityEl__plus">+</button>#}
-                        {#                                </div>#}
-                        {#                                <div class="lk__order-price"><span class="lk__order-price-value"#}
-                        {#                                                                   data-value="237">237</span>₴#}
-                        {#                                </div>#}
-                        {#                                <div class="lk__order-nav">#}
-                        {#                                    <div class="like">#}
-                        {#                                        <label class="like__button">#}
-                        {#                                            <input type="checkbox" class="like__input">#}
-                        {#                                            <span class="like__body"></span>#}
-                        {#                                        </label>#}
-                        {#                                    </div>#}
-                        {#                                    <div class="productCard__remove"></div>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
                     </div>
                     <div class="lk__order-sum">
                         <div class="lk__order-sum-group">

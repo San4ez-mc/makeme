@@ -4,7 +4,7 @@ class ControllerConstructorStage1 extends Controller
 {
     public function index()
     {
-        $this->document->setTitle($this->config->get('config_meta_title'));
+        $this->document->setTitle($this->config->get('config_meta_title') . ' | Конструктор - 1 этап');
         $this->document->setDescription($this->config->get('config_meta_description'));
         $this->document->setKeywords($this->config->get('config_meta_keyword'));
 
@@ -48,9 +48,7 @@ class ControllerConstructorStage1 extends Controller
                 61 => 5 // тело
             ];
 
-//            $filters = $this->model_catalog_filter->getFilters($filter_data);
             $filter_groups = $this->model_catalog_filter->getFilterGroupsWithFilters(['filter_group_id' => $cat_to_filter_group_id[$_GET['cat']]]);
-//            var_dump($filter_groups);
             $data['filters'] = [];
             if (!empty($filter_groups[0]['filters'])) {
                 $data['filters'] = $filter_groups[0]['filters'];
@@ -61,10 +59,7 @@ class ControllerConstructorStage1 extends Controller
         $this->document->addScript('catalog/view/theme/makeme/libs/owl.carousel/owl.carousel.min.js', 'footer');
 
         $data['recommended'] = $this->load->controller('blog/recommended');
-//        $data['banners'] = $this->load->controller('extension/module/banners');
 
-//		$data['column_left'] = $this->load->controller('common/column_left');
-//		$data['column_right'] = $this->load->controller('common/column_right');
         $data['content_top'] = $this->load->controller('common/content_top');
         $data['content_bottom'] = $this->load->controller('common/content_bottom'); 
         $data['footer'] = $this->load->controller('common/footer');

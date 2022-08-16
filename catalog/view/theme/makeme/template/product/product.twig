@@ -68,17 +68,24 @@
                             {% set product_minimum = product.minimum %}
                         {% endif %}
 
-                        <button type="button" class="quantityEl__minus not_add_to_cart">-</button>
+                        {% set min_btn_disabled = 'disabled' %}
+                        {% set max_btn_disabled = '' %}
+                        {% if quantity == 1 %}
+                            {% set max_btn_disabled = 'disabled' %}
+                        {% endif %}
+
+                        <button {{ min_btn_disabled }} type="button" class="quantityEl__minus not_add_to_cart">-
+                        </button>
                         <input
                                 type="number"
                                 value="1"
                                 min="{{ product_minimum }}"
-                                max="1000"
+                                max="{{ quantity }}"
                                 class="quantityEl__input product_quantity"
                                 data-price="{{ price_ }}"
                                 data-currency="{{ currency }}"
                         >
-                        <button type="button" class="quantityEl__plus not_add_to_cart">+</button>
+                        <button {{ max_btn_disabled }} type="button" class="quantityEl__plus not_add_to_cart">+</button>
                     </div>
                     <label class="like">
                         {% if logged %}
@@ -364,12 +371,12 @@
                 </div>
             </div>
         </section>
-{#        <aside class="section createYours">#}
-{#            <div class="createYours__title">Создай <span class="color-primary">свое!</span></div>#}
-{#            <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая#}
-{#                баночка на 100% индивидуальна.</p>#}
-{#            <a href="#" class="button button--stroke createYours__button">Создать средство</a>#}
-{#        </aside>#}
+        {#        <aside class="section createYours">#}
+        {#            <div class="createYours__title">Создай <span class="color-primary">свое!</span></div>#}
+        {#            <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая#}
+        {#                баночка на 100% индивидуальна.</p>#}
+        {#            <a href="#" class="button button--stroke createYours__button">Создать средство</a>#}
+        {#        </aside>#}
         {{ content_bottom }}
     </div>
 

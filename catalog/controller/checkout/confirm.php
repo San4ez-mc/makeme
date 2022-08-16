@@ -424,7 +424,6 @@ class ControllerCheckoutConfirm extends Controller
 
             $data['payment'] = $this->load->controller('extension/payment/' . $this->session->data['payment_method']['code']);
 
-
         } else {
             $data['redirect'] = $redirect;
             $this->response->redirect($redirect);
@@ -443,7 +442,7 @@ class ControllerCheckoutConfirm extends Controller
         $data['footer'] = $this->load->controller('common/footer');
         $data['header'] = $this->load->controller('common/header');
 
-        $this->cart->clear();
+//        $this->cart->clear();
 
         $this->response->setOutput($this->load->view('checkout/confirm', $data));
     }
@@ -458,7 +457,7 @@ class ControllerCheckoutConfirm extends Controller
             $this->load->model('localisation/city');
 
             if (!empty($this->request->post['customer_id'])) {
-
+// todo
             } else {
                 $this->session->data['guest'] = [
                     'customer_group_id' => 0,
@@ -474,7 +473,7 @@ class ControllerCheckoutConfirm extends Controller
                 case 'NP':
                     // НП
                     $city = $this->model_localisation_city->getCityByZoneId($this->request->post['city_id']);
-                    $address = !empty($city) ? $city['name'] .', ' : '';
+                    $address = !empty($city) ? $city['name'] . ', ' : '';
                     $dep = $this->model_localisation_city->getCity($this->request->post['zone_id']);
                     $address .= !empty($dep) ? $dep['name'] : '';
 

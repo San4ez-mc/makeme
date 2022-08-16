@@ -1052,6 +1052,11 @@ body {
     color: #FF6B98;
 }
 
+
+.quantityEl button:disabled {
+    color: #ddd;
+}
+
 .quantityEl__minus {
     font-size: 30px !important;
     font-weight: 500 !important;

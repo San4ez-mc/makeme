@@ -38,7 +38,7 @@ class ControllerConstructorConstructor extends Controller
                 'isbn' => '',
                 'mpn' => '',
                 'location' => '',
-                'quantity' => 1,
+                'quantity' => 100, 
                 'minimum' => 1,
                 'subtract' => 1,
                 'stock_status_id' => 7, // перевірити

@@ -7,8 +7,13 @@ class ControllerCheckoutCheckout extends Controller
     public function index()
     {
         // Validate cart has products and has stock.
-        if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
+        if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) ||
+            (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
             $this->response->redirect($this->url->link('checkout/cart'));
+//           var_dump(!$this->cart->hasStock());
+//            echo '----';
+//            var_dump(!$this->config->get('config_stock_checkout'));
+//            die();
         }
         // Validate minimum quantity requirements.
         $products = $this->cart->getProducts();
@@ -97,6 +102,7 @@ class ControllerCheckoutCheckout extends Controller
         } else {
             $data['account'] = '';
         }
+        $data['private_policy'] = $this->url->link('information/information', ['information_id' => 3]);
 
         $data['shipping_required'] = $this->cart->hasShipping();
 //

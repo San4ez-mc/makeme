@@ -138,37 +138,41 @@ $(document).ready(function () {
 // Cart add remove functions
 var cart = {
     'add': function (product_id, quantity) {
-        $.ajax({
-            url: 'index.php?route=checkout/cart/add',
-            type: 'post',
-            data: 'product_id=' + product_id + '&quantity=' + (typeof (quantity) != 'undefined' ? quantity : 1),
-            dataType: 'json',
-            beforeSend: function () {
-                $('.add_to_cart').hide()
-                    .after('<img src="catalog/view/theme/makeme/image/loader.gif" alt="loader" class="loader" width="50px"/>');
-            },
-            complete: function () {
-                // $('.loader').remove();
-                //  $('.add_to_cart').show()
-            },
-            success: function (json) {
-                // console.log(json['success']);
-                if (json['redirect']) {
-                    location = json['redirect'];
+        this.check(product_id, quantity, function (product_id, quantity) {
+            $.ajax({
+                url: 'index.php?route=checkout/cart/add',
+                type: 'post',
+                data: 'product_id=' + product_id + '&quantity=' + (typeof (quantity) != 'undefined' ? quantity : 1),
+                dataType: 'json',
+                beforeSend: function () {
+                    $('.add_to_cart').hide()
+                        .after('<img src="catalog/view/theme/makeme/image/loader.gif" alt="loader" class="loader" width="50px"/>');
+                },
+                complete: function () {
+                    // $('.loader').remove();
+                    //  $('.add_to_cart').show()
+                },
+                success: function (json) {
+                    // console.log(json['success']);
+                    if (json['redirect']) {
+                        location = json['redirect'];
+                    }
+                    if (json['success']) {
+                        $('.basket-quantity').text(json['total']);
+                        $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content', function () {
+                            $('#modalBasket').modal();
+                            $('.loader').remove();
+                            $('.add_to_cart').show();
+                        });
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
                 }
-                if (json['success']) {
-                    $('.basket-quantity').text(json['total']);
-                    $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content', function () {
-                        $('#modalBasket').modal();
-                        $('.loader').remove();
-                        $('.add_to_cart').show();
-                    });
-                }
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-            }
-        });
+            });
+        }, function (key, quantity) {
+            cart.update(key, quantity)
+        })
     },
     'update': function (key, quantity, in_cart = false) {
         $.ajax({
@@ -227,6 +231,26 @@ var cart = {
                 } else {
                     // $('#cart > ul').load('index.php?route=common/cart/info ul li');
                     $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content');
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    },
+    'check': function (product_id, quantity, callback, callback2) {
+        $.ajax({
+            url: 'index.php?route=checkout/cart/is_in_cart',
+            type: 'post',
+            data: 'product_id=' + product_id + '&quantity=' + quantity,
+            dataType: 'json',
+            success: function (json) {
+                if (json.status === 'ok') {
+                    if (json.in_cart === false) {
+                        callback();
+                    } else {
+                        callback2(json.key, json.quantity);
+                    }
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
