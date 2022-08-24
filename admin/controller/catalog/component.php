@@ -106,7 +106,7 @@ class ControllerCatalogComponent extends Controller {
 		$this->load->model('catalog/component');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_catalog_component->editcomponent($this->request->get['component_id'], $this->request->post);
+			$this->model_catalog_component->editComponent($this->request->get['component_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -1675,7 +1675,7 @@ class ControllerCatalogComponent extends Controller {
         $this->load->model('catalog/component');
         if (isset($this->request->post['selected']) && $this->validateEnable()) {
             foreach ($this->request->post['selected'] as $component_id) {
-                $this->model_catalog_component->editcomponentStatus($component_id, 1);
+                $this->model_catalog_component->editComponentStatus($component_id, 1);
             }
             $this->session->data['success'] = $this->language->get('text_success');
             $url = '';
@@ -1698,7 +1698,7 @@ class ControllerCatalogComponent extends Controller {
         $this->load->model('catalog/component');
         if (isset($this->request->post['selected']) && $this->validateDisable()) {
             foreach ($this->request->post['selected'] as $component_id) {
-                $this->model_catalog_component->editcomponentStatus($component_id, 0);
+                $this->model_catalog_component->editComponentStatus($component_id, 0);
             }
             $this->session->data['success'] = $this->language->get('text_success');
             $url = '';

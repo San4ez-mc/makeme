@@ -105,7 +105,9 @@ class ControllerAccountWishList extends Controller {
 			}
 		}
 
-		$data['continue'] = $this->url->link('account/account', '', true);
+        $this->document->addScript('catalog/view/theme/makeme/scripts/catalog.js', 'footer');
+
+        $data['continue'] = $this->url->link('account/account', '', true);
 
         $data['customer'] = [
             'firstname' => $this->customer->getFirstName(),

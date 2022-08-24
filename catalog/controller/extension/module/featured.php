@@ -64,11 +64,15 @@ class ControllerExtensionModuleFeatured extends Controller
                         'special' => $special,
                         'tax' => $tax,
                         'rating' => $rating,
+                        'is_receipt' => $product_info['is_receipt'] == 1,
+                        'author_name' => !empty($customer) ? $customer['firstname'] . ' ' . $customer['lastname'] : '',
                         'href' => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
                     );
                 }
             }
         }
+
+        $data['constructor'] = $this->url->link('constructor/stage1');
 
         if ($data['products']) {
             if ($setting['name'] === 'Рекомендуемые товары на главной вверху') {
@@ -76,6 +80,7 @@ class ControllerExtensionModuleFeatured extends Controller
             } elseif ($setting['name'] === 'Популярные товары на главной') {
                 return $this->load->view('extension/module/popular', $data);
             }
+            return $this->load->view('extension/module/popular', $data);
         }
     }
 }

@@ -107,11 +107,12 @@
                     {% set category_index = category_index + 1 %}
                 {% endfor %}
             </div>
-            <div class="constructor__product">
+            {% if boxing_id > 2 %}
+                {% set constructor_class = 'small_boxing' %}
+            {% endif %}
+            <div class="constructor__product {{ constructor_class }}">
                 {% set ext = 'webm' %}
-                {% if boxing_id > 2 %}
-                    {% set ext = 'webp' %}
-                {% endif %}
+
                 <video
                         src="catalog/view/theme/makeme/video/constructor/{{ boxing_id }}/1.{{ ext }}"
                         data-video_url="catalog/view/theme/makeme/video/constructor/{{ boxing_id }}"

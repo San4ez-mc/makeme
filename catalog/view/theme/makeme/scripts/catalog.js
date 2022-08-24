@@ -46,6 +46,8 @@ jQuery(document).ready(function ($) {
                 $('.quantityEl__plus').attr('disabled', true);
             }
 
+            changePrice($('.productBig__price'));
+
         } else {
             if (val < min) {
                 $(this).val(min);
@@ -70,6 +72,7 @@ jQuery(document).ready(function ($) {
                 +($(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').data("value")) * +($(this).siblings('.quantityEl__input').val())
             );
             val++;
+            changePrice($('.productBig__price'));
         }
         if (val === min) {
             $('.quantityEl__minus').attr('disabled', true);
@@ -86,11 +89,12 @@ jQuery(document).ready(function ($) {
         $('.quantityEl__plus').attr('disabled', false);
         // if ($(this).next().val() > 1) {
         if (val > min) {
-            if (val > 1) $(this).next().val(+val - 1);
+            $(this).next().val(+val - 1);
             $(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').html(
                 +($(this).closest('.quantityEl').siblings('.lk__order-price').find('.lk__order-price-value').data("value")) * +($(this).siblings('.quantityEl__input').val())
             );
             val--;
+            changePrice($('.productBig__price'));
         }
         if (val === min) {
             $(this).attr('disabled', true);
@@ -200,6 +204,11 @@ jQuery(document).ready(function ($) {
     $('body').on('click', '.add_to_cart', function (e) {
         e.preventDefault();
         cart.add($(this).attr('data-product_id'), $('.product_quantity').val());
+    });
+
+    $('body').on('click', '.add_to_cart_from_wishlist', function (e) {
+        e.preventDefault();
+        cart.add($(this).attr('data-product_id'), 1);
     });
 
     $('body').on('change', '.add_to_wishlist', function (e) {
@@ -315,4 +324,13 @@ function objectToQueryString(obj) {
         str.push(encodeURIComponent(key) + "=" + value);
     }
     return str.join("&");
+}
+
+function changePrice(price_label) {
+    if (price_label.length > 0) {
+        let price = $('.product_quantity').attr('data-price');
+        let quantity = $('.product_quantity').val();
+        let currency = $('.product_quantity').attr('data-currency');
+        price_label.html((parseInt(price) * parseInt(quantity)) + '.00' + currency);
+    }
 }

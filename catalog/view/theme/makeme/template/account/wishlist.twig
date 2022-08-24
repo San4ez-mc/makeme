@@ -46,8 +46,8 @@
                                 <ul class="contentBlock lk__desires-nav">
                                     <li class="lk__desires-nav-el active" data-target="all">
                                         Все {{ products.length }}</li>
-                                    <li class="lk__desires-nav-el" data-target="type1">Шампунь 1</li>
-                                    <li class="lk__desires-nav-el" data-target="type2">Крем для лица 2</li>
+{#                                    <li class="lk__desires-nav-el" data-target="type1">Шампунь 1</li>#}
+{#                                    <li class="lk__desires-nav-el" data-target="type2">Крем для лица 2</li>#}
                                 </ul>
                             </nav>
                             <div class="contentBlock lk__desires-body">
@@ -56,15 +56,19 @@
                                         <div class="col-xl-4 col-6">
                                             <div class="productCard" data-type="type2">
                                                 <span class="productCard__remove"></span>
-                                                <div class="productCard__feature productCard__feature--stock">-10%</div>
+{#                                                <div class="productCard__feature productCard__feature--stock">-10%</div>#}
                                                 <div class="productCard__producer">
                                                 <span class="productCard__producer-toggle">
-                                                  <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="#"
+                                                  <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="selebrity"
                                                        class="lazy productCard__producer-icon">
                                                 </span>
-                                                    <p class="productCard__producer-text">
-                                                        Средство создано селебрети <br> <span class="font-weight-bold">@mariia123_hello</span>
-                                                    </p>
+                                                    {% if product.is_receipt %}
+                                                        <p class="productCard__producer-text">
+                                                            Средство создано селебрети <br> {% if product.author_name %}
+                                                                <span class="font-weight-bold">@{{ product.author_name }}</span>
+                                                            {% endif %}
+                                                        </p>
+                                                    {% endif %}
                                                 </div>
                                                 <a href="{{ product.href }}" class="productCard__imgContainer">
                                                     <img src="{{ product.thumb }}" alt="{{ product.name }}"
@@ -72,11 +76,13 @@
                                                 </a>
                                                 <div class="productCard__body">
                                                     <div class="productCard__rating">
-                                                        <span class="productCard__rating-el productCard__rating-el--full"></span>
-                                                        <span class="productCard__rating-el productCard__rating-el--full"></span>
-                                                        <span class="productCard__rating-el productCard__rating-el--full"></span>
-                                                        <span class="productCard__rating-el productCard__rating-el--full"></span>
-                                                        <span class="productCard__rating-el"></span>
+                                                        {% for i in 5 %}
+                                                            {% if product.rating >= i %}
+                                                                <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                            {% else %}
+                                                                <span class="productCard__rating-el"></span>
+                                                            {% endif %}
+                                                        {% endfor %}
                                                     </div>
                                                     <a href="{{ product.href }}"
                                                        class="productCard__type">{{ product.name }}</a>
@@ -84,11 +90,17 @@
                                                        class="productCard__name">{{ product.description }}</a>
 
                                                     <div class="productCard__price">
-                                                        <span class="productCard__price-actual">244 ₴</span>
-                                                        <span class="productCard__price-old">344 ₴</span>
+                                                        {% if not product.special %}
+                                                            <span class="productCard__price-actual">{{ product.price }} ₴</span>
+                                                        {% else %}
+                                                            <span class="price-new">{{ product.special }}</span> <span
+                                                                class="price-old">{{ product.price }}</span>
+                                                        {% endif %}
                                                     </div>
                                                     <a href="#"
-                                                       class="button button--primary button--small button--buy">Купить</a>
+                                                       class="button button--primary button--small button--buy add_to_cart_from_wishlist"
+                                                       data-product_id="{{ product.product_id }}"
+                                                    >Купить</a>
                                                 </div>
                                             </div>
                                         </div>

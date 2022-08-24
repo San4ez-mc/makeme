@@ -347,7 +347,7 @@ class ControllerProductComponent extends Controller
             };
 
             $request_url = rtrim($server, '/') . $this->request->server['REQUEST_URI'];
-            $canonical_url = $this->url->link('product/component', 'path=' . $category_info['category_id']);
+            $canonical_url = $this->url->link('product/component');
 
             if (($request_url != $canonical_url) || $this->config->get('config_canonical_self')) {
                 $this->document->addLink($canonical_url, 'canonical');

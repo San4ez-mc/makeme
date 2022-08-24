@@ -6,16 +6,19 @@
     <div class="owl-carousel carousel-4els transparentProductCards">
         {% for product in products %}
         <div class="productCard">
-            <div class="productCard__feature productCard__feature--stock">-10%</div>
+{#            <div class="productCard__feature productCard__feature--stock">-10%</div>#}
             <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
-                  <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="#"
+                  <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="selebrity"
                        class="lazy productCard__producer-icon">
                 </span>
+                {% if product.is_receipt %}
                 <p class="productCard__producer-text">
-                    Средство создано селебрети <br> <span
-                            class="font-weight-bold">@mariia123_hello</span>
+                    Средство создано селебрети <br> {% if product.author_name %}
+                        <span class="font-weight-bold">@{{ product.author_name }}</span>
+                    {% endif %}
                 </p>
+                {% endif %}
             </div>
             <a href="{{ product.href }}" class="productCard__imgContainer">
                 <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}"
