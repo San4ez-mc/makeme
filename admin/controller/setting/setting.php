@@ -273,6 +273,60 @@ class ControllerSettingSetting extends Controller {
 			$data['config_image'] = $this->config->get('config_image');
 		}
 
+        if (isset($this->request->post['config_image_social_1'])) {
+            $data['config_image_social_1'] = $this->request->post['config_image_social_1'];
+        } else {
+            $data['config_image_social_1'] = $this->config->get('config_image_social_1');
+        }
+
+        if (isset($this->error['config_social_link_1'])) {
+            $data['config_social_link_1'] = $this->request->post['config_social_link_1'];
+        } else {
+            $data['config_social_link_1'] =  $this->config->get('config_social_link_1');
+        }
+
+        if (isset($this->error['config_social_icon_1'])) {
+            $data['config_social_icon_1'] = $this->request->post['config_social_icon_1'];
+        } else {
+            $data['config_social_icon_1'] =  $this->config->get('config_social_icon_1');
+        }
+
+        if (isset($this->request->post['config_image_social_2'])) {
+            $data['config_image_social_2'] = $this->request->post['config_image_social_2'];
+        } else {
+            $data['config_image_social_2'] = $this->config->get('config_image_social_2');
+        }
+
+        if (isset($this->error['config_social_link_2'])) {
+            $data['config_social_link_2'] = $this->request->post['config_social_link_2'];
+        } else {
+            $data['config_social_link_2'] =  $this->config->get('config_social_link_2');
+        }
+
+        if (isset($this->error['config_social_icon_2'])) {
+            $data['config_social_icon_2'] = $this->request->post['config_social_icon_2'];
+        } else {
+            $data['config_social_icon_2'] =  $this->config->get('config_social_icon_2');
+        }
+
+        if (isset($this->request->post['config_image_social_3'])) {
+            $data['config_image_social_3'] = $this->request->post['config_image_social_3'];
+        } else {
+            $data['config_image_social_3'] = $this->config->get('config_image_social_3');
+        }
+
+        if (isset($this->error['config_social_link_3'])) {
+            $data['config_social_link_3'] = $this->request->post['config_social_link_3'];
+        } else {
+            $data['config_social_link_3'] =  $this->config->get('config_social_link_3');
+        }
+
+        if (isset($this->error['config_social_icon_3'])) {
+            $data['config_social_icon_3'] = $this->request->post['config_social_icon_3'];
+        } else {
+            $data['config_social_icon_3'] =  $this->config->get('config_social_icon_3');
+        }
+
 		$this->load->model('tool/image');
 
 		if (isset($this->request->post['config_image']) && is_file(DIR_IMAGE . $this->request->post['config_image'])) {
@@ -282,6 +336,30 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
+
+        if (isset($this->request->post['config_image_social_1']) && is_file(DIR_IMAGE . $this->request->post['config_image_social_1'])) {
+            $data['thumb_social_1'] = $this->model_tool_image->resize($this->request->post['config_image_social_1'], 100, 100);
+        } elseif ($this->config->get('config_image_social_1') && is_file(DIR_IMAGE . $this->config->get('config_image_social_1'))) {
+            $data['thumb_social_1'] = $this->model_tool_image->resize($this->config->get('config_image_social_1'), 100, 100);
+        } else {
+            $data['thumb_social_1'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+
+        if (isset($this->request->post['config_image_social_2']) && is_file(DIR_IMAGE . $this->request->post['config_image_social_2'])) {
+            $data['thumb_social_2'] = $this->model_tool_image->resize($this->request->post['config_image_social_2'], 100, 100);
+        } elseif ($this->config->get('config_image_social_2') && is_file(DIR_IMAGE . $this->config->get('config_image_social_2'))) {
+            $data['thumb_social_2'] = $this->model_tool_image->resize($this->config->get('config_image_social_2'), 100, 100);
+        } else {
+            $data['thumb_social_2'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+
+        if (isset($this->request->post['config_image_social_3']) && is_file(DIR_IMAGE . $this->request->post['config_image_social_3'])) {
+            $data['thumb_social_3'] = $this->model_tool_image->resize($this->request->post['config_image_social_3'], 100, 100);
+        } elseif ($this->config->get('config_image_social_3') && is_file(DIR_IMAGE . $this->config->get('config_image_social_3'))) {
+            $data['thumb_social_3'] = $this->model_tool_image->resize($this->config->get('config_image_social_3'), 100, 100);
+        } else {
+            $data['thumb_social_3'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
 
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 

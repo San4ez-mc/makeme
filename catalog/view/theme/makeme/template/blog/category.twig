@@ -3,27 +3,17 @@
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Главная</span>
-                        <meta itemprop="position" content="1">
-                    </a>
-                </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Компоненты</span>
-                        <meta itemprop="position" content="2">
-                    </a>
-                </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Экстракт лаванды</span>
-                        <meta itemprop="position" content="3">
-                    </a>
-                </li>
+                {% for breadcrumb in breadcrumbs %}
+                    {% set i = 1 %}
+                    <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                            <span itemprop="name">{{ breadcrumb.text }}</span>
+                            <meta itemprop="position" content="{{ i }}">
+                        </a>
+                    </li>
+                    {% set i=i+1 %}
+                {% endfor %}
             </ul>
             <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
@@ -32,10 +22,14 @@
             <h1 class="section__title">Блог</h1>
 
             <nav class="aboutComponents__nav">
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--all">Все</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--advice">Советы</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--recipes">Рецепты</a>
-                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--news">Новости</a>
+                <a href="{{ blog }}" class="aboutComponents__nav-el aboutComponents__nav-el--all">Все</a>
+                {% for category in categories %}
+                    <a href="{{ category.href }}"
+                       class="aboutComponents__nav-el aboutComponents__nav-el--advice">{{ category.name }}</a>
+                {% endfor %}
+{#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--advice">Советы</a>#}
+{#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--recipes">Рецепты</a>#}
+{#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--news">Новости</a>#}
             </nav>
 
             <div class="row">

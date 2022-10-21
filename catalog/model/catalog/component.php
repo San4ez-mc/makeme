@@ -1108,7 +1108,14 @@ class ModelCatalogComponent extends Model
         return $product_id;
     }
 
-    private function createModel($textcyr = null, $textlat = null)
+    public function getProductsByComponentId($component_id)
+    {
+        $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "product_components` WHERE component_id=" . $component_id);
+
+        return $query->rows;
+    }
+
+    public function createModel($textcyr = null, $textlat = null)
     {
         $cyr = array(
             'ж', 'ч', 'щ', 'ш', 'ю', 'а', 'б', 'в', 'г', 'д', 'е', 'є', 'з', 'и', 'і', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ъ', 'ь', 'я',

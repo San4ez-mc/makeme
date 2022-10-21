@@ -183,9 +183,9 @@ class ControllerProductComponent extends Controller
 
             $data['categories'][] = array(
                 'name' => $result['name'],
-                'href' => $this->url->link('product/component',  $url) ."&component_category_id=" .$result['category_id'],
-                'active'=> !empty($_GET['component_category_id']) && $_GET['component_category_id'] === $result['category_id']
-            ); 
+                'href' => $this->url->link('product/component', $url) . "&component_category_id=" . $result['category_id'],
+                'active' => !empty($_GET['component_category_id']) && $_GET['component_category_id'] === $result['category_id']
+            );
         }
 
         $data['products'] = array();
@@ -198,7 +198,7 @@ class ControllerProductComponent extends Controller
             'limit' => $limit
         );
 
-        if(!empty($_GET['component_category_id'])){
+        if (!empty($_GET['component_category_id'])) {
             $filter_data['filter_category_id'] = $_GET['component_category_id'];
         }
 
@@ -226,7 +226,7 @@ class ControllerProductComponent extends Controller
                 'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_component_description_length')) . '..',
                 'price' => $price,
                 'minimum' => $result['minimum'] > 0 ? $result['minimum'] : 1,
-                'href' => $this->url->link('product/component', 'component_id=' . $result['component_id'] . $url)
+                'href' => $this->url->link('product/component/view', 'component_id=' . $result['component_id'] . $url)
             );
         }
 
@@ -330,7 +330,7 @@ class ControllerProductComponent extends Controller
             if ($page == 1) {
                 $this->document->addLink($this->url->link('product/component', $url), 'canonical');
             } elseif ($page == 2) {
-                $this->document->addLink($this->url->link('product/component',  $url), 'prev');
+                $this->document->addLink($this->url->link('product/component', $url), 'prev');
             } else {
                 $this->document->addLink($this->url->link('product/component', 'page=' . ($page - 1)), 'prev');
             }
@@ -356,7 +356,7 @@ class ControllerProductComponent extends Controller
             if ($this->config->get('config_add_prevnext')) {
 
                 if ($page == 2) {
-                    $this->document->addLink($this->url->link('product/component',  $url, 'prev'));
+                    $this->document->addLink($this->url->link('product/component', $url, 'prev'));
                 } elseif ($page > 2) {
                     $this->document->addLink($this->url->link('product/component', 'page=' . ($page - 1)), 'prev');
                 }
@@ -373,7 +373,7 @@ class ControllerProductComponent extends Controller
 
         $data['continue'] = $this->url->link('common/home');
 
-        $data['main_url'] =  $this->url->link('product/component');
+        $data['main_url'] = $this->url->link('product/component');
 
         $data['column_left'] = $this->load->controller('product/column_left');
         $data['column_right'] = $this->load->controller('common/column_right');
@@ -382,6 +382,155 @@ class ControllerProductComponent extends Controller
         $data['footer'] = $this->load->controller('common/footer');
         $data['header'] = $this->load->controller('common/header');
         $data['page'] = $page;
-        $this->response->setOutput($this->load->view('product/component', $data));
+        $this->response->setOutput($this->load->view('product/components', $data));
+    }
+
+    public function view()
+    {
+        $this->document->setTitle($this->config->get('config_meta_title') . ' | Компоненты');
+        $this->document->setDescription($this->config->get('config_meta_description'));
+        $this->document->setKeywords($this->config->get('config_meta_keyword'));
+
+        $this->load->language('product/component');
+
+        $this->load->model('catalog/component_category');
+
+        $this->load->model('catalog/component');
+        $this->load->model('catalog/product');
+
+        $this->load->model('tool/image');
+
+
+        $data['text_empty'] = $this->language->get('text_empty');
+
+        if ($this->config->get('config_noindex_disallow_params')) {
+            $params = explode("\r\n", $this->config->get('config_noindex_disallow_params'));
+            if (!empty($params)) {
+                $disallow_params = $params;
+            }
+        }
+
+        $data['breadcrumbs'] = array();
+
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_home'),
+            'href' => $this->url->link('common/home')
+        );
+
+        if ($this->config->get('config_noindex_status')) {
+            $this->document->setRobots('noindex,follow');
+        }
+
+        $data['heading_title'] = $this->language->get('text_title');
+
+        $data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
+
+        // Set the last category breadcrumb
+        $data['breadcrumbs'][] = array(
+            'text' => $this->language->get('text_title'),
+            'href' => $this->url->link('product/component')
+        );
+
+        $url = '';
+
+        if (!empty($_GET['component_id'])) {
+            $component_id = $_GET['component_id'];
+            $component = $this->model_catalog_component->getComponent($component_id);
+
+//            foreach ($components as $component) {
+            if ($component['image']) {
+                $image = $this->model_tool_image->resize($component['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+            } else {
+                $image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+            }
+
+            if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+                $price = $this->currency->format($this->tax->calculate($component['price'], $component['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+            } else {
+                $price = false;
+            }
+
+            $data['breadcrumbs'][] = array(
+                'text' => $component['name'],
+                'href' => $this->url->link('product/component', 'component_id=' . $component['component_id'] . $url)
+            );
+
+            $categories = $this->model_catalog_component->getCategories($component['component_id']);
+
+            if ($categories) {
+                $categories_info = $this->model_catalog_component_category->getCategory($categories[0]['category_id']);
+            }
+
+            $data['component'] = array(
+                'component_id' => $component['component_id'],
+                'category_name' => !empty($categories_info) ? $categories_info['name'] : '',
+                'thumb' => $image,
+                'name' => $component['name'],
+                'sku' => $component['sku'],
+                'description' => html_entity_decode($component['description'], ENT_QUOTES, 'UTF-8'),
+                'price' => $price,
+                'minimum' => $component['minimum'] > 0 ? $component['minimum'] : 1,
+                'href' => $this->url->link('product/component', 'component_id=' . $component['component_id'] . $url)
+            );
+
+            // продукти з цим компонентом
+            $product_ids = $this->model_catalog_component->getProductsByComponentId($component_id);
+            foreach ($product_ids as $product_id) {
+
+                $product = $this->model_catalog_product->getProduct($product_id['product_id']);
+                if ($product) {
+                    if ($product['image']) {
+                        $image = $this->model_tool_image->resize($product['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+                    } else {
+                        $image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+                    }
+
+                    if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+                        $price = $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+                    } else {
+                        $price = false;
+                    }
+
+                    if (!is_null($product['special']) && (float)$product['special'] >= 0) {
+                        $special = $this->currency->format($this->tax->calculate($product['special'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+                        $tax_price = (float)$product['special'];
+                    } else {
+                        $special = false;
+                        $tax_price = (float)$product['price'];
+                    }
+
+                    if ($this->config->get('config_tax')) {
+                        $tax = $this->currency->format($tax_price, $this->session->data['currency']);
+                    } else {
+                        $tax = false;
+                    }
+
+                    $data['products'][] = array(
+                        'product_id' => $product['product_id'],
+                        'thumb' => $image,
+                        'name' => $product['name'],
+                        'description' => utf8_substr(trim(strip_tags(html_entity_decode($product['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
+                        'price' => $price,
+                        'special' => $special,
+                        'tax' => $tax,
+                        'minimum' => $product['minimum'] > 0 ? $product['minimum'] : 1,
+                        'rating' => $product['rating'],
+                        'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'] . $url)
+                    );
+                }
+            }
+
+            $data['catalog'] = $this->url->link('product/catalog');
+
+//            $data['main_url'] = $this->url->link('product/component');
+
+            $data['column_left'] = $this->load->controller('product/column_left');
+            $data['column_right'] = $this->load->controller('common/column_right');
+//			$data['content_top'] = $this->load->controller('common/content_top');
+            $data['content_bottom'] = $this->load->controller('common/content_bottom');
+            $data['footer'] = $this->load->controller('common/footer');
+            $data['header'] = $this->load->controller('common/header');
+            $this->response->setOutput($this->load->view('product/component', $data));
+        }
     }
 }

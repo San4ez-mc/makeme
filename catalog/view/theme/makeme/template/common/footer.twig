@@ -64,22 +64,25 @@
                             {{ address }}
                         </div>
                     </div>
-                    <div class="page-footer__menu-info-el d-none">
-                        <div class="page-footer__menu-info-el-title">Телефон</div>
-                        <a href="tel:{{ phone }}" class="page-footer__menu-info-el-value" itemprop="telephone">{{ phone }}</a>
+                    <div class="page-footer__menu-info-el">
+                        <div class="page-footer__menu-info-el-title">Контакты</div>
+                        <a href="tel:{{ phone }}" class="page-footer__menu-info-el-value"
+                           itemprop="telephone">{{ phone }}</a>
                     </div>
                     <div class="page-footer__menu-info-el">
                         <div class="page-footer__menu-info-el-title">Соцсети</div>
                         <nav class="page-footer__socials">
-                            <a itemprop="sameAs" href="#" class="page-footer__socials-el">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a itemprop="sameAs" href="#" class="page-footer__socials-el">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a itemprop="sameAs" href="#" class="page-footer__socials-el">
-                                <i class="fab fa-facebook"></i>
-                            </a>
+                            {% for social in socials %}
+                                {% if social.type == 'icon' %}
+                                    <a itemprop="sameAs" href="{{ social.link }}" class="page-footer__socials-el">
+                                        <i class="fab {{ social.icon }}"></i>
+                                    </a>
+                                {% else %}
+                                    <a itemprop="sameAs" href="{{ social.link }}" class="page-footer__socials-el">
+                                        <img src="{{ social.image }}" alt="social_icon" class="footer_icon">
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
                         </nav>
                     </div>
                 </div>

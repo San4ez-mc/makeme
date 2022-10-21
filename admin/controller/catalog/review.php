@@ -502,6 +502,14 @@ class ControllerCatalogReview extends Controller {
 			$data['author'] = '';
 		}
 
+        if (isset($this->request->post['about'])) {
+            $data['about'] = $this->request->post['about'];
+        } elseif (!empty($review_info)) {
+            $data['about'] = $review_info['about'];
+        } else {
+            $data['about'] = '';
+        }
+
 		if (isset($this->request->post['text'])) {
 			$data['text'] = $this->request->post['text'];
 		} elseif (!empty($review_info)) {
@@ -521,7 +529,7 @@ class ControllerCatalogReview extends Controller {
 		if (isset($this->request->post['date_added'])) {
 			$data['date_added'] = $this->request->post['date_added'];
 		} elseif (!empty($review_info)) {
-			$data['date_added'] = ($review_info['date_added'] != '0000-00-00 00:00' ? $review_info['date_added'] : '');
+			$data['date_added'] = ($review_info['date_added'] != '0000-00-00 00:00' ? $review_info['date_added'] : date('Y-m-d H:i'));
 		} else {
 			$data['date_added'] = '';
 		}
@@ -534,7 +542,28 @@ class ControllerCatalogReview extends Controller {
 			$data['status'] = '';
 		}
 
-		$data['header'] = $this->load->controller('common/header');
+        // Image
+        if (isset($this->request->post['image'])) {
+            $data['image'] = $this->request->post['image'];
+        } elseif (!empty($review_info)) {
+            $data['image'] = $review_info['image'];
+        } else {
+            $data['image'] = '';
+        }
+
+        $this->load->model('tool/image');
+
+        if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
+            $data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
+        } elseif (!empty($review_info) && is_file(DIR_IMAGE . $review_info['image'])) {
+            $data['thumb'] = $this->model_tool_image->resize($review_info['image'], 100, 100);
+        } else {
+            $data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+
+        $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+
+        $data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 

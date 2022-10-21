@@ -226,6 +226,9 @@ class ControllerCheckoutCart extends Controller
                 );
             }
 
+            $data['amount'] = $totals[0]['value'];
+            $data['currency'] = substr($data['totals'][0]['text'], -3);
+
             $data['catalog'] = $this->url->link('product/catalog');
 
             $data['checkout'] = $this->url->link('checkout/checkout', '', true);

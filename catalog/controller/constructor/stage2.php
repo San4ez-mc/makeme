@@ -83,7 +83,8 @@ class ControllerConstructorStage2 extends Controller
             $data['categories'][] = array(
                 'category_id' => $category['category_id'],
                 'name' => $category['name'],
-                'components' => $components
+                'components' => $components,
+                'can_be_delete' => !in_array($category['category_id'], [6]) ? 1: 0
             );
         }
 
@@ -114,10 +115,10 @@ class ControllerConstructorStage2 extends Controller
         ]);
         $basis = $basis[array_key_first($basis)];
         $data['basis'] = [
-            'name'=> $basis['name'],
-            'price_'=> (int)$basis['price'],
-            'price'=> $this->currency->format($this->tax->calculate($basis['price'], $basis['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']),
-            'image'=> $this->model_tool_image->resize($basis['image'], 44, 44),
+            'name' => $basis['name'],
+            'price_' => (int)$basis['price'],
+            'price' => $this->currency->format($this->tax->calculate($basis['price'], $basis['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']),
+            'image' => $this->model_tool_image->resize($basis['image'], 44, 44),
         ];
 
         $data['constructor_popup'] = $this->load->controller('constructor/constructor');

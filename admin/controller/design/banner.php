@@ -406,6 +406,10 @@ class ControllerDesignBanner extends Controller
             [
                 'id' => 6,
                 'name' => 'Как создать косметику для себя'
+            ],
+            [
+                'id' => 7,
+                'name' => 'Бегущая строка 1'
             ]
 
         ];

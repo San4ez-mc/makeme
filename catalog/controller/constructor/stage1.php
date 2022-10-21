@@ -13,11 +13,29 @@ class ControllerConstructorStage1 extends Controller
         $data['stage3'] = $this->url->link('constructor/stage3');
         $data['stage'] = 1;
 
+        $this->load->model('catalog/category');
+        $this->load->model('tool/image');
+
+        $data['category_1'] = $this->model_catalog_category->getCategory(60); // Обличчя
+        if(!empty($data['category_1'])) {
+            $data['category_1']['description'] = htmlspecialchars_decode($data['category_1']['description']);
+            $data['category_1']['thumb'] = $this->model_tool_image->resize($data['category_1']['image'], 366, 320);
+
+        }
+        $data['category_2'] = $this->model_catalog_category->getCategory(61); // Тіло
+        if(!empty($data['category_2'])) {
+            $data['category_2']['description'] = htmlspecialchars_decode($data['category_2']['description']);
+            $data['category_2']['thumb'] = $this->model_tool_image->resize($data['category_2']['image'], 366, 320);
+        }
+        $data['category_3'] = $this->model_catalog_category->getCategory(59); // Волосся
+        if(!empty($data['category_3'])) {
+            $data['category_3']['description'] = htmlspecialchars_decode($data['category_3']['description']);
+            $data['category_3']['thumb'] = $this->model_tool_image->resize($data['category_3']['image'], 366, 320);
+        }
+
         if (!empty($_GET['cat'])) {
             $data['stage'] = 2;
             $data['cat'] = $_GET['cat'];
-            $this->load->model('catalog/category');
-            $this->load->model('tool/image');
             $data['categories'] = array();
 
             $categories = $this->model_catalog_category->getCategories($_GET['cat']);

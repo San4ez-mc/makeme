@@ -21,7 +21,6 @@ class ControllerExtensionModuleBanner extends Controller
 
             $data['module'] = $module++;
             $banner_template = $results[0]['template_id'];
-
             switch ($banner_template) {
                 case 1: // Верхний баннер на главной
                     foreach ($results as $result) {
@@ -114,7 +113,6 @@ class ControllerExtensionModuleBanner extends Controller
                         $data['banners'][$key]['title'] = html_entity_decode($data['banners'][$key]['title']);
                         $data['banners'][$key]['text'] = html_entity_decode($data['banners'][$key]['text']);
                     }
-
                     return $this->load->view('extension/module/banners/your_subscribe', $data);
                     break;
                 case 6: // Как создать косметику для себя
@@ -133,6 +131,20 @@ class ControllerExtensionModuleBanner extends Controller
                     }
 
                     return $this->load->view('extension/module/banners/how_to_create', $data);
+                    break;
+                case 7: // Бегущая строка
+
+                    foreach ($results as $result) {
+                        $data['banners'][] = array(
+                            'title' => $result['title']
+                        );
+                    }
+
+                    foreach ($data['banners'] as $key => $banner) {
+                        $data['banners'][$key]['title'] = html_entity_decode($data['banners'][$key]['title']);
+                    }
+
+                    return $this->load->view('extension/module/banners/main_page_running_terms', $data);
                     break;
                 default:
                     foreach ($results as $result) {

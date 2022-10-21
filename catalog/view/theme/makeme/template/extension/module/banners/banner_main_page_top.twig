@@ -7,11 +7,6 @@
                 <span class="hero__el-text">{{ banners|first.text }}</span>
                 <span class="button button--main button--arrow">{{ banners|first.button }}</span>
                 <img src="{{ banners|first.image }}"
-                     data-srcset="
-                            catalog/view/theme/makeme/image/home/heroImg1.png 767w,
-                            catalog/view/theme/makeme/image/home/heroImg2@2x.png 1199w,
-                            catalog/view/theme/makeme/image/home/heroImg1@3x.png 1920w
-                          "
                      alt="{{ banners|first.title }}"
                      class="lazy hero__el-img"
                 >
@@ -24,11 +19,6 @@
                         <span class="hero__el-title">{{ banners.1.title }}</span>
                         <span class="hero__el-readMore">{{ banners.1.button }}</span>
                         <img src="{{ banners.1.image }}"
-                             data-srcset="
-                                    catalog/view/theme/makeme/image/home/heroImg2.png 767w,
-                                    catalog/view/theme/makeme/image/home/heroImg2@2x.png 1199w,
-                                    catalog/view/theme/makeme/image/home/heroImg2@3x.png 1920w
-                                  "
                              alt="{{ banners.1.title }}"
                              class="lazy hero__el-img"
                         >
@@ -39,27 +29,12 @@
                         <span class="hero__el-title">{{ banners.2.title }}</span>
                         <span class="hero__el-readMore">{{ banners.2.button }} </span>
                         <img src="{{ banners.2.image }}"
-                             data-srcset="
-                                    catalog/view/theme/makeme/image/home/heroImg3.png 767w,
-                                    catalog/view/theme/makeme/image/home/heroImg3@2x.png 1199w,
-                                    catalog/view/theme/makeme/image/home/heroImg3@3x.png 1920w
-                                  "
                              alt="{{ banners.2.title }}"
                              class="lazy hero__el-img"
                         >
                     </a>
                 </div>
-            </div>
+            </div>section createUnique
         </div>
     </div>
-</div>
-<div class="owl-carousel ticker">
-    <span class="ticker__el">Нет парабенов</span>
-    <span class="ticker__el">натуральные компоненты</span>
-    <span class="ticker__el">Нет химии</span>
-    <span class="ticker__el">Современная лаборатория</span>
-    <span class="ticker__el">Нет парабенов</span>
-    <span class="ticker__el">натуральные компоненты</span>
-    <span class="ticker__el">Нет химии</span>
-    <span class="ticker__el">Современная лаборатория</span>
 </div>

@@ -26,6 +26,8 @@ $_['entry_author']      = 'Автор';
 $_['entry_rating']      = 'Рейтинг';
 $_['entry_status']      = 'Статус';
 $_['entry_text']        = 'Текст';
+$_['entry_about']       = 'Про автора';
+$_['entry_image']       = 'Изображение';
 $_['entry_date_added']  = 'Дата добавления';
 
 // Help

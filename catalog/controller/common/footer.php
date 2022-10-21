@@ -19,21 +19,6 @@ class ControllerCommonFooter extends Controller
             }
         }
 
-//		$data['contact'] = $this->url->link('information/contact');
-//		$data['return'] = $this->url->link('account/return/add', '', true);
-//		$data['sitemap'] = $this->url->link('information/sitemap');
-//		$data['tracking'] = $this->url->link('information/tracking');
-//		$data['manufacturer'] = $this->url->link('product/manufacturer');
-//		$data['voucher'] = $this->url->link('account/voucher', '', true);
-//		$data['affiliate'] = $this->url->link('affiliate/login', '', true);
-//		$data['special'] = $this->url->link('product/special');
-//		$data['account'] = $this->url->link('account/account', '', true);
-//		$data['order'] = $this->url->link('account/order', '', true);
-//		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
-//		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
-//        $data['logged'] = $this->customer->isLogged();
-//        $data['home'] = $this->url->link('common/home');
-
         $data['menu1'] = [
             [
                 'name' => 'Конструктор',
@@ -54,6 +39,11 @@ class ControllerCommonFooter extends Controller
                 'name' => 'О нас',
                 'url' => $this->url->link('information/about'),
                 'route' => 'information/about'
+            ],
+            [
+                'name' => 'Документы',
+                'url' => $this->url->link('information/information&information_id=7'),
+                'route' => 'information/information&information_id=7'
             ],
         ];
 
@@ -84,17 +74,6 @@ class ControllerCommonFooter extends Controller
                 'route' => 'information/information'
             ],
         ];
-
-//        $data['constructor'] = $this->url->link('constructor/stage1');
-//        $data['catalog'] = $this->url->link('product/catalog');
-//        $data['components'] = $this->url->link('product/component');
-//        $data['about'] = $this->url->link('information/about');
-
-//        $data['delivery'] = $this->url->link('information/delivery');
-//        $data['mmclub'] = $this->url->link('information/mmclub');
-//        $data['blog'] = $this->url->link('blog/category');
-//        $data['promo'] = $this->url->link('information/promo');
-//        $data['public_offer'] = $this->url->link('information/public_offer');
 
         $data['cart'] = $this->load->controller('common/cart');
 
@@ -136,11 +115,34 @@ class ControllerCommonFooter extends Controller
 
         $data['address'] = $this->config->get('config_address');
         $data['year'] = date('Y');
-        $data['worktime'] =  $this->config->get('config_open');
-        $data['phone'] =  $this->config->get('config_telephone');
+        $data['worktime'] = $this->config->get('config_open');
+        $data['phone'] = $this->config->get('config_telephone');
 
         $data['scripts'] = $this->document->getScripts('footer');
         $data['styles'] = $this->document->getStyles('footer');
+
+        $this->load->model('tool/image');
+
+        $data['socials'] = [
+            [
+                'link' => $this->config->get('config_social_link_1'),
+                'type'=> !empty($this->config->get('config_image_social_1')) ? 'image' : 'icon',
+                'image'=> $this->model_tool_image->resize($this->config->get('config_image_social_1'), 24, 24),
+                'icon'=> $this->config->get('config_social_icon_1')
+            ],
+            [
+                'link' => $this->config->get('config_social_link_2'),
+                'type'=> !empty($this->config->get('config_image_social_2')) ? 'image' : 'icon',
+                'image'=> $this->model_tool_image->resize($this->config->get('config_image_social_2'), 24, 24),
+                'icon'=> $this->config->get('config_social_icon_2')
+            ],
+            [
+                'link' => $this->config->get('config_social_link_3'),
+                'type'=> !empty($this->config->get('config_image_social_3')) ? 'image' : 'icon',
+                'image'=> $this->model_tool_image->resize($this->config->get('config_image_social_3'), 24, 24),
+                'icon'=> $this->config->get('config_social_icon_3')
+            ]
+        ];
 
         if (!$this->customer->isLogged()) {
             $data['login_popup'] = $this->load->controller('account/login_popup');

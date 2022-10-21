@@ -203,6 +203,7 @@ jQuery(document).ready(function ($) {
 
     $('body').on('click', '.add_to_cart', function (e) {
         e.preventDefault();
+        console.log($(this).attr('data-product_id'));
         cart.add($(this).attr('data-product_id'), $('.product_quantity').val());
     });
 

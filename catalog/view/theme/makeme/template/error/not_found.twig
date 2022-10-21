@@ -1,0 +1,44 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <div class="container">
+            <nav class="page-breadcrumbs">
+                <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    {% for breadcrumb in breadcrumbs %}
+                        {% set i = 1 %}
+                        {#                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>#}
+                        <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                                <span itemprop="name">{{ breadcrumb.text }}</span>
+                                <meta itemprop="position" content="{{ i }}">
+                            </a>
+                        </li>
+                        {% set i=i+1 %}
+                    {% endfor %}
+                </ul>
+                <a href="#" class="page-breadcrumbs__back">Назад</a>
+            </nav>
+        </div>
+        <div class="row">{{ column_left }}
+            {% if column_left and column_right %}
+                {% set class = 'col-sm-6' %}
+            {% elseif column_left or column_right %}
+                {% set class = 'col-sm-9' %}
+            {% else %}
+                {% set class = 'col-sm-12' %}
+            {% endif %}
+            <div id="content" class="{{ class }}">{{ content_top }}
+                <h2 class="section__title mr-4"{{ heading_title }}</h2>
+                <p>{{ text_error }}</p>
+                <br/>
+                <div class="buttons clearfix">
+                    <div class="pull-right"><a href="{{ continue }}"
+                                               class="button button--primary">{{ button_continue }}</a>
+                    </div>
+                </div>
+                {{ content_bottom }}</div>
+            {{ column_right }}</div>
+    </div>
+</main>
+{{ footer }}

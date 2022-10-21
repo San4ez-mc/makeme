@@ -234,7 +234,9 @@ $('.form__field-passwordShow').on('click', function () {
     }
 });
 
+// це для видалення з рецептів, потім треба буде точніше вказати селектор, бо він спрацьовує в корзині
 $('.productCard__remove').on('click', function () {
+    console.log('test2');
     $('#modalShureRemove').modal('show');
 });
 
@@ -474,25 +476,25 @@ $('.constructor__menu-list').on('click', '.el__add', function () {
         const name = $(this).closest('.el').find('.el__title').text();
         const price = $(this).closest('.el').find('.el__tooltip-footer-price').text();
         const video_src = $('#constructor__product-video').attr('data-video_url');
+        const can_be_deleted = $(this).closest('.el').attr('data-can_be_deleted');
 
         // додавання компонента в праву колонку
-        $('.constructor__components .constructor__collapse-body').append(`
-            <div 
-                class="constructor__components-el added_component" 
-                data-id="${id}"
-                data-component_id="${component_id}"
-                data-price="${price_}"
-            >
-              <span class="constructor__components-el-imgContainer">
-                <img src="${img}" alt="${name}" class="constructor__components-el-img">
-              </span>
-              <span class="constructor__components-el-body">
-                <span class="constructor__components-el-name">${name}</span>
-                <span class="constructor__components-el-value">${price}</span>
-              </span>
-              <span class="constructor__components-el-remove"></span>
-            </div>
-        `);
+        $('.constructor__components .constructor__collapse-body').append(
+            '<div' +
+            ' class="constructor__components-el added_component" ' +
+            ' data-id="' + id + '" ' +
+            ' data-component_id="' + component_id + '" ' +
+            ' data-price="' + price_ + '" ' +
+            ' > ' +
+            ' <span class="constructor__components-el-imgContainer"> ' +
+            ' <img src="' + img + '" alt="' + name + '" class="constructor__components-el-img"> ' +
+            ' </span> ' +
+            ' <span class="constructor__components-el-body"> ' +
+            ' <span class="constructor__components-el-name">' + name + '</span> ' +
+            ' <span class="constructor__components-el-value">' + price + '</span> ' +
+            ' </span>' +
+            (can_be_deleted === '1' ? `<span class="constructor__components-el-remove"></span>` : '')
+            + '</div>');
 
         // обрахунок нової ціни
         let total_price = 0;
@@ -526,7 +528,13 @@ $('.constructor__menu-list').on('click', '.el__add', function () {
     }
 });
 
-$('.constructor__components').on('click', '.constructor__components-el-remove', function () {
+$(document).on('click', '.constructor__components-el-remove', function () {
+    const amount = $('.added_component').length;
+    const video_src = $('#constructor__product-video').attr('data-video_url');
+
+    $('.constructor__product').hide();
+    $('.constructor__product-preloader').show();
+
     if ($('.constructor__menu .el.active').length == 1) {
         $('.constructor__product-body').removeClass('active');
     }
@@ -542,7 +550,29 @@ $('.constructor__components').on('click', '.constructor__components-el-remove', 
             $('.constructor__product-el').eq(i).remove();
         }
     }
+
     $(this).closest('.constructor__components-el').remove();
+
+    // обрахунок нової ціни
+    let total_price = 0;
+    const total_span = $('.constructor__components-sum-value');
+    const currency = total_span.text().substring(total_span.text().length - 1);
+    $('.added_component').each(function (index) {
+        total_price += parseInt($(this).attr('data-price'));
+    });
+
+    $('.constructor__components-sum-value').text(total_price + currency);
+    $('.constructor__components-sum-value').attr('data-total', total_price);
+
+    // заміна відео
+    let video = $('#constructor__product-video');
+    let ext = video.attr('data-ext');
+    video.attr('src', video_src + '/' + (parseInt(amount) + 1) + '.' + ext);
+
+    setTimeout(function () {
+        $('.constructor__product-preloader').hide();
+        $('.constructor__product').show();
+    }, 500)
 });
 
 $('.modalProductNaming input').on('keyup', function () {
@@ -582,7 +612,6 @@ $("a.scrollto").on("click", function (event) {
         top = $(id).offset().top - 10;
     $('body,html').animate({scrollTop: top}, 1000);
 });
-
 
 $(function () {
     $(".delayedLinkToBasket").click(function (evt) {
@@ -655,6 +684,7 @@ $('.lk__desires-nav-el').on('click', function () {
 });
 
 $('.productCard').on('click', '.productCard__remove', function () {
+    console.log('test');
     $(this).closest('.productCard').addClass('toRemove');
 });
 
@@ -810,6 +840,41 @@ $('.free_checkout #button-confirm').on('click', function () {
         },
         success: function () {
             location.href = button.attr('data-continue');
+        }
+    });
+});
+
+$('.form__promocode-submit').on('click', function (e) {
+    e.preventDefault();
+    const button = $(this);
+    const start_amount = parseInt(button.attr('data-amount'));
+    const currency = button.attr('data-currency');
+    $.ajax({
+        type: 'get',
+        url: 'index.php?route=api/voucher/check_code',
+        data: 'voucher=' + $(this).closest('form').find('input').val(),
+        method: 'POST',
+        cache: false,
+        beforeSend: function () {
+            $('#button-confirm').button('loading');
+        },
+        complete: function () {
+            $('#button-confirm').button('reset');
+        },
+        success: function (json) {
+            $('.voucher_message').remove();
+            if (json.status === 'success') {
+                $('.voucher_value').text(json.amount + currency);
+                let new_total = start_amount - parseInt(json.amount);
+                new_total = new_total >= 0 ? new_total : 0;
+                console.log(new_total);
+                $('.total_span_final').text(new_total + currency);
+
+                $('.form__promocode').after('<span class="voucher_message voucher_success color-secondary">' + json.message + '</span>')
+            } else {
+                $('.form__promocode').after('<span class="voucher_message voucher_error">' + json.message + '</span>')
+            }
+            // location.href = button.attr('data-continue');
         }
     });
 });

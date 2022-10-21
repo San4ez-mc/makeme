@@ -120,6 +120,9 @@ class ControllerBlogCategory extends Controller
 
         $category_info = $this->model_blog_category->getCategory($blog_category_id);
 
+        $data['blog'] = $this->url->link('blog/category');
+
+
         if ($category_info) {
 
             if ($category_info['meta_title']) {
@@ -389,11 +392,11 @@ class ControllerBlogCategory extends Controller
             if (isset($this->request->get['limit'])) {
                 $url .= '&limit=' . $this->request->get['limit'];
             }
-
-            $data['breadcrumbs'][] = array(
-                'text' => $this->language->get('text_error'),
-                'href' => $this->url->link('blog/category', $url)
-            );
+//
+//            $data['breadcrumbs'][] = array(
+//                'text' => $this->language->get('text_error'),
+//                'href' => $this->url->link('blog/category', $url)
+//            );
 
             $this->document->setTitle($this->language->get('text_error'));
 
@@ -423,7 +426,7 @@ class ControllerBlogCategory extends Controller
 
                 $data['categories'][] = array(
                     'name' => $result['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
-                    'href' => $this->url->link('blog/category', $url)
+                    'href' => $this->url->link('blog/category', 'blog_category_id=' . $result['blog_category_id'] . $url)
                 );
             }
 
@@ -553,7 +556,7 @@ class ControllerBlogCategory extends Controller
                 $data['limits'][] = array(
                     'text' => $value,
                     'value' => $value,
-                    'href' => $this->url->link('blog/category',  $url . '&limit=' . $value)
+                    'href' => $this->url->link('blog/category', $url . '&limit=' . $value)
                 );
             }
 
@@ -575,12 +578,11 @@ class ControllerBlogCategory extends Controller
             $pagination->total = $article_total;
             $pagination->page = $page;
             $pagination->limit = $limit;
-            $pagination->url = $this->url->link('blog/category',  $url . '&page={page}');
+            $pagination->url = $this->url->link('blog/category', $url . '&page={page}');
 
             $data['pagination'] = $pagination->render();
 
             $data['results'] = sprintf($this->language->get('text_pagination'), ($article_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($article_total - $limit)) ? $article_total : ((($page - 1) * $limit) + $limit), $article_total, ceil($article_total / $limit));
-
 
 
             $data['heading_title'] = $this->language->get('text_error');

@@ -138,7 +138,11 @@ $(document).ready(function () {
 // Cart add remove functions
 var cart = {
     'add': function (product_id, quantity) {
+        console.log(product_id);
+        console.log(quantity);
         this.check(product_id, quantity, function (product_id, quantity) {
+            console.log(product_id);
+            console.log(quantity);
             $.ajax({
                 url: 'index.php?route=checkout/cart/add',
                 type: 'post',
@@ -208,29 +212,47 @@ var cart = {
             }
         });
     },
-    'remove': function (key) {
+    'remove': function (key, place = 'modal') {
         $.ajax({
             url: 'index.php?route=checkout/cart/remove',
             type: 'post',
             data: 'key=' + key,
             dataType: 'json',
             beforeSend: function () {
-                $('#cart > button').button('loading');
+                switch (place) {
+                    case 'cart':
+                        console.log('cart');
+                        break;
+                    default:
+                        $('#cart > button').button('loading');
+                }
             },
             complete: function () {
-                $('#cart > button').button('reset');
+                switch (place) {
+                    case 'cart':
+                        console.log('cart');
+                        break;
+                    default:
+                        $('#cart > button').button('reset');
+                }
             },
             success: function (json) {
-                // Need to set timeout otherwise it wont update the total
-                setTimeout(function () {
-                    $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
-                }, 100);
+                switch (place) {
+                    case 'cart':
+                        location.reload();
+                        break;
+                    default:
+                        // Need to set timeout otherwise it wont update the total
+                        setTimeout(function () {
+                            $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+                        }, 100);
 
-                if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
-                    location.href = 'index.php?route=checkout/cart';
-                } else {
-                    // $('#cart > ul').load('index.php?route=common/cart/info ul li');
-                    $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content');
+                        if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
+                            location.href = 'index.php?route=checkout/cart';
+                        } else {
+                            // $('#cart > ul').load('index.php?route=common/cart/info ul li');
+                            $('#modalBasket .modal-dialog').load('index.php?route=common/cart/info .modal-content');
+                        }
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -247,7 +269,7 @@ var cart = {
             success: function (json) {
                 if (json.status === 'ok') {
                     if (json.in_cart === false) {
-                        callback();
+                        callback(product_id, json.quantity);
                     } else {
                         callback2(json.key, json.quantity);
                     }

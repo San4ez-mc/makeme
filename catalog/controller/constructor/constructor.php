@@ -38,7 +38,7 @@ class ControllerConstructorConstructor extends Controller
                 'isbn' => '',
                 'mpn' => '',
                 'location' => '',
-                'quantity' => 100, 
+                'quantity' => 100,
                 'minimum' => 1,
                 'subtract' => 1,
                 'stock_status_id' => 7, // перевірити
@@ -83,7 +83,13 @@ class ControllerConstructorConstructor extends Controller
                 'product_filter' => [$this->request->post['filter_id']],
                 'product_store' => [0],
                 'product_category' => [75], // пользовательские рецепты
-                'main_category_id' => 75, // пользовательские рецепты
+                'main_category_id' => 75, // пользовательские рецепты,
+                'product_seo_url' => [
+                    0 => [
+                        1 => $this->model_catalog_component->createModel($this->request->post['name']),
+                        2 => $this->model_catalog_component->createModel($this->request->post['name']). '_en'
+                    ]
+                ]
 
             ], $components);
 
@@ -158,7 +164,7 @@ class ControllerConstructorConstructor extends Controller
             } else {
                 echo json_encode(['status' => 'error', 'error' => $this->error]);
             }
-        }else{
+        } else {
             echo json_encode(['status' => 'error', 'error' => 'no product']);
         }
     }
@@ -180,7 +186,7 @@ class ControllerConstructorConstructor extends Controller
             } else {
                 echo json_encode(['status' => 'error', 'error' => $this->error]);
             }
-        }else{
+        } else {
             echo json_encode(['status' => 'error', 'error' => 'no product']);
         }
     }

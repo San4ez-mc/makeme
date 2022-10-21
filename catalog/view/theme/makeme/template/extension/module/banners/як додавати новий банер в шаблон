@@ -1,0 +1,10 @@
+Адмінка
+
+1. admin/controller/design/banner.php додати новий варіант в 381 рядку
+2. додаємо банери в адмінці admin/index.php?route=design/banner
+3. додаємо новий макет admin/index.php?route=marketplace/extension&type=module
+4. в макетах вибираємо потрібну сторінку і додаємо банер в сруктуру admin/index.php?route=design/layout
+
+Фронт
+1. додаємо новий twig файл в catalog/view/theme/makeme/template/extension/module/banners
+2. підключаємо потрібний twig файл в контролері catalog/controller/extension/module/banner.php 149 строка

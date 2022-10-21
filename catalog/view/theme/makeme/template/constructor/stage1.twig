@@ -37,21 +37,21 @@
                             <div class="row">
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <label class="constructorTabs__el">
-                                        <input type="radio" name="body_part" value="60"
+                                        <input type="radio" name="body_part" value="{{ category_1.category_id }}"
                                                class="constructorTabs__el-input">
                                         <span class="constructorTabs__el-body">
                                             <span class="constructorTabs__el-imgContainer">
-                                                  <img src="catalog/view/theme/makeme/image/constructorGirl1.png"
+                                                  <img src="{{ category_1.thumb }}"
                                                        alt="face"
                                                        class="lazy constructorTabs__el-img constructorTabs__el-img--default"/>
                                                   <img src="catalog/view/theme/makeme/image/constructorGirl1Hover.png"
                                                        alt="face"
                                                        class="lazy constructorTabs__el-img constructorTabs__el-img--hover"/>
                                             </span>
-                                            <span class="constructorTabs__el-title">Лицо</span>
-                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
+                                            <span class="constructorTabs__el-title">{{ category_1.name }}</span>
+                                            <span class="constructorTabs__el-text">{{ category_1.description }}</span>
 
-                                             <a href="{{ stage1 }}&cat=60">
+                                             <a href="{{ stage1 }}&cat={{ category_1.category_id }}">
                                                  <span class="constructorTabs__el-hover">
                                                     <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
                                                     <span class="constructorTabs__el-hover-icon"></span>
@@ -62,48 +62,52 @@
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <label class="constructorTabs__el">
-                                        <input type="radio" name="body_part" value="61"
+                                        <input type="radio" name="body_part" value="{{ category_2.category_id }}"
                                                class="constructorTabs__el-input">
                                         <span class="constructorTabs__el-body">
                                             <span class="constructorTabs__el-imgContainer">
-                                              <img src="catalog/view/theme/makeme/image/constructorGirl2.png" alt="#"
-                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
-                                              <img src="catalog/view/theme/makeme/image/constructorGirl2Hover.png"
-                                                   alt="#"
-                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
+                                                  <img src="{{ category_2.thumb }}"
+                                                       alt="face"
+                                                       class="lazy constructorTabs__el-img constructorTabs__el-img--default"/>
+                                                  <img src="catalog/view/theme/makeme/image/constructorGirl1Hover.png"
+                                                       alt="face"
+                                                       class="lazy constructorTabs__el-img constructorTabs__el-img--hover"/>
                                             </span>
-                                            <span class="constructorTabs__el-title">Тело</span>
-                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
-                                              <a href="{{ stage1 }}&cat=61">
-                                                  <span class="constructorTabs__el-hover">
-                                                      <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
-                                                      <span class="constructorTabs__el-hover-icon"></span>
-                                                  </span>
-                                              </a>
-                                          </span>
+                                            <span class="constructorTabs__el-title">{{ category_2.name }}</span>
+                                            <span class="constructorTabs__el-text">{{ category_2.description }}</span>
+
+                                             <a href="{{ stage2 }}&cat={{ category_2.category_id }}">
+                                                 <span class="constructorTabs__el-hover">
+                                                    <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
+                                                    <span class="constructorTabs__el-hover-icon"></span>
+                                                </span>
+                                             </a>
+                                        </span>
                                     </label>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <label class="constructorTabs__el">
-                                        <input type="radio" name="body_part" value="59"
+                                        <input type="radio" name="body_part" value="{{ category_3.category_id }}"
                                                class="constructorTabs__el-input">
                                         <span class="constructorTabs__el-body">
                                             <span class="constructorTabs__el-imgContainer">
-                                              <img src="catalog/view/theme/makeme/image/constructorGirl3.png" alt="#"
-                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--default">
-                                              <img src="catalog/view/theme/makeme/image/constructorGirl3Hover.png"
-                                                   alt="#"
-                                                   class="lazy constructorTabs__el-img constructorTabs__el-img--hover">
+                                                  <img src="{{ category_3.thumb }}"
+                                                       alt="face"
+                                                       class="lazy constructorTabs__el-img constructorTabs__el-img--default"/>
+                                                  <img src="catalog/view/theme/makeme/image/constructorGirl1Hover.png"
+                                                       alt="face"
+                                                       class="lazy constructorTabs__el-img constructorTabs__el-img--hover"/>
                                             </span>
-                                            <span class="constructorTabs__el-title">Волосы</span>
-                                            <span class="constructorTabs__el-text">Больше не надо переживать о том подойдет ли тебе крем. </span>
-                                              <a href="{{ stage1 }}&cat=59">
-                                                    <span class="constructorTabs__el-hover">
-                                                      <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
-                                                      <span class="constructorTabs__el-hover-icon"></span>
-                                                    </span>
-                                              </a>
-                                          </span>
+                                            <span class="constructorTabs__el-title">{{ category_3.name }}</span>
+                                            <span class="constructorTabs__el-text">{{ category_3.description }}</span>
+
+                                             <a href="{{ stage3 }}&cat={{ category_3.category_id }}">
+                                                 <span class="constructorTabs__el-hover">
+                                                    <span class="constructorTabs__el-hover-text">ВЫБРАТЬ</span>
+                                                    <span class="constructorTabs__el-hover-icon"></span>
+                                                </span>
+                                             </a>
+                                        </span>
                                     </label>
                                 </div>
                             </div>

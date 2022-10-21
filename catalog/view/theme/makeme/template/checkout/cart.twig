@@ -71,7 +71,7 @@
                                                 <span class="like__body"></span>
                                             </label>
                                         </div>
-                                        <div class="productCard__remove" data-product_id="{{ product.cart_id }}"></div>
+                                        <div class="productCard__remove" onclick="cart.remove({{ product.cart_id }}, 'cart');" data-product_id="{{ product.cart_id }}"></div>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,12 @@
                                                placeholder="Промокод или подарочный сертификат">
                                     </div>
                                 </div>
-                                <button class="button form__promocode-submit" type="submit" disabled>
+                                <button class="button form__promocode-submit"
+                                        type="submit"
+                                        disabled
+                                        data-amount="{{ amount }}"
+                                        data-currency="{{ currency }}"
+                                >
                                     <span class="d-lg-block d-none">Применить</span>
                                     <span class="d-lg-none d-block">Ок</span>
                                 </button>
@@ -99,11 +104,11 @@
                             </div>
                             <div class="lk__order-sum-el color-secondary">
                                 <span class="lk__order-sum-el-type">Скидка</span>
-                                <span class="lk__order-sum-el-value">0 ₴</span>
+                                <span class="lk__order-sum-el-value voucher_value">0₴</span>
                             </div>
                             <div class="lk__order-sum-el sum">
                                 <span class="lk__order-sum-el-type">Всего к оплате</span>
-                                <span class="lk__order-sum-el-value total_span">{{ totals.1.text }}</span>
+                                <span class="lk__order-sum-el-value total_span total_span_final">{{ totals.1.text }}</span>
                             </div>
                             <div class="lk__order-sum-group-buttons">
                                 <a href="{{ checkout }}" class="button button--primary">Оформить заказ</a>

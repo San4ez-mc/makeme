@@ -63,7 +63,7 @@ class ControllerCommonContentBottom extends Controller {
 				if ($module_data) {
 					$data['modules'][] = $module_data;
 				}
-			}
+			} 
 
 			if (isset($part[1])) {
 				$setting_info = $this->model_setting_module->getModule($part[1]);

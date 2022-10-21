@@ -2118,7 +2118,7 @@ input[type=number] {
 }
 
 .hero__el--1 .hero__el-text {
-    max-width: 500px;
+    max-width: 470px;
     margin-bottom: 40px;
 }
 
@@ -2651,7 +2651,7 @@ input[type=number] {
 
 .createUnique__text {
     margin-bottom: 20px;
-    max-width: 505px;
+    max-width: 640px;
     position: relative;
     z-index: 1;
 }
@@ -7269,6 +7269,15 @@ input[type=number] {
     flex-shrink: 0;
 }
 
+.basket .voucher_message {
+    padding: 20px 30px;
+    display: block;
+}
+
+.basket .voucher_error {
+    color: #FF6B98;
+}
+
 @media (max-width: 991px) {
     .basket .lk__order-sum-group .form__promocode-submit {
         border-top-left-radius: 0;
@@ -7592,8 +7601,8 @@ input[type=number] {
     margin-bottom: 70px;
 }
 
-.constructor__product.small_boxing video{
-    display:block;
+.constructor__product.small_boxing video {
+    display: block;
     margin: 0 auto;
     width: 300px;
 }
@@ -9480,4 +9489,12 @@ input[type=number] {
 #checkout_page .select2-selection__clear {
     background: none;
     border: none;
+}
+
+.section.createYours.yourNewsletter #respond {
+    margin-top: 15px;
+}
+
+.section.createYours.yourNewsletter #button-subscribe {
+    cursor: pointer;
 }

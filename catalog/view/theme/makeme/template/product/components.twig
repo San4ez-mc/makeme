@@ -1,0 +1,60 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                {% for breadcrumb in breadcrumbs %}
+                    {% set i = 1 %}
+                    {#                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>#}
+                    <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                            <span itemprop="name">{{ breadcrumb.text }}</span>
+                            <meta itemprop="position" content="{{ i }}">
+                        </a>
+                    </li>
+                    {% set i=i+1 %}
+                {% endfor %}
+            </ul>
+            <a href="/" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+
+        <section class="section aboutComponents">
+            <h1 class="section__title">О компонентах</h1>
+
+            <nav class="aboutComponents__nav">
+                <a href="{{ main_url }}" class="aboutComponents__nav-el aboutComponents__nav-el--all">Все</a>
+                {% for category in categories %}
+                    <a href="{{ category.href }}"
+                       class="aboutComponents__nav-el aboutComponents__nav-el--active {{ category.active ? 'active' : '' }}">{{ category.name }}</a>
+                {% endfor %}
+            </nav>
+
+            <div class="row">
+                {% for component in components %}
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                        <a href="{{ component.href }}" class="aboutComponents__el">
+                        <span class="aboutComponents__el-imgContainer">
+                          <img src="{{ component.thumb }}" alt="{{ component.name }}"
+                               title="{{ component.name }}" class="lazy aboutComponents__el-img">
+                        </span>
+                            <span class="aboutComponents__el-name">{{ component.name }}</span>
+                            <span class="aboutComponents__el-text">{{ component.description }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
+                <div class="col-12">
+                    {#                    <a href="#" class="button button--stroke button--reload stocks__loadMore">#}
+                    {#                        <span class="button__icon"><i class="fas fa-sync-alt"></i></span>#}
+                    {#                        <span class="button__text">Загрузить еще</span>#}
+                    {#                    </a>#}
+
+                    {{ pagination }}
+                </div>
+            </div>
+        </section>
+
+        {{ content_bottom }}
+    </div>
+</main>
+{{ footer }}

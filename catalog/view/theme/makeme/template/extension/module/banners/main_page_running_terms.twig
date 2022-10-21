@@ -1,0 +1,14 @@
+<div class="owl-carousel ticker">
+    {% if banners.length > 4 %}
+        {% for banner in banners %}
+            <span class="ticker__el">{{ banner.title }}</span>
+        {% endfor %}
+    {% else %}
+        {% for banner in banners %}
+            <span class="ticker__el">{{ banner.title }}</span>
+        {% endfor %}
+        {% for banner in banners %}
+            <span class="ticker__el">{{ banner.title }}</span>
+        {% endfor %}
+    {% endif %}
+</div>

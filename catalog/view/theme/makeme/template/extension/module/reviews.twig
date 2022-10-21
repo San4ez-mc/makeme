@@ -1,0 +1,129 @@
+<section class="section starFeedbacks">
+    <div class="section__header d-flex align-items-center justify-content-between flex-wrap">
+        <h2 class="section__title mr-4"><span class="color-primary">Звездные</span> отзывы</h2>
+        <a href="#" class="showMore">Смотреть больше</a>
+    </div>
+    <div class="owl-carousel carousel-3els">
+        {% for review in reviews %}
+            <a href="{{ review.href }}" class="starFeedback">
+              <span class="starFeedback__imgContainer">
+                <img
+{#                        data-srcset="#}
+                        {#                            catalog/view/theme/makeme/image/home/starFeedback1.jpg 767w,#}
+                        {#                            catalog/view/theme/makeme/image/home/starFeedback1@2x.jpg 1199w,#}
+                        {#                            catalog/view/theme/makeme/image/home/starFeedback1@3x.jpg 1920w#}
+                        {#                          "#}
+                        src="{{ review.thumb }}"
+                        alt="review_image"
+                        class="lazy starFeedback__img"
+                >
+                <span class="starFeedback__info">
+                  <span class="starFeedback__info-name">@{{ review.author }}</span>
+                  <span class="starFeedback__info-about">
+                    {{ review.about }}
+                  </span>
+                </span>
+              </span>
+                <span class="starFeedback__body">
+                <span class="starFeedback__body-name">@{{ review.author }}</span>
+                <span class="starFeedback__body-about">
+                  {{ review.about }}
+                </span>
+                <span class="starFeedback__body-text"> {{ review.text }}</span>
+                <span class="starFeedback__moreDetails">Подробнее о средстве</span>
+              </span>
+            </a>
+        {% endfor %}
+        {#        <a href="#" class="starFeedback">#}
+        {#              <span class="starFeedback__imgContainer">#}
+        {#                <img#}
+        {#                        data-srcset="#}
+        {#                            catalog/view/theme/makeme/image/home/starFeedback2.jpg 767w,#}
+        {#                            catalog/view/theme/makeme/image/home/starFeedback2@2x.jpg 1199w,#}
+        {#                            catalog/view/theme/makeme/image/home/starFeedback2@3x.jpg 1920w#}
+        {#                          "#}
+        {#                        src="catalog/view/theme/makeme/image/home/starFeedback2.jpg"#}
+        {#                        alt="#"#}
+        {#                        class="lazy starFeedback__img"#}
+        {#                >#}
+        {#                <span class="starFeedback__info">#}
+        {#                  <span class="starFeedback__info-name">@NicknameInsta</span>#}
+        {#                  <span class="starFeedback__info-about">#}
+        {#                    23 000 подписчиков в инстаграм<br>#}
+        {#                    Мама троих#}
+        {#                  </span>#}
+        {#                </span>#}
+        {#              </span>#}
+        {#            <span class="starFeedback__body">#}
+        {#                <span class="starFeedback__body-name">@NicknameInsta</span>#}
+        {#                <span class="starFeedback__body-about">#}
+        {#                  23 000 подписчиков в инстаграм<br>#}
+        {#                  Мама троих#}
+        {#                </span>#}
+        {#                <span class="starFeedback__body-text">Хочу подякувати @makemy за чудо-баночки, які поїхали зі мною в сонячну, спекотну країну! Вже вкотре користуюсь цими засобами, і завжди в захваті. <br>#}
+        {#                Крем універсальний для денного та нічного застосування. А пінка для вмивання прекрасно очищує шкіру і змиває макіяж! Навіть туш! Взяла 2 баночки і зекономила багато місця! <br>#}
+        {#                Ну а запах - це взагалі окрема тема!😍</span>#}
+        {#                <span class="starFeedback__moreDetails">Подробнее о средстве</span>#}
+        {#              </span>#}
+        {#        </a>#}
+        {#        <a href="#" class="starFeedback">#}
+        {#              <span class="starFeedback__imgContainer">#}
+        {#                <img#}
+        {#                        data-srcset="#}
+        {#                            catalog/view/theme/makeme/image/home/starFeedback3.jpg 767w,#}
+        {#                            catalog/view/theme/makeme/image/home/starFeedback3@2x.jpg 1199w,#}
+        {#                            catalog/view/theme/makeme/image/home/starFeedback3@3x.jpg 1920w#}
+        {#                          "#}
+        {#                        src="catalog/view/theme/makeme/image/home/starFeedback3.jpg"#}
+        {#                        alt="#"#}
+        {#                        class="lazy starFeedback__img"#}
+        {#                >#}
+        {#                <span class="starFeedback__info">#}
+        {#                  <span class="starFeedback__info-name">@NicknameInsta</span>#}
+        {#                  <span class="starFeedback__info-about">#}
+        {#                    23 000 подписчиков в инстаграм<br>#}
+        {#                    Мама троих#}
+        {#                  </span>#}
+        {#                </span>#}
+        {#              </span>#}
+        {#            <span class="starFeedback__body">#}
+        {#                <span class="starFeedback__body-name">@NicknameInsta</span>#}
+        {#                <span class="starFeedback__body-about">#}
+        {#                  23 000 подписчиков в инстаграм<br>#}
+        {#                  Мама троих#}
+        {#                </span>#}
+        {#                <span class="starFeedback__body-text">Хочу подякувати @makemy за чудо-баночки, які поїхали зі мною в сонячну, спекотну країну! Вже вкотре користуюсь цими засобами, і завжди в захваті. <br>#}
+        {#                Крем універсальний для денного та нічного застосування. А пінка для вмивання прекрасно очищує шкіру і змиває макіяж! Навіть туш! Взяла 2 баночки і зекономила багато місця! <br>#}
+        {#                Ну а запах - це взагалі окрема тема!😍</span>#}
+        {#                <span class="starFeedback__moreDetails">Подробнее о средстве</span>#}
+        {#              </span>#}
+        {#        </a>#}
+        {#        <a href="#" class="starFeedback">#}
+        {#              <span class="starFeedback__imgContainer">#}
+        {#                <img src="catalog/view/theme/makeme/image/home/starFeedback1.jpg" alt="#"#}
+        {#                     class="lazy starFeedback__img">#}
+        {#                <span class="starFeedback__info">#}
+        {#                  <span class="starFeedback__info-name">@NicknameInsta</span>#}
+        {#                  <span class="starFeedback__info-about">#}
+        {#                    23 000 подписчиков в инстаграм<br>#}
+        {#                    Мама троих#}
+        {#                  </span>#}
+        {#                </span>#}
+        {#              </span>#}
+        {#            <span class="starFeedback__body">#}
+        {#                <span class="starFeedback__body-name">@NicknameInsta</span>#}
+        {#                <span class="starFeedback__body-about">#}
+        {#                  23 000 подписчиков в инстаграм<br>#}
+        {#                  Мама троих#}
+        {#                </span>#}
+        {#                <span class="starFeedback__body-text">Хочу подякувати @makemy за чудо-баночки, які поїхали зі мною в сонячну, спекотну країну! Вже вкотре користуюсь цими засобами, і завжди в захваті. <br>#}
+        {#                Крем універсальний для денного та нічного застосування. А пінка для вмивання прекрасно очищує шкіру і змиває макіяж! Навіть туш! Взяла 2 баночки і зекономила багато місця! <br>#}
+        {#                Ну а запах - це взагалі окрема тема!😍</span>#}
+        {#                <span class="starFeedback__moreDetails">Подробнее о средстве</span>#}
+        {#              </span>#}
+        {#        </a>#}
+    </div>
+    <div class="text-center mt-4">
+        <a href="#" class="button button--stroke">Создать средство</a>
+    </div>
+</section>
