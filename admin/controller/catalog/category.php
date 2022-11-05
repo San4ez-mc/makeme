@@ -431,6 +431,14 @@ class ControllerCatalogCategory extends Controller
             $data['image'] = '';
         }
 
+        if (isset($this->request->post['hover_image'])) {
+            $data['hover_image'] = $this->request->post['hover_image'];
+        } elseif (!empty($category_info)) {
+            $data['hover_image'] = $category_info['hover_image'];
+        } else {
+            $data['hover_image'] = '';
+        }
+
         $this->load->model('tool/image');
 
         if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
@@ -439,6 +447,14 @@ class ControllerCatalogCategory extends Controller
             $data['thumb'] = $this->model_tool_image->resize($category_info['image'], 100, 100);
         } else {
             $data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+        }
+
+        if (isset($this->request->post['hover_image']) && is_file(DIR_IMAGE . $this->request->post['hover_image'])) {
+            $data['hover_thumb'] = $this->model_tool_image->resize($this->request->post['hover_image'], 100, 100);
+        } elseif (!empty($category_info) && is_file(DIR_IMAGE . $category_info['hover_image'])) {
+            $data['hover_thumb'] = $this->model_tool_image->resize($category_info['hover_image'], 100, 100);
+        } else {
+            $data['hover_thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
         }
 
         $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);

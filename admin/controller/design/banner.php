@@ -410,8 +410,11 @@ class ControllerDesignBanner extends Controller
             [
                 'id' => 7,
                 'name' => 'Бегущая строка 1'
+            ],
+            [
+                'id' => 8,
+                'name' => 'Банер в корзине (бесплатная доставка...)'
             ]
-
         ];
 
         $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);

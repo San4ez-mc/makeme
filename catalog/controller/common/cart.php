@@ -128,7 +128,7 @@ class ControllerCommonCart extends Controller
             foreach ($this->session->data['vouchers'] as $key => $voucher) {
                 $data['vouchers'][] = array(
                     'key' => $key,
-                    'description' => $voucher['description'],
+                    'description' => !empty($voucher['description']) ? $voucher['description'] : '',
                     'amount' => $this->currency->format($voucher['amount'], $this->session->data['currency'])
                 );
             }

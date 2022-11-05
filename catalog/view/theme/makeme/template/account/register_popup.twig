@@ -78,11 +78,21 @@
                         console.log(data);
                         location.reload()
                     } else {
-                        console.log(data);
+                        console.log(typeof data.errors);
                         let errors_html = '';
-                        data.errors.forEach(error => {
-                            errors_html += '<span class="error_span" >' + error + '</span>';
-                        });
+                        if (Array.isArray(data.errors)) {
+                            data.errors.forEach(error => {
+                                console.log(error);
+                                errors_html += '<span class="error_span" >' + error + '</span><br/>';
+                            });
+                        } else if(typeof data.errors === 'object'){
+                            Object.values(data.errors).forEach(error => {
+                                console.log(error);
+                                errors_html += '<span class="error_span" >' + error + '</span><br/>';
+                            });
+                        } else {
+                            errors_html += '<span class="error_span" >' + data.errors.warning + '</span>';
+                        }
 
                         $('.errors_div').html(errors_html);
                     }

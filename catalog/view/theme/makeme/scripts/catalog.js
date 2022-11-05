@@ -226,24 +226,29 @@ function Filter() {
     const params_string = window.location.search.substring(1);
     const params_obj = JSON.parse('{"' + decodeURI(params_string.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}');
 
-    const min_price = $('.minPriceInput').val();
-    const max_price = $('.maxPriceInput').val();
+
 
     // пошук
-    if ($('.searchInput').val().length > 0) {
-        params_obj.s = $('.searchInput').val();
+    if ($('.searchInput').length > 0) {
+        if ($('.searchInput').val().length > 0) {
+            params_obj.s = $('.searchInput').val();
+        }
     }
 
-    // ціновий дапазон
-    if (min_price !== '') {
-        params_obj.min_price = min_price
-    }
-    if (max_price !== '') {
-        params_obj.max_price = max_price
+        // ціновий дапазон
+    if($('.minPriceInput').length > 0 && $('.maxPriceInput').length > 0 ) {
+        const min_price = $('.minPriceInput').val();
+        const max_price = $('.maxPriceInput').val();
+        if (min_price !== '') {
+            params_obj.min_price = min_price
+        }
+        if (max_price !== '') {
+            params_obj.max_price = max_price
+        }
     }
 
     // категорії ( групи товарів )
-    let categories_arr = [];
+    let categories_arr = [];c
     let categories_off_arr = [];
     $('.filter_categories_block').each(function () {
         let total = 0;

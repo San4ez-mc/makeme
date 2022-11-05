@@ -13,7 +13,7 @@ class ModelLocalisationZone extends Model
     {
         $where = '';
         if (strlen($q) > 0) {
-            $where = ' AND name LIKE "%' . $q . '%"';
+            $where = ' AND (name = "' . $q . '" OR name LIKE "%' . $q . '%" )';
         }
         $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone WHERE `name` <> '' AND status = '1' " . $where . " ORDER BY name LIMIT " . $limit);
         return $query->rows;

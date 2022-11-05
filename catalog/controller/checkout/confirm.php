@@ -469,11 +469,14 @@ class ControllerCheckoutConfirm extends Controller
                 ];
             }
 
+            $city = $this->model_localisation_city->getCityByZoneId($this->request->post['city_id']);
+            $address = !empty($city) ? $city['name'] . ', ' : '';
+
             switch ($this->request->post['deliveryMethod']) {
                 case 'NP':
                     // НП
-                    $city = $this->model_localisation_city->getCityByZoneId($this->request->post['city_id']);
-                    $address = !empty($city) ? $city['name'] . ', ' : '';
+//                    $city = $this->model_localisation_city->getCityByZoneId($this->request->post['city_id']);
+
                     $dep = $this->model_localisation_city->getCity($this->request->post['zone_id']);
                     $address .= !empty($dep) ? $dep['name'] : '';
 
@@ -484,8 +487,7 @@ class ControllerCheckoutConfirm extends Controller
                     ];
                     break;
                 case 'Justin':
-                    $city = ['name' => ''];
-                    $address = $this->request->post['address'];
+                    $address .= 'Отделение Justin №' . $this->request->post['zone_id'];
                     $this->session->data['shipping_method'] = [
                         'title' => 'Доставка в отделение Justin',
                         'cost' => 0,
@@ -493,8 +495,7 @@ class ControllerCheckoutConfirm extends Controller
                     ];
                     break;
                 case 'address':
-                    $city = ['name' => $this->request->post['address']];
-                    $address = $this->request->post['address'];
+                    $address .= $this->request->post['address'];
                     $this->session->data['shipping_method'] = [
                         'title' => 'Доставка по адресу',
                         'cost' => 0,
@@ -502,10 +503,9 @@ class ControllerCheckoutConfirm extends Controller
                     ];
                     break;
                 case 'Ukrposhta':
-                    $city = ['name' => ''];
-                    $address = $this->request->post['address'];
+                    $address .= 'Отделение УкрПочты №' . $this->request->post['zone_id'];
                     $this->session->data['shipping_method'] = [
-                        'title' => 'Доставка в отделение УкрПочты',
+                        'title' => 'Доставка в отделение "УкрПошта"',
                         'cost' => 0,
                         'tax_class_id' => 0,
                     ];
@@ -529,7 +529,7 @@ class ControllerCheckoutConfirm extends Controller
                 'address_2' => '',
                 'postcode' => '',
                 'city' => !empty($dep) ? $dep['name'] : '',
-                'zone_id' => $this->request->post['zone_id'],
+                'zone_id' => !empty($this->request->post['zone_id']) ? $this->request->post['zone_id'] : '',
                 'zone' => '',
                 'zone_code' => '',
                 'country_id' => $this->request->post['city_id'],
@@ -547,7 +547,7 @@ class ControllerCheckoutConfirm extends Controller
                 'address_2' => '',
                 'postcode' => '',
                 'city' => !empty($dep) ? $dep['name'] : '',
-                'zone_id' => $this->request->post['zone_id'],
+                'zone_id' => !empty($this->request->post['zone_id']) ? $this->request->post['zone_id'] : '',
                 'zone' => '',
                 'zone_code' => '',
                 'country_id' => $this->request->post['city_id'],

@@ -178,7 +178,7 @@ $('.dropdown-item').on('click', function () {
 });
 if ($('#timerCountdown').length) {
     $('#timerCountdown').countdown({
-        date: '12/24/2022 23:59:59'
+        date: $('#timerCountdown').attr('data-date')
     });
 }
 $('.menuMobileToggle--js').on('click', function () {
@@ -238,6 +238,10 @@ $('.form__field-passwordShow').on('click', function () {
 $('.productCard__remove').on('click', function () {
     console.log('test2');
     $('#modalShureRemove').modal('show');
+});
+
+$('.wishCard__remove').on('click', function () {
+    wishlist.remove($(this).attr('data-product_id'));
 });
 
 
@@ -794,6 +798,23 @@ $('#checkout_page .orderButton').on('click', function () {
     let deliveryMethod = form2.find('[name=deliveryMethod]:checked').val();
     let paymentMethod = form3.find('[name=payMethod]:checked').val();
     console.log(form4.find('[name=no_call]').val());
+
+    let zone_id;
+    switch (deliveryMethod) {
+        case 'NP':
+            zone_id = $('#np_dep_id').val();
+            break;
+        case 'Justin':
+            zone_id = $("#justin_delivery").val();
+        case 'address':
+
+            break;
+        case  'Ukrposhta':
+            zone_id = $("#ukrposhta_delivery").val();
+        default:
+    }
+
+
     $.ajax({
         url: 'index.php?route=checkout/confirm/ajax',
         dataType: 'json',
@@ -803,11 +824,11 @@ $('#checkout_page .orderButton').on('click', function () {
             surname: form1.find('[name=surname]').val(),
             email: form1.find('[name=email]').val(),
             phone: form1.find('[name=phone]').val(),
-            city_id: $('#city_id').val(),
+            city_id: $('#city_id').val(), // city_id і zone_id - це одне і те ж (місто)
             deliveryMethod: deliveryMethod,
             paymentMethod: paymentMethod,
-            zone_id: $('#np_dep_id').val(),
-            address: form2.find('.address_delivery').val(),
+            zone_id: zone_id, // відділення
+            address: form2.find('#address_delivery').val(),
             comment: form4.find('[name=comment]').val(),
             no_call: form4.find('[name=no_call]').prop('checked') ? 1 : 0,
         },
@@ -825,6 +846,123 @@ $('#checkout_page .orderButton').on('click', function () {
         }
     });
 });
+
+// лайки в статтях
+$('.like__input').on('change', function () {
+    const checkbox = $(this);
+    const article_id = checkbox.attr('data-article_id');
+
+    $.ajax({
+        url: 'index.php?route=blog/article/like',
+        dataType: 'json',
+        method: 'POST',
+        data: {
+            article_id: article_id,
+            liked: checkbox.prop('checked'),
+        },
+        success: function (json) {
+            if (json.status === 'success') {
+                $(".blogArticleFooter__like-quantity").text(json.likes);
+                $(".like__quantity").text(json.likes);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// зміна емайл в особистому кабінеті
+$('#modalChangeEmail .change_mail_button').on('click', function () {
+    const email = $('[name="emailInput"]').val();
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (email.match(mailformat)) {
+        $.ajax({
+            url: 'index.php?route=account/account/changeEmailAjax',
+            dataType: 'json',
+            method: 'POST',
+            data: {
+                email: email
+            },
+            success: function (json) {
+                if (json.status === 'success') {
+                    $('#modalChangeEmailSuccess').modal('show');
+                    window.setTimeout(function () {
+                        location.reload();
+                    }, 500);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    } else {
+        $('#modalChangeError').modal('show');
+    }
+});
+
+// зміна паролю в особистому кабінеті
+$('#modalChangePassword .change_password_btn').on('click', function () {
+    const old_pass = $('[name="passowordInput1"]').val();
+    const new_pass1 = $('[name="passowordInput2"]').val();
+    const new_pass2 = $('[name="passowordInput3"]').val();
+    const email = $('[name="email"]').val();
+
+    if (new_pass1 === new_pass2 & new_pass1.length > 0 & new_pass2.length > 0) {
+        $.ajax({
+            url: 'index.php?route=account/account/changePasswordAjax',
+            dataType: 'json',
+            method: 'POST',
+            data: {
+                email: email,
+                old_password: old_pass,
+                password: new_pass1
+            },
+            success: function (json) {
+                $('#modalChangePassword').modal('hide');
+                if (json.status === 'success') {
+                    $('#modalChangePasswordSuccess').modal('show');
+                } else {
+                    $('#modalChangeError').modal('show');
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    } else {
+        $('#modalChangeError').modal('show');
+    }
+});
+
+// загрузка аватару в особистому кабінеті
+$('.lk__nav-user-avatar-input').on('change', function () {
+    const file_data = $(this).prop('files')[0];
+
+    if (file_data != undefined) {
+        const form_data = new FormData();
+        form_data.append('file', file_data);
+        $.ajax({
+            type: 'POST',
+            url: 'index.php?route=account/account/changeAvatarAjax',
+            contentType: false,
+            processData: false,
+            data: form_data,
+            success: function (response) {
+                if (response.status === 'success') {
+                    $('.lk__nav-user-avatar').css('background-image', 'url(' + URL.createObjectURL(file_data) + ')');
+                    $('.lk__nav-user-avatar').addClass('has_picture');
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+
+                $('.file').val('');
+            }
+        });
+    }
+    return false;
+});
+
 
 $('.free_checkout #button-confirm').on('click', function () {
     let button = $(this);

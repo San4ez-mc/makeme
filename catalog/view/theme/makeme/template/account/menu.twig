@@ -1,32 +1,33 @@
-{% if menu_items %}
+<div class="col-xl-3 col-lg-4">
+    <aside class="lk__nav">
+        <div class="lk__nav-user">
+            {% if image %}
+                <label class="lk__nav-user-avatar has_picture" style="background-image: url(/{{ image }})" >
+                    <input type="file" class="lk__nav-user-avatar-input">
+                    <span class="lk__nav-user-avatar-body"></span>
+                </label>
+            {% else %}
+                <label class="lk__nav-user-avatar">
+                    <input type="file" class="lk__nav-user-avatar-input">
+                    <span class="lk__nav-user-avatar-body"></span>
+                </label>
+            {% endif %}
+            <span class="lk__nav-user-info">
+                            <span class="lk__nav-user-name">{{ firstname }} {{ lastname }}</span>
+                            <a href="mailto:{{ email }}" class="lk__nav-user-email">{{ email }}</a>
+                          </span>
+        </div>
+        {% if menu_items %}
+            <nav class="lk__menu">
+                {% for menu_item in menu_items %}
+                    <a href="{{ menu_item.href }}" class="lk__menu-el {{ menu_item.icon }}">
+                        <span class="lk__menu-el-text">{{ menu_item.name }}</span>
+                    </a>
+                {% endfor %}
+            </nav>
+        {% endif %}
+    </aside>
+</div>
 
-    <nav class="lk__menu">
-        {% for menu_item in menu_items %}
-            <a href="{{ menu_item.href }}" class="lk__menu-el {{ menu_item.icon }}">
-                <span class="lk__menu-el-text">{{ menu_item.name }}</span>
-            </a>
-        {% endfor %}
-        {#    <a href="#" class="lk__menu-el lk__menu-el--info active">#}
-        {#        <span class="lk__menu-el-text">Личная информация</span>#}
-        {#    </a>#}
-        {#    <a href="#" class="lk__menu-el lk__menu-el--club">#}
-        {#        <span class="lk__menu-el-text">MM Club</span>#}
-        {#    </a>#}
-        {#    <a href="#" class="lk__menu-el lk__menu-el--desires">#}
-        {#        <span class="lk__menu-el-text">Список желаний</span>#}
-        {#        <span class="lk__menu-el-new">3</span>#}
-        {#    </a>#}
-        {#    <a href="#" class="lk__menu-el lk__menu-el--address">#}
-        {#        <span class="lk__menu-el-text">Мои адреса</span>#}
-        {#    </a>#}
-        {#    <a href="#" class="lk__menu-el lk__menu-el--history">#}
-        {#        <span class="lk__menu-el-text">История заказов</span>#}
-        {#    </a>#}
-        {#    <a href="#" class="lk__menu-el lk__menu-el--recipes">#}
-        {#        <span class="lk__menu-el-text">Мои рецепты</span>#}
-        {#    </a>#}
-        {#    <a href="#" class="lk__menu-el lk__menu-el--exit">#}
-        {#        <span class="lk__menu-el-text">Выход</span>#}
-        {#    </a>#}
-    </nav>
-{% endif %}
+
+

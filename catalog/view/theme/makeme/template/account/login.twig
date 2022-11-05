@@ -1,0 +1,54 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                {% for breadcrumb in breadcrumbs %}
+                    {% set counter = 1 %}
+                    {#                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>#}
+                    <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                            <span itemprop="name">{{ breadcrumb.text }}</span>
+                            <meta itemprop="position" content="{{ counter }}">
+                        </a>
+                    </li>
+                    {% set counter = counter  + 1 %}
+                {% endfor %}
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section lk">
+            <h1 class="section__title">Вход в личный кабинет</h1>
+            <p class="modalLogin__anotherWay d-lg-none d-block">
+                Нет аккаунта?
+                <a href="#" class="modalLogin__anotherWay-link">Регистрация</a>
+            </p>
+            <div class="form__field">
+                <label class="form__label">Email</label>
+                <div class="form__field-body">
+                    <input type="email" class="form__field-input" name="emailInput">
+                </div>
+            </div>
+            <div class="form__field">
+                <label class="form__label">Пароль</label>
+                <div class="form__field-body">
+                    <input type="password" class="form__field-input form__field-input--password"
+                           name="passowordInput1">
+                    <span class="form__field-passwordShow"></span>
+                </div>
+            </div>
+            <div class="errors_div"></div>
+            <div class="modalLogin__nav">
+                <div class="modalLogin__nav-main">
+                    <button class="button button--primary button--small login_btn" type="button">Войти</button>
+                    <img class="loader" src="catalog/view/theme/makeme/image/loader.gif"/>
+                    {#                            <button class="link2" type="button">Забыли пароль?</button>#}
+                    <a href="#modalPasswordNew" data-toggle="modal" class="link2" data-dismiss="modal">Забыли
+                        пароль?</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{{ footer }}

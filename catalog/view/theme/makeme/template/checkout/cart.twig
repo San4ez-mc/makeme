@@ -3,29 +3,28 @@
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Главная</span>
-                        <meta itemprop="position" content="1">
-                    </a>
-                </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Корзина</span>
-                        <meta itemprop="position" content="2">
-                    </a>
-                </li>
+                {% for breadcrumb in breadcrumbs %}
+                    {% set counter = 1 %}
+                    {#                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>#}
+                    <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                            <span itemprop="name">{{ breadcrumb.text }}</span>
+                            <meta itemprop="position" content="{{ counter }}">
+                        </a>
+                    </li>
+                    {% set counter = counter  + 1 %}
+                {% endfor %}
             </ul>
             <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
         <section class="section checkout">
             <h1 class="section__title">Товаров в корзине: {{ text_items }}</h1>
-            <div class="checkout__info">
-                <span class="font-weight-bold">Бесплатная</span> доставка на отделение от <span
-                        class="font-weight-bold">600 гривен.</span>
-            </div>
+{#            <div class="checkout__info">#}
+{#                <span class="font-weight-bold">Бесплатная</span> доставка на отделение от <span#}
+{#                        class="font-weight-bold">600 гривен.</span>#}
+{#            </div>#}
+            {{ content_top }}
             <div class="contentBlock basket">
                 <div class="lk__order-body">
                     <div class="lk__order-products">
@@ -104,11 +103,23 @@
                             </div>
                             <div class="lk__order-sum-el color-secondary">
                                 <span class="lk__order-sum-el-type">Скидка</span>
-                                <span class="lk__order-sum-el-value voucher_value">0₴</span>
+                                <span class="lk__order-sum-el-value voucher_value">
+                                      {% if totals.2 %}
+                                          {{ totals.1.text }}
+                                      {% else %}
+                                          0.00  ₴
+                                      {% endif %}
+                                </span>
                             </div>
                             <div class="lk__order-sum-el sum">
                                 <span class="lk__order-sum-el-type">Всего к оплате</span>
-                                <span class="lk__order-sum-el-value total_span total_span_final">{{ totals.1.text }}</span>
+                                <span class="lk__order-sum-el-value total_span total_span_final">
+                                 {% if totals.2 %}
+                                     {{ totals.2.text }}
+                                 {% else %}
+                                     {{ totals.1.text }}
+                                 {% endif %}
+                                </span>
                             </div>
                             <div class="lk__order-sum-group-buttons">
                                 <a href="{{ checkout }}" class="button button--primary">Оформить заказ</a>

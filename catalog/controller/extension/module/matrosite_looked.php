@@ -10,7 +10,6 @@ class ControllerExtensionModuleMatrositeLooked extends Controller
         $this->load->model('catalog/product');
         $this->load->model('tool/image');
 
-
         $setting = $this->model_setting_setting->getSetting('module_matrosite_looked');
 
         if (!isset($setting['module_matrosite_looked_limit'])) {
@@ -101,6 +100,7 @@ class ControllerExtensionModuleMatrositeLooked extends Controller
             }
 
             $data['count'] = count($data['products']);
+            $data['catalog'] = $this->url->link('product/catalog');
 
             if ($data['products']) {
                 return $this->load->view('extension/module/matrosite_looked', $data);

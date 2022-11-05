@@ -4,5 +4,6 @@
 
 // Heading
 $_['heading_title']      = 'Мои рецепты';
+$_['text_account']      = 'Мои рецепты';
 
 // Text

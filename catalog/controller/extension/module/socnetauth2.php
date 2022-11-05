@@ -228,7 +228,7 @@ class ControllerExtensionModuleSocnetauth2 extends Controller {
 		if( !$this->config->get('socnetauth2_facebook_status') )
 		{
 			$url = "Location: ".$this->request->server['HTTP_REFERER'];
-			
+
 			if($IS_DEBUG)
 			{
 				if( strstr($url, "?") )
@@ -420,8 +420,9 @@ class ControllerExtensionModuleSocnetauth2 extends Controller {
 				
 				$this->model_extension_module_socnetauth2->checkDB();
 				
-				$CURRENT_URI .= '#';
-				
+//				$CURRENT_URI .= '#';
+				$CURRENT_URI .= '/my-account';
+
 				if( $customer_id = $this->model_extension_module_socnetauth2->checkNew($data) )
 				{
 					$this->load->model('account/customer');
@@ -449,7 +450,7 @@ class ControllerExtensionModuleSocnetauth2 extends Controller {
 					
 							if( $IS_DEBUG ) exit( "END-2 ".$CURRENT_URI."<hr>");
 						
-							header("Location: ".$CURRENT_URI ); 
+							header("Location: ".$CURRENT_URI );
 						}
 						else
 						{
@@ -1273,8 +1274,9 @@ class ControllerExtensionModuleSocnetauth2 extends Controller {
 		{
 			$STATE = 'gmail_socnetauth2_'.rand();
 			
-			$CURRENT_URI = $this->request->server['HTTP_REFERER'];
-			
+//			$CURRENT_URI = $this->request->server['HTTP_REFERER'];
+            $CURRENT_URI .= '/my-account';
+
 			$REDIRECT_URI = $domain.'index.php?route=extension/module/socnetauth2/gmail';
 			
 			if($IS_DEBUG)

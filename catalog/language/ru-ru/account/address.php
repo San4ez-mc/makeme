@@ -4,6 +4,8 @@
 
 // Heading
 $_['heading_title']        = 'Мои Адреса';
+$_['add_heading_title']         = 'Добавление нового адреса';
+$_['edit_heading_title']        = 'Редактирование адреса';
 
 // Text
 $_['text_account']         = 'Личный кабинет';

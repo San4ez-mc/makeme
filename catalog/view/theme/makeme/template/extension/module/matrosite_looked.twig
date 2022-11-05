@@ -1,12 +1,12 @@
 <section class="section">
     <div class="section__header d-flex align-items-center justify-content-between flex-wrap">
         <h2 class="section__title mr-4"><span class="color-primary">Просмотренные</span> ранее</h2>
-        <a href="#" class="showMore">Смотреть больше</a>
+        <a href="{{ catalog }}" class="showMore">Смотреть больше</a>
     </div>
     <div class="owl-carousel carousel-4els transparentProductCards">
         {% for product in products %}
             <div class="productCard">
-{#                <div class="productCard__feature productCard__feature--stock">-10%</div>#}
+                {#                <div class="productCard__feature productCard__feature--stock">-10%</div>#}
                 <div class="productCard__producer">
                 <span class="productCard__producer-toggle">
                   <img src="catalog/view/theme/makeme/image/icons/selebrity.svg" alt="selebrity"
@@ -34,16 +34,16 @@
                     <a href="{{ product.href }}" class="productCard__type">{{ product.name }}</a>
                     <a href="{{ product.href }}" class="productCard__name">{{ product.description }}</a>
 
-                  {% if product.price %}
-                    <div class="productCard__price">
-                      {% if not product.special %}
-                        <span class="productCard__price-actual">{{ product.price }}</span>
-                      {% else %}
-                        <span class="productCard__price-actual">{{ product.special }}</span>
-                        <span class="productCard__price-old">{{ product.price }}</span>
-                      {% endif %}
-                    </div>
-                  {% endif %}
+                    {% if product.price %}
+                        <div class="productCard__price">
+                            {% if not product.special %}
+                                <span class="productCard__price-actual">{{ product.price }}</span>
+                            {% else %}
+                                <span class="productCard__price-actual">{{ product.special }}</span>
+                                <span class="productCard__price-old">{{ product.price }}</span>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}

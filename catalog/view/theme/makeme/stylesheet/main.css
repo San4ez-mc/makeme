@@ -3050,6 +3050,12 @@ input[type=number] {
     padding-right: 60px;
 }
 
+
+.modalLogin__body .error_span {
+    color: #FF5588;
+    font-size: 12px;
+}
+
 @media (max-width: 991px) {
     .modalLogin__body-col {
         width: 100%;
@@ -4565,6 +4571,18 @@ input[type=number] {
     top: 22px;
 }
 
+
+.wishCard__remove {
+    background: url(../image/icons/timesBlack.svg) center no-repeat;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    right: 22px;
+    top: 22px;
+}
+
 .productCard__remove:hover {
     background: url(../image/icons/timesRed.svg) center no-repeat;
 }
@@ -5771,6 +5789,11 @@ input[type=number] {
     border-radius: 100px;
     flex-shrink: 0;
     margin-right: 10px;
+}
+
+
+.lk__nav-user-avatar.has_picture {
+    background-size: cover;
 }
 
 .lk__nav-user-avatar-input {

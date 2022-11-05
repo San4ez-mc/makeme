@@ -6,11 +6,31 @@
 $_['code']                  = 'ru';
 $_['direction']             = 'ltr';
 $_['date_format_short']     = 'd.m.Y';
+$_['date_format_day']       = 'd ';
+$_['date_format_month']     = 'F';
+$_['date_format_year']      = ' Y';
+$_['date_format_short2']    = 'd.m.Y H:i';
 $_['date_format_long']      = 'l, d F Y';
+$_['date_format_text']      = 'd F Y';
 $_['time_format']           = 'H:i:s';
 $_['datetime_format']       = 'd/m/Y H:i:s';
+$_['datetime_format2']      = 'm/d/Y H:i:s';
 $_['decimal_point']         = '.';
 $_['thousand_point']        = '';
+
+// Months
+$_['January']               = 'января';
+$_['February']              = 'февраля';
+$_['March']                 = 'марта';
+$_['April']                 = 'апреля';
+$_['May']                   = 'мая';
+$_['June']                  = 'июня';
+$_['July']                  = 'июля';
+$_['August']                = 'августа';
+$_['September']             = 'сентября';
+$_['October']               = 'октября';
+$_['November']              = 'ноября';
+$_['December']              = 'декабря';
 
 // Text
 $_['text_home']             = '<i class="fa fa-home"></i>';

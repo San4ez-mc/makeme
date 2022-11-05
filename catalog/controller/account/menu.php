@@ -6,6 +6,27 @@ class ControllerAccountMenu extends Controller
     {
         $this->load->language('common/menu');
 
+        $this->load->model('account/customer');
+        $data['image'] = $this->model_account_customer->getCustomerImage($this->customer->getID());
+
+        if (isset($this->request->post['firstname'])) {
+            $data['firstname'] = $this->request->post['firstname'];
+        } else {
+            $data['firstname'] = $this->customer->getFirstName();
+        }
+
+        if (isset($this->request->post['lastname'])) {
+            $data['lastname'] = $this->request->post['lastname'];
+        } else {
+            $data['lastname'] = $this->customer->getLastName();
+        }
+
+        if (isset($this->request->post['email'])) {
+            $data['email'] = $this->request->post['email'];
+        } else {
+            $data['email'] = $this->customer->getEmail();
+        }
+
         $data['menu_items'] = [
             [
                 'name' => 'Личная информация',

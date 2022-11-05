@@ -1,0 +1,256 @@
+{{ header }}
+<main class="page-content">
+    <div class="container">
+        <nav class="page-breadcrumbs">
+            <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
+                {% for breadcrumb in breadcrumbs %}
+                    {% set counter = 1 %}
+                    {#                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>#}
+                    <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                            <span itemprop="name">{{ breadcrumb.text }}</span>
+                            <meta itemprop="position" content="{{ counter }}">
+                        </a>
+                    </li>
+                    {% set counter = counter  + 1 %}
+                {% endfor %}
+            </ul>
+            <a href="#" class="page-breadcrumbs__back">Назад</a>
+        </nav>
+        <section class="section stocks">
+            <h1 class="section__title text-md-left text-center">{{ name }}</h1>
+            <div class="stocks__timer">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-7">
+                        <div class="stocks__timer-imgContainer">
+                            {% if thumb %}
+                                <img src="{{ thumb }}" alt="{{ name }}" class="lazy stocks__timer-img"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-5">
+                        <div class="stocks__timer-body">
+                            <div class="stocks__timer-body-text">
+                                <h2 class="section__subtitle">{{ name }}</h2>
+                                <p class="stocks__timer-text">{{ description }}</p>
+                                <p class="stocks__timer-text2"> * Акция действует только до {{ date_end_human }}</p>
+                            </div>
+
+                            <div class="stocks__timer-timer">
+                                <h3 class="stocks__timer-timer-title">До конца акции осталось:</h3>
+                                <div class="timer">
+                                    <ul class="timer__body" id="timerCountdown" data-date="{{ date_end }}">
+                                        <li class="timer__body-el timer__body-el--primary"><span
+                                                    class="timer__body-el-value days">00</span>
+                                            <p class="timer__body-el-type">Дней</p></li>
+                                        <li class="timer__body-el-dots">:</li>
+                                        <li class="timer__body-el"><span class="timer__body-el-value hours">00</span>
+                                            <p class="timer__body-el-type">Часов</p></li>
+                                        <li class="timer__body-el-dots">:</li>
+                                        <li class="timer__body-el"><span class="timer__body-el-value minutes">00</span>
+                                            <p class="timer__body-el-type">Минут</p></li>
+                                        <li class="timer__body-el-dots">:</li>
+                                        <li class="timer__body-el"><span class="timer__body-el-value seconds">00</span>
+                                            <p class="timer__body-el-type">Секунд</p></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% if products is empty %}
+                        <div class="col-12">
+                            <a href="{{ constructor }}" class="button button--main button--arrow">Перейти к созданию</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        {% if products %}
+            <section class="section stocksProducts">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="section__title text-md-left text-center">Товары по акции</h1>
+                    </div>
+                    {{ column_left }}
+
+                    {% if column_left and column_right %}
+                        {% set class = 'col-sm-6 col-xl-6 col-lg-5' %}
+                    {% elseif column_left or column_right %}
+                        {% set class = 'col-xl-9 col-lg-8' %}
+                    {% else %}
+                        {% set class = 'col-sm-12' %}
+                    {% endif %}
+                    <div class="{{ class }}">
+                        <aside class="showFirst">
+                            <div class="productFilters__toggle productFilters--toggle"></div>
+                            <div class="showFirst__menu">
+                                <div class="dropdown">
+                                    <button class="dropdown__toggle" type="button" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                        <span class="dropdown__pretext">Показать сначала:</span>
+                                        <span class="dropdown__value">Новинки</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        {% if sorts is not empty %}
+                                            {% for sorts in sorts %}
+                                                {% if sorts.value == '%s-%s'|format(sort, order) %}
+                                                    <a class="dropdown-item active"
+                                                       href="{{ sorts.href }}">{{ sorts.text }}</a>
+                                                    {#                                            <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>#}
+                                                {% else %}
+                                                    {#                                            <option value="{{ sorts.href }}">{{ sorts.text }}</option>#}
+                                                    <a class="dropdown-item"
+                                                       href="{{ sorts.href }}">{{ sorts.text }}</a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                        {#                                    <a class="dropdown-item" href="#">Дешевые</a>#}
+                                        {#                                    <a class="dropdown-item" href="#">Дорогие</a>#}
+                                        {#                                    <a class="dropdown-item active" href="#">Новинки</a>#}
+                                        {#                                    <a class="dropdown-item" href="#">Популярные</a>#}
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <div class="stocksProducts__body">
+                            <div class="row">
+                                {% for product in products %}
+                                    <div class="col-xl-4 col-6">
+                                        <div class="productCard">
+                                            {% set liked ='' %}
+                                            {% if product.in_wishlist %}
+                                                {% set liked ='checked' %}
+                                            {% endif %}
+                                            {% if logged %}
+                                                <div class="productBig__quantityAndLike">
+                                                    <label class="like">
+                                                        <input type="checkbox"
+                                                               class="like__input add_to_wishlist" {{ liked }}
+                                                               data-product_id="{{ product.product_id }}">
+                                                        <span class="like__body"></span>
+                                                    </label>
+                                                </div>
+                                            {% else %}
+
+                                                <div class="productBig__quantityAndLike">
+                                                    <a href="#modalLogin" data-toggle="modal">
+                                                        <label class="like">
+                                                            <input type="checkbox"
+                                                                   class="like__input add_to_wishlist" {{ liked }}
+                                                                   data-product_id="{{ product.product_id }}">
+                                                            <span class="like__body"></span>
+                                                        </label>
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+
+                                            <!-- знижка -->
+                                            {#                                        <div class="productCard__feature productCard__feature--stock">-10%</div>#}
+                                            {% if product.is_receipt == 1 %}
+                                                <div class="productCard__producer">
+                                            <span class="productCard__producer-toggle">
+                                              <img src="catalog/view/theme/makeme/image/icons/selebrity.svg"
+                                                   alt="celebrity"
+                                                   class="lazy productCard__producer-icon"/>
+                                            </span>
+                                                    <p class="productCard__producer-text">
+                                                        Средство создано селебрети <br>
+                                                        {% if product.author_name %}
+                                                            <span class="font-weight-bold">@{{ product.author_name }}</span>
+                                                        {% endif %}
+                                                    </p>
+                                                </div>
+                                            {% endif %}
+                                            <a href="{{ product.href }}" class="productCard__imgContainer">
+                                                <img src="{{ product.thumb }}" alt="{{ product.name }}"
+                                                     title="{{ product.name }}" class="lazy productCard__img">
+                                            </a>
+                                            <div class="productCard__body">
+                                                <div class="productCard__rating">
+                                                    {% for i in 5 %}
+                                                        {% if product.rating >= i %}
+                                                            <span class="productCard__rating-el productCard__rating-el--full"></span>
+                                                        {% else %}
+                                                            <span class="productCard__rating-el"></span>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                                <a href="{{ product.href }}"
+                                                   class="productCard__type">{{ product.name }}</a>
+                                                <a href="{{ product.href }}"
+                                                   class="productCard__name">{{ product.description }}</a>
+
+                                                {% if product.price %}
+                                                    <div class="productCard__price">
+                                                        {% if not product.special %}
+                                                            <span class="productCard__price-actual">{{ product.price }}</span>
+                                                        {% else %}
+                                                            <span class="productCard__price-actual">{{ product.special }}</span>
+                                                            <span class="productCard__price-old">{{ product.price }}</span>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endif %}
+                                                {#                                        {% if product.price %}#}
+                                                {#                                            <p class="price">#}
+                                                {#                                                {% if not product.special %}#}
+                                                {#                                                    {{ product.price }}#}
+                                                {#                                                {% else %}#}
+                                                {#                                                    <span class="price-new">{{ product.special }}</span>#}
+                                                {#                                                    <span class="price-old">{{ product.price }}</span>#}
+                                                {#                                                {% endif %}#}
+                                                {#                                                {% if product.tax %}#}
+                                                {#                                                    <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>#}
+                                                {#                                                {% endif %}#}
+                                                {#                                            </p>#}
+                                                {#                                        {% endif %}#}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        {#                    <a href="#" class="button button--stroke button--reload stocks__loadMore">#}
+                        {#                        <span class="button__icon"><i class="fas fa-sync-alt"></i></span>#}
+                        {#                        <span class="button__text">Загрузить еще</span>#}
+                        {#                    </a>#}
+
+                        {% if pages != 0 %}
+                            <nav class="pagination">
+                                {% for i in 1..pages %}
+                                    <a href="#" class="pagination__el active">{{ i }}</a>
+                                {% endfor %}
+                            </nav>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        {% else %}
+            {{ looked_products }}
+        {% endif %}
+
+
+        {#        <aside class="section createYours">#}
+        {#            <div class="createYours__title">Создай <span class="color-primary">свое!</span></div>#}
+        {#            <p class="createYours__text">Вместе с тобой мы создадим неповторимую косметику именно для тебя! Каждая баночка на 100% индивидуальна.</p>#}
+        {#            <a href="#" class="button button--stroke createYours__button">Создать средство</a>#}
+        {#        </aside>#}
+
+        {#        <section class="section seoText">#}
+        {#            <h2 class="section__title">Как создать косметику для себя</h2>#}
+        {#            <p class="seoText__text">У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.#}
+        {#            </p>#}
+        {#            <div class="collapse" id="seoText__collapse">#}
+        {#                <p class="seoText__text">#}
+        {#                    У нас можно купить косметику для волос и лица. В магазине есть продукты для восстановления повреждённых волос, а также средства для людей с проблемной кожей головы (жирная кожа, выпадение волос, перхоть). Приобретя в магазине данные средства, Ваши волосы приобретут блеск, станут эластичными, а также будут иметь вновь здоровый вид. Ассортимент магазина насколько разнообразный, что даже самые требовательные покупатели смогут подобрать для себя косметику класса люкс и обязательно останутся довольные приобретением.#}
+        {#                </p>#}
+        {#            </div>#}
+        {#            <a data-toggle="collapse" href="#seoText__collapse" aria-expanded="false" class="link1 seoText__link">Показать все</a>#}
+        {#        </section>#}
+        {{ content_bottom }}
+    </div>
+</main>
+{{ footer }}

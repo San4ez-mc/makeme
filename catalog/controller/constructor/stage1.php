@@ -20,17 +20,20 @@ class ControllerConstructorStage1 extends Controller
         if(!empty($data['category_1'])) {
             $data['category_1']['description'] = htmlspecialchars_decode($data['category_1']['description']);
             $data['category_1']['thumb'] = $this->model_tool_image->resize($data['category_1']['image'], 366, 320);
-
+            $data['category_1']['hover_thumb'] = $this->model_tool_image->resize($data['category_1']['hover_image'], 366, 320);
         }
         $data['category_2'] = $this->model_catalog_category->getCategory(61); // Тіло
         if(!empty($data['category_2'])) {
             $data['category_2']['description'] = htmlspecialchars_decode($data['category_2']['description']);
             $data['category_2']['thumb'] = $this->model_tool_image->resize($data['category_2']['image'], 366, 320);
+            $data['category_2']['hover_thumb'] = $this->model_tool_image->resize($data['category_2']['hover_image'], 366, 320);
+
         }
         $data['category_3'] = $this->model_catalog_category->getCategory(59); // Волосся
         if(!empty($data['category_3'])) {
             $data['category_3']['description'] = htmlspecialchars_decode($data['category_3']['description']);
             $data['category_3']['thumb'] = $this->model_tool_image->resize($data['category_3']['image'], 366, 320);
+            $data['category_3']['hover_thumb'] = $this->model_tool_image->resize($data['category_3']['hover_image'], 366, 320);
         }
 
         if (!empty($_GET['cat'])) {

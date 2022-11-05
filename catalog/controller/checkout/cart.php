@@ -81,7 +81,7 @@ class ControllerCheckoutCart extends Controller
                 if ($product['image']) {
                     $image = $this->model_tool_image->resize($product['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
                 } else {
-                    $image = '';
+                    $image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
                 }
 
                 $option_data = array();
@@ -167,7 +167,7 @@ class ControllerCheckoutCart extends Controller
                 foreach ($this->session->data['vouchers'] as $key => $voucher) {
                     $data['vouchers'][] = array(
                         'key' => $key,
-                        'description' => $voucher['description'],
+                        'description' => !empty($voucher['description']) ? $voucher['description'] : '',
                         'amount' => $this->currency->format($voucher['amount'], $this->session->data['currency']),
                         'remove' => $this->url->link('checkout/cart', 'remove=' . $key)
                     );
@@ -222,6 +222,7 @@ class ControllerCheckoutCart extends Controller
             foreach ($totals as $total) {
                 $data['totals'][] = array(
                     'title' => $total['title'],
+                    'value_' => $total['value'],
                     'text' => $this->currency->format($total['value'], $this->session->data['currency'])
                 );
             }
@@ -252,6 +253,8 @@ class ControllerCheckoutCart extends Controller
             $this->document->addScript('catalog/view/theme/makeme/scripts/catalog.js', 'footer');
 
             $data['text_items'] = $this->cart->countProducts();
+            $data['content_top'] = $this->load->controller('common/content_top');
+            $data['content_bottom'] = $this->load->controller('common/content_bottom');
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');
 
@@ -270,7 +273,7 @@ class ControllerCheckoutCart extends Controller
 
 //			$data['column_left'] = $this->load->controller('common/column_left');
 //			$data['column_right'] = $this->load->controller('common/column_right');
-//			$data['content_top'] = $this->load->controller('common/content_top');
+			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
             $data['footer'] = $this->load->controller('common/footer');
             $data['header'] = $this->load->controller('common/header');

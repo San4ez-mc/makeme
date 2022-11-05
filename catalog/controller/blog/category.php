@@ -230,10 +230,18 @@ class ControllerBlogCategory extends Controller
                     $rating = false;
                 }
 
+                $likes = $this->model_blog_article->getLikes($result['article_id']);
+                $liked = $this->model_blog_article->isLiked($result['article_id'], !empty($this->session->data['user_id']) ? $this->session->data['user_id'] : null);
+                if (empty($this->session->data['user_id']) && $liked) {
+                    $likes = $likes + 1;
+                }
+
                 $data['articles'][] = array(
                     'article_id' => $result['article_id'],
                     'thumb' => $image,
                     'name' => $result['name'],
+                    'likes' => $likes,
+                    'liked' => $liked,
                     'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('configblog_article_description_length')) . '..',
                     'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
                     'viewed' => $result['viewed'],
@@ -443,7 +451,7 @@ class ControllerBlogCategory extends Controller
             $article_total = $this->model_blog_article->getTotalArticles($article_data);
 
             $results = $this->model_blog_article->getArticles($article_data);
-
+            $articles_total = count($results);
 
             foreach ($results as $result) {
                 if ($result['image']) {
@@ -458,15 +466,23 @@ class ControllerBlogCategory extends Controller
                     $rating = false;
                 }
 
+                $likes = $this->model_blog_article->getLikes($result['article_id']);
+                $liked = $this->model_blog_article->isLiked($result['article_id'], !empty($this->session->data['user_id']) ? $this->session->data['user_id'] : null);
+                if (empty($this->session->data['user_id']) && $liked) {
+                    $likes = $likes + 1;
+                }
+
                 $data['articles'][] = array(
                     'article_id' => $result['article_id'],
                     'thumb' => $image,
                     'name' => $result['name'],
+                    'likes' => $likes,
+                    'liked' => $liked,
                     'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('configblog_article_description_length')) . '..',
                     'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
                     'viewed' => $result['viewed'],
                     'rating' => $result['rating'],
-                    'href' => $this->url->link('blog/article', $url)
+                    'href' => $this->url->link('blog/article', 'article_id=' . $result['article_id'] . $url)
                 );
             }
 
@@ -582,8 +598,9 @@ class ControllerBlogCategory extends Controller
 
             $data['pagination'] = $pagination->render();
 
-            $data['results'] = sprintf($this->language->get('text_pagination'), ($article_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($article_total - $limit)) ? $article_total : ((($page - 1) * $limit) + $limit), $article_total, ceil($article_total / $limit));
+            $data['pages'] = ceil($articles_total / $limit);
 
+            $data['results'] = sprintf($this->language->get('text_pagination'), ($article_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($article_total - $limit)) ? $article_total : ((($page - 1) * $limit) + $limit), $article_total, ceil($article_total / $limit));
 
             $data['heading_title'] = $this->language->get('text_error');
 

@@ -34,6 +34,7 @@ $_['entry_filter']           = 'Фильтры';
 $_['entry_boxing']           = 'Тара';
 $_['entry_store']            = 'Магазины';
 $_['entry_image']            = 'Изображение';
+$_['entry_hover_image']      = 'Изображение при наведении';
 $_['entry_top']              = 'Главное меню';
 $_['entry_column']           = 'Столбцы';
 $_['entry_sort_order']       = 'Порядок сортировки';

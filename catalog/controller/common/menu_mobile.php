@@ -35,7 +35,7 @@ class ControllerCommonMenuMobile extends Controller
             ],
             [
                 'name' => 'Акции',
-                'href' => $this->url->link('information/promo')
+                'href' => $this->url->link('product/promo')
             ],
             [
                 'name' => 'Доставка и оплата',

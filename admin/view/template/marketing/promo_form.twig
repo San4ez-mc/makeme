@@ -1,0 +1,307 @@
+{{ header }}{{ column_left }}
+<div id="content">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <button type="submit" form="form-promo" data-toggle="tooltip" title="{{ button_save }}"
+                        class="btn btn-primary"><i class="fa fa-save"></i></button>
+                <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i
+                            class="fa fa-reply"></i></a></div>
+            <h1>{{ heading_title }}</h1>
+            <ul class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid"> {% if error_warning %}
+            <div class="alert alert-danger alert-dismissible"><i
+                        class="fa fa-exclamation-circle"></i> {{ error_warning }}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        {% endif %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
+            </div>
+            <div class="panel-body">
+                <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-promo"
+                      class="form-horizontal">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+
+                        <li><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
+
+{#                        {% if promo_id %}#}
+{#                            <li><a href="#tab-history" data-toggle="tab">{{ tab_history }}</a></li>#}
+{#                        {% endif %}#}
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-general">
+                            {% set image_row = 0 %}
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="input-name">{{ entry_name }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="name" value="{{ name }}"
+                                           placeholder="{{ entry_name }}" id="input-name"
+                                           class="form-control"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="input-discount">{{ entry_discount }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="discount" value="{{ discount }}"
+                                           placeholder="{{ entry_discount }}" id="input-discount"
+                                           class="form-control"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">{{ entry_image }}</label>
+                                <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="{{ thumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+                                    <input type="hidden" name="image" value="{{ image }}" id="input-image" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-product"><span
+                                            data-toggle="tooltip"
+                                            title="{{ help_product }}">{{ entry_product }}</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="product" value="" placeholder="{{ entry_product }}"
+                                           id="input-product" class="form-control"/>
+                                    <div id="promo-product" class="well well-sm"
+                                         style="height: 150px; overflow: auto;"> {% for promo_product in promo_product %}
+                                            <div id="promo-product{{ promo_product.product_id }}"><i
+                                                        class="fa fa-minus-circle"></i> {{ promo_product.name }}
+                                                <input type="hidden" name="promo_product[]"
+                                                       value="{{ promo_product.product_id }}"/>
+                                            </div>
+                                        {% endfor %} </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-category"><span
+                                            data-toggle="tooltip"
+                                            title="{{ help_category }}">{{ entry_category }}</span></label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="category" value="" placeholder="{{ entry_category }}"
+                                           id="input-category" class="form-control"/>
+                                    <div id="promo-category" class="well well-sm"
+                                         style="height: 150px; overflow: auto;"> {% for promo_category in promo_category %}
+                                            <div id="promo-category{{ promo_category.category_id }}"><i
+                                                        class="fa fa-minus-circle"></i> {{ promo_category.name }}
+                                                <input type="hidden" name="promo_category[]"
+                                                       value="{{ promo_category.category_id }}"/>
+                                            </div>
+                                        {% endfor %} </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="input-date-start">{{ entry_date_start }}</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group date">
+                                        <input type="text" name="date_start" value="{{ date_start }}"
+                                               placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD"
+                                               id="input-date-start" class="form-control"/>
+                                        <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                    </span></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="input-date-end">{{ entry_date_end }}</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group date">
+                                        <input type="text" name="date_end" value="{{ date_end }}"
+                                               placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD"
+                                               id="input-date-end" class="form-control"/>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                            </span></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+                                <div class="col-sm-10">
+                                    <select name="status" id="input-status" class="form-control">
+
+                                        {% if status %}
+
+                                            <option value="1" selected="selected">{{ text_enabled }}</option>
+                                            <option value="0">{{ text_disabled }}</option>
+
+                                        {% else %}
+
+                                            <option value="1">{{ text_enabled }}</option>
+                                            <option value="0" selected="selected">{{ text_disabled }}</option>
+
+                                        {% endif %}
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-description">
+                            <ul class="nav nav-tabs" id="language">
+                                {%  set active = 'class="active"' %}
+                                {% for language in languages %}
+                                    <li {{ active }}>
+                                        <a href="#language{{ language.language_id }}" data-toggle="tab">
+                                            <img
+                                                    src="language/{{ language.code }}/{{ language.code }}.png"
+                                                    title="{{ language.name }}"/> {{ language.name }}</a>
+                                    </li>
+                                    {%  set active = '' %}
+                                {% endfor %}
+                            </ul>
+                            <div class="tab-content">
+                                {%  set active = 'active' %}
+                                {% for language in languages %}
+
+                                    <div class="tab-pane {{ active }}" id="language{{ language.language_id }}">
+                                        <div class="form-group required">
+                                            <label class="col-sm-2 control-label"
+                                                   for="input-name">{{ entry_name }}</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="promo_description[{{ language.language_id }}][name]" value="{{ promo_description[language.language_id].name }}"
+                                                       placeholder="{{ entry_name }}"
+                                                       id="input-name" class="form-control"/>
+                                                {% if error_name %}
+                                                    <div class="text-danger">{{ error_name }}</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"
+                                                   for="input-description{{ language.language_id }}">{{ entry_description }}</label>
+                                            <div class="col-sm-10">
+                                                <textarea
+                                                        name="promo_description[{{ language.language_id }}][description]"
+                                                        placeholder="{{ entry_description }}"
+                                                        id="input-description{{ language.language_id }}"
+                                                        data-toggle="summernote" data-lang="{{ summernote }}"
+                                                        class="form-control">{{ promo_description[language.language_id] ? promo_description[language.language_id].description }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {%  set active = '' %}
+                                {% endfor %}
+                            </div>
+                        </div>
+{#                        {% if promo_id %}#}
+{#                            <div class="tab-pane" id="tab-history">#}
+{#                                <fieldset>#}
+{#                                    <legend>{{ text_promo }}</legend>#}
+{#                                    <div id="history"></div>#}
+{#                                </fieldset>#}
+{#                            </div>#}
+{#                        {% endif %} #}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript"><!--
+        $('input[name=\'product\']').autocomplete({
+            'source': function (request, response) {
+                $.ajax({
+                    url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+                    dataType: 'json',
+                    success: function (json) {
+                        response($.map(json, function (item) {
+                            return {
+                                label: item['name'],
+                                value: item['product_id']
+                            }
+                        }));
+                    }
+                });
+            },
+            'select': function (item) {
+                $('input[name=\'product\']').val('');
+
+                $('#promo-product' + item['value']).remove();
+
+                $('#promo-product').append('<div id="promo-product' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="promo_product[]" value="' + item['value'] + '" /></div>');
+            }
+        });
+
+        $('#promo-product').delegate('.fa-minus-circle', 'click', function () {
+            $(this).parent().remove();
+        });
+
+        // Category
+        $('input[name=\'category\']').autocomplete({
+            'source': function (request, response) {
+                $.ajax({
+                    url: 'index.php?route=catalog/category/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+                    dataType: 'json',
+                    success: function (json) {
+                        response($.map(json, function (item) {
+                            return {
+                                label: item['name'],
+                                value: item['category_id']
+                            }
+                        }));
+                    }
+                });
+            },
+            'select': function (item) {
+                $('input[name=\'category\']').val('');
+
+                $('#promo-category' + item['value']).remove();
+
+                $('#promo-category').append('<div id="promo-category' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="promo_category[]" value="' + item['value'] + '" /></div>');
+            }
+        });
+
+        $('#promo-category').delegate('.fa-minus-circle', 'click', function () {
+            $(this).parent().remove();
+        });
+        //-->
+
+        var image_row = {{ image_row }};
+
+        function addImage() {
+            html = '<tr id="image-row' + image_row + '">';
+            html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="{{ placeholder }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
+            html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="{{ entry_sort_order }}" class="form-control" /></td>';
+            html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+            html += '</tr>';
+
+            $('#images tbody').append(html);
+
+            image_row++;
+        }
+
+    </script>
+    {% if promo_id %}
+        <script type="text/javascript"><!--
+            $('#history').delegate('.pagination a', 'click', function (e) {
+                e.preventDefault();
+
+                $('#history').load(this.href);
+            });
+
+            $('#history').load('index.php?route=marketing/promo/history&user_token={{ user_token }}&promo_id={{ promo_id }}');
+            //--></script>
+    {% endif %}
+    <script type="text/javascript"><!--
+        $('.date').datetimepicker({
+            language: '{{ datepicker }}',
+            pickTime: false
+        });
+        //--></script>
+</div>
+{{ footer }}

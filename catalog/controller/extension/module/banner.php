@@ -146,6 +146,13 @@ class ControllerExtensionModuleBanner extends Controller
 
                     return $this->load->view('extension/module/banners/main_page_running_terms', $data);
                     break;
+                case 8: // Банер в корзине
+
+                    foreach ($results as $key =>  $result) {
+                        $data['banners'][$key]['text'] = html_entity_decode($result['text']);
+                    }
+                    return $this->load->view('extension/module/banners/cart_info', $data);
+                    break;
                 default:
                     foreach ($results as $result) {
                         if (is_file(DIR_IMAGE . $result['image'])) {

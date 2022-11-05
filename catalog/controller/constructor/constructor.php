@@ -58,7 +58,7 @@ class ControllerConstructorConstructor extends Controller
                 'tax_class_id' => 0,
                 'sort_order' => 0,
                 'is_receipt' => 1,
-                'receipt_author_id' => !empty($this->user) ? $this->user->getId() : 0,
+                'receipt_author_id' => !empty($this->session->data['user_id']) ? $this->session->data['user_id'] : 0,
                 'image' => $boxing['image'],
                 'product_description' => [
                     1 => [

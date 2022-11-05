@@ -3,65 +3,52 @@
     <div class="container">
         <nav class="page-breadcrumbs">
             <ul class="page-breadcrumbs__desktop" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Главная</span>
-                        <meta itemprop="position" content="1">
-                    </a>
-                </li>
-                <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="#" class="page-breadcrumbs__el-link">
-                        <span itemprop="name">Личный кабинет</span>
-                        <meta itemprop="position" content="2">
-                    </a>
-                </li>
-
+                {% for breadcrumb in breadcrumbs %}
+                    {% set counter = 1 %}
+                    {#                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>#}
+                    <li class="page-breadcrumbs__el" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="{{ breadcrumb.href }}" class="page-breadcrumbs__el-link">
+                            <span itemprop="name">{{ breadcrumb.text }}</span>
+                            <meta itemprop="position" content="{{ counter }}">
+                        </a>
+                    </li>
+                    {% set counter = counter  + 1 %}
+                {% endfor %}
             </ul>
             <a href="#" class="page-breadcrumbs__back">Назад</a>
         </nav>
         <section class="section lk">
-            <h1 class="section__title">Личный кабинет</h1>
+            <h1 class="section__title">{{ title }}</h1>
             <div class="row">
-                <div class="col-xl-3 col-lg-4">
-                    <aside class="lk__nav">
-                        <div class="lk__nav-user">
-                            <label class="lk__nav-user-avatar">
-                                <input type="file" class="lk__nav-user-avatar-input">
-                                <span class="lk__nav-user-avatar-body"></span>
-                            </label>
-                            <span class="lk__nav-user-info">
-                                  <span class="lk__nav-user-name">{{ customer.firstname }}</span>
-                                <a href="mailto:{{ customer.email }}" class="lk__nav-user-email">{{ customer.email }}</a>
-                             </span>
-                        </div>
-                        {{ menu }}
-                    </aside>
-                </div>
+                {{ menu }}
                 <div class="col-xl-9 col-lg-8">
                     <div class="lk__body">
                         <div class="contentBlock lk__info">
-                            <h2 class="lk__body-title">Добавление нового адреса</h2>
-                            <form action="#" class="form">
+                            {% if address_id %}
+                                <h2 class="lk__body-title">{{ edit_heading_title }}</h2>
+                            {% else %}
+                                <h2 class="lk__body-title">{{ add_heading_title }}</h2>
+                            {% endif %}
+                            <form action="" method="POST" class="form">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form__field">
                                             <label class="form__label">Имя получателя</label>
                                             <div class="form__field-body">
-                                                <input type="text" class="form__field-input">
+                                                <input type="text" name="firstname" class="form__field-input" value="{{ firstname }}">
                                             </div>
                                         </div>
                                         <div class="form__field">
                                             <label class="form__label">Фамилия получателя</label>
                                             <div class="form__field-body">
-                                                <input type="text" class="form__field-input">
+                                                <input type="text" name="lastname" class="form__field-input" value="{{ lastname }}">
                                             </div>
                                         </div>
                                         <div class="form__field">
                                             <label class="form__label">Телефон</label>
                                             <div class="form__field-body">
-                                                <input type="tel" class="form__field-input">
+                                                <input type="tel" name="custom_field[address][1]" class="form__field-input" value="{{ phone }}">
                                             </div>
                                         </div>
                                     </div>
@@ -69,32 +56,33 @@
                                         <div class="form__field">
                                             <label class="form__label">Город</label>
                                             <div class="form__field-body">
-                                                <input type="text" class="form__field-input">
+                                                <input type="text" name="city" class="form__field-input" value="{{ city }}">
                                             </div>
                                         </div>
                                         <div class="form__field">
                                             <label class="form__label">Улица</label>
                                             <div class="form__field-body">
-                                                <input type="text" class="form__field-input">
+                                                <input type="text" name="address_1" class="form__field-input" value="{{ address_1 }}">
                                             </div>
                                         </div>
                                         <div class="threeFields">
                                             <div class="form__field">
                                                 <label class="form__label">Дом</label>
                                                 <div class="form__field-body">
-                                                    <input type="text" class="form__field-input number">
+                                                    <input type="text" name="custom_field[address][2]" class="form__field-input number" value="{{ house }}">
                                                 </div>
                                             </div>
                                             <div class="form__field">
                                                 <label class="form__label">Квартира</label>
                                                 <div class="form__field-body">
-                                                    <input type="text" class="form__field-input number">
+                                                    <input type="text" name="custom_field[address][3]"
+                                                           class="form__field-input number" value="{{ apartment }}">
                                                 </div>
                                             </div>
                                             <div class="form__field">
                                                 <label class="form__label">Индекс</label>
                                                 <div class="form__field-body">
-                                                    <input type="text" class="form__field-input number">
+                                                    <input type="text" name="postcode" class="form__field-input number" value="{{ postcode }}">
                                                 </div>
                                             </div>
                                         </div>

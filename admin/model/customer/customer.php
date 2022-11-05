@@ -7,7 +7,7 @@ class ModelCustomerCustomer extends Model {
 
 		if (isset($data['address'])) {
 			foreach ($data['address'] as $address) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "address SET customer_id = '" . (int)$customer_id . "', firstname = '" . $this->db->escape($address['firstname']) . "', lastname = '" . $this->db->escape($address['lastname']) . "', company = '" . $this->db->escape($address['company']) . "', address_1 = '" . $this->db->escape($address['address_1']) . "', address_2 = '" . $this->db->escape($address['address_2']) . "', city = '" . $this->db->escape($address['city']) . "', postcode = '" . $this->db->escape($address['postcode']) . "', country_id = '" . (int)$address['country_id'] . "', zone_id = '" . (int)$address['zone_id'] . "', custom_field = '" . $this->db->escape(isset($address['custom_field']) ? json_encode($address['custom_field']) : json_encode(array())) . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "address SET customer_id = '" . (int)$customer_id . "', firstname = '" . $this->db->escape($address['firstname']) . "', lastname = '" . $this->db->escape($address['lastname']) . "', company = '" . $this->db->escape($address['company']) . "', address_1 = '" . $this->db->escape($address['address_1']) . "', address_2 = '" . $this->db->escape($address['address_2']) . "', city = '" . $this->db->escape($address['city']) . "', postcode = '" . $this->db->escape($address['postcode']) . "', country_id = '" . (int)$address['country_id'] . "', is_default = '" . (int)$address['default'] . "', zone_id = '" . (int)$address['zone_id'] . "', custom_field = '" . $this->db->escape(isset($address['custom_field']) ? json_encode($address['custom_field']) : json_encode(array())) . "'");
 
 				if (isset($address['default'])) {
 					$address_id = $this->db->getLastId();
@@ -201,6 +201,7 @@ class ModelCustomerCustomer extends Model {
 				'address_2'      => $address_query->row['address_2'],
 				'postcode'       => $address_query->row['postcode'],
 				'city'           => $address_query->row['city'],
+				'phone'          => $address_query->row['phone'],
 				'zone_id'        => $address_query->row['zone_id'],
 				'zone'           => $zone,
 				'zone_code'      => $zone_code,
@@ -209,6 +210,7 @@ class ModelCustomerCustomer extends Model {
 				'iso_code_2'     => $iso_code_2,
 				'iso_code_3'     => $iso_code_3,
 				'address_format' => $address_format,
+				'is_default'     => $address_query->row['is_default'],
 				'custom_field'   => json_decode($address_query->row['custom_field'], true)
 			);
 		}

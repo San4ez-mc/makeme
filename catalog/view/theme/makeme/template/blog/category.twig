@@ -27,9 +27,9 @@
                     <a href="{{ category.href }}"
                        class="aboutComponents__nav-el aboutComponents__nav-el--advice">{{ category.name }}</a>
                 {% endfor %}
-{#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--advice">Советы</a>#}
-{#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--recipes">Рецепты</a>#}
-{#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--news">Новости</a>#}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--advice">Советы</a>#}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--recipes">Рецепты</a>#}
+                {#                <a href="#" class="aboutComponents__nav-el aboutComponents__nav-el--news">Новости</a>#}
             </nav>
 
             <div class="row">
@@ -57,10 +57,10 @@
                                     <div class="blogItem__stats">
                                         <div class="like">
                                             <label class="like__button">
-                                                <input type="checkbox" class="like__input">
+                                                <input type="checkbox" class="like__input" {% if article.liked %} checked {% endif %} data-article_id="{{ article.article_id }}" />
                                                 <span class="like__body"></span>
                                             </label>
-                                            <span class="like__quantity">10</span>
+                                            <span class="like__quantity">{{ article.likes }}</span>
                                         </div>
                                         <a href="{{ article.href }}" class="blogItem__comments">0</a>
                                     </div>
@@ -70,18 +70,17 @@
                     {% endfor %}
                 {% endif %}
                 <div class="col-12">
-                    <a href="#" class="button button--stroke button--reload stocks__loadMore">
-                        <span class="button__icon"><i class="fas fa-sync-alt"></i></span>
-                        <span class="button__text">Загрузить еще</span>
-                    </a>
-                    <nav class="pagination">
-                        <a href="#" class="pagination__el active">1</a>
-                        <a href="#" class="pagination__el">2</a>
-                        <a href="#" class="pagination__el">3</a>
-                        <a href="#" class="pagination__el">4</a>
-                        <a href="#" class="pagination__el">...</a>
-                        <a href="#" class="pagination__el">10</a>
-                    </nav>
+                    {#                    <a href="#" class="button button--stroke button--reload stocks__loadMore">#}
+                    {#                        <span class="button__icon"><i class="fas fa-sync-alt"></i></span>#}
+                    {#                        <span class="button__text">Загрузить еще</span>#}
+                    {#                    </a>#}
+                    {% if pages != 0 %}
+                        <nav class="pagination">
+                            {% for i in 1..pages %}
+                                <a href="#" class="pagination__el active">{{ i }}</a>
+                            {% endfor %}
+                        </nav>
+                    {% endif %}
                 </div>
             </div>
         </section>
